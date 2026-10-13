@@ -1,0 +1,11 @@
+{
+  "source_path": "/home/zhangys/gaussian-splatting（原生）/data/city",
+  "input_ply": "/home/zhangys/gaussian-splatting（原生）/output/city2/point_cloud/iteration_30000/point_cloud.ply",
+  "teacher_checkpoint": "/home/zhangys/gaussian-splatting（原生）/output/city2/chkpnt30000.pth",
+  "output_root": "output/city2_unified",
+  "resolution": -1,
+  "prune_iterations": 25199,
+  "distill_start_iteration": 35000,
+  "distill_steps": 5000,
+  "new_max_sh": 2
+}

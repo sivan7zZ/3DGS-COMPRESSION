@@ -1,0 +1,16 @@
+{
+  "source_path": "/home/zhangys/gaussian-splatting（原生）/data/city",
+  "input_checkpoint": "output/city2_stage3/chkpnt25199.pth",
+  "teacher_checkpoint": "/home/zhangys/gaussian-splatting（原生）/output/city2/chkpnt30000.pth",
+  "output_root": "output/integration_tests/2026-09-18/smoke_city",
+  "resolution": 160,
+  "prune_iterations": 15008,
+  "pruning_start_iter": 15002,
+  "pruning_stop_iter": 15009,
+  "pruning_interval": 1,
+  "pruning_interval_maximum": 2,
+  "pruning_target": 100000,
+  "distill_start_iteration": 35000,
+  "distill_steps": 2,
+  "new_max_sh": 2
+}
