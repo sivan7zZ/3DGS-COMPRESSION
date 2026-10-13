@@ -1,4 +1,4 @@
-# PWSR + LightGaussian SH 蒸馏（本地整合版）
+# 3DGS COMPRESSION
 
 本分支将 PWSR 的 RIR / DPRA / SPS 剪枝与 LightGaussian 的 SH 蒸馏整合在同一仓库。
 **不包含 3D-DoG，也不是上游论文完整四阶段的复现版本。**
