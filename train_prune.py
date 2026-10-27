@@ -4,6 +4,8 @@
 import argparse
 import os
 import random
+import json
+import numpy as np
 import time
 
 import torch
@@ -18,24 +20,27 @@ from utils.checkpoint_utils import load_checkpoint
 from utils.distill_utils import (atomic_json_save, atomic_torch_save, atomic_write,
     capture_rng_state, restore_rng_state, load_torch_file, sha256_file)
 from utils.general_utils import safe_state
+from utils.instance_pruning import global_sps_keep
 
-def reconstruction_detection(scene, gaussians, pipe, background, dataset):
+def reconstruction_detection(scene, gaussians, pipe, background, dataset, rois=None, roi_weight=0.0):
     with torch.no_grad():
         cameras = scene.getTrainCameras()
-        total_loss = sum(
-            l1_loss(
-                view.original_image.cuda(),
-                render(
-                    view, gaussians, pipe, background,
-                    use_trained_exp=dataset.train_test_exp
-                )["render"],
-            ).item()
-            for view in cameras
-        )
+        total_loss = 0.0
+        for view in cameras:
+            target = view.original_image.cuda()
+            image = render(view, gaussians, pipe, background,
+                           use_trained_exp=dataset.train_test_exp)["render"]
+            value = l1_loss(target, image)
+            if rois is not None and roi_weight:
+                region, _ = rois.losses(view.image_name, image, target)
+                value = value + roi_weight * region
+            total_loss += value.item()
         return total_loss / len(cameras)
 
 
-def prune(scene, gaussians, pipe, background, prune_ratio, dataset):
+def prune(scene, gaussians, pipe, background, prune_ratio, dataset,
+          instance_state=None, rois=None, roi_weight=0.0, score_roi_weight=0.0,
+          protect_instances=True, audit_path=None):
     torch.cuda.reset_peak_memory_stats()
 
     with torch.enable_grad():
@@ -76,12 +81,39 @@ def prune(scene, gaussians, pipe, background, prune_ratio, dataset):
                 weight = (detail / detail.mean().clamp_min(1e-8)).clamp(0.0, 3.0)
 
             objective = image.sum() + 0.10 * (image * weight.unsqueeze(0)).sum()
+            if rois is not None and score_roi_weight:
+                roi_weight_map = rois.records[view.image_name]["weights"].to(device=image.device, dtype=image.dtype)
+                objective = objective + score_roi_weight * (image * roi_weight_map.unsqueeze(0)).sum()
             scores += torch.autograd.grad(objective, img_scores)[0]
-            total_loss += l1_loss(gt, image).item()
+            reconstruction = l1_loss(gt, image)
+            if rois is not None and roi_weight:
+                region, _ = rois.losses(view.image_name, image, gt)
+                reconstruction = reconstruction + roi_weight * region
+            total_loss += reconstruction.item()
 
         avg_loss = total_loss / len(cameras)
 
-    gaussians.prune_gaussians(prune_ratio, scores)
+    before = gaussians.get_xyz.shape[0]
+    keep_count = max(1, int(round(before * (1.0 - prune_ratio))))
+    if instance_state is not None and protect_instances:
+        keep, audit = instance_state.select_keep(scores, gaussians.get_xyz, keep_count)
+        audit["selection_mode"] = "instance_constrained_SPS"
+        # Counterfactual global SPS, same current model/scores/budget; not an
+        # independently retrained baseline. Useful for per-event diagnosis.
+        global_keep = global_sps_keep(scores, keep_count)
+        global_ids = instance_state.instance_ids[global_keep.cpu().numpy()]
+        global_counts = dict(zip(*np.unique(global_ids, return_counts=True)))
+        audit["counterfactual_global_SPS"] = [dict(instance_id=row["instance_id"],
+            after=int(global_counts.get(row["instance_id"], 0)), min_keep=row["min_keep"],
+            small=row["small"], protected=row["protected"]) for row in instance_state.policy]
+    else:
+        keep = global_sps_keep(scores, keep_count)
+        audit = {"selection_mode": "global_SPS", "before": before, "kept": keep_count}
+    gaussians.prune_points(~keep)
+    if instance_state is not None:
+        instance_state.subset_(keep)
+    if audit_path:
+        atomic_json_save(audit, audit_path)
     return avg_loss
 
 
@@ -114,6 +146,15 @@ def main():
     parser.add_argument("--checkpoint_iterations", nargs="*", type=int, default=[])
     parser.add_argument("--quiet", action="store_true")
     parser.add_argument("--disable_viewer", action="store_true", help="Accepted for pipeline compatibility; no viewer started")
+    parser.add_argument("--instance_metadata", help="Original same-order label-free instance NPZ")
+    parser.add_argument("--instance_policy_config", help="Explicit hard-floor/ranking policy JSON")
+    parser.add_argument("--instance_projected_area", help="TRAIN-view median projected-area fractions JSON")
+    parser.add_argument("--instance_roi_dir", help="TRAIN-only per-view weighted SAM ROI NPZ directory")
+    parser.add_argument("--instance_roi_weight", type=float, default=0.1)
+    parser.add_argument("--instance_edge_weight", type=float, default=0.05)
+    parser.add_argument("--instance_score_roi_weight", type=float, default=0.25)
+    parser.add_argument("--disable_instance_protection", action="store_true", help="Matched global-SPS control; retain only lineage sidecars")
+    parser.add_argument("--require_pruning_target", action="store_true", help="Fail full experiments that did not reach the requested Gaussian target")
     args = parser.parse_args()
     if not args.model_path or not args.source_path:
         parser.error("Specify source_path and model_path")
@@ -138,6 +179,14 @@ def main():
             setattr(args, name, os.path.abspath(getattr(args, name)))
             if not os.path.isfile(getattr(args, name)):
                 parser.error("Missing input: " + getattr(args, name))
+    for name in ("instance_metadata", "instance_policy_config", "instance_projected_area", "instance_roi_dir"):
+        if getattr(args, name):
+            setattr(args, name, os.path.abspath(getattr(args, name)))
+    if any(not np.isfinite(getattr(args, name)) or getattr(args, name) < 0
+           for name in ("instance_roi_weight", "instance_edge_weight", "instance_score_roi_weight")):
+        parser.error("Instance loss weights must be finite and nonnegative")
+    if args.disable_instance_protection and args.instance_roi_dir:
+        parser.error("The global-SPS control cannot consume instance ROI supervision")
     resume = None
     if args.start_checkpoint:
         resume = load_torch_file(args.start_checkpoint + ".state.pth")
@@ -181,6 +230,38 @@ def main():
     if not cameras:
         raise ValueError("No training cameras")
     view_names = [c.image_name for c in cameras]
+    instance_state = None
+    policy_config = None
+    if args.instance_policy_config:
+        with open(args.instance_policy_config) as stream:
+            policy_config = json.load(stream)
+    if args.instance_metadata or (resume and resume.get("instance_metadata")):
+        from utils.instance_pruning import InstancePruningState
+        if resume:
+            record = resume["instance_metadata"]
+            instance_path = args.start_checkpoint + ".instances.npz"
+            if sha256_file(instance_path) != record["sha256"]:
+                raise ValueError("Instance checkpoint sidecar changed")
+            instance_state = InstancePruningState.load_resume(instance_path, model.get_xyz, config=policy_config)
+        else:
+            area = None
+            if args.instance_projected_area:
+                with open(args.instance_projected_area) as stream:
+                    area = json.load(stream)
+            instance_state = InstancePruningState.load(args.instance_metadata, model.get_xyz,
+                                                       config=policy_config, projected_area=area)
+        instance_state.export_policy(os.path.join(args.model_path, "protection_policy.json"))
+        # Check the FINAL budget before any expensive optimization begins.
+        target = int(opt.pruning_target if opt.pruning_target is not None else 0.1 * instance_state.original_count)
+        if not args.disable_instance_protection and instance_state.policy_dict()["floor_total"] > target:
+            raise ValueError("Instance hard floors exceed the final Gaussian budget")
+    rois = None
+    if args.instance_roi_dir:
+        from utils.instance_roi import TrainingInstanceROIs
+        rois = TrainingInstanceROIs(args.instance_roi_dir, cameras)
+    roi_provenance = rois.provenance if rois is not None else None
+    if resume and roi_provenance != resume.get("instance_roi_provenance"):
+        raise ValueError("Training ROI content changed since the checkpoint")
     remaining = []
     schedule = {"loss_stamp": 1.0, "iteration_no_prune": 0, "pruning_count": 0, "pruning_ratio": 0.0}
     events = []
@@ -209,6 +290,9 @@ def main():
         image = render(camera, model, pipeline, background)["render"]
         target = camera.original_image.to(image.device)
         loss = (1-opt.lambda_dssim)*l1_loss(image, target) + opt.lambda_dssim*(1-ssim(image, target))
+        if rois is not None:
+            region_loss, edge_loss = rois.losses(camera.image_name, image, target)
+            loss = loss + args.instance_roi_weight * region_loss + args.instance_edge_weight * edge_loss
         if not torch.isfinite(loss):
             raise FloatingPointError("Non-finite pruning loss")
         loss.backward()
@@ -222,11 +306,14 @@ def main():
         elif (iteration > opt.pruning_start_iter and iteration < opt.pruning_stop_iter
               and (iteration-opt.pruning_start_iter) % opt.pruning_interval == 0
               and 0 < schedule["pruning_count"] <= 6):
-            current_loss = reconstruction_detection(scene, model, pipeline, background, dataset)
+            current_loss = reconstruction_detection(scene, model, pipeline, background, dataset, rois, args.instance_roi_weight)
             forced = schedule["iteration_no_prune"] + opt.pruning_interval >= opt.pruning_interval_maximum
             if current_loss < args.beta * schedule["loss_stamp"] or forced:
                 before = model.get_xyz.shape[0]
-                schedule["loss_stamp"] = prune(scene, model, pipeline, background, schedule["pruning_ratio"], dataset)
+                audit_path = os.path.join(args.model_path, "instance_audits", "iteration_%d.json" % iteration)
+                schedule["loss_stamp"] = prune(scene, model, pipeline, background, schedule["pruning_ratio"], dataset,
+                    instance_state, rois, args.instance_roi_weight, args.instance_score_roi_weight,
+                    not args.disable_instance_protection, audit_path)
                 after = model.get_xyz.shape[0]
                 schedule["iteration_no_prune"] = 0
                 schedule["pruning_ratio"] = scheduler.get_pruning_rate(iteration, after, schedule["pruning_count"])
@@ -239,12 +326,21 @@ def main():
         if iteration in saves:
             checkpoint = os.path.join(args.model_path, "chkpnt{}.pth".format(iteration))
             atomic_torch_save((model.capture(), iteration), checkpoint)
+            instance_record = None
+            if instance_state is not None:
+                instance_path = checkpoint + ".instances.npz"
+                instance_state.save(instance_path, model.get_xyz)
+                instance_record = {"path": instance_path, "sha256": sha256_file(instance_path)}
+                instance_state.save(os.path.join(args.model_path, "instance_priors.npz"), model.get_xyz)
             atomic_torch_save({"format": "pwsr-prune-v1", "checkpoint_sha256": sha256_file(checkpoint),
                 "configuration": vars(args), "schedule": dict(schedule), "scheduler": dict(scheduler.__dict__),
                 "remaining_views": list(remaining), "view_names": view_names, "events": list(events),
-                "rng": capture_rng_state()}, checkpoint + ".state.pth")
+                "rng": capture_rng_state(), "instance_metadata": instance_record,
+                "instance_roi_provenance": roi_provenance}, checkpoint + ".state.pth")
             ply = os.path.join(args.model_path, "point_cloud", "iteration_{}".format(iteration), "point_cloud.ply")
             atomic_write(ply, model.save_ply)
+            if instance_state is not None:
+                instance_state.save(os.path.join(os.path.dirname(ply), "instance_priors.npz"), model.get_xyz)
             manifest.update(last_checkpoint=checkpoint, last_ply=ply, completed_steps=iteration-opt.densify_until_iter)
             atomic_json_save(manifest, os.path.join(args.model_path, "run_args.json"))
         if iteration in args.test_iterations:
@@ -252,6 +348,10 @@ def main():
             atomic_json_save(metrics, os.path.join(args.model_path, "metrics_float.json"))
         if not args.quiet and iteration % 100 == 0:
             print("[ITER {}] N={} loss={:.7f}".format(iteration, model.get_xyz.shape[0], loss.item()), flush=True)
+    if args.require_pruning_target:
+        target = int(opt.pruning_target if opt.pruning_target is not None else scheduler.pruning_target)
+        if model.get_xyz.shape[0] != target:
+            raise RuntimeError("Final Gaussian count %d differs from target %d" % (model.get_xyz.shape[0], target))
     manifest.update(status="complete", final_gaussians=model.get_xyz.shape[0], elapsed_seconds=time.monotonic()-started)
     atomic_json_save(manifest, os.path.join(args.model_path, "run_args.json"))
     print("Pruning and recovery complete.", flush=True)

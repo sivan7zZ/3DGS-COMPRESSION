@@ -61,6 +61,16 @@ def build_plan(config, stage="all", stage3_checkpoint=None, python=None):
                      "pruning_interval_maximum", "densify_until_iter", "beta"):
             if name in config:
                 arguments.extend(["--" + name, str(config[name])])
+        for name in ("instance_metadata", "instance_policy_config", "instance_projected_area", "instance_roi_dir"):
+            if config.get(name) and not (name == "instance_roi_dir" and config.get("disable_instance_protection", False)):
+                arguments.extend(["--" + name, str(resolve(config[name]))])
+        for name in ("instance_roi_weight", "instance_edge_weight", "instance_score_roi_weight"):
+            if name in config:
+                arguments.extend(["--" + name, str(config[name])])
+        if config.get("disable_instance_protection", False):
+            arguments.append("--disable_instance_protection")
+        if config.get("require_pruning_target", False):
+            arguments.append("--require_pruning_target")
         command("prune", "train_prune.py", arguments, stage3)
     if stage in ("all", "distill"):
         if teacher is None:
@@ -69,9 +79,21 @@ def build_plan(config, stage="all", stage3_checkpoint=None, python=None):
             raise FileNotFoundError(str(checkpoint))
         if not teacher.is_file():
             raise FileNotFoundError(str(teacher))
-        command("distill", "distill_train.py", common + ["-m", str(sh2), "--start_checkpoint", str(checkpoint),
+        distill_args = common + ["-m", str(sh2), "--start_checkpoint", str(checkpoint),
                 "--teacher_model", str(teacher), "--distill_start_iteration", str(distill_start),
-                "--distill_steps", str(steps), "--new_max_sh", str(config.get("new_max_sh", 2))], sh2)
+                "--distill_steps", str(steps), "--new_max_sh", str(config.get("new_max_sh", 2))]
+        if config.get("instance_metadata"):
+            distill_args.extend(["--instance_metadata", str(checkpoint) + ".instances.npz"])
+        if config.get("instance_roi_dir") and not config.get("disable_instance_protection", False):
+            distill_args.extend(["--instance_roi_dir", str(resolve(config["instance_roi_dir"]))])
+            for name in ("instance_roi_weight", "instance_edge_weight"):
+                if name in config:
+                    distill_args.extend(["--" + name, str(config[name])])
+            if config.get("instance_balanced_sampling", False):
+                distill_args.append("--instance_balanced_sampling")
+        if config.get("distill_enable_covariance", False):
+            distill_args.append("--enable_covariance")
+        command("distill", "distill_train.py", distill_args, sh2)
     if stage in ("all", "evaluate"):
         for directory, iteration in ((stage3, prune_end), (sh2, final)):
             if stage == "evaluate" and not (directory / "point_cloud" / ("iteration_%d" % iteration) / "point_cloud.ply").is_file():

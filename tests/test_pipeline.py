@@ -33,6 +33,33 @@ class PipelineTests(unittest.TestCase):
             self.assertIn(str(data), command)
             self.assertFalse(output.exists())
 
+    def test_instance_priors_flow_to_pruning_and_checkpoint_sidecar_to_distillation(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            initial = root / "initial.ply"; initial.touch()
+            teacher = root / "teacher.pth"; teacher.touch()
+            config = {"source_path": str(root), "input_ply": str(initial),
+                      "teacher_checkpoint": str(teacher), "instance_metadata": "inputs/source.npz",
+                      "instance_policy_config": "configs/protection.json",
+                      "instance_projected_area": "inputs/areas.json", "instance_roi_dir": "inputs/roi",
+                      "instance_roi_weight": .1, "require_pruning_target": True,
+                      "pruning_target": 100, "distill_enable_covariance": True}
+            with patch.object(run_pipeline, "ROOT", root):
+                output, plan = run_pipeline.build_plan(config)
+            prune, distill = plan[0]["command"], plan[1]["command"]
+            self.assertIn("--require_pruning_target", prune)
+            self.assertIn("--instance_roi_dir", prune)
+            self.assertEqual(distill[distill.index("--instance_metadata")+1],
+                             str(output / "stage3/chkpnt25199.pth") + ".instances.npz")
+            self.assertIn("--instance_roi_dir", distill)
+            self.assertIn("--enable_covariance", distill)
+            config["disable_instance_protection"] = True
+            with patch.object(run_pipeline, "ROOT", root):
+                _, control = run_pipeline.build_plan(config)
+            self.assertIn("--disable_instance_protection", control[0]["command"])
+            self.assertNotIn("--instance_roi_dir", control[0]["command"])
+            self.assertNotIn("--instance_roi_dir", control[1]["command"])
+
     def test_dry_run_does_not_create_output(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

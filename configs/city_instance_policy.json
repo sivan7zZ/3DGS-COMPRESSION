@@ -1,0 +1,6 @@
+{
+  "base_retention": 0.02,
+  "small_retention_boost": 0.38,
+  "min_keep": 32,
+  "max_keep_floor": 256
+}

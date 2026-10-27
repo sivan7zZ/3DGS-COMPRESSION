@@ -1,5 +1,7 @@
 # 固定流程：PWSR 前三阶段 → checkpoint → LightGaussian SH 蒸馏
 
+新增的无语义实例保护分支见 `INSTANCE_PROTECTION.md`。使用 `configs/city_instance.json` 时，在原流程中加入逐实例最低配额、空间覆盖及训练视角小区域恢复 / 蒸馏损失；全局目标数量不变。`configs/city_instance_control.json` 是同预算、同教师、同蒸馏步数的全局 SPS 对照。默认 `configs/city.json` 保持原流程。
+
 ## 范围
 
 仓库固定为 `/home/zhangys/Prune-Wisely-Reconstruct-Sharply`。
@@ -80,8 +82,12 @@ PWSR 自身续训使用 `train_prune.py --start_checkpoint ...`，也必须有�
 - `output/city_pipeline_report.md`：旧实验报告，不作为新配置训练结果。
 
 旧目录未覆盖。新代码的迭代保存顺序、checkpoint 交接和默认蒸馏步数已明确化，
-不能保证重新训练与旧数值完全一致。整合过程中已完成短程 GPU 链路验证和 13 项单元测试；
-没有重新执行新配置的全量 city 实验，短程结果不用于质量比较。
+不能保证重新训练与旧数值完全一致。历史整合阶段完成了短程 GPU 链路验证和 13 项单元测试，
+当时没有重跑全量实验；这段记录不代表当前版本进度。
+
+2026-10-27 保存的 v2.0.0 已完成实例保护版与同预算全局 SPS 对照的完整 City 实验，
+两版均为 PWSR 10199 次更新和原始教师 SH2 蒸馏 5000 次更新，65 项单元测试通过。
+实际结果、质量代价、本地模型位置和复现入口见 `PROGRESS.md`。
 
 删除的 DoG 代码 / 修改前 Python 源文件保存在
 `output/integration_backups/2026-09-18/pwsr_python_before_merge.tar.gz`；

@@ -30,6 +30,8 @@ from utils.distill_utils import (
 
 
 PARAMETERS = ("_xyz", "_features_dc", "_features_rest", "_scaling", "_rotation", "_opacity")
+INSTANCE_CONFIGURATION_FIELDS = ("instance_metadata", "instance_roi_dir", "instance_roi_weight",
+                                 "instance_edge_weight", "instance_balanced_sampling")
 
 
 def parse_arguments(argv=None):
@@ -53,6 +55,12 @@ def parse_arguments(argv=None):
     parser.add_argument("--enable_covariance", dest="enable_covariance", action="store_true")
     parser.add_argument("--freeze_covariance", dest="enable_covariance", action="store_false")
     parser.add_argument("--enable_opacity", action="store_true")
+    parser.add_argument("--instance_metadata", help="Student same-order .instances.npz (auto-detected beside start checkpoint)")
+    parser.add_argument("--instance_roi_dir", help="SAM-derived training-view <image_name>.npz ROI maps")
+    parser.add_argument("--instance_roi_weight", type=float, default=0.1)
+    parser.add_argument("--instance_edge_weight", type=float, default=0.05)
+    parser.add_argument("--instance_balanced_sampling", action="store_true",
+                        help="Sample training views with replacement using saved ROI sampling weights")
     parser.add_argument("--quiet", action="store_true")
     parser.set_defaults(augmented_view=True, enable_covariance=True)
     raw = list(sys.argv[1:] if argv is None else argv)
@@ -74,7 +82,10 @@ def parse_arguments(argv=None):
         verify_resume_pair(args.resume_checkpoint, resume)
         resumed_path = os.path.abspath(args.resume_checkpoint)
         try:
-            saved = resume_configuration(resume["configuration"], vars(args), explicit,
+            saved_configuration = dict(resume["configuration"])
+            for name in INSTANCE_CONFIGURATION_FIELDS:
+                saved_configuration.setdefault(name, parser.get_default(name))
+            saved = resume_configuration(saved_configuration, vars(args), explicit,
                                          ("model_path", "quiet", "data_device", "skip_final_eval", "resume_checkpoint"))
         except ValueError as error:
             parser.error(str(error))
@@ -91,6 +102,11 @@ def parse_arguments(argv=None):
         parser.error("SH distillation checkpoints do not carry exposure parameters; omit --train_test_exp")
     if args.new_max_sh < 0 or args.save_every < 0:
         parser.error("--new_max_sh and --save_every must be nonnegative")
+    if (not np.isfinite(args.instance_roi_weight) or not np.isfinite(args.instance_edge_weight)
+            or args.instance_roi_weight < 0 or args.instance_edge_weight < 0):
+        parser.error("Instance ROI/edge weights must be finite and nonnegative")
+    if args.instance_balanced_sampling and not args.instance_roi_dir:
+        parser.error("--instance_balanced_sampling requires --instance_roi_dir")
     try:
         args.iterations = distillation_schedule(args.distill_start_iteration, args.distill_steps, args.iterations)
     except ValueError as error:
@@ -103,6 +119,12 @@ def parse_arguments(argv=None):
     args.model_path = os.path.abspath(args.model_path)
     args.start_checkpoint = os.path.abspath(args.start_checkpoint)
     args.teacher_model = os.path.abspath(args.teacher_model)
+    if args.instance_metadata:
+        args.instance_metadata = os.path.abspath(args.instance_metadata)
+    elif resume is None and os.path.isfile(args.start_checkpoint + ".instances.npz"):
+        args.instance_metadata = args.start_checkpoint + ".instances.npz"
+    if args.instance_roi_dir:
+        args.instance_roi_dir = os.path.abspath(args.instance_roi_dir)
     if args.optimizer_type != "default":
         parser.error("SH distillation uses LightGaussian AdamW; --optimizer_type must be default")
     return args, model, optimization, pipeline, resume
@@ -118,10 +140,16 @@ def make_student_optimizer(student, state=None):
         student.optimizer.load_state_dict(state)
 
 
-def save_model(scene, student, iteration, args, scheduler, remaining, view_names, inputs, teacher_hash):
+def save_model(scene, student, iteration, args, scheduler, remaining, view_names, inputs, teacher_hash,
+               instance_state=None, roi_provenance=None):
     checkpoint_path = os.path.join(args.model_path, "chkpnt{}.pth".format(iteration))
     # Save optimizer-bearing checkpoint before rendering/evaluation can fail.
     atomic_torch_save((student.capture(), iteration), checkpoint_path)
+    instance_record = None
+    if instance_state is not None:
+        instance_path = checkpoint_path + ".instances.npz"
+        instance_state.save(instance_path, student.get_xyz)
+        instance_record = {"path": instance_path, "sha256": sha256_file(instance_path)}
     metadata = {
         "format": "pwsr-sh-distill-v1", "checkpoint_sha256": sha256_file(checkpoint_path),
         "configuration": vars(args), "iteration": iteration,
@@ -129,10 +157,14 @@ def save_model(scene, student, iteration, args, scheduler, remaining, view_names
         "optimizer": "AdamW", "scheduler": scheduler.state_dict(),
         "rng": capture_rng_state(), "remaining_views": list(remaining),
         "view_names": view_names, "inputs": inputs, "teacher_fingerprint": teacher_hash,
+        "instance_metadata": instance_record, "instance_roi_provenance": roi_provenance,
     }
     atomic_torch_save(metadata, checkpoint_path + ".state.pth")
     ply_path = os.path.join(args.model_path, "point_cloud", "iteration_{}".format(iteration), "point_cloud.ply")
     atomic_write(ply_path, student.save_ply)
+    if instance_state is not None:
+        instance_state.save(os.path.join(os.path.dirname(ply_path), "instance_priors.npz"), student.get_xyz)
+        instance_state.save(os.path.join(args.model_path, "instance_priors.npz"), student.get_xyz)
     print("[ITER {}] Saved PLY, checkpoint and full resume sidecar".format(iteration), flush=True)
     return checkpoint_path, ply_path
 
@@ -204,11 +236,32 @@ def training(args, model_parameters, optimization_parameters, pipeline_parameter
     student._opacity.requires_grad_(args.enable_opacity)
     teacher_hash = model_fingerprint(teacher)
     count = student.get_xyz.shape[0]
+    instance_state = None
+    instance_path = args.instance_metadata
+    if resume is not None:
+        record = resume.get("instance_metadata")
+        if record is not None:
+            instance_path = args.resume_checkpoint + ".instances.npz"
+            if not os.path.isfile(instance_path) or sha256_file(instance_path) != record["sha256"]:
+                raise ValueError("Resume instance metadata is absent or differs from the saved checkpoint")
+        elif instance_path:
+            raise ValueError("Resume sidecar has no instance metadata; cannot silently add labels during continuation")
+    if instance_path:
+        from utils.instance_pruning import InstancePruningState
+        instance_state = InstancePruningState.load_resume(instance_path, student.get_xyz)
     scheduler = ExponentialLR(student.optimizer, gamma=0.90)
     cameras = scene.getTrainCameras()
     if not cameras:
         raise ValueError("Dataset has no training cameras")
     view_names = [camera.image_name for camera in cameras]
+    rois = None
+    if args.instance_roi_dir:
+        from utils.instance_roi import TrainingInstanceROIs
+        rois = TrainingInstanceROIs(args.instance_roi_dir, cameras)
+    roi_provenance = rois.provenance if rois is not None else None
+    if resume is not None and roi_provenance != resume.get("instance_roi_provenance"):
+        raise ValueError("Training-view instance ROI maps or image dimensions changed since checkpoint")
+    sampling_weights = rois.sampling_weights(view_names) if args.instance_balanced_sampling else None
     remaining = []
     first_iteration = args.distill_start_iteration
     inputs = resume["inputs"] if resume is not None else {
@@ -243,6 +296,9 @@ def training(args, model_parameters, optimization_parameters, pipeline_parameter
         "iteration_schedule": {"virtual_start": args.distill_start_iteration, "virtual_end": args.iterations,
                                "requested_optimizer_steps": args.distill_steps, "resumed_from": first_iteration},
         "importance_scores": "omitted: VecTree quantization is outside this SH distillation stage",
+        "instance_metadata": instance_path,
+        "instance_roi_provenance": roi_provenance,
+        "instance_roi_supervision": "training original views only; augmented views skip 2D ROI losses",
         "evaluation": "Float PSNR/SSIM here; LPIPS can be evaluated separately via metrics.py",
     }
     if resume is not None:
@@ -263,16 +319,23 @@ def training(args, model_parameters, optimization_parameters, pipeline_parameter
             metrics = json.load(stream)
     for iteration in range(first_iteration + 1, args.iterations + 1):
         student.update_learning_rate(iteration)
-        if not remaining:
-            remaining = list(range(len(cameras)))
-        camera = cameras[remaining.pop(random.randint(0, len(remaining) - 1))]
-        if args.augmented_view and iteration % 3:
+        if args.instance_balanced_sampling:
+            camera = cameras[random.choices(range(len(cameras)), weights=sampling_weights, k=1)[0]]
+        else:
+            if not remaining:
+                remaining = list(range(len(cameras)))
+            camera = cameras[remaining.pop(random.randint(0, len(remaining) - 1))]
+        original_view = not (args.augmented_view and iteration % 3)
+        if not original_view:
             camera = augmented_camera(camera)
         with torch.no_grad():
             teacher_image = render(camera, teacher, pipeline, background, clamp_output=False)["render"]
         image = render(camera, student, pipeline, background, clamp_output=False)["render"]
         loss = ((1 - optimization.lambda_dssim) * l1_loss(image, teacher_image)
                 + optimization.lambda_dssim * (1 - ssim(image, teacher_image)))
+        if rois is not None and original_view:
+            region_loss, edge_loss = rois.losses(camera.image_name, image, teacher_image)
+            loss = loss + args.instance_roi_weight * region_loss + args.instance_edge_weight * edge_loss
         if not torch.isfinite(loss).item():
             raise FloatingPointError("Non-finite distillation loss at iteration {}".format(iteration))
         loss.backward()
@@ -295,7 +358,8 @@ def training(args, model_parameters, optimization_parameters, pipeline_parameter
                       (iteration - args.distill_start_iteration) % args.save_every == 0)
         if should_save:
             checkpoint_path, ply_path = save_model(scene, student, iteration, args, scheduler,
-                                                   remaining, view_names, inputs, teacher_hash)
+                                                   remaining, view_names, inputs, teacher_hash,
+                                                   instance_state, roi_provenance)
             manifest["last_checkpoint"] = checkpoint_path
             manifest["last_ply"] = ply_path
             manifest["completed_steps"] = iteration - args.distill_start_iteration
