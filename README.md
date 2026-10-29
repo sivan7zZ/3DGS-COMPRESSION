@@ -8,6 +8,14 @@
 
 详细输入输出、迭代编号、checkpoint 语义和历史结果说明见 [WORKFLOW.md](WORKFLOW.md)。
 
+## v3.0.0：无语义标签的实例与结构保护
+
+新增训练视角可见支撑约束、小区域配额、边界对比监督及细线连续性监督；主配置为 `configs/city_structure20_adaptive.json`。City 20×实验保留 89,405 个高斯，SH3 与 SH2 分别保存，97 项测试通过。
+
+主分析使用 SH 蒸馏前 SH3。新版在固定例子中保留了 LightGaussian20×下退化的外观和细节，但相对原 PWSR20×尚未确认新增模块独有的目标挽救，且存在整图质量代价。当前不能宣称三类问题已全面解决。
+
+方法与复现见 [STRUCTURE_PROTECTION.md](STRUCTURE_PROTECTION.md)，版本进度、结果与本地模型位置见 [PROGRESS.md](PROGRESS.md)。大型模型、数据和渲染保留本机 `output/`，不随源码上传。
+
 ## 当前机器运行
 
 ```bash

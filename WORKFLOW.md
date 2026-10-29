@@ -2,6 +2,8 @@
 
 新增的无语义实例保护分支见 `INSTANCE_PROTECTION.md`。使用 `configs/city_instance.json` 时，在原流程中加入逐实例最低配额、空间覆盖及训练视角小区域恢复 / 蒸馏损失；全局目标数量不变。`configs/city_instance_control.json` 是同预算、同教师、同蒸馏步数的全局 SPS 对照。默认 `configs/city.json` 保持原流程。
 
+2026-10-27 的三类结构保护扩展见 `STRUCTURE_PROTECTION.md`。主入口为 `configs/city_structure20_adaptive.json`，精确保留 89,405 个高斯；训练视角可见支撑约束覆盖小区域、边界段及细线段，恢复阶段允许高斯自由优化。主对比先使用 SH3，SH2 结果另存。固定锚点初版保留为消融，不能与自适应版混称。实际渲染证据、局限及输出见 `output/city2_structure_guard_20261027/README_结构保护结果.md`。
+
 ## 范围
 
 仓库固定为 `/home/zhangys/Prune-Wisely-Reconstruct-Sharply`。

@@ -31,7 +31,8 @@ from utils.distill_utils import (
 
 PARAMETERS = ("_xyz", "_features_dc", "_features_rest", "_scaling", "_rotation", "_opacity")
 INSTANCE_CONFIGURATION_FIELDS = ("instance_metadata", "instance_roi_dir", "instance_roi_weight",
-                                 "instance_edge_weight", "instance_balanced_sampling")
+                                 "instance_edge_weight", "instance_balanced_sampling", "structure_priors",
+                                 "structure_boundary_weight", "structure_thin_weight", "structure_anchor_weight", "structure_selection_mode")
 
 
 def parse_arguments(argv=None):
@@ -61,6 +62,11 @@ def parse_arguments(argv=None):
     parser.add_argument("--instance_edge_weight", type=float, default=0.05)
     parser.add_argument("--instance_balanced_sampling", action="store_true",
                         help="Sample training views with replacement using saved ROI sampling weights")
+    parser.add_argument("--structure_selection_mode", choices=("fixed", "adaptive"), default="fixed")
+    parser.add_argument("--structure_priors")
+    parser.add_argument("--structure_boundary_weight", type=float, default=0.02)
+    parser.add_argument("--structure_thin_weight", type=float, default=0.03)
+    parser.add_argument("--structure_anchor_weight", type=float, default=0.02)
     parser.add_argument("--quiet", action="store_true")
     parser.set_defaults(augmented_view=True, enable_covariance=True)
     raw = list(sys.argv[1:] if argv is None else argv)
@@ -107,6 +113,13 @@ def parse_arguments(argv=None):
         parser.error("Instance ROI/edge weights must be finite and nonnegative")
     if args.instance_balanced_sampling and not args.instance_roi_dir:
         parser.error("--instance_balanced_sampling requires --instance_roi_dir")
+    if any(not np.isfinite(getattr(args, name)) or getattr(args, name) < 0 for name in
+           ("structure_boundary_weight", "structure_thin_weight", "structure_anchor_weight")):
+        parser.error("Structure loss weights must be finite and nonnegative")
+    if args.structure_selection_mode == "adaptive" and args.structure_anchor_weight != 0:
+        parser.error("Adaptive coverage requires structure_anchor_weight=0")
+    if args.structure_priors and not args.instance_roi_dir:
+        parser.error("Structure distillation requires training-view structure ROIs")
     try:
         args.iterations = distillation_schedule(args.distill_start_iteration, args.distill_steps, args.iterations)
     except ValueError as error:
@@ -123,6 +136,8 @@ def parse_arguments(argv=None):
         args.instance_metadata = os.path.abspath(args.instance_metadata)
     elif resume is None and os.path.isfile(args.start_checkpoint + ".instances.npz"):
         args.instance_metadata = args.start_checkpoint + ".instances.npz"
+    if args.structure_priors:
+        args.structure_priors = os.path.abspath(args.structure_priors)
     if args.instance_roi_dir:
         args.instance_roi_dir = os.path.abspath(args.instance_roi_dir)
     if args.optimizer_type != "default":
@@ -141,7 +156,7 @@ def make_student_optimizer(student, state=None):
 
 
 def save_model(scene, student, iteration, args, scheduler, remaining, view_names, inputs, teacher_hash,
-               instance_state=None, roi_provenance=None):
+               instance_state=None, roi_provenance=None, structure_provenance=None):
     checkpoint_path = os.path.join(args.model_path, "chkpnt{}.pth".format(iteration))
     # Save optimizer-bearing checkpoint before rendering/evaluation can fail.
     atomic_torch_save((student.capture(), iteration), checkpoint_path)
@@ -158,6 +173,7 @@ def save_model(scene, student, iteration, args, scheduler, remaining, view_names
         "rng": capture_rng_state(), "remaining_views": list(remaining),
         "view_names": view_names, "inputs": inputs, "teacher_fingerprint": teacher_hash,
         "instance_metadata": instance_record, "instance_roi_provenance": roi_provenance,
+        "structure_provenance": structure_provenance,
     }
     atomic_torch_save(metadata, checkpoint_path + ".state.pth")
     ply_path = os.path.join(args.model_path, "point_cloud", "iteration_{}".format(iteration), "point_cloud.ply")
@@ -249,6 +265,22 @@ def training(args, model_parameters, optimization_parameters, pipeline_parameter
     if instance_path:
         from utils.instance_pruning import InstancePruningState
         instance_state = InstancePruningState.load_resume(instance_path, student.get_xyz)
+    structure_state, anchor_trust = None, None
+    if args.structure_priors:
+        from utils.structure_pruning import StructurePruningState
+        from utils.structure_losses import AnchorTrustRegion
+        if instance_state is None:
+            raise ValueError("Structure distillation requires original Gaussian lineage")
+        instance_state.audit_floors()
+        structure_state = StructurePruningState.load(args.structure_priors)
+        if structure_state.source_xyz_sha256 != instance_state.source_xyz_sha256:
+            raise ValueError("Structure priors refer to another source model")
+        structure_state.audit_coverage(instance_state.original_ids, require_anchors=args.structure_selection_mode == "fixed")
+        if args.structure_anchor_weight:
+            anchor_trust = AnchorTrustRegion(structure_state)
+    structure_provenance = structure_state.provenance if structure_state is not None else None
+    if resume is not None and structure_provenance != resume.get("structure_provenance"):
+        raise ValueError("Structure priors changed since the checkpoint")
     scheduler = ExponentialLR(student.optimizer, gamma=0.90)
     cameras = scene.getTrainCameras()
     if not cameras:
@@ -256,8 +288,12 @@ def training(args, model_parameters, optimization_parameters, pipeline_parameter
     view_names = [camera.image_name for camera in cameras]
     rois = None
     if args.instance_roi_dir:
-        from utils.instance_roi import TrainingInstanceROIs
-        rois = TrainingInstanceROIs(args.instance_roi_dir, cameras)
+        if structure_state is not None:
+            from utils.structure_losses import TrainingStructureROIs
+            rois = TrainingStructureROIs(args.instance_roi_dir, cameras)
+        else:
+            from utils.instance_roi import TrainingInstanceROIs
+            rois = TrainingInstanceROIs(args.instance_roi_dir, cameras)
     roi_provenance = rois.provenance if rois is not None else None
     if resume is not None and roi_provenance != resume.get("instance_roi_provenance"):
         raise ValueError("Training-view instance ROI maps or image dimensions changed since checkpoint")
@@ -298,6 +334,7 @@ def training(args, model_parameters, optimization_parameters, pipeline_parameter
         "importance_scores": "omitted: VecTree quantization is outside this SH distillation stage",
         "instance_metadata": instance_path,
         "instance_roi_provenance": roi_provenance,
+        "structure_provenance": structure_provenance,
         "instance_roi_supervision": "training original views only; augmented views skip 2D ROI losses",
         "evaluation": "Float PSNR/SSIM here; LPIPS can be evaluated separately via metrics.py",
     }
@@ -336,6 +373,12 @@ def training(args, model_parameters, optimization_parameters, pipeline_parameter
         if rois is not None and original_view:
             region_loss, edge_loss = rois.losses(camera.image_name, image, teacher_image)
             loss = loss + args.instance_roi_weight * region_loss + args.instance_edge_weight * edge_loss
+        if structure_state is not None:
+            if original_view:
+                boundary_survival, thin_continuity = rois.structure_losses(camera.image_name, image, teacher_image)
+                loss = loss + args.structure_boundary_weight * boundary_survival + args.structure_thin_weight * thin_continuity
+            if args.structure_anchor_weight:
+                loss = loss + args.structure_anchor_weight * anchor_trust.loss(student, instance_state.original_ids)
         if not torch.isfinite(loss).item():
             raise FloatingPointError("Non-finite distillation loss at iteration {}".format(iteration))
         loss.backward()
@@ -359,10 +402,12 @@ def training(args, model_parameters, optimization_parameters, pipeline_parameter
         if should_save:
             checkpoint_path, ply_path = save_model(scene, student, iteration, args, scheduler,
                                                    remaining, view_names, inputs, teacher_hash,
-                                                   instance_state, roi_provenance)
+                                                   instance_state, roi_provenance, structure_provenance)
             manifest["last_checkpoint"] = checkpoint_path
             manifest["last_ply"] = ply_path
             manifest["completed_steps"] = iteration - args.distill_start_iteration
+            if structure_state is not None:
+                atomic_json_save(structure_state.audit_coverage(instance_state.original_ids, require_anchors=args.structure_selection_mode == "fixed"), os.path.join(os.path.dirname(ply_path), "structure_coverage.json"))
             atomic_json_save(manifest, manifest_path)
         if should_evaluate:
             metrics[str(iteration)] = evaluate(scene, student, pipeline, background, iteration)

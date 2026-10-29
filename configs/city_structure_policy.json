@@ -1,0 +1,9 @@
+{
+  "base_retention": 0.005,
+  "small_retention_boost": 0.06,
+  "min_keep": 8,
+  "max_keep_floor": 48,
+  "within_instance_rank_weight": 0,
+  "small_score_boost": 0,
+  "spatial_cells": 1
+}

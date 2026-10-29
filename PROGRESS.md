@@ -1,3 +1,34 @@
+# v3.0.0 进度快照（2026-10-29 保存）
+
+本版本保存 2026-10-27 完成的三类结构保护代码、实验结论及复现入口。大型模型与运行数据仍保留本机项目 output/，Git 保存源码、配置、测试及进度摘要。
+
+已按最新要求完成小目标、边界、细长结构三类源可见支撑保护及 City 全量 20×实验。主入口 `configs/city_structure20_adaptive.json`；无人工2D语义标签、不使用gt_semantic模型、不含3D-DoG。所有新模型、checkpoint、SAM标签、原生渲染、证据与报告在本仓库 `output/city2_structure_guard_20261027/`，保留SH3与SH2。
+
+- 主模型 `protected20_adaptive/`：源1,788,093→89,405点，SH3标准PLY约21.15MiB（约20×），SH2约13.98MiB（约30.24×），实例字段额外占空间。PWSR10199次更新，原始SH3教师蒸馏5000次更新。
+- 61训练视图构建296,910个源可见候选单元。最终剪枝从实例SPS出发，8,677对高斯交换补齐23,549个初始无支撑单元，无回退，配额0违规。固定证书仅在中间阶段保证可行性；最终允许旧锚点替换且高斯属性自由优化。
+- 对照保留用户给出的原生LG10，并新增真实LG20与原PWSR20，两种20×对照同为89,405点；原PWSR10、v2实例10×及固定锚点20×消融也保留。外部LG恢复调度不同，不冒充完全相同训练设置。
+- 主要结论来自SH3同相机1592×894图。固定六例中，新版相比LG20保留黑车可辨性、白色庭院小物、屋面轮廓与细窗框；相比原PWSR20整体相当，没有确认新增模块独有的目标挽救。全量自动候选边界召回略升，小区域与细线略降，不能宣称三类问题已被全面解决。测试视图用于开发诊断，本轮不是新的盲测基准。
+- 固定锚点初版使恢复受限、整体结构退化，保存为 `protected20/` 消融，不作为最终主模型。source覆盖/配额保证不等于渲染可见性或真实物体召回率。
+- 详细主报告：`output/city2_structure_guard_20261027/protected20_adaptive/README_结构保护结果.md`；五列图：`reports/primary_adaptive/compact_visual_review/reviewed_native_comparison.png`；机制说明：`STRUCTURE_PROTECTION.md`。
+
+训练源码快照保存在主模型 `source_snapshot/`。训练结束后仅补充早期预算一致性和保护模式续训的配额校验，不改变本次选择器或优化计算；全局SPS对照仍可加载低于保护配额的旁车。
+
+验证完成：97项单元测试全通过，SH3/SH2已完成checkpoint均能加载完整续训状态并零新增更新退出；两个实例PLY导出核验通过。共同原生PNG评估中，原PWSR20 PSNR33.6782/SSIM0.9581/LPIPS0.0856，adaptive SH3为33.1624/0.9520/0.0958，存在整图质量代价；不把局部结构证据当作全面质量提升。
+
+## v3.0.0 继续工作入口
+
+在仓库根目录查看计划，或用新的输出子目录重跑，避免覆盖已完成的 SH3 / SH2 结果：
+
+```bash
+bash scripts/run.sh run_pipeline.py --config configs/city_structure20_adaptive.json --dry_run
+bash scripts/run.sh run_pipeline.py --config configs/city_structure20_adaptive.json \
+  --output_root output/city2_structure_v3_reproduce
+```
+
+97 项测试与两阶段 checkpoint 恢复验证在本轮实验收尾时已通过；本次版本保存不重新启动训练。后续改进应以同预算原 PWSR20 为对照，检查实际渲染缺口和结构连续性，不能仅以源支撑覆盖或区域点数宣称物体被救回。
+
+以下是已提交并推送的 v2.0.0 历史快照；本轮未改写该标签。
+
 # v2.0.0 进度快照（2026-10-27）
 
 当前已完成 City 无语义标签实例保护压缩的实现、全量训练、同预算对照和独立测试评估。本版本保留 PWSR 的 RIR / DPRA / SPS，不含 3D-DoG；随后使用原始未剪枝 SH3 教师进行 LightGaussian SH3→SH2 蒸馏。

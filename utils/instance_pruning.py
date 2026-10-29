@@ -240,6 +240,32 @@ class InstancePruningState:
                 "original_count": self.original_count, "config": dict(self.config),
                 "floor_total": sum(row["min_keep"] for row in self.policy), "instances": self.policy}
 
+    def audit_floors(self, raise_on_violation=True):
+        """Check current counts against the saved immutable protection policy.
+
+        Invoke this for protected training/distillation, including resumed
+        runs. Loading a sidecar itself deliberately does not enforce floors:
+        global-SPS controls carry the same lineage/policy for honest evaluation
+        and are permitted to violate the protection policy they did not use.
+        """
+        instance_ids, counts = np.unique(self.instance_ids, return_counts=True)
+        lookup = dict(zip(instance_ids.tolist(), counts.tolist()))
+        records, violations = [], []
+        for policy in self.policy:
+            instance_id = int(policy["instance_id"])
+            current = int(lookup.get(instance_id, 0))
+            minimum = int(policy["min_keep"])
+            row = dict(instance_id=instance_id, count=current, min_keep=minimum,
+                       protected=bool(policy["protected"]), floor_violation=current < minimum)
+            records.append(row)
+            if row["floor_violation"]:
+                violations.append(row)
+        report = dict(format="pwsr-instance-floor-audit-v1", gaussian_count=len(self.instance_ids),
+                      instances=records, violation_count=len(violations), violations=violations)
+        if violations and raise_on_violation:
+            raise ValueError("Immutable instance retention floors violated: " + json.dumps(violations))
+        return report
+
     def export_policy(self, path):
         parent = os.path.dirname(os.path.abspath(str(path)))
         os.makedirs(parent, exist_ok=True)
@@ -302,7 +328,7 @@ class InstancePruningState:
             distance = np.minimum(distance, ((locations - locations[chosen]) ** 2).sum(axis=1))
         return representatives[selected]
 
-    def select_keep(self, scores, xyz, keep_count):
+    def select_keep(self, scores, xyz, keep_count, required_original_ids=None):
         """Return exact-K keep mask and audit; never silently relax hard floors.
 
         Scores may be NumPy or torch tensors; torch input returns torch.bool on
@@ -326,6 +352,26 @@ class InstancePruningState:
                 raise ValueError("Instance %d already has %d points below immutable floor %d" % (row["instance_id"], available, row["min_keep"]))
         priority = _ranks(importance)
         keep = np.zeros(count, dtype=bool)
+        required = np.asarray([] if required_original_ids is None else required_original_ids, dtype=np.int64)
+        if required.ndim != 1 or len(np.unique(required)) != len(required):
+            raise ValueError("Required source Gaussian IDs must be a unique vector")
+        if len(required):
+            if np.any(required < 0) or np.any(required >= self.original_count):
+                raise ValueError("Required source anchor IDs are outside the original model")
+            # A compact lookup avoids a 1.8-million-entry Python dictionary on
+            # the original City model, and still accepts arbitrary row order.
+            location = np.full(self.original_count, -1, dtype=np.int64)
+            location[self.original_ids] = np.arange(count, dtype=np.int64)
+            missing = required[location[required] < 0]
+            if len(missing):
+                raise ValueError("Required visible source anchors were lost before pruning: %s" % missing[:8].tolist())
+            keep[location[required]] = True
+        required_floor_cost = int(keep.sum())
+        for row in self.policy:
+            indices = grouped.get(row["instance_id"], np.empty(0, dtype=np.int64))
+            required_floor_cost += max(0, int(row["min_keep"]) - int(keep[indices].sum()))
+        if required_floor_cost > keep_count:
+            raise ValueError("Visible anchors plus immutable instance floors require %d Gaussians, budget is %d" % (required_floor_cost, keep_count))
         views_factor = np.minimum(self.instance_views.astype(np.float64) / 3.0, 1.0)
         source_weight = np.where(self.instance_source == 1, 1.0, np.where(self.instance_source == 2, self.config["propagation_weight"], 0.0))
         evidence = self.instance_confidence * views_factor * source_weight
@@ -335,11 +381,13 @@ class InstancePruningState:
                 continue
             priority[indices] += self.config["within_instance_rank_weight"] * evidence[indices] * (_ranks(importance[indices]) - 0.5)
             priority[indices] += self.config["small_score_boost"] * row["smallness"] * evidence[indices]
-            quota = int(row["min_keep"])
-            representatives = self._spatial_representatives(indices, xyz, priority, row, quota)
+            quota = max(0, int(row["min_keep"]) - int(keep[indices].sum()))
+            available = indices[~keep[indices]]
+            representatives = self._spatial_representatives(available, xyz, priority, row, quota)
             keep[representatives] = True
             remainder = indices[~keep[indices]]
-            keep[_best(remainder, priority, self.original_ids, quota - len(representatives))] = True
+            deficit = max(0, int(row["min_keep"]) - int(keep[indices].sum()))
+            keep[_best(remainder, priority, self.original_ids, deficit)] = True
         remaining = np.flatnonzero(~keep)
         keep[_best(remaining, priority, self.original_ids, keep_count - int(keep.sum()))] = True
         instances = []
@@ -350,7 +398,9 @@ class InstancePruningState:
             record.update(before=len(indices), after=after, lost=after == 0, floor_violation=after < row["min_keep"])
             instances.append(record)
         audit = {"format": "pwsr-instance-prune-audit-v1", "before": count, "requested": keep_count,
-                 "kept": int(keep.sum()), "floor_total": floor_total, "instances": instances,
+                 "kept": int(keep.sum()), "floor_total": floor_total,
+                 "required_visible_anchors": int(len(required)), "anchors_plus_floors_cost": required_floor_cost,
+                 "instances": instances,
                  "protected_instances": sum(row["protected"] for row in self.policy),
                  "protected_lost": sum(row["protected"] and row["lost"] for row in instances),
                  "unknown_before": int(np.count_nonzero(self.instance_ids == 0)),

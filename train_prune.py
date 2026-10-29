@@ -40,7 +40,7 @@ def reconstruction_detection(scene, gaussians, pipe, background, dataset, rois=N
 
 def prune(scene, gaussians, pipe, background, prune_ratio, dataset,
           instance_state=None, rois=None, roi_weight=0.0, score_roi_weight=0.0,
-          protect_instances=True, audit_path=None):
+          protect_instances=True, audit_path=None, structure_state=None, structure_score_weight=0.0, structure_selection_mode="fixed"):
     torch.cuda.reset_peak_memory_stats()
 
     with torch.enable_grad():
@@ -84,6 +84,9 @@ def prune(scene, gaussians, pipe, background, prune_ratio, dataset,
             if rois is not None and score_roi_weight:
                 roi_weight_map = rois.records[view.image_name]["weights"].to(device=image.device, dtype=image.dtype)
                 objective = objective + score_roi_weight * (image * roi_weight_map.unsqueeze(0)).sum()
+            if structure_state is not None and rois is not None and structure_score_weight:
+                structural = rois.records[view.image_name]["structure_weights"].to(device=image.device, dtype=image.dtype)
+                objective = objective + structure_score_weight * (image * structural.unsqueeze(0)).sum()
             scores += torch.autograd.grad(objective, img_scores)[0]
             reconstruction = l1_loss(gt, image)
             if rois is not None and roi_weight:
@@ -96,8 +99,13 @@ def prune(scene, gaussians, pipe, background, prune_ratio, dataset,
     before = gaussians.get_xyz.shape[0]
     keep_count = max(1, int(round(before * (1.0 - prune_ratio))))
     if instance_state is not None and protect_instances:
-        keep, audit = instance_state.select_keep(scores, gaussians.get_xyz, keep_count)
-        audit["selection_mode"] = "instance_constrained_SPS"
+        if structure_state is not None:
+            selector = structure_state.select_keep_adaptive_final if structure_selection_mode == "adaptive" else structure_state.select_keep
+            keep, audit = selector(scores, instance_state.original_ids, keep_count,
+                                   instance_state=instance_state, xyz=gaussians.get_xyz)
+        else:
+            keep, audit = instance_state.select_keep(scores, gaussians.get_xyz, keep_count)
+            audit["selection_mode"] = "instance_constrained_SPS"
         # Counterfactual global SPS, same current model/scores/budget; not an
         # independently retrained baseline. Useful for per-event diagnosis.
         global_keep = global_sps_keep(scores, keep_count)
@@ -155,6 +163,13 @@ def main():
     parser.add_argument("--instance_score_roi_weight", type=float, default=0.25)
     parser.add_argument("--disable_instance_protection", action="store_true", help="Matched global-SPS control; retain only lineage sidecars")
     parser.add_argument("--require_pruning_target", action="store_true", help="Fail full experiments that did not reach the requested Gaussian target")
+    parser.add_argument("--structure_selection_mode", choices=("fixed", "adaptive"), default="fixed")
+    parser.add_argument("--structure_priors", help="TRAIN-visible Gaussian coverage anchors and original atom attributes")
+    parser.add_argument("--structure_boundary_weight", type=float, default=0.02)
+    parser.add_argument("--structure_thin_weight", type=float, default=0.03)
+    parser.add_argument("--structure_anchor_weight", type=float, default=0.02)
+    parser.add_argument("--structure_score_weight", type=float, default=0.35)
+    parser.add_argument("--structure_freeze_anchors", action="store_true", help="Preserve critical SH3 rendering atoms, train the remaining Gaussians")
     args = parser.parse_args()
     if not args.model_path or not args.source_path:
         parser.error("Specify source_path and model_path")
@@ -179,14 +194,19 @@ def main():
             setattr(args, name, os.path.abspath(getattr(args, name)))
             if not os.path.isfile(getattr(args, name)):
                 parser.error("Missing input: " + getattr(args, name))
-    for name in ("instance_metadata", "instance_policy_config", "instance_projected_area", "instance_roi_dir"):
+    for name in ("instance_metadata", "instance_policy_config", "instance_projected_area", "instance_roi_dir", "structure_priors"):
         if getattr(args, name):
             setattr(args, name, os.path.abspath(getattr(args, name)))
     if any(not np.isfinite(getattr(args, name)) or getattr(args, name) < 0
-           for name in ("instance_roi_weight", "instance_edge_weight", "instance_score_roi_weight")):
+           for name in ("instance_roi_weight", "instance_edge_weight", "instance_score_roi_weight", "structure_boundary_weight",
+                        "structure_thin_weight", "structure_anchor_weight", "structure_score_weight")):
         parser.error("Instance loss weights must be finite and nonnegative")
     if args.disable_instance_protection and args.instance_roi_dir:
         parser.error("The global-SPS control cannot consume instance ROI supervision")
+    if args.structure_priors and (args.disable_instance_protection or not args.instance_metadata or not args.instance_roi_dir):
+        parser.error("Structure protection requires instance lineage and TRAIN structure ROI supervision")
+    if args.structure_selection_mode == "adaptive" and (args.structure_freeze_anchors or args.structure_anchor_weight != 0):
+        parser.error("Adaptive coverage requires unfrozen recovery and structure_anchor_weight=0")
     resume = None
     if args.start_checkpoint:
         resume = load_torch_file(args.start_checkpoint + ".state.pth")
@@ -250,15 +270,44 @@ def main():
                     area = json.load(stream)
             instance_state = InstancePruningState.load(args.instance_metadata, model.get_xyz,
                                                        config=policy_config, projected_area=area)
+        if not args.disable_instance_protection:
+            instance_state.audit_floors()
         instance_state.export_policy(os.path.join(args.model_path, "protection_policy.json"))
         # Check the FINAL budget before any expensive optimization begins.
         target = int(opt.pruning_target if opt.pruning_target is not None else 0.1 * instance_state.original_count)
         if not args.disable_instance_protection and instance_state.policy_dict()["floor_total"] > target:
             raise ValueError("Instance hard floors exceed the final Gaussian budget")
+    structure_state, anchor_trust = None, None
+    if args.structure_priors:
+        from utils.structure_pruning import StructurePruningState
+        from utils.structure_losses import AnchorTrustRegion
+        structure_state = StructurePruningState.load(args.structure_priors, source_xyz=None if resume else model.get_xyz)
+        if args.structure_selection_mode == "adaptive" and target != int(structure_state.manifest["final_budget"]):
+            raise ValueError("Adaptive final budget differs from the declared structure certificate budget")
+        if structure_state.source_xyz_sha256 != instance_state.source_xyz_sha256:
+            raise ValueError("Structure and instance source models differ")
+        structure_state.audit_coverage(instance_state.original_ids, require_anchors=args.structure_selection_mode == "fixed")
+        if args.structure_selection_mode == "adaptive" and len(instance_state.original_ids) <= target:
+            required = len(instance_state.original_ids)
+        else:
+            required = structure_state.required_cost(instance_state)
+        if required > target:
+            raise ValueError("Structure anchors plus instance floor union %d exceeds final budget %d" % (required, target))
+        if args.structure_anchor_weight or args.structure_freeze_anchors:
+            anchor_trust = AnchorTrustRegion(structure_state)
+        atomic_json_save(dict(provenance=structure_state.provenance, required_union=required, final_budget=target, selection_mode=args.structure_selection_mode),
+                         os.path.join(args.model_path, "structure_policy.json"))
+    structure_provenance = structure_state.provenance if structure_state is not None else None
+    if resume and structure_provenance != resume.get("structure_provenance"):
+        raise ValueError("Structure input changed since the checkpoint")
     rois = None
     if args.instance_roi_dir:
-        from utils.instance_roi import TrainingInstanceROIs
-        rois = TrainingInstanceROIs(args.instance_roi_dir, cameras)
+        if structure_state is not None:
+            from utils.structure_losses import TrainingStructureROIs
+            rois = TrainingStructureROIs(args.instance_roi_dir, cameras)
+        else:
+            from utils.instance_roi import TrainingInstanceROIs
+            rois = TrainingInstanceROIs(args.instance_roi_dir, cameras)
     roi_provenance = rois.provenance if rois is not None else None
     if resume and roi_provenance != resume.get("instance_roi_provenance"):
         raise ValueError("Training ROI content changed since the checkpoint")
@@ -293,9 +342,16 @@ def main():
         if rois is not None:
             region_loss, edge_loss = rois.losses(camera.image_name, image, target)
             loss = loss + args.instance_roi_weight * region_loss + args.instance_edge_weight * edge_loss
+        if structure_state is not None:
+            boundary_survival, thin_continuity = rois.structure_losses(camera.image_name, image, target)
+            loss = loss + args.structure_boundary_weight * boundary_survival + args.structure_thin_weight * thin_continuity
+            if args.structure_anchor_weight:
+                loss = loss + args.structure_anchor_weight * anchor_trust.loss(model, instance_state.original_ids)
         if not torch.isfinite(loss):
             raise FloatingPointError("Non-finite pruning loss")
         loss.backward()
+        if anchor_trust is not None and args.structure_freeze_anchors:
+            anchor_trust.freeze_gradients_(model, instance_state.original_ids)
         # Every labeled iteration updates before topology changes or serialization.
         model.optimizer.step()
         model.optimizer.zero_grad(set_to_none=True)
@@ -313,7 +369,7 @@ def main():
                 audit_path = os.path.join(args.model_path, "instance_audits", "iteration_%d.json" % iteration)
                 schedule["loss_stamp"] = prune(scene, model, pipeline, background, schedule["pruning_ratio"], dataset,
                     instance_state, rois, args.instance_roi_weight, args.instance_score_roi_weight,
-                    not args.disable_instance_protection, audit_path)
+                    not args.disable_instance_protection, audit_path, structure_state, args.structure_score_weight, args.structure_selection_mode)
                 after = model.get_xyz.shape[0]
                 schedule["iteration_no_prune"] = 0
                 schedule["pruning_ratio"] = scheduler.get_pruning_rate(iteration, after, schedule["pruning_count"])
@@ -336,12 +392,15 @@ def main():
                 "configuration": vars(args), "schedule": dict(schedule), "scheduler": dict(scheduler.__dict__),
                 "remaining_views": list(remaining), "view_names": view_names, "events": list(events),
                 "rng": capture_rng_state(), "instance_metadata": instance_record,
-                "instance_roi_provenance": roi_provenance}, checkpoint + ".state.pth")
+                "instance_roi_provenance": roi_provenance, "structure_provenance": structure_provenance}, checkpoint + ".state.pth")
             ply = os.path.join(args.model_path, "point_cloud", "iteration_{}".format(iteration), "point_cloud.ply")
             atomic_write(ply, model.save_ply)
             if instance_state is not None:
                 instance_state.save(os.path.join(os.path.dirname(ply), "instance_priors.npz"), model.get_xyz)
             manifest.update(last_checkpoint=checkpoint, last_ply=ply, completed_steps=iteration-opt.densify_until_iter)
+            if structure_state is not None:
+                atomic_json_save(structure_state.audit_coverage(instance_state.original_ids, require_anchors=args.structure_selection_mode == "fixed"), os.path.join(os.path.dirname(ply), "structure_coverage.json"))
+                manifest["structure_provenance"] = structure_provenance
             atomic_json_save(manifest, os.path.join(args.model_path, "run_args.json"))
         if iteration in args.test_iterations:
             metrics[str(iteration)] = evaluate(scene, model, pipeline, background, dataset, iteration)

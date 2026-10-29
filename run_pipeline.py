@@ -61,16 +61,23 @@ def build_plan(config, stage="all", stage3_checkpoint=None, python=None):
                      "pruning_interval_maximum", "densify_until_iter", "beta"):
             if name in config:
                 arguments.extend(["--" + name, str(config[name])])
-        for name in ("instance_metadata", "instance_policy_config", "instance_projected_area", "instance_roi_dir"):
+        for name in ("instance_metadata", "instance_policy_config", "instance_projected_area", "instance_roi_dir", "structure_priors"):
+            if name == "structure_priors" and config.get("disable_instance_protection", False):
+                continue
             if config.get(name) and not (name == "instance_roi_dir" and config.get("disable_instance_protection", False)):
                 arguments.extend(["--" + name, str(resolve(config[name]))])
-        for name in ("instance_roi_weight", "instance_edge_weight", "instance_score_roi_weight"):
+        for name in ("instance_roi_weight", "instance_edge_weight", "instance_score_roi_weight", "structure_boundary_weight",
+                     "structure_thin_weight", "structure_anchor_weight", "structure_score_weight"):
             if name in config:
                 arguments.extend(["--" + name, str(config[name])])
         if config.get("disable_instance_protection", False):
             arguments.append("--disable_instance_protection")
         if config.get("require_pruning_target", False):
             arguments.append("--require_pruning_target")
+        if config.get("structure_priors") and not config.get("disable_instance_protection", False):
+            arguments.extend(["--structure_selection_mode", str(config.get("structure_selection_mode", "fixed"))])
+        if config.get("structure_freeze_anchors", False) and not config.get("disable_instance_protection", False):
+            arguments.append("--structure_freeze_anchors")
         command("prune", "train_prune.py", arguments, stage3)
     if stage in ("all", "distill"):
         if teacher is None:
@@ -91,6 +98,12 @@ def build_plan(config, stage="all", stage3_checkpoint=None, python=None):
                     distill_args.extend(["--" + name, str(config[name])])
             if config.get("instance_balanced_sampling", False):
                 distill_args.append("--instance_balanced_sampling")
+        if config.get("structure_priors") and not config.get("disable_instance_protection", False):
+            distill_args.extend(["--structure_priors", str(resolve(config["structure_priors"]))])
+            distill_args.extend(["--structure_selection_mode", str(config.get("structure_selection_mode", "fixed"))])
+            for name in ("structure_boundary_weight", "structure_thin_weight", "structure_anchor_weight"):
+                if name in config:
+                    distill_args.extend(["--" + name, str(config[name])])
         if config.get("distill_enable_covariance", False):
             distill_args.append("--enable_covariance")
         command("distill", "distill_train.py", distill_args, sh2)
@@ -100,6 +113,9 @@ def build_plan(config, stage="all", stage3_checkpoint=None, python=None):
                 raise FileNotFoundError("Missing model in " + str(directory))
             command("render_" + directory.name, "render.py", common + ["-m", str(directory), "--iteration", str(iteration), "--skip_train"], directory)
         command("metrics", "metrics.py", ["-m", str(stage3), str(sh2), "--device", "cuda"], output)
+    if stage == "all" and config.get("pre_distill_analysis", False):
+        priority = {"prune": 0, "render_stage3": 1, "distill": 2, "render_sh2": 3, "metrics": 4}
+        plan.sort(key=lambda task: priority[task["name"]])
     return output, plan
 
 
