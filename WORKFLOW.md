@@ -95,3 +95,7 @@ PWSR 自身续训使用 `train_prune.py --start_checkpoint ...`，也必须有�
 `output/integration_backups/2026-09-18/pwsr_python_before_merge.tar.gz`；
 旧编译产物在 `output/integration_backups/rasterizer_build_EjcboL/`。
 上游已跟踪的 DoG CUDA 源码还可以通过 Git 历史找回。许可证与标准 SPS 后端保留。
+
+2026-11-03 按用户提供方法说明新增独立的可行性约束自适应压缩入口 `run_adaptive_pipeline.py`，实现、显式预算参数和消融开关见 `ADAPTIVE_COMPRESSION.md`。新分支以相对恢复轮次触发剪枝，支持原生高斯合并与预算回填；SH蒸馏作为其可选后处理。历史入口及结果保留。
+
+2026-11-04 新增现有模型的地物保护评测 `evaluate_preservation.py`，不启动训练或消融。仅使用现有City标签，输出小语义区域Recall、Boundary F1、语义骨架clDice及统一原生ROI上的PSNR/LPIPS。先用 `/home/zhangys/anaconda3/envs/VGGT/bin/python evaluate_preservation.py --phase prepare` 计算硬骨架与固定ROI，再用 `bash scripts/run.sh evaluate_preservation.py --phase lpips`、`--phase report` 完成感知指标与报告。独立CPU核验用VGGT Python执行 `validate_preservation.py`。输出及范围说明见 `output/city2_comparison_20261104/preservation_metrics/README_地物保护指标.md`；现有标签不支持直接测量电线、井盖的物理实例Recall或细线断裂。

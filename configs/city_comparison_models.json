@@ -1,0 +1,220 @@
+[
+  {
+    "id": "original_3dgs",
+    "method": "3DGS",
+    "target_ratio": 1,
+    "model_dir": "/home/zhangys/gaussian-splatting（原生）/output/city2",
+    "iteration": 30000,
+    "ply": "/home/zhangys/gaussian-splatting（原生）/output/city2/point_cloud/iteration_30000/point_cloud.ply",
+    "actual_count": 1788093,
+    "sh_degree": 3,
+    "existing_render_dir": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_structure_guard_20261027/reference/original/test/ours_30000/renders",
+    "existing_gt_dir": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_structure_guard_20261027/reference/original/test/ours_30000/gt",
+    "need_common_renderer_rerender": false,
+    "provenance_notes": [
+      "Original pretrained city2 SH3; all compression budgets use its 1,788,093 points."
+    ]
+  },
+  {
+    "id": "lightgaussian_10x",
+    "method": "LightGaussian",
+    "target_ratio": 10,
+    "model_dir": "/home/zhangys/LightGaussian/output/city2_native_ckpt_prune10x/01_pruned",
+    "iteration": 35000,
+    "ply": "/home/zhangys/LightGaussian/output/city2_native_ckpt_prune10x/01_pruned/point_cloud/iteration_35000/point_cloud.ply",
+    "actual_count": 178810,
+    "sh_degree": 3,
+    "existing_render_dir": "/home/zhangys/LightGaussian/output/city2_native_ckpt_prune10x/01_pruned/test/ours_35000/renders",
+    "existing_gt_dir": "/home/zhangys/LightGaussian/output/city2_native_ckpt_prune10x/01_pruned/test/ours_35000/gt",
+    "need_common_renderer_rerender": false,
+    "provenance_notes": [
+      "Pre-SH-distillation SH3 pruning/recovery only; native threshold keeps one extra point (178,810).",
+      "Teacher/source is original city2 checkpoint; no semantic modules."
+    ]
+  },
+  {
+    "id": "lightgaussian_20x",
+    "method": "LightGaussian",
+    "target_ratio": 20,
+    "model_dir": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_structure_guard_20261027/lightgaussian20/stage3",
+    "iteration": 35000,
+    "ply": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_structure_guard_20261027/lightgaussian20/stage3/point_cloud/iteration_35000/point_cloud.ply",
+    "actual_count": 89405,
+    "sh_degree": 3,
+    "existing_render_dir": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_structure_guard_20261027/lightgaussian20/stage3/test/ours_35000/renders",
+    "existing_gt_dir": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_structure_guard_20261027/lightgaussian20/stage3/test/ours_35000/gt",
+    "need_common_renderer_rerender": false,
+    "provenance_notes": [
+      "Pre-SH-distillation native LightGaussian SH3 pruning/recovery baseline preserved by previous 20x experiment."
+    ]
+  },
+  {
+    "id": "pup_10x",
+    "method": "PUP-3DGS",
+    "target_ratio": 10,
+    "model_dir": "/home/zhangys/gaussian-splatting-pup/experiments/city_10x",
+    "iteration": 35000,
+    "ply": "/home/zhangys/gaussian-splatting-pup/experiments/city_10x/point_cloud/iteration_35000/point_cloud.ply",
+    "actual_count": 178809,
+    "sh_degree": 3,
+    "existing_render_dir": "/home/zhangys/gaussian-splatting-pup/experiments/city_10x/test/ours_35000/renders",
+    "existing_gt_dir": "/home/zhangys/gaussian-splatting-pup/experiments/city_10x/test/ours_35000/gt",
+    "need_common_renderer_rerender": false,
+    "provenance_notes": [
+      "Original city2 PLY initialization; two Fisher pruning rounds with 5,000 recovery steps per round.",
+      "Shared first round keeps 357,619; final budget uses stable exact top-K; SH3."
+    ]
+  },
+  {
+    "id": "pup_20x",
+    "method": "PUP-3DGS",
+    "target_ratio": 20,
+    "model_dir": "/home/zhangys/gaussian-splatting-pup/experiments/city_20x",
+    "iteration": 35000,
+    "ply": "/home/zhangys/gaussian-splatting-pup/experiments/city_20x/point_cloud/iteration_35000/point_cloud.ply",
+    "actual_count": 89405,
+    "sh_degree": 3,
+    "existing_render_dir": "/home/zhangys/gaussian-splatting-pup/experiments/city_20x/test/ours_35000/renders",
+    "existing_gt_dir": "/home/zhangys/gaussian-splatting-pup/experiments/city_20x/test/ours_35000/gt",
+    "need_common_renderer_rerender": false,
+    "provenance_notes": [
+      "Same original city2 source and shared first Fisher round as PUP10; 10,000 cumulative recovery steps."
+    ]
+  },
+  {
+    "id": "speedy_10x",
+    "method": "Speedy-Splat",
+    "target_ratio": 10,
+    "model_dir": "/home/zhangys/speedy-splat/output/city_10x",
+    "iteration": 30000,
+    "ply": "/home/zhangys/speedy-splat/output/city_10x/point_cloud/iteration_30000/point_cloud.ply",
+    "actual_count": 178809,
+    "sh_degree": 3,
+    "existing_render_dir": "/home/zhangys/speedy-splat/output/city_10x/test/ours_30000/renders",
+    "existing_gt_dir": "/home/zhangys/speedy-splat/output/city_10x/test/ours_30000/gt",
+    "need_common_renderer_rerender": true,
+    "provenance_notes": [
+      "Budget matched to city2, but model trained from COLMAP sparse initialization with Speedy-Splat.",
+      "Continues Speedy default checkpoint at iteration 20,000 (292,912 points) for 10,000 updates.",
+      "Source runtime does not save RNG state; resume resets RNG. Not a direct city2 pruning run.",
+      "Existing renders/metrics use Speedy CUDA renderer. Rerender with shared native renderer before common comparison."
+    ]
+  },
+  {
+    "id": "speedy_20x",
+    "method": "Speedy-Splat",
+    "target_ratio": 20,
+    "model_dir": "/home/zhangys/speedy-splat/output/city_20x",
+    "iteration": 30000,
+    "ply": "/home/zhangys/speedy-splat/output/city_20x/point_cloud/iteration_30000/point_cloud.ply",
+    "actual_count": 89405,
+    "sh_degree": 3,
+    "existing_render_dir": "/home/zhangys/speedy-splat/output/city_20x/test/ours_30000/renders",
+    "existing_gt_dir": "/home/zhangys/speedy-splat/output/city_20x/test/ours_30000/gt",
+    "need_common_renderer_rerender": true,
+    "provenance_notes": [
+      "Budget matched to city2, trained from COLMAP sparse initialization with Speedy-Splat.",
+      "Continues the same Speedy iteration 20,000 source for 10,000 updates; not direct city2 pruning.",
+      "Source runtime does not save RNG state; resume resets RNG.",
+      "Existing renders/metrics use Speedy CUDA renderer; require common native rerender."
+    ]
+  },
+  {
+    "id": "pwsr_10x",
+    "method": "PWSR",
+    "target_ratio": 10,
+    "model_dir": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_instance_guard_20261026/control/stage3",
+    "iteration": 25199,
+    "ply": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_instance_guard_20261026/control/stage3/point_cloud/iteration_25199/point_cloud.ply",
+    "actual_count": 178809,
+    "sh_degree": 3,
+    "existing_render_dir": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_instance_guard_20261026/control/stage3/test/ours_25199/renders",
+    "existing_gt_dir": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_instance_guard_20261026/control/stage3/test/ours_25199/gt",
+    "need_common_renderer_rerender": false,
+    "provenance_notes": [
+      "Unprotected original RIR/DPRA/SPS control; 10,199 recovery updates; source original city2 PLY.",
+      "Instance protection explicitly disabled; no 3D-DoG."
+    ]
+  },
+  {
+    "id": "pwsr_20x",
+    "method": "PWSR",
+    "target_ratio": 20,
+    "model_dir": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_structure_guard_20261027/control20/stage3",
+    "iteration": 25199,
+    "ply": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_structure_guard_20261027/control20/stage3/point_cloud/iteration_25199/point_cloud.ply",
+    "actual_count": 89405,
+    "sh_degree": 3,
+    "existing_render_dir": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_structure_guard_20261027/control20/stage3/test/ours_25199/renders",
+    "existing_gt_dir": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_structure_guard_20261027/control20/stage3/test/ours_25199/gt",
+    "need_common_renderer_rerender": false,
+    "provenance_notes": [
+      "Unprotected original RIR/DPRA/SPS control; 10,199 recovery updates; source original city2 PLY.",
+      "Instance protection explicitly disabled; no 3D-DoG."
+    ]
+  },
+  {
+    "id": "ours_10x",
+    "method": "Ours (adaptive constraints)",
+    "target_ratio": 10,
+    "model_dir": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_adaptive_constraints_20261102/full_10x/stage3",
+    "iteration": 4019,
+    "ply": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_adaptive_constraints_20261102/full_10x/stage3/point_cloud/iteration_4019/point_cloud.ply",
+    "actual_count": 178809,
+    "sh_degree": 3,
+    "existing_render_dir": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_adaptive_constraints_20261102/full_10x/stage3/test/ours_4019/renders",
+    "existing_gt_dir": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_adaptive_constraints_20261102/full_10x/stage3/test/ours_4019/gt",
+    "need_common_renderer_rerender": false,
+    "provenance_notes": [
+      "Current MD-based adaptive constraints result, pre-SH-distillation SH3."
+    ]
+  },
+  {
+    "id": "ours_20x",
+    "method": "Ours (adaptive constraints)",
+    "target_ratio": 20,
+    "model_dir": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_adaptive_constraints_20261102/full_20x/stage3",
+    "iteration": 4224,
+    "ply": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_adaptive_constraints_20261102/full_20x/stage3/point_cloud/iteration_4224/point_cloud.ply",
+    "actual_count": 89405,
+    "sh_degree": 3,
+    "existing_render_dir": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_adaptive_constraints_20261102/full_20x/stage3/test/ours_4224/renders",
+    "existing_gt_dir": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_adaptive_constraints_20261102/full_20x/stage3/test/ours_4224/gt",
+    "need_common_renderer_rerender": false,
+    "provenance_notes": [
+      "Current MD-based adaptive constraints result, pre-SH-distillation SH3."
+    ]
+  },
+  {
+    "id": "v3_10x",
+    "method": "v3",
+    "target_ratio": 10,
+    "model_dir": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_structure_guard_10x_20261030/stage3",
+    "iteration": 25199,
+    "ply": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_structure_guard_10x_20261030/stage3/point_cloud/iteration_25199/point_cloud.ply",
+    "actual_count": 178809,
+    "sh_degree": 3,
+    "existing_render_dir": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_structure_guard_10x_20261030/stage3/test/ours_25199/renders",
+    "existing_gt_dir": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_structure_guard_10x_20261030/stage3/test/ours_25199/gt",
+    "need_common_renderer_rerender": false,
+    "provenance_notes": [
+      "Previous v3 structure-protected method; optional version reference."
+    ]
+  },
+  {
+    "id": "v3_20x",
+    "method": "v3",
+    "target_ratio": 20,
+    "model_dir": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_structure_guard_20261027/protected20_adaptive/stage3",
+    "iteration": 25199,
+    "ply": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_structure_guard_20261027/protected20_adaptive/stage3/point_cloud/iteration_25199/point_cloud.ply",
+    "actual_count": 89405,
+    "sh_degree": 3,
+    "existing_render_dir": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_structure_guard_20261027/protected20_adaptive/stage3/test/ours_25199/renders",
+    "existing_gt_dir": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_structure_guard_20261027/protected20_adaptive/stage3/test/ours_25199/gt",
+    "need_common_renderer_rerender": false,
+    "provenance_notes": [
+      "Previous v3 adaptive structure-protected method; optional version reference."
+    ]
+  }
+]

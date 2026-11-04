@@ -1,0 +1,20 @@
+{
+  "status": "complete",
+  "models": 14,
+  "annotated_test_frames": [
+    "frame_000",
+    "frame_056"
+  ],
+  "gt_small_regions": 248,
+  "gt_vehicle_small_regions": 59,
+  "fixed_structure_rois": 6,
+  "roi_measurements_audited": 3556,
+  "boundary_matches_independently_verified_with_euclidean_distance": true,
+  "hard_cldice_independently_recomputed": true,
+  "roi_psnr_independently_recomputed": true,
+  "roi_lpips_aggregation_and_source_hashes_verified": true,
+  "recall_matches_prior_independent_evaluation": true,
+  "no_ablations_or_training_executed": true,
+  "summary_sha256": "e0a057c1df567698eb3d0ee90cefdc33dc03ee8d468121dfcc82906597de9155",
+  "report_sha256": "5ed35125cf50e1a8f8037365055866ac9730725426bff8b57d081900f2a94a67"
+}

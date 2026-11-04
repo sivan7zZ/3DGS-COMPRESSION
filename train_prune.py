@@ -40,7 +40,7 @@ def reconstruction_detection(scene, gaussians, pipe, background, dataset, rois=N
 
 def prune(scene, gaussians, pipe, background, prune_ratio, dataset,
           instance_state=None, rois=None, roi_weight=0.0, score_roi_weight=0.0,
-          protect_instances=True, audit_path=None, structure_state=None, structure_score_weight=0.0, structure_selection_mode="fixed"):
+          protect_instances=True, audit_path=None, structure_state=None, structure_score_weight=0.0, structure_selection_mode="fixed", return_scores=False):
     torch.cuda.reset_peak_memory_stats()
 
     with torch.enable_grad():
@@ -95,6 +95,9 @@ def prune(scene, gaussians, pipe, background, prune_ratio, dataset,
             total_loss += reconstruction.item()
 
         avg_loss = total_loss / len(cameras)
+
+    if return_scores:
+        return scores.detach(), avg_loss
 
     before = gaussians.get_xyz.shape[0]
     keep_count = max(1, int(round(before * (1.0 - prune_ratio))))

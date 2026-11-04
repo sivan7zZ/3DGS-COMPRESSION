@@ -1,0 +1,76 @@
+{
+  "source_path": "/home/zhangys/gaussian-splatting（原生）/data/city",
+  "input_ply": "/home/zhangys/gaussian-splatting（原生）/output/city2/point_cloud/iteration_30000/point_cloud.ply",
+  "teacher_checkpoint": "/home/zhangys/gaussian-splatting（原生）/output/city2/chkpnt30000.pth",
+  "shared_metadata": "output/city2_adaptive_constraints_20261102/shared",
+  "resolution": -1,
+  "cpu_threads": 8,
+  "legacy_structure_roi_dir": "output/city2_structure_guard_20261027/inputs/structure/roi",
+  "preserve_v3_losses": true,
+  "recovery_losses": {
+    "instance_roi": 0.02,
+    "instance_edge": 0.01,
+    "boundary": 0.005,
+    "thin": 0.005
+  },
+  "distill_steps": 5000,
+  "instance_protection": {
+    "enabled": true,
+    "association_threshold": 0.15,
+    "instance_confidence_threshold": 0.55,
+    "min_instance_gaussians": 8,
+    "base_keep_ratio": 0.005,
+    "max_keep_ratio": 0.03,
+    "fragility_beta": 0.015
+  },
+  "boundary_protection": {
+    "enabled": false,
+    "sam_weight": 0.5,
+    "depth_weight": 0.25,
+    "rgb_edge_weight": 0.25,
+    "boundary_threshold": 0.55,
+    "boundary_keep_ratio": 0.6,
+    "mode": "quota"
+  },
+  "topology_protection": {
+    "enabled": true,
+    "knn": 12,
+    "linearity_threshold": 0.85,
+    "direction_threshold": 0.7,
+    "distance_multiplier": 2.5
+  },
+  "adaptive_compression": {
+    "enabled": true,
+    "initial_prune_ratio": 0.2,
+    "min_prune_ratio": 0.08,
+    "max_prune_ratio": 0.3,
+    "min_recovery_steps": 200,
+    "max_recovery_steps": 800,
+    "convergence_window": 50,
+    "convergence_threshold": 0.005,
+    "final_recovery_steps": 1500,
+    "max_rounds": 60
+  },
+  "gaussian_merging": {
+    "enabled": true,
+    "knn": 8,
+    "max_fraction": 0.005,
+    "distance_factor": 0.5,
+    "scale_ratio": 1.5,
+    "sh_threshold": 0.05
+  },
+  "budget_reallocation": {
+    "enabled": true,
+    "reserve_ratio": 0.01,
+    "hard_region_threshold": 0.01,
+    "removed_pool_rounds": 2,
+    "rgb_weight": 1.0,
+    "structure_weight": 1.0
+  },
+  "structure_loss": {
+    "enabled": true,
+    "weight": 0.05
+  },
+  "pruning_target": 89405,
+  "output_root": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/ablations20/no_boundary_quota"
+}

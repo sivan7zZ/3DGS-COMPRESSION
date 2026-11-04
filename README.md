@@ -8,6 +8,14 @@
 
 详细输入输出、迭代编号、checkpoint 语义和历史结果说明见 [WORKFLOW.md](WORKFLOW.md)。
 
+## v3.1.0：自适应约束压缩与地物保护评测
+
+在v3基础上新增原始全局SPS排序下的实例/边界配额、拓扑保护、自适应恢复、高斯矩匹配合并与预算回填。City的10×/20×实验已完成，SH3剪枝结果与SH2蒸馏结果分别保留。方法与配置见 [ADAPTIVE_COMPRESSION.md](ADAPTIVE_COMPRESSION.md)。
+
+现有LightGaussian、PUP-3DGS、Speedy-Splat、PWSR、原始3DGS及GT已纳入统一比较，新增小区域Recall、Boundary F1、语义骨架clDice和ROI-PSNR/LPIPS。当前方法20×小区域Recall较PWSR提高0.81个百分点，边界、语义骨架与平均ROI质量未同步改善。现有City标签不含独立电线、井盖标注，不能据此宣称这类目标已经完整保留。
+
+[v3.1.0版本说明](RELEASE_NOTES_v3.1.0.md) · [结果CSV](reports/v3.1.0/preservation_metrics.csv) · [比较协议](COMPARISON_PROTOCOL.md) · [完整进度](PROGRESS.md)。模型、渲染和完整逐ROI结果留在本机 `output/`；Git保存代码、配置、测试及轻量结果摘要。
+
 ## v3.0.0：无语义标签的实例与结构保护
 
 新增训练视角可见支撑约束、小区域配额、边界对比监督及细线连续性监督；主配置为 `configs/city_structure20_adaptive.json`。City 20×实验保留 89,405 个高斯，SH3 与 SH2 分别保存，97 项测试通过。

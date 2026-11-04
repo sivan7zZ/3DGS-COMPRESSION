@@ -1,0 +1,67 @@
+{
+  "version": "v3.1.0",
+  "date": "2026-11-04",
+  "timezone": "Asia/Shanghai",
+  "scope": "Source/config/tests/progress and lightweight metric snapshots; full experiment data remains local.",
+  "files": {
+    "preservation_metrics.csv": {
+      "original_path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/preservation_metrics/metrics.csv",
+      "sha256": "689bf7f26ca4879759551ce3771a32357e2d75d48ad94238d620f0c68c0a4b52",
+      "snapshot_sha256": "b9ea5ce2cdf152b369326ac0924313db4aa0cd44c486931b7e2b767d43c98b49",
+      "snapshot_format": "LF line endings; CSV values unchanged from original"
+    },
+    "preservation_summary.json": {
+      "original_path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/preservation_metrics/summary.json",
+      "sha256": "e0a057c1df567698eb3d0ee90cefdc33dc03ee8d468121dfcc82906597de9155",
+      "snapshot_sha256": "e0a057c1df567698eb3d0ee90cefdc33dc03ee8d468121dfcc82906597de9155"
+    },
+    "preservation_validation.json": {
+      "original_path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/preservation_metrics/validation.json",
+      "sha256": "b53efd9c8dc40950356886786c94f0e213de957c5f79052952cb9174ce79baee",
+      "snapshot_sha256": "b53efd9c8dc40950356886786c94f0e213de957c5f79052952cb9174ce79baee"
+    },
+    "local_only/inputs.json": {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/preservation_metrics/inputs.json",
+      "sha256": "7c4da5380a496267a289b6afb183de95a66ca72b8c5844d07ace61d8f1850165",
+      "bytes": 124749
+    },
+    "local_only/mask_and_psnr.json": {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/preservation_metrics/mask_and_psnr.json",
+      "sha256": "93985e8dd82fe573806fa577573826c6c3d5126ca1f26a047afdb5682230c5c5",
+      "bytes": 980065
+    },
+    "local_only/roi_lpips.json": {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/preservation_metrics/roi_lpips.json",
+      "sha256": "578f792076e2620fcde78331c1a2f2d7bf92bddf8e8233e693617f3d9f2f0569",
+      "bytes": 527843
+    },
+    "local_only/per_roi.csv": {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/preservation_metrics/per_roi.csv",
+      "sha256": "1bf6b77e4a0e0e61d0c1f6419924f3532a68fe19441dba8904f55b54c685f00a",
+      "bytes": 494510
+    },
+    "local_only/per_class.csv": {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/preservation_metrics/per_class.csv",
+      "sha256": "7ad9bdfe6bdfccc414e9dde29c712367bfc6f8bf551f1f094859b1190e32745f",
+      "bytes": 13077
+    },
+    "local_only/roi_overview.png": {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/preservation_metrics/roi_overview.png",
+      "sha256": "51c1d745fc4b8107fa465b62e16a38a178c13de4d593dd7bddda2cd1199ecfe4",
+      "bytes": 3748254
+    },
+    "local_only/README_地物保护指标.md": {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/preservation_metrics/README_地物保护指标.md",
+      "sha256": "5ed35125cf50e1a8f8037365055866ac9730725426bff8b57d081900f2a94a67",
+      "bytes": 5509
+    },
+    "local_only/logs/preservation_tests.log": {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/logs/preservation_tests.log",
+      "sha256": "f5f7cdb87b6e1947d41b334fd1c1f7288815b66e21f8fec23a603227c163d100"
+    },
+    "local_only/logs/preservation_validation.log": {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/logs/preservation_validation.log",
+      "sha256": "b53efd9c8dc40950356886786c94f0e213de957c5f79052952cb9174ce79baee"
+    }
+  }
+}
