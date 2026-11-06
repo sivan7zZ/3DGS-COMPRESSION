@@ -8,3 +8,6 @@
 - 不包括 LightGaussian 的额外剪枝、VecTree / 码本量化流程，不包含 PWSR 的 3D-DoG。
 - 根目录 LICENSE.md、源码中的 Inria / GRAPHDECO 版权声明及各 submodule 的许可证原样保留；
   本整合没有授予额外使用许可。
+# PUP Fisher评分后端（2026-11-05）
+
+`submodules/pup-fisher/`来自[PUP Fisher CUDA](https://github.com/j-alex-hanson/rasterization_and_pup_fisher)，固定commit `eaef2faba21f076867c1db84c3f998e5f673762f`，保留其原有许可证与版权声明。评分对照[PUP官方训练实现](https://github.com/j-alex-hanson/gaussian-splatting-pup)的位置/log-scale Fisher矩阵SVD logdet。初始端口来自本机已验证的参考项目，文件SHA记录在 `submodules/pup-fisher/PORT_PROVENANCE.json`；编译与运行均使用当前仓库内源码。

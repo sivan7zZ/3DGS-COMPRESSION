@@ -1,0 +1,122 @@
+{
+  "version": "v3.2.0",
+  "saved_on": "2026-11-06",
+  "timezone": "Asia/Shanghai",
+  "git_base": "2acff96b5cfa53d8414da7c53da8ad7106fffa0c",
+  "experiment_root": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105",
+  "method": "PUP_Fisher_RIR_DPRA_v31_protected",
+  "scope": "Source, configurations, tests, license/provenance, progress and lightweight result snapshots; full models, renders and compiled backend remain local.",
+  "historical_manifest_note": "experiment_artifact_manifest.json is an exact experiment-end snapshot. Its source_changes_committed=false records the pre-release state; the v3.2.0 Git tag identifies this archived source version. Frozen evaluation documents predate release notes; original snapshots are preserved.",
+  "files": {
+    "comparison_all_metrics.csv": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/comparison_all_metrics.csv",
+      "source_sha256": "f0da543ed7373e3912fdd849a8f2f57cec1a548ec8f1d85c3e018fb187e54839",
+      "snapshot_sha256": "f0da543ed7373e3912fdd849a8f2f57cec1a548ec8f1d85c3e018fb187e54839",
+      "bytes": 3682,
+      "normalization": "none"
+    },
+    "compression_summary.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/summary.json",
+      "source_sha256": "f3d1124ddfac2f92811a14a46eb0667afefbb264441ab4ce78d7391328ffb76d",
+      "snapshot_sha256": "f3d1124ddfac2f92811a14a46eb0667afefbb264441ab4ce78d7391328ffb76d",
+      "bytes": 2335,
+      "normalization": "none"
+    },
+    "metrics_standard.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/metrics_standard.json",
+      "source_sha256": "dc559435e29852622697715aac9414078a53d1ef0c2540966ebc6f1f707efa45",
+      "snapshot_sha256": "dc559435e29852622697715aac9414078a53d1ef0c2540966ebc6f1f707efa45",
+      "bytes": 21779,
+      "normalization": "none"
+    },
+    "preservation_comparison.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/preservation_comparison.json",
+      "source_sha256": "1140fec23f1096eeba47a2faa1bd1c866b8c4a1e76977e0206ee15b5b81a6c11",
+      "snapshot_sha256": "1140fec23f1096eeba47a2faa1bd1c866b8c4a1e76977e0206ee15b5b81a6c11",
+      "bytes": 2634,
+      "normalization": "none"
+    },
+    "preservation_metrics.csv": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/comparison/preservation_metrics/metrics.csv",
+      "source_sha256": "46aaf3efe9c306d7fdd6b3a1529ff158e3e5ca4e836222962e1d572b5b0ee0ce",
+      "snapshot_sha256": "1ebd4f9b4c903274725ecf283a58383d0c71c92ea6660836a48c2c41e6365f9b",
+      "bytes": 2830,
+      "normalization": "CRLF to LF only"
+    },
+    "preservation_summary.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/comparison/preservation_metrics/summary.json",
+      "source_sha256": "c7ddd3eaf17fc08e60b59eeee74a4f2220e8f73520100c0379cd8db1397e4070",
+      "snapshot_sha256": "c7ddd3eaf17fc08e60b59eeee74a4f2220e8f73520100c0379cd8db1397e4070",
+      "bytes": 8791,
+      "normalization": "none"
+    },
+    "preservation_validation.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/comparison/preservation_metrics/validation.json",
+      "source_sha256": "67d9160c958d76924fdc0ecd414364b4140f0951fe6a48a5cc0556981e0c4c75",
+      "snapshot_sha256": "67d9160c958d76924fdc0ecd414364b4140f0951fe6a48a5cc0556981e0c4c75",
+      "bytes": 739,
+      "normalization": "none"
+    },
+    "validation_10x.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/full_10x/validation.json",
+      "source_sha256": "6641d5052bf74f313c1989317d398889833a1f35d998ac643c129c4586e1a437",
+      "snapshot_sha256": "6641d5052bf74f313c1989317d398889833a1f35d998ac643c129c4586e1a437",
+      "bytes": 1821,
+      "normalization": "none"
+    },
+    "validation_20x.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/full_20x/validation.json",
+      "source_sha256": "ac784109134ce11f34eb3c0cdd572c5498803054b325f1e2ff25e85b6aeced6e",
+      "snapshot_sha256": "ac784109134ce11f34eb3c0cdd572c5498803054b325f1e2ff25e85b6aeced6e",
+      "bytes": 1814,
+      "normalization": "none"
+    },
+    "experiment_queue.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/experiment_queue.json",
+      "source_sha256": "073fc02a7233e194415baaf179379909470c8323217a2fa56523641c3dc6d6fc",
+      "snapshot_sha256": "073fc02a7233e194415baaf179379909470c8323217a2fa56523641c3dc6d6fc",
+      "bytes": 825,
+      "normalization": "none"
+    },
+    "preservation_queue.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/preservation_queue.json",
+      "source_sha256": "0074cc1dc01a56baab1223402bdfa5a5b009a465430558010747738edbc3135a",
+      "snapshot_sha256": "0074cc1dc01a56baab1223402bdfa5a5b009a465430558010747738edbc3135a",
+      "bytes": 249,
+      "normalization": "none"
+    },
+    "experiment_artifact_manifest.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/final_artifact_manifest.json",
+      "source_sha256": "f1b3190f3e0f267d66fcf9811aa9a15871eed8bdb14be5874fca3ebdc7473120",
+      "snapshot_sha256": "f1b3190f3e0f267d66fcf9811aa9a15871eed8bdb14be5874fca3ebdc7473120",
+      "bytes": 5222,
+      "normalization": "none"
+    },
+    "training_source_manifest.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/source_snapshot/manifest.json",
+      "source_sha256": "94fb042f00539741bd4e57d5eb3db52998d90297cb86bea430ca3afbdeecf590",
+      "snapshot_sha256": "94fb042f00539741bd4e57d5eb3db52998d90297cb86bea430ca3afbdeecf590",
+      "bytes": 4498,
+      "normalization": "none"
+    },
+    "evaluation_source_manifest.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/evaluation_source_snapshot/manifest.json",
+      "source_sha256": "1e5b904fb8d60407af3250071b0e1189f9a7bd5a4b1f758e9ac3686bef294b15",
+      "snapshot_sha256": "1e5b904fb8d60407af3250071b0e1189f9a7bd5a4b1f758e9ac3686bef294b15",
+      "bytes": 2767,
+      "normalization": "none"
+    },
+    "build_environment.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/build_environment.json",
+      "source_sha256": "0a425586eb1478c54c8f8e0b6fb574e27510536a04923b51c54cf4dae3c0b76b",
+      "snapshot_sha256": "0a425586eb1478c54c8f8e0b6fb574e27510536a04923b51c54cf4dae3c0b76b",
+      "bytes": 597,
+      "normalization": "none"
+    },
+    "verification_summary.json": {
+      "snapshot_sha256": "87d2ce24370f26e121b64b3d1be3620a2e286edf70a56a26404f60488d50799b",
+      "bytes": 903,
+      "source": "derived from cited existing verification records"
+    }
+  }
+}

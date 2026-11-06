@@ -1,0 +1,29 @@
+{
+  "source_repository": "https://github.com/j-alex-hanson/rasterization_and_pup_fisher",
+  "upstream_commit": "eaef2faba21f076867c1db84c3f998e5f673762f",
+  "local_reference_project": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply\uff08+\u84b8\u998f\uff09",
+  "reference_commit": "33c7d4c",
+  "ported_initial_sha256": {
+    "submodules/pup-fisher/rasterize_points.h": "3dbb43fcd2dc4de4d41ed8db44c450d2a16283207e5aff2bc17cc19a86f1ea31",
+    "submodules/pup-fisher/LICENSE.md": "cd5c95b3cfff3acc1bd412420c770f88809331c3db6872df11a970147aa8e81f",
+    "submodules/pup-fisher/ext.cpp": "50a7f10c08f1bf2c483b87f1431b519739f6e5e5fa9a8bd836ff917962eb1ab4",
+    "submodules/pup-fisher/.gitignore": "5cb50fd1077b728ac04ffed37e38f5778e8ee9e7893e616b61c1a6ad7751d600",
+    "submodules/pup-fisher/setup.py": "63cdde1af2e97d6f679de2f86f3fc117e387b684c33f0a89bc8234b00e3ae148",
+    "submodules/pup-fisher/rasterize_points.cu": "e258fb073c1dadc149d2ab494a3a0f76832afe786406c7573585b578fc729d3c",
+    "submodules/pup-fisher/CMakeLists.txt": "7a8eed0c40f49659fcae992dd7c95531a2b323e38aab2ad492cf63044ed520e4",
+    "submodules/pup-fisher/README.md": "0b9d52998e4689da9ed27dad039e38a1a71d0ee746de43638f7424e108ff4384",
+    "submodules/pup-fisher/rasterization_and_pup_fisher/__init__.py": "1d4fc43bb67c4552193d340e2d6894ad7ec3c0d04a620fd7655c89ccf855df5b",
+    "submodules/pup-fisher/cuda_rasterizer/auxiliary.h": "a4258c2fcac1a5d34df4d6bf5c14c08f06b8c32e6ffbfdd4a6d9b3d82ebf9289",
+    "submodules/pup-fisher/cuda_rasterizer/forward.h": "51216673c4f64862c2b753e08467047c0ec8ada444c579a775a495c566154e34",
+    "submodules/pup-fisher/cuda_rasterizer/rasterizer_impl.cu": "ed2941ba9264483694d3ca69c677fa801db370337168e9bbc2bc80b63825a679",
+    "submodules/pup-fisher/cuda_rasterizer/config.h": "90693222e7d0f8c413ec2e59ef6998cd687205a6b03ab4f6d1ed68a84e01fb8e",
+    "submodules/pup-fisher/cuda_rasterizer/backward.h": "9274b7127ffa8e3408f56f2b40a80715b99766922b311703c703ac30ae5bb0f2",
+    "submodules/pup-fisher/cuda_rasterizer/backward.cu": "bcd8cbf6da6480591d13012cfffd2213c4aeab17b0bf80874b21de7465d44430",
+    "submodules/pup-fisher/cuda_rasterizer/rasterizer.h": "5b2d766a49de1e69a79902ade285a16b3dea5b3010d133f01092c043686d2695",
+    "submodules/pup-fisher/cuda_rasterizer/rasterizer_impl.h": "9a8f170cda5af00d27e6f137a25d677f780a04fad86a21c3a7466f4d5576f758",
+    "submodules/pup-fisher/cuda_rasterizer/forward.cu": "d6d3b652c2a2b5625c4e76a5332078fc60678e7763e27b52c8e7a5de15b46015",
+    "utils/pruning_scores.py": "e123e2443dc96c04b2f6e4d285cd7b86b242201013d90dc44d5a5c5b109111c6",
+    "scripts/check_pup_cuda.py": "e114a501ace330495501b36d3113cb5d4dfe6f78e6cc40472ba41e402aba13f7",
+    "tests/test_pruning_scores.py": "eb35a3ecc5586b9455d116ed6c30db5b6a4dbdfe0bf333676e48e1a9e0a63878"
+  }
+}

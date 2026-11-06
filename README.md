@@ -1,12 +1,21 @@
 # 3DGS COMPRESSION
 
-本分支将 PWSR 的 RIR / DPRA / SPS 剪枝与 LightGaussian 的 SH 蒸馏整合在同一仓库。
+本分支将 3DGS 保护剪枝与 LightGaussian 的 SH 蒸馏整合在同一仓库。
+当前 v3.2.0 使用 PUP Fisher 评分与 PWSR 的 RIR / DPRA 调度，保留实例、边界和拓扑保护；历史 SPS 入口保留。
 **不包含 3D-DoG，也不是上游论文完整四阶段的复现版本。**
 蒸馏的教师、学生均从标准 checkpoint 初始化，PLY 仅作为导出结果。
 教师使用未剪枝的原始 3DGS checkpoint，学生使用 PWSR 剪枝后的 checkpoint。
 无需调用外部 LightGaussian 仓库，不包含 LightGaussian 的重复剪枝或 VecTree 量化。
 
 详细输入输出、迭代编号、checkpoint 语义和历史结果说明见 [WORKFLOW.md](WORKFLOW.md)。
+
+## v3.2.0：PUP评分 + RIR/DPRA
+
+保留v3.1.0全部保护、合并、预算回填和恢复损失，把评分改为PUP六维Fisher的SVD logdet，并恢复原RIR/DPRA调度。方法、配置、运行及续跑方式见 [PUP_RIR_DPRA.md](PUP_RIR_DPRA.md)。入口为 `bash scripts/run.sh run_pup_rir_experiments.py`，10×/20×均已完成，SH3与SH2结果分别保存在 `output/city2_pup_rir_dpra_20261105/`；同一冻结分割器和固定ROI复评及独立核验已完成。
+
+SH3的10×/20× PSNR分别为34.7279/33.4243，标准LPIPS为0.06455/0.10968。相比v3.1.0，20×多召回1个小语义区域，248区域平均ROI质量提高；固定6处ROI的20× LPIPS变差，尚未确认新版独有的整物体挽救。评分、调度和恢复步数同时改变，不能把差异单独归因于PUP。
+
+[v3.2.0版本说明](RELEASE_NOTES_v3.2.0.md) · [完整比较CSV](reports/v3.2.0/comparison_all_metrics.csv) · [蒸馏前后摘要](reports/v3.2.0/compression_summary.json) · [实验文件SHA](reports/v3.2.0/artifact_manifest.json)。大型模型和渲染保留本机，Git保存源代码及轻量实验记录。
 
 ## v3.1.0：自适应约束压缩与地物保护评测
 

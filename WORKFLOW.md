@@ -99,3 +99,5 @@ PWSR 自身续训使用 `train_prune.py --start_checkpoint ...`，也必须有�
 2026-11-03 按用户提供方法说明新增独立的可行性约束自适应压缩入口 `run_adaptive_pipeline.py`，实现、显式预算参数和消融开关见 `ADAPTIVE_COMPRESSION.md`。新分支以相对恢复轮次触发剪枝，支持原生高斯合并与预算回填；SH蒸馏作为其可选后处理。历史入口及结果保留。
 
 2026-11-04 新增现有模型的地物保护评测 `evaluate_preservation.py`，不启动训练或消融。仅使用现有City标签，输出小语义区域Recall、Boundary F1、语义骨架clDice及统一原生ROI上的PSNR/LPIPS。先用 `/home/zhangys/anaconda3/envs/VGGT/bin/python evaluate_preservation.py --phase prepare` 计算硬骨架与固定ROI，再用 `bash scripts/run.sh evaluate_preservation.py --phase lpips`、`--phase report` 完成感知指标与报告。独立CPU核验用VGGT Python执行 `validate_preservation.py`。输出及范围说明见 `output/city2_comparison_20261104/preservation_metrics/README_地物保护指标.md`；现有标签不支持直接测量电线、井盖的物理实例Recall或细线断裂。
+
+2026-11-05 新版本采用PUP六维Fisher评分与原RIR/DPRA，保留v3.1保护/合并/回填和恢复损失；旧SPS及相对自适应入口保留。新调度虚拟15001–25199、10199次更新，RIR全训练视图检查间隔500、最长等待1500、beta=0.99，DPRA调用原 `TrainingScheduler`。配置 `configs/city_pup_rir_dpra_{10x,20x}.json`，串行入口 `run_pup_rir_experiments.py`，中断后加 `--resume`；标准SH3、SH2、评分快照和核验回执位于 `output/city2_pup_rir_dpra_20261105/`。冻结评估器复评入口 `evaluate_pup_rir_preservation.py --wait`，主训练/评测结束后才使用GPU。具体范围及编译来源见 `PUP_RIR_DPRA.md`。

@@ -1,0 +1,50 @@
+{
+  "status": "complete",
+  "rows": [
+    {
+      "ratio": 10,
+      "stage": "SH3",
+      "gaussians": 178809,
+      "PSNR": 34.72788217332628,
+      "SSIM": 0.9763222800360786,
+      "LPIPS": 0.0645501207974222,
+      "ply": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/full_10x/stage3/point_cloud/iteration_25199/point_cloud.ply",
+      "checkpoint": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/full_10x/stage3/chkpnt25199.pth",
+      "ply_sha256": "f007dfc5fa544c5693a8ba4de7c1cea2e3011689209fd99e4561447ce5b5b31c"
+    },
+    {
+      "ratio": 10,
+      "stage": "SH2",
+      "gaussians": 178809,
+      "PSNR": 34.84891128540039,
+      "SSIM": 0.9757949842347039,
+      "LPIPS": 0.06624410673975945,
+      "ply": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/full_10x/sh2/point_cloud/iteration_40000/point_cloud.ply",
+      "checkpoint": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/full_10x/sh2/chkpnt40000.pth",
+      "ply_sha256": "503b54a7c46d601ed1328955589ea1fa3c9dc4ca52057db37147eec4bd45a9a7"
+    },
+    {
+      "ratio": 20,
+      "stage": "SH3",
+      "gaussians": 89405,
+      "PSNR": 33.42432615492079,
+      "SSIM": 0.9608169794082642,
+      "LPIPS": 0.10968401779731114,
+      "ply": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/full_20x/stage3/point_cloud/iteration_25199/point_cloud.ply",
+      "checkpoint": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/full_20x/stage3/chkpnt25199.pth",
+      "ply_sha256": "46ace371188ea51d6616ca19b5a04032ed20df22c97a7c28edd3a5cea708ddcd"
+    },
+    {
+      "ratio": 20,
+      "stage": "SH2",
+      "gaussians": 89405,
+      "PSNR": 33.472897635565865,
+      "SSIM": 0.9613106780582004,
+      "LPIPS": 0.10800114770730336,
+      "ply": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/full_20x/sh2/point_cloud/iteration_40000/point_cloud.ply",
+      "checkpoint": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/full_20x/sh2/chkpnt40000.pth",
+      "ply_sha256": "27cc044c4af5fa2bbe0a93740f114265c05fd1d5ce8ec8ed132b2f55a294b495"
+    }
+  ],
+  "method": "PUP_RIR_DPRA_v31_protected"
+}

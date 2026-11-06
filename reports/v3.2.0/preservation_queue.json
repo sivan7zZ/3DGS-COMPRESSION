@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "completed": [
+    "prepare_context",
+    "infer_new",
+    "merge_predictions",
+    "evaluate_semantics",
+    "preservation_prepare",
+    "preservation_lpips",
+    "preservation_report",
+    "preservation_validate"
+  ]
+}

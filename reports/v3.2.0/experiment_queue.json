@@ -1,0 +1,30 @@
+{
+  "status": "complete",
+  "completed": [
+    "pipeline_10x",
+    "validate_10x",
+    "pipeline_20x",
+    "validate_20x",
+    "standard_metrics"
+  ],
+  "tasks": [
+    {
+      "name": "pipeline_10x",
+      "command": [
+        "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+        "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/run_pup_rir_pipeline.py",
+        "--config",
+        "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/configs/city_pup_rir_dpra_10x.json"
+      ]
+    },
+    {
+      "name": "pipeline_20x",
+      "command": [
+        "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+        "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/run_pup_rir_pipeline.py",
+        "--config",
+        "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/configs/city_pup_rir_dpra_20x.json"
+      ]
+    }
+  ]
+}

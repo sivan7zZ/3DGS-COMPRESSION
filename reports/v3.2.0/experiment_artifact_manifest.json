@@ -1,0 +1,138 @@
+{
+  "status": "complete",
+  "date": "2026-11-05",
+  "timezone": "Asia/Shanghai",
+  "git_base": "2acff96b5cfa53d8414da7c53da8ad7106fffa0c",
+  "source_changes_committed": false,
+  "method": "PUP_Fisher_RIR_DPRA_v31_protected",
+  "artifacts": {
+    "summary.json": {
+      "sha256": "f3d1124ddfac2f92811a14a46eb0667afefbb264441ab4ce78d7391328ffb76d",
+      "bytes": 2335
+    },
+    "metrics_standard.json": {
+      "sha256": "dc559435e29852622697715aac9414078a53d1ef0c2540966ebc6f1f707efa45",
+      "bytes": 21779
+    },
+    "experiment_queue.json": {
+      "sha256": "073fc02a7233e194415baaf179379909470c8323217a2fa56523641c3dc6d6fc",
+      "bytes": 825
+    },
+    "preservation_queue.json": {
+      "sha256": "0074cc1dc01a56baab1223402bdfa5a5b009a465430558010747738edbc3135a",
+      "bytes": 249
+    },
+    "preservation_comparison.json": {
+      "sha256": "1140fec23f1096eeba47a2faa1bd1c866b8c4a1e76977e0206ee15b5b81a6c11",
+      "bytes": 2634
+    },
+    "comparison_all_metrics.csv": {
+      "sha256": "f0da543ed7373e3912fdd849a8f2f57cec1a548ec8f1d85c3e018fb187e54839",
+      "bytes": 3682
+    },
+    "README_实验总览.md": {
+      "sha256": "5eeafb52fde7fb85855e33a4d1bc4fa2e28b39ec2cf6ce19ecd1c65528e6da37",
+      "bytes": 3701
+    },
+    "README_PUP_RIR_DPRA结果.md": {
+      "sha256": "0c17e9f621677937951ab06b95a6a01da75f44247ff56a7bfd6e4f8b8ddffa95",
+      "bytes": 4197
+    },
+    "README_地物保护指标对比.md": {
+      "sha256": "63225e66f39e01adb4bd8dddfb6a912f634a6b4c8209f49b2d719f243138fc3a",
+      "bytes": 1496
+    },
+    "README_统一语义指标.md": {
+      "sha256": "38e86c6e3b5a5da62791b449227c86e2662e48d74e64d681f23ceee57d583150",
+      "bytes": 1398
+    },
+    "full_10x/validation.json": {
+      "sha256": "6641d5052bf74f313c1989317d398889833a1f35d998ac643c129c4586e1a437",
+      "bytes": 1821
+    },
+    "full_20x/validation.json": {
+      "sha256": "ac784109134ce11f34eb3c0cdd572c5498803054b325f1e2ff25e85b6aeced6e",
+      "bytes": 1814
+    },
+    "comparison/preservation_metrics/summary.json": {
+      "sha256": "c7ddd3eaf17fc08e60b59eeee74a4f2220e8f73520100c0379cd8db1397e4070",
+      "bytes": 8791
+    },
+    "comparison/preservation_metrics/validation.json": {
+      "sha256": "67d9160c958d76924fdc0ecd414364b4140f0951fe6a48a5cc0556981e0c4c75",
+      "bytes": 739
+    },
+    "comparison/preservation_metrics/inputs.json": {
+      "sha256": "d8dfa46ebd19a18fae02fbb8f4da2767076907c3ff97c18c8f561a6e856219f1",
+      "bytes": 124843
+    },
+    "comparison/preservation_metrics/roi_lpips.json": {
+      "sha256": "c46e1993d89e6389c626244df994f6acb0522dad2fc052de5c31ca5fa2b24974",
+      "bytes": 526006
+    },
+    "comparison/preservation_metrics/mask_and_psnr.json": {
+      "sha256": "c513fc0649e6c5801a71148ab0ed7bce1efabdcdab8f32fbd9a7f28f27060862",
+      "bytes": 980098
+    },
+    "comparison/preservation_metrics/metrics.csv": {
+      "sha256": "46aaf3efe9c306d7fdd6b3a1529ff158e3e5ca4e836222962e1d572b5b0ee0ce",
+      "bytes": 2845
+    },
+    "comparison/semantic/main_metrics.json": {
+      "sha256": "df9d3d4edb0438f924026359c5a78449052d5ffbc8bb5ff383626cdf10f77700",
+      "bytes": 157272
+    },
+    "comparison/semantic/predictions_main/predictions_manifest.json": {
+      "sha256": "a96d1f294947e76076efbc696479af45a1613a3dc9ece675968f15dd03e177d3",
+      "bytes": 19661
+    },
+    "source_snapshot/manifest.json": {
+      "sha256": "94fb042f00539741bd4e57d5eb3db52998d90297cb86bea430ca3afbdeecf590",
+      "bytes": 4498
+    },
+    "evaluation_source_snapshot/manifest.json": {
+      "sha256": "1e5b904fb8d60407af3250071b0e1189f9a7bd5a4b1f758e9ac3686bef294b15",
+      "bytes": 2767
+    },
+    "build_environment.json": {
+      "sha256": "0a425586eb1478c54c8f8e0b6fb574e27510536a04923b51c54cf4dae3c0b76b",
+      "bytes": 597
+    },
+    "pup_fisher_build.log": {
+      "sha256": "c5f62e096165b3696b936f52fcdb724426e46f0741135b0b56c7af150f5025a3",
+      "bytes": 49604
+    },
+    "tests.log": {
+      "sha256": "f0950e5ee3d1adef32a9797aec784502ee9d9bbc5fc185567432c99b08884e48",
+      "bytes": 19888
+    },
+    "pup_cuda_validation.log": {
+      "sha256": "1946c4fadc22293be6e70f3fe7a827fd81b7e8f1220cea526e9348ecccdce7e5",
+      "bytes": 355
+    },
+    "reports/direct_v310_10x/native_comparison.png": {
+      "sha256": "99d4e82bf767c535391b86eb43b48711678a3d07aeabeca9050eb2e54b1384df",
+      "bytes": 161614
+    },
+    "reports/direct_v310_20x/native_comparison.png": {
+      "sha256": "a9230513d82395cd8bd54d3a6cb78202da4a9acb4bc7906e35bbd0a26137279a",
+      "bytes": 159766
+    },
+    "reports/direct_v310_10x/manual_review.json": {
+      "sha256": "7613440a08f9170e24889ea5ad8a7b94d03c63c3b2189bb50b50ee45cd067592",
+      "bytes": 675
+    },
+    "reports/direct_v310_20x/manual_review.json": {
+      "sha256": "2318fed2b457f0e7e823a2e3e19441734c001231ea22c6a75a8290aa24330881",
+      "bytes": 767
+    },
+    "comparison/reports/10x_semantic/semantic_comparison.png": {
+      "sha256": "2cf253ee12abf33e334b690fa3b27d0ef75eaa43b876b812557756ae155707e3",
+      "bytes": 130388
+    },
+    "comparison/reports/20x_semantic/semantic_comparison.png": {
+      "sha256": "cb59695bb6b7bc4721e181a355d2aa4d10d296fa15008cddbff6b5b4bbbef509",
+      "bytes": 139890
+    }
+  }
+}

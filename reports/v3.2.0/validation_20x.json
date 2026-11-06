@@ -1,0 +1,48 @@
+{
+  "status": "complete",
+  "ratio": 20,
+  "target": 89405,
+  "SH3": {
+    "gaussians": 89405,
+    "checkpoint": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/full_20x/stage3/chkpnt25199.pth",
+    "checkpoint_sha256": "6ce7d5d95e039e62bb4d40afb3815dafbc4dd2557ff82b28fb63956d894790a3",
+    "ply": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/full_20x/stage3/point_cloud/iteration_25199/point_cloud.ply",
+    "ply_sha256": "46ace371188ea51d6616ca19b5a04032ed20df22c97a7c28edd3a5cea708ddcd",
+    "native_fields_exact": true,
+    "standard_property_count": 62,
+    "metadata_rows": 89405,
+    "source_lineage_rows": 88171,
+    "merged_rows": 1234,
+    "unique_row_ids": true
+  },
+  "SH2": {
+    "gaussians": 89405,
+    "checkpoint": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/full_20x/sh2/chkpnt40000.pth",
+    "checkpoint_sha256": "0078c11e8e4ec944b0a7ccf23cde4367183cc273625faf7536371a70b6c104f1",
+    "ply": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/full_20x/sh2/point_cloud/iteration_40000/point_cloud.ply",
+    "ply_sha256": "27cc044c4af5fa2bbe0a93740f114265c05fd1d5ce8ec8ed132b2f55a294b495",
+    "native_fields_exact": true,
+    "standard_property_count": 41,
+    "metadata_rows": 89405,
+    "source_lineage_rows": 88171,
+    "merged_rows": 1234,
+    "unique_row_ids": true
+  },
+  "rir_dpra_matches_original": true,
+  "quota_violations": 0,
+  "protected_instances": 1021,
+  "metadata_rows_exact": true,
+  "teacher_unchanged": true,
+  "compression_events": 5,
+  "event_iterations": [
+    15700,
+    17200,
+    18700,
+    20200,
+    21700
+  ],
+  "recovery_updates": 10199,
+  "distillation_updates": 5000,
+  "merged_total": 4691,
+  "restored_total": 20393
+}

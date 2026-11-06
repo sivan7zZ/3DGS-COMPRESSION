@@ -1,0 +1,72 @@
+{
+  "status": "complete",
+  "results": {
+    "10": {
+      "previous_v310": {
+        "small_object_recall": 0.6048387096774194,
+        "small_tp": 150,
+        "small_gt": 248,
+        "vehicle_small_recall": 0.7966101694915254,
+        "vehicle_small_tp": 47,
+        "vehicle_small_gt": 59,
+        "boundary_f1": 0.39217124523272573,
+        "cldice": 0.7784552072574517,
+        "roi_psnr": 37.13485678020862,
+        "roi_lpips": 0.0623037850506784,
+        "masked_object_psnr": 37.3119972711855,
+        "fixed_roi_psnr": 35.984221671757695,
+        "fixed_roi_lpips": 0.0652409577742219
+      },
+      "pup_rir_dpra": {
+        "small_object_recall": 0.6048387096774194,
+        "small_tp": 150,
+        "small_gt": 248,
+        "vehicle_small_recall": 0.8135593220338984,
+        "vehicle_small_tp": 48,
+        "vehicle_small_gt": 59,
+        "boundary_f1": 0.39575895444049575,
+        "cldice": 0.7791140173704122,
+        "roi_psnr": 37.67559077979635,
+        "roi_lpips": 0.05278637268835859,
+        "masked_object_psnr": 37.92212752543285,
+        "fixed_roi_psnr": 36.53903641960242,
+        "fixed_roi_lpips": 0.057015531385938324
+      }
+    },
+    "20": {
+      "previous_v310": {
+        "small_object_recall": 0.5967741935483871,
+        "small_tp": 148,
+        "small_gt": 248,
+        "vehicle_small_recall": 0.7627118644067796,
+        "vehicle_small_tp": 45,
+        "vehicle_small_gt": 59,
+        "boundary_f1": 0.37542069301209097,
+        "cldice": 0.7689750143778271,
+        "roi_psnr": 34.82801524050851,
+        "roi_lpips": 0.10628100236757629,
+        "masked_object_psnr": 34.84748585336795,
+        "fixed_roi_psnr": 32.18540608862117,
+        "fixed_roi_lpips": 0.11476454883813858
+      },
+      "pup_rir_dpra": {
+        "small_object_recall": 0.6008064516129032,
+        "small_tp": 149,
+        "small_gt": 248,
+        "vehicle_small_recall": 0.7966101694915254,
+        "vehicle_small_tp": 47,
+        "vehicle_small_gt": 59,
+        "boundary_f1": 0.3909938788093022,
+        "cldice": 0.7821199375789923,
+        "roi_psnr": 35.24676257220552,
+        "roi_lpips": 0.09265953243800229,
+        "masked_object_psnr": 35.556848188512916,
+        "fixed_roi_psnr": 32.79018918648321,
+        "fixed_roi_lpips": 0.1299488116055727
+      }
+    }
+  },
+  "new_metrics": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/comparison/preservation_metrics/summary.json",
+  "new_metrics_sha256": "c7ddd3eaf17fc08e60b59eeee74a4f2220e8f73520100c0379cd8db1397e4070",
+  "frozen_evaluator_sha256": "35a50751d2e145f489b4f17016fe7397272f72e373e40913b73fb0ff88643519"
+}

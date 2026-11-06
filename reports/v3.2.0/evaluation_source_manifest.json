@@ -1,0 +1,33 @@
+{
+  "status": "complete",
+  "git_base": "v3.1.0",
+  "files": {
+    "run_pup_rir_experiments.py": "07598d62ff5b89229e2b19fbdc6f1d6da5a5c04cc2a264e8e89ee76bd3338116",
+    "evaluate_pup_rir_preservation.py": "0441d29b4ea111c05c5541491596d2004331b051dcd5852584585a6e33f0cc38",
+    "make_pup_rir_evidence.py": "65db9630076e6c47de2103222d55069a06f61413ab10f45ee76850085a37f133",
+    "evaluate_preservation.py": "b9d55a0f323dc9d01fd12825082cf6cb8cc85d3ec84c8b1296b90ee86e1687b6",
+    "validate_preservation.py": "30cbaf28604a7d0b0bfddcf85b72b4c9307f068814f5438b0178ae5458793b46",
+    "evaluate_semantic_comparison.py": "d31e0ccc47a3289e4722ba10e36b8731f82d0e4f8b5eebd0c8b1cc194ff0f51b",
+    "prepare_semantic_comparison_inputs.py": "c9311850e8dd48843ef2ad7be81a3b93a979846f6e9fa8fa74c239bb41db874f",
+    "city_semantic.py": "f5c5e1d0ed15160db682a96fc8979435633da704f87e11f7d8228ed7210cb224",
+    "finalize_city_benchmark.py": "dd689405050f4c9a424f6b8afc0d25fafa028a6ba880fa9f8a23018646b5d374",
+    "evaluate_comparison_lpips.py": "9b33ddf2e514784572f0bea95363c26ac8096069cf97b9bb1980d209356fbd51",
+    "utils/preservation_metrics.py": "3c0604c4f10ca958e7e912c740f1fb12b23bebdfb38643f254030a144e4bb894",
+    "utils/semantic_comparison_metrics.py": "8e6cea5bbcd7b1062f4cedea06bf5d1f780f3a41e2223c73c95994442a889086",
+    "utils/city_semantic_data.py": "8425ab28b7431ceb72e499dbdcf626d601644d699250615fdff76a6576a4febf",
+    "utils/loss_utils.py": "e4c69eca823525d3057c5441953c5b7c83ddb21d579039d7e82cdb13d35d3455",
+    "utils/image_utils.py": "872a4507773b9378db9e0fefc90104dc474b27551af18ada73f000a7a00a4ba0",
+    "utils/general_utils.py": "65d30f0060158d8ddc327476f539d909fd8e5d8404523ec93e7ddadbcacb6abf",
+    "scene/cameras.py": "4c5bbed3b2bfeaf76b0cf32d3c106c98c51c2ffd28fe1f89a0bcf57e27f628b2",
+    "scripts/check_pup_cuda.py": "e114a501ace330495501b36d3113cb5d4dfe6f78e6cc40472ba41e402aba13f7",
+    "tests/test_rir_dpra_schedule.py": "63c8e3882ce104a2719da695f7f35588c13d51b4a52090325011bf8679af7c1e",
+    "tests/test_pruning_scores.py": "eb35a3ecc5586b9455d116ed6c30db5b6a4dbdfe0bf333676e48e1a9e0a63878",
+    "PUP_RIR_DPRA.md": "a704f6fcba1af011f3eb044e3cb3ec764377eef7a03f7a3f4a23a6f0aad7c18f",
+    "PROGRESS.md": "f3238197c3f74677f62e9d89de38c5fee7c2aff481a98b36c1b7766134849fc0",
+    "WORKFLOW.md": "26e4bbe4d6e562c3ca72b42cade1fa5602ba3c7a4b577b0b4b4419f2139e2fdf",
+    "README.md": "974ef279a4f8f710b993285a6a444ff57052e462406b9db545508fbe6135e53b",
+    "THIRD_PARTY_NOTICES.md": "155698568fdb962cc09116558cc79715dc78c8bd41295e74a08846ed8b21adb0",
+    "configs/city_pup_rir_dpra_smoke.json": "f6c2df369daa711f1fa804653875b29c0406a731ec6d9873f9bcb9d3934c5b17"
+  },
+  "note": "Training files/backend/config snapshots are stored separately under source_snapshot."
+}

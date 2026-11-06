@@ -1,0 +1,461 @@
+{
+  "status": "complete",
+  "results": {
+    "10x_SH3": {
+      "status": "complete",
+      "PSNR": 34.72788217332628,
+      "SSIM": 0.9763222800360786,
+      "LPIPS": 0.0645501207974222,
+      "LPIPS_legacy_0_1": 0.0429821904334757,
+      "per_view_standard_lpips": {
+        "00000.png": 0.06948916614055634,
+        "00001.png": 0.061420638114213943,
+        "00002.png": 0.0534873828291893,
+        "00003.png": 0.06551167368888855,
+        "00004.png": 0.05767223984003067,
+        "00005.png": 0.07319983839988708,
+        "00006.png": 0.0688001811504364,
+        "00007.png": 0.06993106752634048,
+        "00008.png": 0.061438899487257004
+      },
+      "criterion": {
+        "net": "vgg",
+        "version": "0.1",
+        "local_implementation": "lpipsPyTorch.LPIPS",
+        "torch_version": "1.12.1",
+        "torchvision_version": "0.13.1",
+        "source_files_sha256": {
+          "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/evaluate_comparison_lpips.py": "9b33ddf2e514784572f0bea95363c26ac8096069cf97b9bb1980d209356fbd51",
+          "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/lpipsPyTorch/__init__.py": "a657ce7355782eb970f95fd0d2e26eec5b9023212d2b655814da6e15b70510b4",
+          "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/lpipsPyTorch/modules/lpips.py": "3bece0b9cf9943af5b043026458819d259df9bfe7c2a1d3ffc6c905e7e5aa2b4",
+          "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/lpipsPyTorch/modules/networks.py": "dfa6f152b0e3fbc23ac3bfaea52b46e9473e64ad539ea22ab030c57af51c7f14",
+          "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/lpipsPyTorch/modules/utils.py": "1bd4a7d4e7b43215497675ed852936fe4f27e7ea3068afe0b0e1f7cfb6c48570",
+          "run_pup_rir_experiments.py": "07598d62ff5b89229e2b19fbdc6f1d6da5a5c04cc2a264e8e89ee76bd3338116"
+        },
+        "weight_files_sha256": {
+          "/home/zhangys/.cache/torch/hub/checkpoints/vgg16-397923af.pth": "397923af8e79cdbb6a7127f12361acd7a2f83e06b05044ddf496e83de57a5bf0",
+          "/home/zhangys/.cache/torch/hub/checkpoints/vgg.pth": "a78928a0af1e5f0fcb1f3b9e8f8c3a2a5a3de244d830ad5c1feddc79b8432868"
+        },
+        "weight_sources": {
+          "VGG16": "https://download.pytorch.org/models/vgg16-397923af.pth",
+          "linear_v0.1": "https://raw.githubusercontent.com/richzhang/PerceptualSimilarity/master/lpips/weights/v0.1/vgg.pth"
+        },
+        "official_range_reference": {
+          "url": "https://github.com/richzhang/PerceptualSimilarity/blob/master/lpips/lpips.py",
+          "local_path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/inventory/lpips_author_reference.py",
+          "sha256": "3eaeb96c0029b2d849745e6691ccb0d85361bed9cf9953b7ceaed8dc948a6d83"
+        },
+        "input_range": [
+          -1,
+          1
+        ],
+        "preprocessing": "RGB uint8 -> float32/255 -> 2*x-1",
+        "spatial_processing": "full native 1592x894, no resize/crop/tile",
+        "local_scaling_mean": [
+          -0.03,
+          -0.088,
+          -0.188
+        ],
+        "local_scaling_std": [
+          0.458,
+          0.448,
+          0.45
+        ],
+        "state_dict_sha256": "b9ba014c09665fa4b7e91256673cf20178d7d8f0961fb308fe154ee074c81bc0"
+      },
+      "input_range": [
+        -1,
+        1
+      ],
+      "images": [
+        {
+          "filename": "00000.png",
+          "render_sha256": "c3e79d0b3b8f6cbc959a6e76c31c1bdd5de04a5e2ac4be524810539f5a050ecc",
+          "gt_sha256": "b96ec93fdc0f2d7e311b3a33cb3f9ef5a2e6a8e6c482bab52cff240c4e869aa1"
+        },
+        {
+          "filename": "00001.png",
+          "render_sha256": "0a956d8cb0232b715d0a4dcfa05578a536a219ce467e225bbdba68826b759a43",
+          "gt_sha256": "22fab4c3dde09e6eee0facb307709f68044020385c1113b7cabc76c586338824"
+        },
+        {
+          "filename": "00002.png",
+          "render_sha256": "88500aa66b77bd6b72845001d715b7483831c5cda26ec6a76adf8670f7a324cd",
+          "gt_sha256": "37000f345534ba857a6c45218d9c8b9f3b703bd042a737197d847a7833473b36"
+        },
+        {
+          "filename": "00003.png",
+          "render_sha256": "612ec517e760bef057e66210f62d3bbd0799c57ad33158be4e7cfe7127cad3ab",
+          "gt_sha256": "8a4318ed4c9b4ab3ed6009f9df20764b55a818b8cd99eff5fd485aef12dfc001"
+        },
+        {
+          "filename": "00004.png",
+          "render_sha256": "10c56f03404a2dff53f89387da00485dad59e92dafb78dc1c508a658c6c7005b",
+          "gt_sha256": "2d3a3c42fad3ffbc86c127b8e21823c66e9234e3bdb6f02f2068517eca379bf2"
+        },
+        {
+          "filename": "00005.png",
+          "render_sha256": "6fab7e5a8c67f978299a82ad06847a3ce6bbf6b5abcd938fe454e71957f79566",
+          "gt_sha256": "3556e3d3edf7287c6a49ea90979e7ec3a324f407fc01425d1c68167bb967fa57"
+        },
+        {
+          "filename": "00006.png",
+          "render_sha256": "b5593e121fc6d2c3924cb2a30200c4cd5ffa5eb12e3605fa19b11bd0a3b292cf",
+          "gt_sha256": "acf3866dd2347ddfb8483f37616a766a0efe2bdcb48203f9666002f87c3d4055"
+        },
+        {
+          "filename": "00007.png",
+          "render_sha256": "c63e6cd34eebd4f61052436f83d4876f0fc7aaebd72ae6d2c409cdc16fca2543",
+          "gt_sha256": "cbf87e5bf48e118a345ff224e129ae4916c90243ebbeb130b765ec417fba2cce"
+        },
+        {
+          "filename": "00008.png",
+          "render_sha256": "2d5006a818b8b2d7058edc785681120d482745a945848b2a5212bbed2e7e2d72",
+          "gt_sha256": "ac898d348d3b36dcf5f2dc333bec2623246185783f679b2d4f7b06971eeed908"
+        }
+      ]
+    },
+    "10x_SH2": {
+      "status": "complete",
+      "PSNR": 34.84891128540039,
+      "SSIM": 0.9757949842347039,
+      "LPIPS": 0.06624410673975945,
+      "LPIPS_legacy_0_1": 0.04460557426015536,
+      "per_view_standard_lpips": {
+        "00000.png": 0.07097035646438599,
+        "00001.png": 0.06258019804954529,
+        "00002.png": 0.05547041818499565,
+        "00003.png": 0.06884557008743286,
+        "00004.png": 0.06075158715248108,
+        "00005.png": 0.07437331974506378,
+        "00006.png": 0.07067323476076126,
+        "00007.png": 0.06962258368730545,
+        "00008.png": 0.06290969252586365
+      },
+      "criterion": {
+        "net": "vgg",
+        "version": "0.1",
+        "local_implementation": "lpipsPyTorch.LPIPS",
+        "torch_version": "1.12.1",
+        "torchvision_version": "0.13.1",
+        "source_files_sha256": {
+          "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/evaluate_comparison_lpips.py": "9b33ddf2e514784572f0bea95363c26ac8096069cf97b9bb1980d209356fbd51",
+          "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/lpipsPyTorch/__init__.py": "a657ce7355782eb970f95fd0d2e26eec5b9023212d2b655814da6e15b70510b4",
+          "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/lpipsPyTorch/modules/lpips.py": "3bece0b9cf9943af5b043026458819d259df9bfe7c2a1d3ffc6c905e7e5aa2b4",
+          "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/lpipsPyTorch/modules/networks.py": "dfa6f152b0e3fbc23ac3bfaea52b46e9473e64ad539ea22ab030c57af51c7f14",
+          "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/lpipsPyTorch/modules/utils.py": "1bd4a7d4e7b43215497675ed852936fe4f27e7ea3068afe0b0e1f7cfb6c48570",
+          "run_pup_rir_experiments.py": "07598d62ff5b89229e2b19fbdc6f1d6da5a5c04cc2a264e8e89ee76bd3338116"
+        },
+        "weight_files_sha256": {
+          "/home/zhangys/.cache/torch/hub/checkpoints/vgg16-397923af.pth": "397923af8e79cdbb6a7127f12361acd7a2f83e06b05044ddf496e83de57a5bf0",
+          "/home/zhangys/.cache/torch/hub/checkpoints/vgg.pth": "a78928a0af1e5f0fcb1f3b9e8f8c3a2a5a3de244d830ad5c1feddc79b8432868"
+        },
+        "weight_sources": {
+          "VGG16": "https://download.pytorch.org/models/vgg16-397923af.pth",
+          "linear_v0.1": "https://raw.githubusercontent.com/richzhang/PerceptualSimilarity/master/lpips/weights/v0.1/vgg.pth"
+        },
+        "official_range_reference": {
+          "url": "https://github.com/richzhang/PerceptualSimilarity/blob/master/lpips/lpips.py",
+          "local_path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/inventory/lpips_author_reference.py",
+          "sha256": "3eaeb96c0029b2d849745e6691ccb0d85361bed9cf9953b7ceaed8dc948a6d83"
+        },
+        "input_range": [
+          -1,
+          1
+        ],
+        "preprocessing": "RGB uint8 -> float32/255 -> 2*x-1",
+        "spatial_processing": "full native 1592x894, no resize/crop/tile",
+        "local_scaling_mean": [
+          -0.03,
+          -0.088,
+          -0.188
+        ],
+        "local_scaling_std": [
+          0.458,
+          0.448,
+          0.45
+        ],
+        "state_dict_sha256": "b9ba014c09665fa4b7e91256673cf20178d7d8f0961fb308fe154ee074c81bc0"
+      },
+      "input_range": [
+        -1,
+        1
+      ],
+      "images": [
+        {
+          "filename": "00000.png",
+          "render_sha256": "a9c689701f75e4d9a5c50bf3c29fb7fe1af8cc67362bc89d0b9afc0d67c65b16",
+          "gt_sha256": "b96ec93fdc0f2d7e311b3a33cb3f9ef5a2e6a8e6c482bab52cff240c4e869aa1"
+        },
+        {
+          "filename": "00001.png",
+          "render_sha256": "efa9218c6b94dcfb9f16c7940a43b491a139efa80583669e5169d5990e9bb7a5",
+          "gt_sha256": "22fab4c3dde09e6eee0facb307709f68044020385c1113b7cabc76c586338824"
+        },
+        {
+          "filename": "00002.png",
+          "render_sha256": "764fa5449da9cbebddfadbe723c25a0913f06805a81ac50623dc59d886478d22",
+          "gt_sha256": "37000f345534ba857a6c45218d9c8b9f3b703bd042a737197d847a7833473b36"
+        },
+        {
+          "filename": "00003.png",
+          "render_sha256": "b290354531a6d6cf2243d64de06f2eb69c957c35aef71bd64383ffbdbb356a20",
+          "gt_sha256": "8a4318ed4c9b4ab3ed6009f9df20764b55a818b8cd99eff5fd485aef12dfc001"
+        },
+        {
+          "filename": "00004.png",
+          "render_sha256": "e33a534b90f59c1d8975fe4a4b7a35e4e4ac4e72bf49f150e6e9bf86a7061894",
+          "gt_sha256": "2d3a3c42fad3ffbc86c127b8e21823c66e9234e3bdb6f02f2068517eca379bf2"
+        },
+        {
+          "filename": "00005.png",
+          "render_sha256": "a66a381783588ec52f53077a2afe1f936270c4fce4ad4f4b13e77b208c7b0fb5",
+          "gt_sha256": "3556e3d3edf7287c6a49ea90979e7ec3a324f407fc01425d1c68167bb967fa57"
+        },
+        {
+          "filename": "00006.png",
+          "render_sha256": "de5117539e1a954db855801940f8614d1eb290364f94eaafc770de37e1e9f36f",
+          "gt_sha256": "acf3866dd2347ddfb8483f37616a766a0efe2bdcb48203f9666002f87c3d4055"
+        },
+        {
+          "filename": "00007.png",
+          "render_sha256": "0bcb32e5f950eb6f3683371d17e45fc3264d80527856266cbe8e56f43f7f9619",
+          "gt_sha256": "cbf87e5bf48e118a345ff224e129ae4916c90243ebbeb130b765ec417fba2cce"
+        },
+        {
+          "filename": "00008.png",
+          "render_sha256": "d79af11f435cb5824c50161a8edcd58fb1420032de9e44c7510e6ab0e85c9573",
+          "gt_sha256": "ac898d348d3b36dcf5f2dc333bec2623246185783f679b2d4f7b06971eeed908"
+        }
+      ]
+    },
+    "20x_SH3": {
+      "status": "complete",
+      "PSNR": 33.42432615492079,
+      "SSIM": 0.9608169794082642,
+      "LPIPS": 0.10968401779731114,
+      "LPIPS_legacy_0_1": 0.07829217695527607,
+      "per_view_standard_lpips": {
+        "00000.png": 0.11392835527658463,
+        "00001.png": 0.10359171777963638,
+        "00002.png": 0.09216846525669098,
+        "00003.png": 0.11141964048147202,
+        "00004.png": 0.09757782518863678,
+        "00005.png": 0.1205623596906662,
+        "00006.png": 0.11800636351108551,
+        "00007.png": 0.1201748251914978,
+        "00008.png": 0.10972660779953003
+      },
+      "criterion": {
+        "net": "vgg",
+        "version": "0.1",
+        "local_implementation": "lpipsPyTorch.LPIPS",
+        "torch_version": "1.12.1",
+        "torchvision_version": "0.13.1",
+        "source_files_sha256": {
+          "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/evaluate_comparison_lpips.py": "9b33ddf2e514784572f0bea95363c26ac8096069cf97b9bb1980d209356fbd51",
+          "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/lpipsPyTorch/__init__.py": "a657ce7355782eb970f95fd0d2e26eec5b9023212d2b655814da6e15b70510b4",
+          "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/lpipsPyTorch/modules/lpips.py": "3bece0b9cf9943af5b043026458819d259df9bfe7c2a1d3ffc6c905e7e5aa2b4",
+          "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/lpipsPyTorch/modules/networks.py": "dfa6f152b0e3fbc23ac3bfaea52b46e9473e64ad539ea22ab030c57af51c7f14",
+          "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/lpipsPyTorch/modules/utils.py": "1bd4a7d4e7b43215497675ed852936fe4f27e7ea3068afe0b0e1f7cfb6c48570",
+          "run_pup_rir_experiments.py": "07598d62ff5b89229e2b19fbdc6f1d6da5a5c04cc2a264e8e89ee76bd3338116"
+        },
+        "weight_files_sha256": {
+          "/home/zhangys/.cache/torch/hub/checkpoints/vgg16-397923af.pth": "397923af8e79cdbb6a7127f12361acd7a2f83e06b05044ddf496e83de57a5bf0",
+          "/home/zhangys/.cache/torch/hub/checkpoints/vgg.pth": "a78928a0af1e5f0fcb1f3b9e8f8c3a2a5a3de244d830ad5c1feddc79b8432868"
+        },
+        "weight_sources": {
+          "VGG16": "https://download.pytorch.org/models/vgg16-397923af.pth",
+          "linear_v0.1": "https://raw.githubusercontent.com/richzhang/PerceptualSimilarity/master/lpips/weights/v0.1/vgg.pth"
+        },
+        "official_range_reference": {
+          "url": "https://github.com/richzhang/PerceptualSimilarity/blob/master/lpips/lpips.py",
+          "local_path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/inventory/lpips_author_reference.py",
+          "sha256": "3eaeb96c0029b2d849745e6691ccb0d85361bed9cf9953b7ceaed8dc948a6d83"
+        },
+        "input_range": [
+          -1,
+          1
+        ],
+        "preprocessing": "RGB uint8 -> float32/255 -> 2*x-1",
+        "spatial_processing": "full native 1592x894, no resize/crop/tile",
+        "local_scaling_mean": [
+          -0.03,
+          -0.088,
+          -0.188
+        ],
+        "local_scaling_std": [
+          0.458,
+          0.448,
+          0.45
+        ],
+        "state_dict_sha256": "b9ba014c09665fa4b7e91256673cf20178d7d8f0961fb308fe154ee074c81bc0"
+      },
+      "input_range": [
+        -1,
+        1
+      ],
+      "images": [
+        {
+          "filename": "00000.png",
+          "render_sha256": "534f172113c8ad0d499524cf71009f87c53cba6a1627a7f07b5225100de3526b",
+          "gt_sha256": "b96ec93fdc0f2d7e311b3a33cb3f9ef5a2e6a8e6c482bab52cff240c4e869aa1"
+        },
+        {
+          "filename": "00001.png",
+          "render_sha256": "05c0ac4c0cc1cc3164ff507849c29721d6def60c13bee499a1d07f85742c17d4",
+          "gt_sha256": "22fab4c3dde09e6eee0facb307709f68044020385c1113b7cabc76c586338824"
+        },
+        {
+          "filename": "00002.png",
+          "render_sha256": "9fd2a42416c7ccd6e21d657b614b1552d43e3fa50cd8b72d92e237346e71ceef",
+          "gt_sha256": "37000f345534ba857a6c45218d9c8b9f3b703bd042a737197d847a7833473b36"
+        },
+        {
+          "filename": "00003.png",
+          "render_sha256": "e851a69427a6c3ef79c7e341a017ce550406fa2e94b98c74c848de03763204ff",
+          "gt_sha256": "8a4318ed4c9b4ab3ed6009f9df20764b55a818b8cd99eff5fd485aef12dfc001"
+        },
+        {
+          "filename": "00004.png",
+          "render_sha256": "91392765b34eb709863453f389eb6112e7e8069b30b63ebfcf27c96351182179",
+          "gt_sha256": "2d3a3c42fad3ffbc86c127b8e21823c66e9234e3bdb6f02f2068517eca379bf2"
+        },
+        {
+          "filename": "00005.png",
+          "render_sha256": "b7f0e2735ed4132737d0f41e8b23878be09b373248ab38933aa035b52a3ed335",
+          "gt_sha256": "3556e3d3edf7287c6a49ea90979e7ec3a324f407fc01425d1c68167bb967fa57"
+        },
+        {
+          "filename": "00006.png",
+          "render_sha256": "83540a9f296709afd59fefd2872375d8ff9049a23358742d72e391656d0f7880",
+          "gt_sha256": "acf3866dd2347ddfb8483f37616a766a0efe2bdcb48203f9666002f87c3d4055"
+        },
+        {
+          "filename": "00007.png",
+          "render_sha256": "cc55b68fba00194f79bb9c47f94dd51a267cdb79b59257c4aaed7dfb0f3fa257",
+          "gt_sha256": "cbf87e5bf48e118a345ff224e129ae4916c90243ebbeb130b765ec417fba2cce"
+        },
+        {
+          "filename": "00008.png",
+          "render_sha256": "dc9ca9c0815675ef6fd3856fe8eaeee38b039aaf2bdfdf4521d11f3a1df30d97",
+          "gt_sha256": "ac898d348d3b36dcf5f2dc333bec2623246185783f679b2d4f7b06971eeed908"
+        }
+      ]
+    },
+    "20x_SH2": {
+      "status": "complete",
+      "PSNR": 33.472897635565865,
+      "SSIM": 0.9613106780582004,
+      "LPIPS": 0.10800114770730336,
+      "LPIPS_legacy_0_1": 0.07742528451813592,
+      "per_view_standard_lpips": {
+        "00000.png": 0.11185838282108307,
+        "00001.png": 0.10104905068874359,
+        "00002.png": 0.09027193486690521,
+        "00003.png": 0.11065079271793365,
+        "00004.png": 0.09839339554309845,
+        "00005.png": 0.11818069964647293,
+        "00006.png": 0.11723952740430832,
+        "00007.png": 0.11665070056915283,
+        "00008.png": 0.10771584510803223
+      },
+      "criterion": {
+        "net": "vgg",
+        "version": "0.1",
+        "local_implementation": "lpipsPyTorch.LPIPS",
+        "torch_version": "1.12.1",
+        "torchvision_version": "0.13.1",
+        "source_files_sha256": {
+          "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/evaluate_comparison_lpips.py": "9b33ddf2e514784572f0bea95363c26ac8096069cf97b9bb1980d209356fbd51",
+          "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/lpipsPyTorch/__init__.py": "a657ce7355782eb970f95fd0d2e26eec5b9023212d2b655814da6e15b70510b4",
+          "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/lpipsPyTorch/modules/lpips.py": "3bece0b9cf9943af5b043026458819d259df9bfe7c2a1d3ffc6c905e7e5aa2b4",
+          "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/lpipsPyTorch/modules/networks.py": "dfa6f152b0e3fbc23ac3bfaea52b46e9473e64ad539ea22ab030c57af51c7f14",
+          "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/lpipsPyTorch/modules/utils.py": "1bd4a7d4e7b43215497675ed852936fe4f27e7ea3068afe0b0e1f7cfb6c48570",
+          "run_pup_rir_experiments.py": "07598d62ff5b89229e2b19fbdc6f1d6da5a5c04cc2a264e8e89ee76bd3338116"
+        },
+        "weight_files_sha256": {
+          "/home/zhangys/.cache/torch/hub/checkpoints/vgg16-397923af.pth": "397923af8e79cdbb6a7127f12361acd7a2f83e06b05044ddf496e83de57a5bf0",
+          "/home/zhangys/.cache/torch/hub/checkpoints/vgg.pth": "a78928a0af1e5f0fcb1f3b9e8f8c3a2a5a3de244d830ad5c1feddc79b8432868"
+        },
+        "weight_sources": {
+          "VGG16": "https://download.pytorch.org/models/vgg16-397923af.pth",
+          "linear_v0.1": "https://raw.githubusercontent.com/richzhang/PerceptualSimilarity/master/lpips/weights/v0.1/vgg.pth"
+        },
+        "official_range_reference": {
+          "url": "https://github.com/richzhang/PerceptualSimilarity/blob/master/lpips/lpips.py",
+          "local_path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/inventory/lpips_author_reference.py",
+          "sha256": "3eaeb96c0029b2d849745e6691ccb0d85361bed9cf9953b7ceaed8dc948a6d83"
+        },
+        "input_range": [
+          -1,
+          1
+        ],
+        "preprocessing": "RGB uint8 -> float32/255 -> 2*x-1",
+        "spatial_processing": "full native 1592x894, no resize/crop/tile",
+        "local_scaling_mean": [
+          -0.03,
+          -0.088,
+          -0.188
+        ],
+        "local_scaling_std": [
+          0.458,
+          0.448,
+          0.45
+        ],
+        "state_dict_sha256": "b9ba014c09665fa4b7e91256673cf20178d7d8f0961fb308fe154ee074c81bc0"
+      },
+      "input_range": [
+        -1,
+        1
+      ],
+      "images": [
+        {
+          "filename": "00000.png",
+          "render_sha256": "71301fac70ae759d1808792b6cff862eb2176c5053ac93ea497320ec8f385242",
+          "gt_sha256": "b96ec93fdc0f2d7e311b3a33cb3f9ef5a2e6a8e6c482bab52cff240c4e869aa1"
+        },
+        {
+          "filename": "00001.png",
+          "render_sha256": "015d55a5ca84acfa7b985b0e8785238cd23f38ed1f21902cfad651ef783403a6",
+          "gt_sha256": "22fab4c3dde09e6eee0facb307709f68044020385c1113b7cabc76c586338824"
+        },
+        {
+          "filename": "00002.png",
+          "render_sha256": "659b5151f758ee9fd292c58d8665c673cd55752c965ed7393bf1919300203b1b",
+          "gt_sha256": "37000f345534ba857a6c45218d9c8b9f3b703bd042a737197d847a7833473b36"
+        },
+        {
+          "filename": "00003.png",
+          "render_sha256": "ca9b0debaaf3ac7ee316cf431396c4a0b8a7c11087ae1e1df6f62ef024dffa26",
+          "gt_sha256": "8a4318ed4c9b4ab3ed6009f9df20764b55a818b8cd99eff5fd485aef12dfc001"
+        },
+        {
+          "filename": "00004.png",
+          "render_sha256": "85d57d728d744e9d3bd3014bfe0429872309b7db35c22c97decd63c6446c2764",
+          "gt_sha256": "2d3a3c42fad3ffbc86c127b8e21823c66e9234e3bdb6f02f2068517eca379bf2"
+        },
+        {
+          "filename": "00005.png",
+          "render_sha256": "88898a0fb48f44f85050b0c1563cab3089bc2e9f8834746af1f79ab2daf01f4d",
+          "gt_sha256": "3556e3d3edf7287c6a49ea90979e7ec3a324f407fc01425d1c68167bb967fa57"
+        },
+        {
+          "filename": "00006.png",
+          "render_sha256": "7756bbea6dd6f4e7c9c9b2d1d66f20b7db26ac4c0033ecd4993aaa34dad68f10",
+          "gt_sha256": "acf3866dd2347ddfb8483f37616a766a0efe2bdcb48203f9666002f87c3d4055"
+        },
+        {
+          "filename": "00007.png",
+          "render_sha256": "268db036c65ecf19cb99bd56043a097dece7be56c0fe8517aba3442397b828a3",
+          "gt_sha256": "cbf87e5bf48e118a345ff224e129ae4916c90243ebbeb130b765ec417fba2cce"
+        },
+        {
+          "filename": "00008.png",
+          "render_sha256": "6d7c189998c5bcd7c73951a82668869a02db49af1a008bb93468ab074ff59367",
+          "gt_sha256": "ac898d348d3b36dcf5f2dc333bec2623246185783f679b2d4f7b06971eeed908"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "python": "3.7.13 (default, Oct 18 2022, 18:57:03) \n[GCC 11.2.0]",
+  "torch": "1.12.1",
+  "torchvision": "0.13.1",
+  "torch_cuda": "11.6",
+  "platform": "Linux-6.8.0-59-generic-x86_64-with-debian-bookworm-sid",
+  "compiler_flags": {
+    "CUDA_HOME": "/usr/local/cuda-11.8",
+    "CC": "/usr/bin/gcc-11",
+    "CXX": "/usr/bin/g++-11",
+    "TORCH_CUDA_ARCH_LIST": "7.5",
+    "MAX_JOBS": "2"
+  },
+  "build_log_sha256": "c5f62e096165b3696b936f52fcdb724426e46f0741135b0b56c7af150f5025a3",
+  "reference_backend_commit": "eaef2faba21f076867c1db84c3f998e5f673762f",
+  "reference_git_base": "v3.1.0"
+}

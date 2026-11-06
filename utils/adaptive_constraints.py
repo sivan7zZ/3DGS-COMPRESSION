@@ -325,7 +325,8 @@ class DynamicConnectivityGuard:
 def select_feasible_prune(scores, instance_ids, instance_min_counts, remove_count,
                           boundary_mask=None, boundary_min_counts=None,
                           boundary_mode="quota", topology=None, active_mask=None,
-                          max_search_nodes=4096, raise_on_infeasible=False):
+                          max_search_nodes=4096, raise_on_infeasible=False,
+                          allow_negative_infinity=False):
     """Select removals in unchanged ascending GLOBAL score order.
 
     The round-start articulation mask is hard-protected for the whole call.
@@ -340,8 +341,11 @@ def select_feasible_prune(scores, instance_ids, instance_min_counts, remove_coun
     score = _array(scores, np.float64).reshape(-1)
     ids = _array(instance_ids, np.int64)
     size = len(score)
-    if ids.shape != (size,) or not np.isfinite(score).all():
-        raise ValueError("Scores must be finite and aligned with instance IDs")
+    invalid = np.isnan(score) | np.isposinf(score)
+    if not allow_negative_infinity:
+        invalid |= np.isneginf(score)
+    if ids.shape != (size,) or invalid.any():
+        raise ValueError("Scores must be aligned and finite (PUP may explicitly allow -inf)")
     requested = int(remove_count)
     if requested < 0:
         raise ValueError("Requested removal count must be nonnegative")

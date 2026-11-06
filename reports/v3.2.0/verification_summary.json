@@ -1,0 +1,24 @@
+{
+  "version": "v3.2.0",
+  "saved_on": "2026-11-06",
+  "timezone": "Asia/Shanghai",
+  "unit_tests": {
+    "total": 182,
+    "passed": 181,
+    "skipped": 1,
+    "skip_reason": "scikit-image unavailable in project environment",
+    "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/tests.log",
+    "sha256": "f0950e5ee3d1adef32a9797aec784502ee9d9bbc5fc185567432c99b08884e48"
+  },
+  "cuda_fisher": {
+    "relative_error": 7.384773681451406e-08,
+    "gradient_buffers_unchanged": true,
+    "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/pup_cuda_validation.log",
+    "sha256": "1946c4fadc22293be6e70f3fe7a827fd81b7e8f1220cea526e9348ecccdce7e5"
+  },
+  "release_integrity": {
+    "experiment_artifacts_sha256_verified": 32,
+    "frozen_training_files_sha256_verified": 40,
+    "training_rerun_for_release": false
+  }
+}

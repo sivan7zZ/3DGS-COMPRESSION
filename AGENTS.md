@@ -2,7 +2,7 @@
 
 - 开始修改前阅读 WORKFLOW.md；以该文档和用户最新要求为准。
 - 仓库位置固定，不迁移。所有实验结果放在本仓库 output/ 内。
-- 当前流程是预训练 3DGS → PWSR RIR/DPRA/SPS → checkpoint → LightGaussian SH 蒸馏。
+- 当前v3.2.0流程是预训练3DGS → PUP六维Fisher评分 + 原PWSR RIR/DPRA + v3.1保护/合并/预算回填 → checkpoint → LightGaussian SH蒸馏。新入口 run_pup_rir_experiments.py，范围与续跑见 PUP_RIR_DPRA.md；历史SPS和相对自适应入口保留。
 - 不重新引入 3D-DoG、负响应字段或对应渲染器；输出标准 SH PLY。
 - SH 教师和学生均从 checkpoint 初始化：教师用原始未剪枝 3DGS，学生用 PWSR 剪枝结果；不得静默复用同一 checkpoint。
 - SH3→SH2 初始化创建新优化器；SH2 续训才恢复优化器和配套 sidecar。
