@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "native_footprint": true,
+  "anisotropic": true,
+  "occlusion_aware": true,
+  "channels": [
+    "sam_boundary_strength",
+    "depth_boundary_strength",
+    "rgb_boundary_strength"
+  ],
+  "image_shape": [
+    23,
+    29
+  ],
+  "max_total_absolute_error": 5.02800272883519e-06,
+  "max_mass_absolute_error": 1.4621562911543151e-06,
+  "reference": "Independent non-tiled per-pixel depth-sorted float64 alpha*T",
+  "tolerance": {
+    "rtol": 3e-06,
+    "atol": 3e-06
+  },
+  "gpu_used": false
+}

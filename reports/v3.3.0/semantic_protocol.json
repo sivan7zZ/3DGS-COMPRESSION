@@ -1,0 +1,224 @@
+{
+  "schema": "city_continuous_boundary_frozen_protocol_v1",
+  "status": "frozen_evaluator_reuse",
+  "mode": "city_oof",
+  "classes": [
+    "unannotated",
+    "Building",
+    "Tree",
+    "Road",
+    "Vehicle",
+    "Grass",
+    "Ground"
+  ],
+  "ignore_label": 0,
+  "folds": [
+    {
+      "id": "main_heldout_2",
+      "role": "independent_3dgs_test",
+      "predict_frames": [
+        "frame_000",
+        "frame_056"
+      ],
+      "train_frames": [
+        "frame_007",
+        "frame_014",
+        "frame_021",
+        "frame_028",
+        "frame_035",
+        "frame_042",
+        "frame_049",
+        "frame_063"
+      ],
+      "validation_frames": [],
+      "fitting": "reuse_verified_20261106_frozen_evaluator",
+      "checkpoint": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/semantic/model/model.pt",
+      "checkpoint_sha256": "35a50751d2e145f489b4f17016fe7397272f72e373e40913b73fb0ff88643519",
+      "steps": 1500,
+      "seed": 20261104,
+      "expected_data_manifest_sha256": "ba658f726860e4f59c68770e7d04a90a58d02e8610ecdde543f32b0f6c31dc70",
+      "original_training_receipt": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/semantic/model/training_protocol.json",
+      "original_training_receipt_sha256": "a769fa5c2bd443e55e18f84eec20dba9aef9908e21bc1615e50b6abf6594329d",
+      "original_predictions_manifest": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/comparison/semantic/folds/main_heldout_2/predictions_manifest.json",
+      "original_predictions_manifest_sha256": "c48658a20cd2b7a521576a1c77d0c12c69b87742dfdd48721114a6ad98cbea02"
+    },
+    {
+      "id": "aux_fold_1",
+      "role": "3dgs_training_view_auxiliary",
+      "predict_frames": [
+        "frame_007",
+        "frame_014"
+      ],
+      "train_frames": [
+        "frame_021",
+        "frame_028",
+        "frame_035",
+        "frame_042",
+        "frame_049",
+        "frame_063"
+      ],
+      "validation_frames": [],
+      "fitting": "reuse_verified_20261106_frozen_evaluator",
+      "steps": 1500,
+      "seed": 20261104,
+      "checkpoint": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/comparison/semantic/folds/aux_fold_1/model.pt",
+      "checkpoint_sha256": "4fba3e21aa72612b7f5db15cb3942c9fd872b7c13ec0fc847b6009be3470f32a",
+      "expected_data_manifest_sha256": "c1797589290d2e3dfc2a24583851e1dce2fe87039d19391f9d71c17072556f0b",
+      "original_training_receipt": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/comparison/semantic/folds/aux_fold_1/training_protocol.json",
+      "original_training_receipt_sha256": "fa8dcc2023fff71cce97df705b2da033f1fd0572133d22993adc8b47bc3a93ff",
+      "original_predictions_manifest": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/comparison/semantic/folds/aux_fold_1/predictions_manifest.json",
+      "original_predictions_manifest_sha256": "a66d55f10f311d58cffdfa968de5d576bdb82b7eac718e48e983c7ed58318726"
+    },
+    {
+      "id": "aux_fold_2",
+      "role": "3dgs_training_view_auxiliary",
+      "predict_frames": [
+        "frame_021",
+        "frame_028"
+      ],
+      "train_frames": [
+        "frame_007",
+        "frame_014",
+        "frame_035",
+        "frame_042",
+        "frame_049",
+        "frame_063"
+      ],
+      "validation_frames": [],
+      "fitting": "reuse_verified_20261106_frozen_evaluator",
+      "steps": 1500,
+      "seed": 20261104,
+      "checkpoint": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/comparison/semantic/folds/aux_fold_2/model.pt",
+      "checkpoint_sha256": "5de862a251fd2ab8fcc466eea592f351ad0eafcf4b1f154721b32ba7a76318bb",
+      "expected_data_manifest_sha256": "c1797589290d2e3dfc2a24583851e1dce2fe87039d19391f9d71c17072556f0b",
+      "original_training_receipt": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/comparison/semantic/folds/aux_fold_2/training_protocol.json",
+      "original_training_receipt_sha256": "31e1400aea378011ee0a82b6fedca8d5d26ee0920b53afc12a5b5d8066dc2435",
+      "original_predictions_manifest": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/comparison/semantic/folds/aux_fold_2/predictions_manifest.json",
+      "original_predictions_manifest_sha256": "aa978518d53917a981904f5eef80bc87aca202c0fdf42aced1efb13edf882154"
+    },
+    {
+      "id": "aux_fold_3",
+      "role": "3dgs_training_view_auxiliary",
+      "predict_frames": [
+        "frame_035",
+        "frame_042"
+      ],
+      "train_frames": [
+        "frame_007",
+        "frame_014",
+        "frame_021",
+        "frame_028",
+        "frame_049",
+        "frame_063"
+      ],
+      "validation_frames": [],
+      "fitting": "reuse_verified_20261106_frozen_evaluator",
+      "steps": 1500,
+      "seed": 20261104,
+      "checkpoint": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/comparison/semantic/folds/aux_fold_3/model.pt",
+      "checkpoint_sha256": "385fe85bc262f580f298743fb4bf6a7653f36aadf5e1ebd52fd5ead54e986080",
+      "expected_data_manifest_sha256": "c1797589290d2e3dfc2a24583851e1dce2fe87039d19391f9d71c17072556f0b",
+      "original_training_receipt": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/comparison/semantic/folds/aux_fold_3/training_protocol.json",
+      "original_training_receipt_sha256": "04d031f2d498e7c5e10635490b149a48e6363f0abba04e376773d6023f269a3a",
+      "original_predictions_manifest": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/comparison/semantic/folds/aux_fold_3/predictions_manifest.json",
+      "original_predictions_manifest_sha256": "8a413e65b70139ce0ecf28b0fff245410cbdbb7f28db997c4dffa8ca54fa05e3"
+    },
+    {
+      "id": "aux_fold_4",
+      "role": "3dgs_training_view_auxiliary",
+      "predict_frames": [
+        "frame_049",
+        "frame_063"
+      ],
+      "train_frames": [
+        "frame_007",
+        "frame_014",
+        "frame_021",
+        "frame_028",
+        "frame_035",
+        "frame_042"
+      ],
+      "validation_frames": [],
+      "fitting": "reuse_verified_20261106_frozen_evaluator",
+      "steps": 1500,
+      "seed": 20261104,
+      "checkpoint": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/comparison/semantic/folds/aux_fold_4/model.pt",
+      "checkpoint_sha256": "dc910de9b17a6aa95fa9fc06dad997a2bf0e473d3e0c7367bda09bb6b19e4619",
+      "expected_data_manifest_sha256": "c1797589290d2e3dfc2a24583851e1dce2fe87039d19391f9d71c17072556f0b",
+      "original_training_receipt": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/comparison/semantic/folds/aux_fold_4/training_protocol.json",
+      "original_training_receipt_sha256": "78fc4b4891f460d4162739aff321835a0ed93d611d5de3e39a0c27a182c8abe3",
+      "original_predictions_manifest": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/comparison/semantic/folds/aux_fold_4/predictions_manifest.json",
+      "original_predictions_manifest_sha256": "02ab6edc5b8e595c25eb11826cdc1e27c67499d72ff8ee0ee91c2ba6d0a25dea"
+    }
+  ],
+  "independent_test_frames": [
+    "frame_000",
+    "frame_056"
+  ],
+  "auxiliary_training_view_frames": [
+    "frame_007",
+    "frame_014",
+    "frame_021",
+    "frame_028",
+    "frame_035",
+    "frame_042",
+    "frame_049",
+    "frame_063"
+  ],
+  "aggregate_groups": {
+    "independent_test_2": [
+      "frame_000",
+      "frame_056"
+    ],
+    "auxiliary_training_views_8": [
+      "frame_007",
+      "frame_014",
+      "frame_021",
+      "frame_028",
+      "frame_035",
+      "frame_042",
+      "frame_049",
+      "frame_063"
+    ],
+    "all_annotated_10": [
+      "frame_000",
+      "frame_007",
+      "frame_014",
+      "frame_021",
+      "frame_028",
+      "frame_035",
+      "frame_042",
+      "frame_049",
+      "frame_056",
+      "frame_063"
+    ]
+  },
+  "fitting_rules": [
+    "Only original RGB and annotation labels fit the scene evaluator.",
+    "No compressed RGB, independent test label, or current fold prediction label fits/selects its evaluator.",
+    "Each fold uses the same frozen weights for GT RGB and every compared model.",
+    "All ten frames are not ten independent 3DGS test views: eight are training-view auxiliary checks."
+  ],
+  "recall_definition": "Same-class 8-connected semantic RegionRecall; minimum GT area 16px, one-to-one matching at IoU>=0.5. Not physical-instance Recall.",
+  "semantic_metrics": [
+    "region_recall",
+    "b_miou",
+    "miou",
+    "macc"
+  ],
+  "boundary_iou_rule": "Existing common protocol: inner band at 2% image diagonal; exclude GT void boundary bands.",
+  "visual_metrics": "PSNR, SSIM, standard VGG LPIPS[-1,1] use the original nine independent test frames; auxiliary view metrics are reported separately.",
+  "data_manifest": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/comparison/semantic/dataset_manifest.json",
+  "data_manifest_sha256": "c1797589290d2e3dfc2a24583851e1dce2fe87039d19391f9d71c17072556f0b",
+  "historical_data_manifest": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/semantic/dataset_manifest.json",
+  "historical_data_manifest_sha256": "ba658f726860e4f59c68770e7d04a90a58d02e8610ecdde543f32b0f6c31dc70",
+  "historical_training_protocol": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/semantic/model/training_protocol.json",
+  "historical_training_protocol_sha256": "a769fa5c2bd443e55e18f84eec20dba9aef9908e21bc1615e50b6abf6594329d",
+  "registration_equal_to_historical": true,
+  "label_audit_sha256": "80624abf9a106a11e81f1e0f3c32d1c9bf91c98b3f8c3fe2ab2269e7768ff77c",
+  "reused_protocol": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/comparison/semantic/protocol.json",
+  "reused_protocol_sha256": "cde2c56aa48edc7a99e98c1e673e79da20b3d08e305bf0640b91ebadab13ef05",
+  "reused_metrics": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/comparison/semantic/metrics.json",
+  "reused_metrics_sha256": "b2106186cb10fdc8eaa2eda409453980d922b4bf0488f9196d4578554dc4d32a",
+  "fitting": "No evaluator fitting; reuse the five hash-verified 20261106 frozen checkpoints"
+}

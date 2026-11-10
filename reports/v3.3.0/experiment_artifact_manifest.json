@@ -1,0 +1,2775 @@
+{
+  "status": "complete",
+  "schema": "continuous_boundary_final_artifacts_v1",
+  "archived_utc": "2026-11-09T11:13:56.941161+00:00",
+  "output_root": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109",
+  "archive_source": {
+    "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/archive_continuous_boundary_results.py",
+    "sha256": "6f6b8c392312b0280b8605102ac8d86cc5129bab18353f2998edecddba9dbeb7"
+  },
+  "gpu_used": false,
+  "training_restarted": false,
+  "source_changes_committed": false,
+  "training_snapshot": {
+    "files": 47,
+    "manifest_sha256": "3a050524f18c8945ffdc344a1c376c8650d92af0ae8f7c13a9febc55d445798c",
+    "live_and_frozen_copies_exact": true
+  },
+  "evaluation_snapshot": {
+    "files": 16,
+    "manifest_sha256": "917eff3f398812b1205f74988610e4ef6e44e94481228ba0f6571ec15aae9198",
+    "live_and_frozen_copies_exact": true
+  },
+  "frozen_continuous_prior_sha256": "80a74c6462a717da18bfe0d1e6ccdbc56090b87dcaa87cf1f55c99eb08884278",
+  "standard_lpips_shared_weights_sha256": "b9ba014c09665fa4b7e91256673cf20178d7d8f0961fb308fe154ee074c81bc0",
+  "standard_lpips": {
+    "shared_weights_sha256": "b9ba014c09665fa4b7e91256673cf20178d7d8f0961fb308fe154ee074c81bc0",
+    "models": 19,
+    "sources": {
+      "original_3dgs": {
+        "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/renders/original_3dgs/comparison_lpips.json",
+        "sha256": "c7a3936a04627c16d2486ff2d4cf80715b4d8436a013ae0c2f1942a47c8a29ce",
+        "input_range": [
+          -1,
+          1
+        ],
+        "views": 9,
+        "state_dict_sha256": "b9ba014c09665fa4b7e91256673cf20178d7d8f0961fb308fe154ee074c81bc0"
+      },
+      "lightgaussian_10x": {
+        "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/renders/lightgaussian_10x/comparison_lpips.json",
+        "sha256": "619c804f5796774543d0a72939263da1d4fcb590d75ce8a9e35b6aca28bb3b3b",
+        "input_range": [
+          -1,
+          1
+        ],
+        "views": 9,
+        "state_dict_sha256": "b9ba014c09665fa4b7e91256673cf20178d7d8f0961fb308fe154ee074c81bc0"
+      },
+      "lightgaussian_20x": {
+        "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/renders/lightgaussian_20x/comparison_lpips.json",
+        "sha256": "e8c24493b6940e4c17dd9c593dc6ec2b3df0a7855055d7eb3673bb34a5f77245",
+        "input_range": [
+          -1,
+          1
+        ],
+        "views": 9,
+        "state_dict_sha256": "b9ba014c09665fa4b7e91256673cf20178d7d8f0961fb308fe154ee074c81bc0"
+      },
+      "pup_10x": {
+        "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/renders/pup_10x/comparison_lpips.json",
+        "sha256": "4ebe6e5225fd010b1ff327320fcaaec95f744bf26c293519b0eab2016fbacbcb",
+        "input_range": [
+          -1,
+          1
+        ],
+        "views": 9,
+        "state_dict_sha256": "b9ba014c09665fa4b7e91256673cf20178d7d8f0961fb308fe154ee074c81bc0"
+      },
+      "pup_20x": {
+        "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/renders/pup_20x/comparison_lpips.json",
+        "sha256": "99ac641af6d44fa54b53b2103dc308eb1483e63a56ffaa0542fe51e259031637",
+        "input_range": [
+          -1,
+          1
+        ],
+        "views": 9,
+        "state_dict_sha256": "b9ba014c09665fa4b7e91256673cf20178d7d8f0961fb308fe154ee074c81bc0"
+      },
+      "speedy_10x": {
+        "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/renders/speedy_10x/comparison_lpips.json",
+        "sha256": "6fc1d20e09204fc25e10bb05c842dbc301946bb832479db6ffeefdd06315df25",
+        "input_range": [
+          -1,
+          1
+        ],
+        "views": 9,
+        "state_dict_sha256": "b9ba014c09665fa4b7e91256673cf20178d7d8f0961fb308fe154ee074c81bc0"
+      },
+      "speedy_20x": {
+        "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/renders/speedy_20x/comparison_lpips.json",
+        "sha256": "e2f6737f7fd831157590de2db72d12aff78e997cbb3f1567199e147aa054942a",
+        "input_range": [
+          -1,
+          1
+        ],
+        "views": 9,
+        "state_dict_sha256": "b9ba014c09665fa4b7e91256673cf20178d7d8f0961fb308fe154ee074c81bc0"
+      },
+      "pwsr_10x": {
+        "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/renders/pwsr_10x/comparison_lpips.json",
+        "sha256": "54d0ec780f90c41dcbb54ccb9b76f9b56f018dafabb6843f01ae5e0dc7b0f54e",
+        "input_range": [
+          -1,
+          1
+        ],
+        "views": 9,
+        "state_dict_sha256": "b9ba014c09665fa4b7e91256673cf20178d7d8f0961fb308fe154ee074c81bc0"
+      },
+      "pwsr_20x": {
+        "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/renders/pwsr_20x/comparison_lpips.json",
+        "sha256": "0f5042e4dc5c1a732f5db5e52d4713f0aaa06a4fd095113343bef66b6ff4c244",
+        "input_range": [
+          -1,
+          1
+        ],
+        "views": 9,
+        "state_dict_sha256": "b9ba014c09665fa4b7e91256673cf20178d7d8f0961fb308fe154ee074c81bc0"
+      },
+      "ours_10x": {
+        "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/renders/ours_10x/comparison_lpips.json",
+        "sha256": "2c92cfc27975312caca38a4f50736d70f12cb03357bd288b28f41b907bb6adac",
+        "input_range": [
+          -1,
+          1
+        ],
+        "views": 9,
+        "state_dict_sha256": "b9ba014c09665fa4b7e91256673cf20178d7d8f0961fb308fe154ee074c81bc0"
+      },
+      "ours_20x": {
+        "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/renders/ours_20x/comparison_lpips.json",
+        "sha256": "fc090617ba4e8d595418fbf36fa7cfa1e710c1b967d55611f4160b9bc7ef892c",
+        "input_range": [
+          -1,
+          1
+        ],
+        "views": 9,
+        "state_dict_sha256": "b9ba014c09665fa4b7e91256673cf20178d7d8f0961fb308fe154ee074c81bc0"
+      },
+      "v3_10x": {
+        "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/renders/v3_10x/comparison_lpips.json",
+        "sha256": "d050a9504c11b4dc16170ab159ada59153781a23e48198d24f4c60878146da0c",
+        "input_range": [
+          -1,
+          1
+        ],
+        "views": 9,
+        "state_dict_sha256": "b9ba014c09665fa4b7e91256673cf20178d7d8f0961fb308fe154ee074c81bc0"
+      },
+      "v3_20x": {
+        "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/renders/v3_20x/comparison_lpips.json",
+        "sha256": "60dfeed0a5aeee1c3c5384ce162b92a7fbfa11278120d446c8b4a5f3c40490aa",
+        "input_range": [
+          -1,
+          1
+        ],
+        "views": 9,
+        "state_dict_sha256": "b9ba014c09665fa4b7e91256673cf20178d7d8f0961fb308fe154ee074c81bc0"
+      },
+      "v320_10x": {
+        "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/full_10x/stage3/metrics_standard.json",
+        "sha256": "33e5dac8a19cbb443b5e7d6d7ab1321af61f3367e33aaa50fc1ddc81d2289936",
+        "input_range": [
+          -1,
+          1
+        ],
+        "views": 9,
+        "state_dict_sha256": "b9ba014c09665fa4b7e91256673cf20178d7d8f0961fb308fe154ee074c81bc0"
+      },
+      "weighted_10x": {
+        "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/full_10x/stage3/metrics_standard.json",
+        "sha256": "2c3165d19e439590e3def088e273c76992bbbe66874891ac9db40517d50fe9f2",
+        "input_range": [
+          -1,
+          1
+        ],
+        "views": 9,
+        "state_dict_sha256": "b9ba014c09665fa4b7e91256673cf20178d7d8f0961fb308fe154ee074c81bc0"
+      },
+      "v320_20x": {
+        "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/full_20x/stage3/metrics_standard.json",
+        "sha256": "33e1ca5eeeb36624cbc5fbad85b2eb5c0a535eb62f2755f3385a319a9db51d51",
+        "input_range": [
+          -1,
+          1
+        ],
+        "views": 9,
+        "state_dict_sha256": "b9ba014c09665fa4b7e91256673cf20178d7d8f0961fb308fe154ee074c81bc0"
+      },
+      "weighted_20x": {
+        "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/full_20x/stage3/metrics_standard.json",
+        "sha256": "bca9f0d8ce13bbd96d7ded668022dd98011095b4f8d821545fbddd682cb1423e",
+        "input_range": [
+          -1,
+          1
+        ],
+        "views": 9,
+        "state_dict_sha256": "b9ba014c09665fa4b7e91256673cf20178d7d8f0961fb308fe154ee074c81bc0"
+      },
+      "continuous_10x": {
+        "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_10x/stage3/metrics_standard.json",
+        "sha256": "3c7e263a3b8a16be7e94378809cfd94a9eacba539707c7b11fbb91b4eef8be14",
+        "input_range": [
+          -1,
+          1
+        ],
+        "views": 9,
+        "state_dict_sha256": "b9ba014c09665fa4b7e91256673cf20178d7d8f0961fb308fe154ee074c81bc0"
+      },
+      "continuous_20x": {
+        "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_20x/stage3/metrics_standard.json",
+        "sha256": "0825f9d0b72335be77596e5d14b2b8dcc1590e1e36f9929f2ae9454b2189abff",
+        "input_range": [
+          -1,
+          1
+        ],
+        "views": 9,
+        "state_dict_sha256": "b9ba014c09665fa4b7e91256673cf20178d7d8f0961fb308fe154ee074c81bc0"
+      }
+    }
+  },
+  "completion_receipts_verified": [
+    "experiment_queue.json",
+    "evaluation_queue.json",
+    "full_10x/validation.json",
+    "full_20x/validation.json",
+    "comparison_validation.json",
+    "summary.json",
+    "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/independent_semantic_audit.json"
+  ],
+  "models": 19,
+  "groups_including_gt": 20,
+  "semantic_scopes": {
+    "independent_test_2": 2,
+    "auxiliary_training_views_8": 8,
+    "all_annotated_10": 10
+  },
+  "tests": {
+    "available": true,
+    "run": 261,
+    "skipped": 1,
+    "seconds": 3.692,
+    "statement": "日志记录运行261项，结果OK，跳过1项。"
+  },
+  "artifacts": [
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/archive_continuous_boundary_results.py",
+      "sha256": "6f6b8c392312b0280b8605102ac8d86cc5129bab18353f2998edecddba9dbeb7",
+      "size_bytes": 29541,
+      "kinds": [
+        "archive_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/arguments/__init__.py",
+      "sha256": "c671fc6a0a09f0929927c19a10bb37d9948febc5730bf847a9e88965ad689758",
+      "size_bytes": 4438,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/city_semantic.py",
+      "sha256": "f5c5e1d0ed15160db682a96fc8979435633da704f87e11f7d8228ed7210cb224",
+      "size_bytes": 19479,
+      "kinds": [
+        "evaluation_source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/configs/city_continuous_boundary_10x.json",
+      "sha256": "2d15646f284bef69cf69c090c77caf1036129c8d68ddf131b0275f0daad5a829",
+      "size_bytes": 2531,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/configs/city_continuous_boundary_20x.json",
+      "sha256": "42042f30918af2af761d8d440161305449708633f9835d3cb769bf6b10c3c832",
+      "size_bytes": 2530,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/evaluate_boundary_weighted_semantics.py",
+      "sha256": "7e14503b1db3b6fb5474adf54f976be10663e17d1c2c21244448bb04e938c19b",
+      "size_bytes": 35789,
+      "kinds": [
+        "evaluation_source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/evaluate_continuous_boundary_semantics.py",
+      "sha256": "cff9257369416cffd30b4fe474ddd8c2f05237887d8e6e98280b4022bc34d44f",
+      "size_bytes": 9734,
+      "kinds": [
+        "evaluation_source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/finalize_boundary_weighted_results.py",
+      "sha256": "d7ce8c8c5f439abdc2159414b9be76a3b44a12ba17656fffa22652c642cc3f50",
+      "size_bytes": 15414,
+      "kinds": [
+        "evaluation_source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/finalize_city_benchmark.py",
+      "sha256": "dd689405050f4c9a424f6b8afc0d25fafa028a6ba880fa9f8a23018646b5d374",
+      "size_bytes": 38333,
+      "kinds": [
+        "evaluation_source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/finalize_continuous_boundary_results.py",
+      "sha256": "991105ddb227642dc3da37c78c962671843da6cee6184054afd949beec4092dd",
+      "size_bytes": 15195,
+      "kinds": [
+        "evaluation_source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/gaussian_renderer/__init__.py",
+      "sha256": "b8784baed5f398b2e2694a9fe78fe0333892ed2477663ad7bedc50cfa55d24e7",
+      "size_bytes": 3326,
+      "kinds": [
+        "source_snapshot_live_source",
+        "evaluation_source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/metrics.py",
+      "sha256": "ba5fd8ff98f42cfaa86236b1e2cd4c8d4e4dd9929d37d1e48d4cfebd2ecb2236",
+      "size_bytes": 2483,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_adaptive_constraints_20261102/shared/adaptive_metadata.npz",
+      "sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+      "size_bytes": 26799191,
+      "kinds": [
+        "unchanged_shared_metadata"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/comparison/semantic/folds/aux_fold_1/model.pt",
+      "sha256": "4fba3e21aa72612b7f5db15cb3942c9fd872b7c13ec0fc847b6009be3470f32a",
+      "size_bytes": 98234346,
+      "kinds": [
+        "frozen_semantic_checkpoint"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/comparison/semantic/folds/aux_fold_1/predictions_manifest.json",
+      "sha256": "a66d55f10f311d58cffdfa968de5d576bdb82b7eac718e48e983c7ed58318726",
+      "size_bytes": 25472,
+      "kinds": [
+        "previous_prediction_manifest"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/comparison/semantic/folds/aux_fold_1/training_protocol.json",
+      "sha256": "fa8dcc2023fff71cce97df705b2da033f1fd0572133d22993adc8b47bc3a93ff",
+      "size_bytes": 2424,
+      "kinds": [
+        "frozen_semantic_training_receipt"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/comparison/semantic/folds/aux_fold_2/model.pt",
+      "sha256": "5de862a251fd2ab8fcc466eea592f351ad0eafcf4b1f154721b32ba7a76318bb",
+      "size_bytes": 98234346,
+      "kinds": [
+        "frozen_semantic_checkpoint"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/comparison/semantic/folds/aux_fold_2/predictions_manifest.json",
+      "sha256": "aa978518d53917a981904f5eef80bc87aca202c0fdf42aced1efb13edf882154",
+      "size_bytes": 25471,
+      "kinds": [
+        "previous_prediction_manifest"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/comparison/semantic/folds/aux_fold_2/training_protocol.json",
+      "sha256": "31e1400aea378011ee0a82b6fedca8d5d26ee0920b53afc12a5b5d8066dc2435",
+      "size_bytes": 2423,
+      "kinds": [
+        "frozen_semantic_training_receipt"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/comparison/semantic/folds/aux_fold_3/model.pt",
+      "sha256": "385fe85bc262f580f298743fb4bf6a7653f36aadf5e1ebd52fd5ead54e986080",
+      "size_bytes": 98234346,
+      "kinds": [
+        "frozen_semantic_checkpoint"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/comparison/semantic/folds/aux_fold_3/predictions_manifest.json",
+      "sha256": "8a413e65b70139ce0ecf28b0fff245410cbdbb7f28db997c4dffa8ca54fa05e3",
+      "size_bytes": 25473,
+      "kinds": [
+        "previous_prediction_manifest"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/comparison/semantic/folds/aux_fold_3/training_protocol.json",
+      "sha256": "04d031f2d498e7c5e10635490b149a48e6363f0abba04e376773d6023f269a3a",
+      "size_bytes": 2425,
+      "kinds": [
+        "frozen_semantic_training_receipt"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/comparison/semantic/folds/aux_fold_4/model.pt",
+      "sha256": "dc910de9b17a6aa95fa9fc06dad997a2bf0e473d3e0c7367bda09bb6b19e4619",
+      "size_bytes": 98234346,
+      "kinds": [
+        "frozen_semantic_checkpoint"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/comparison/semantic/folds/aux_fold_4/predictions_manifest.json",
+      "sha256": "02ab6edc5b8e595c25eb11826cdc1e27c67499d72ff8ee0ee91c2ba6d0a25dea",
+      "size_bytes": 25474,
+      "kinds": [
+        "previous_prediction_manifest"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/comparison/semantic/folds/aux_fold_4/training_protocol.json",
+      "sha256": "78fc4b4891f460d4162739aff321835a0ed93d611d5de3e39a0c27a182c8abe3",
+      "size_bytes": 2426,
+      "kinds": [
+        "frozen_semantic_training_receipt"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/comparison/semantic/folds/main_heldout_2/predictions_manifest.json",
+      "sha256": "c48658a20cd2b7a521576a1c77d0c12c69b87742dfdd48721114a6ad98cbea02",
+      "size_bytes": 27472,
+      "kinds": [
+        "previous_prediction_manifest"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/full_10x/stage3/metrics_standard.json",
+      "sha256": "2c3165d19e439590e3def088e273c76992bbbe66874891ac9db40517d50fe9f2",
+      "size_bytes": 4973,
+      "kinds": [
+        "standard_lpips_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/full_20x/stage3/metrics_standard.json",
+      "sha256": "bca9f0d8ce13bbd96d7ded668022dd98011095b4f8d821545fbddd682cb1423e",
+      "size_bytes": 4976,
+      "kinds": [
+        "standard_lpips_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/renders/lightgaussian_10x/comparison_lpips.json",
+      "sha256": "619c804f5796774543d0a72939263da1d4fcb590d75ce8a9e35b6aca28bb3b3b",
+      "size_bytes": 11072,
+      "kinds": [
+        "standard_lpips_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/renders/lightgaussian_20x/comparison_lpips.json",
+      "sha256": "e8c24493b6940e4c17dd9c593dc6ec2b3df0a7855055d7eb3673bb34a5f77245",
+      "size_bytes": 11075,
+      "kinds": [
+        "standard_lpips_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/renders/original_3dgs/comparison_lpips.json",
+      "sha256": "c7a3936a04627c16d2486ff2d4cf80715b4d8436a013ae0c2f1942a47c8a29ce",
+      "size_bytes": 10999,
+      "kinds": [
+        "standard_lpips_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/renders/ours_10x/comparison_lpips.json",
+      "sha256": "2c92cfc27975312caca38a4f50736d70f12cb03357bd288b28f41b907bb6adac",
+      "size_bytes": 10872,
+      "kinds": [
+        "standard_lpips_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/renders/ours_20x/comparison_lpips.json",
+      "sha256": "fc090617ba4e8d595418fbf36fa7cfa1e710c1b967d55611f4160b9bc7ef892c",
+      "size_bytes": 10869,
+      "kinds": [
+        "standard_lpips_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/renders/pup_10x/comparison_lpips.json",
+      "sha256": "4ebe6e5225fd010b1ff327320fcaaec95f744bf26c293519b0eab2016fbacbcb",
+      "size_bytes": 10873,
+      "kinds": [
+        "standard_lpips_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/renders/pup_20x/comparison_lpips.json",
+      "sha256": "99ac641af6d44fa54b53b2103dc308eb1483e63a56ffaa0542fe51e259031637",
+      "size_bytes": 10865,
+      "kinds": [
+        "standard_lpips_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/renders/pwsr_10x/comparison_lpips.json",
+      "sha256": "54d0ec780f90c41dcbb54ccb9b76f9b56f018dafabb6843f01ae5e0dc7b0f54e",
+      "size_bytes": 10891,
+      "kinds": [
+        "standard_lpips_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/renders/pwsr_20x/comparison_lpips.json",
+      "sha256": "0f5042e4dc5c1a732f5db5e52d4713f0aaa06a4fd095113343bef66b6ff4c244",
+      "size_bytes": 10886,
+      "kinds": [
+        "standard_lpips_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/renders/speedy_10x/comparison_lpips.json",
+      "sha256": "6fc1d20e09204fc25e10bb05c842dbc301946bb832479db6ffeefdd06315df25",
+      "size_bytes": 10932,
+      "kinds": [
+        "standard_lpips_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/renders/speedy_20x/comparison_lpips.json",
+      "sha256": "e2f6737f7fd831157590de2db72d12aff78e997cbb3f1567199e147aa054942a",
+      "size_bytes": 10930,
+      "kinds": [
+        "standard_lpips_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/renders/v3_10x/comparison_lpips.json",
+      "sha256": "d050a9504c11b4dc16170ab159ada59153781a23e48198d24f4c60878146da0c",
+      "size_bytes": 10848,
+      "kinds": [
+        "standard_lpips_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/renders/v3_20x/comparison_lpips.json",
+      "sha256": "60dfeed0a5aeee1c3c5384ce162b92a7fbfa11278120d446c8b4a5f3c40490aa",
+      "size_bytes": 10842,
+      "kinds": [
+        "standard_lpips_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/semantic/model/model.pt",
+      "sha256": "35a50751d2e145f489b4f17016fe7397272f72e373e40913b73fb0ff88643519",
+      "size_bytes": 98231889,
+      "kinds": [
+        "frozen_semantic_checkpoint"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_comparison_20261104/semantic/model/training_protocol.json",
+      "sha256": "a769fa5c2bd443e55e18f84eec20dba9aef9908e21bc1615e50b6abf6594329d",
+      "size_bytes": 2500,
+      "kinds": [
+        "frozen_semantic_training_receipt"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/README_压缩结果.md",
+      "sha256": "f02bc7476cfb9aa172162a67087ff3e4357be69f4e85986ec377bb53ded051a1",
+      "size_bytes": 1516,
+      "kinds": [
+        "final_report_or_prior_visual"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/README_完整结果对比.md",
+      "sha256": "951dd86e1c04261fca1bdc12535b1ba6a22d7378286285822bb0a52ec61dcc95",
+      "size_bytes": 6898,
+      "kinds": [
+        "final_report_or_prior_visual"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/README_实验总览.md",
+      "sha256": "02f48f0cab0ca6ca5798bdd7196f0200563377320c0e3484374cf21181878f83",
+      "size_bytes": 11860,
+      "kinds": [
+        "final_master_report"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/city_label_source_identity.json",
+      "sha256": "41b79c58e0898a2c0cc42e84e039155799d6ad2e99464df78bf6676e5c6338c5",
+      "size_bytes": 469,
+      "kinds": [
+        "final_report_or_prior_visual"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/comparison/auxiliary_renders/manifest.json",
+      "sha256": "b0a4dc18df9f62db80a724c8c2757fc0567ca191c5fef494097af2eb9031fd5b",
+      "size_bytes": 150894,
+      "kinds": [
+        "auxiliary_render_manifest"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/comparison/models.json",
+      "sha256": "74339c8bafc39f0fbe8727882bb7c63d8f680155d835fd1badd8923765fdea91",
+      "size_bytes": 25895,
+      "kinds": [
+        "comparison_model_registry"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/comparison/semantic/README_统一语义指标.md",
+      "sha256": "16f35f94a4fb38255f62a95d628cdca7db1ee52f8095a7135f6bf3947e7ba540",
+      "size_bytes": 4119,
+      "kinds": [
+        "semantic_final_artifact"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/comparison/semantic/dataset_manifest.json",
+      "sha256": "c1797589290d2e3dfc2a24583851e1dce2fe87039d19391f9d71c17072556f0b",
+      "size_bytes": 17846,
+      "kinds": [
+        "semantic_final_artifact"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/comparison/semantic/folds/aux_fold_1/inputs.json",
+      "sha256": "f694ad921b3c2b225909d1f20864b48093d1f806a04d0f416562f198a3f258e5",
+      "size_bytes": 40480,
+      "kinds": [
+        "semantic_prediction_inputs"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/comparison/semantic/folds/aux_fold_1/predictions_manifest.json",
+      "sha256": "299bb4bc0818b33628cf74509369b324657e71fe6dc874dd0a24fe2a5f848de9",
+      "size_bytes": 31940,
+      "kinds": [
+        "current_prediction_manifest"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/comparison/semantic/folds/aux_fold_2/inputs.json",
+      "sha256": "21af1eb543ba77450baa73a0e8b06e802fdf93e52e0e82b981c6940d5f105dd7",
+      "size_bytes": 40480,
+      "kinds": [
+        "semantic_prediction_inputs"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/comparison/semantic/folds/aux_fold_2/predictions_manifest.json",
+      "sha256": "0f577e40f0bcdf5b0bb39de4ca4d738c202b023acfb3d379400dbe634887ff4e",
+      "size_bytes": 31939,
+      "kinds": [
+        "current_prediction_manifest"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/comparison/semantic/folds/aux_fold_3/inputs.json",
+      "sha256": "da93ac611e7d541553cee001cd49ee73ee804079bfc02b85de11e76db2ec538b",
+      "size_bytes": 40480,
+      "kinds": [
+        "semantic_prediction_inputs"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/comparison/semantic/folds/aux_fold_3/predictions_manifest.json",
+      "sha256": "3fb22048317a422de0aa68859eeb4571e7e860c407006bed9d7eda3326f7ce93",
+      "size_bytes": 31941,
+      "kinds": [
+        "current_prediction_manifest"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/comparison/semantic/folds/aux_fold_4/inputs.json",
+      "sha256": "f5f7d06b34cdc9a6e902221df8296a5f560e9ac32eb8a86fdfd2d9763e21b9bd",
+      "size_bytes": 40480,
+      "kinds": [
+        "semantic_prediction_inputs"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/comparison/semantic/folds/aux_fold_4/predictions_manifest.json",
+      "sha256": "b32fd2d9d429340d0a94e0d52a672fa24c2d48fb42b6499e59cf9fafb2c227aa",
+      "size_bytes": 31942,
+      "kinds": [
+        "current_prediction_manifest"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/comparison/semantic/folds/main_heldout_2/inputs.json",
+      "sha256": "4ef4224b158f95f62747b921092d74743192b22c2cdaf09b41c53f97529c18c9",
+      "size_bytes": 40184,
+      "kinds": [
+        "semantic_prediction_inputs"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/comparison/semantic/folds/main_heldout_2/predictions_manifest.json",
+      "sha256": "1d1ab572caf1098696974d1f9294d55e68491e2583939c07fbcd5043d55970ff",
+      "size_bytes": 30500,
+      "kinds": [
+        "current_prediction_manifest"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/comparison/semantic/frozen_evaluators_verified.json",
+      "sha256": "d659343dd4fe8dce6f2eb952ceda99f2d0e1ab6e4a894dfe7a36e61c613a35b7",
+      "size_bytes": 2953,
+      "kinds": [
+        "semantic_final_artifact"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/comparison/semantic/metrics.csv",
+      "sha256": "b9d0755850d99e7a09f50071cda0005ab6398f56a7c4606a2db02ff547da633e",
+      "size_bytes": 8323,
+      "kinds": [
+        "semantic_final_artifact"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/comparison/semantic/metrics.json",
+      "sha256": "e5565580291b70581843e8cfe280a486e493219a2e7bf50668325022bbf4a9d5",
+      "size_bytes": 1128357,
+      "kinds": [
+        "semantic_final_artifact"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/comparison/semantic/protocol.json",
+      "sha256": "27a375feda7d888a2570b8cf1c026d1fca2fd8832c1af9dd466c5d76f1dac4ef",
+      "size_bytes": 10480,
+      "kinds": [
+        "semantic_protocol"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/comparison_all_metrics.csv",
+      "sha256": "cd08a75b8587438718ae055cf3a3d9d60e9d6243d79a74d9830eb83e9828ad1e",
+      "size_bytes": 12109,
+      "kinds": [
+        "final_comparison_metrics"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/comparison_all_metrics.json",
+      "sha256": "2a6a8ddcd8a8a593d2004f252e6929369556cd0d5c31e7c6ccb6aad45e69c2fa",
+      "size_bytes": 1240139,
+      "kinds": [
+        "final_comparison_metrics"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/comparison_validation.json",
+      "sha256": "c77aa1f10845e7cb3b8f4e2d51da226ff1818e8fbeb57c618fbfd9f25f6fa80d",
+      "size_bytes": 2658,
+      "kinds": [
+        "completion_receipt"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/continuous_priors/continuous_metadata.npz",
+      "sha256": "80a74c6462a717da18bfe0d1e6ccdbc56090b87dcaa87cf1f55c99eb08884278",
+      "size_bytes": 28310895,
+      "kinds": [
+        "frozen_continuous_prior"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/continuous_priors/kernel_reference_validation.json",
+      "sha256": "0d9730966f8daff58cce6554b49bc14d04f4bd7a563e9c3af273f885464b8f3a",
+      "size_bytes": 515,
+      "kinds": [
+        "final_report_or_prior_visual"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/continuous_priors/metadata_manifest.json",
+      "sha256": "0b8b5811b78667f94202f9ed93be2c3eba64987e1ab5e8278d0db3ecaeb1c55e",
+      "size_bytes": 176893,
+      "kinds": [
+        "frozen_continuous_prior"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/continuous_priors/preprocessing_status.json",
+      "sha256": "67433871c3c83daffece1cdd610b7b93b04ca472e1d9d55f5a940e7fa7b0a1d7",
+      "size_bytes": 194,
+      "kinds": [
+        "final_report_or_prior_visual"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/continuous_priors/reports/README_连续先验可视化.md",
+      "sha256": "8bcdbfed8c8895aff1732066421a7d73b5745569099fd22030cd7736ba3d4aa9",
+      "size_bytes": 994,
+      "kinds": [
+        "final_report_or_prior_visual"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/continuous_priors/reports/continuous_boundary_training_views.png",
+      "sha256": "54b59fb723b5e2359e6710e26e5332ffe6262b5f774152bf2978f8cd07689e19",
+      "size_bytes": 8797591,
+      "kinds": [
+        "final_report_or_prior_visual",
+        "prior_visual_manifest_artifact"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/continuous_priors/reports/continuous_gaussian_strength_histograms.png",
+      "sha256": "af0e925fe4f3eecd6816391f4a76848750fede702c660cb1bb563e7c0ab0375f",
+      "size_bytes": 210099,
+      "kinds": [
+        "final_report_or_prior_visual",
+        "prior_visual_manifest_artifact"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/continuous_priors/reports/continuous_gaussian_strength_statistics.json",
+      "sha256": "6793f9a5ac9d4269837ec547c8b47704850cdc18df9155af6645b925ed2d1ef1",
+      "size_bytes": 15958,
+      "kinds": [
+        "final_report_or_prior_visual",
+        "prior_visual_manifest_artifact"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/continuous_priors/reports/manifest.json",
+      "sha256": "e95abee50a1079be1e98a224efc0d3c3ae972fb52b91120260ae8198e347d31a",
+      "size_bytes": 14360,
+      "kinds": [
+        "final_report_or_prior_visual"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/continuous_priors/reports/visual_review.json",
+      "sha256": "7459ebe2586889d33b2598be164a9798a8f6db6c43b1c610d61098af3daf01d5",
+      "size_bytes": 1375,
+      "kinds": [
+        "final_report_or_prior_visual"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/evaluation_queue.json",
+      "sha256": "6d7723c28d51611df63272ab0d66a7aec9ebf1d387edc92f9c4444588fc897c2",
+      "size_bytes": 1917,
+      "kinds": [
+        "completion_receipt"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/evaluation_source_snapshot/city_semantic.py",
+      "sha256": "f5c5e1d0ed15160db682a96fc8979435633da704f87e11f7d8228ed7210cb224",
+      "size_bytes": 19479,
+      "kinds": [
+        "evaluation_source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/evaluation_source_snapshot/evaluate_boundary_weighted_semantics.py",
+      "sha256": "7e14503b1db3b6fb5474adf54f976be10663e17d1c2c21244448bb04e938c19b",
+      "size_bytes": 35789,
+      "kinds": [
+        "evaluation_source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/evaluation_source_snapshot/evaluate_continuous_boundary_semantics.py",
+      "sha256": "cff9257369416cffd30b4fe474ddd8c2f05237887d8e6e98280b4022bc34d44f",
+      "size_bytes": 9734,
+      "kinds": [
+        "evaluation_source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/evaluation_source_snapshot/finalize_boundary_weighted_results.py",
+      "sha256": "d7ce8c8c5f439abdc2159414b9be76a3b44a12ba17656fffa22652c642cc3f50",
+      "size_bytes": 15414,
+      "kinds": [
+        "evaluation_source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/evaluation_source_snapshot/finalize_city_benchmark.py",
+      "sha256": "dd689405050f4c9a424f6b8afc0d25fafa028a6ba880fa9f8a23018646b5d374",
+      "size_bytes": 38333,
+      "kinds": [
+        "evaluation_source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/evaluation_source_snapshot/finalize_continuous_boundary_results.py",
+      "sha256": "991105ddb227642dc3da37c78c962671843da6cee6184054afd949beec4092dd",
+      "size_bytes": 15195,
+      "kinds": [
+        "evaluation_source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/evaluation_source_snapshot/gaussian_renderer/__init__.py",
+      "sha256": "b8784baed5f398b2e2694a9fe78fe0333892ed2477663ad7bedc50cfa55d24e7",
+      "size_bytes": 3326,
+      "kinds": [
+        "evaluation_source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/evaluation_source_snapshot/manifest.json",
+      "sha256": "917eff3f398812b1205f74988610e4ef6e44e94481228ba0f6571ec15aae9198",
+      "size_bytes": 1736,
+      "kinds": [
+        "source_snapshot_manifest"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/evaluation_source_snapshot/render_boundary_semantic_views.py",
+      "sha256": "679d91cab2242b76502b792b6837b9829edd46e6e83495b72a43f5f7f93329f6",
+      "size_bytes": 9289,
+      "kinds": [
+        "evaluation_source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/evaluation_source_snapshot/run_boundary_weighted_evaluation.py",
+      "sha256": "7afe58e5f484a02e8b0491c6d866cf4d011c54f7afe76d5264d9169a277babb9",
+      "size_bytes": 4587,
+      "kinds": [
+        "evaluation_source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/evaluation_source_snapshot/run_continuous_boundary_evaluation.py",
+      "sha256": "f3d4553d3df0b082e6659ff49f76cf4474c4042ae7abfad2ea5b9ea0572bd69a",
+      "size_bytes": 4906,
+      "kinds": [
+        "evaluation_source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/evaluation_source_snapshot/scene/cameras.py",
+      "sha256": "4c5bbed3b2bfeaf76b0cf32d3c106c98c51c2ffd28fe1f89a0bcf57e27f628b2",
+      "size_bytes": 4318,
+      "kinds": [
+        "evaluation_source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/evaluation_source_snapshot/scene/colmap_loader.py",
+      "sha256": "6948ce06366e1f727ddffc39a445bf4b6873824f02abc39df63eb0c8f0fb3f36",
+      "size_bytes": 11859,
+      "kinds": [
+        "evaluation_source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/evaluation_source_snapshot/scene/dataset_readers.py",
+      "sha256": "b06f01648fee893c4785ed38eeb934f91b79817b9dcbb694291c9162b0b6ba94",
+      "size_bytes": 12521,
+      "kinds": [
+        "evaluation_source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/evaluation_source_snapshot/utils/camera_utils.py",
+      "sha256": "7644d89893f2481a7a9be592227bf11f3e6e5c469c9ce92c3cb25f9ff920c458",
+      "size_bytes": 3651,
+      "kinds": [
+        "evaluation_source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/evaluation_source_snapshot/utils/city_semantic_data.py",
+      "sha256": "8425ab28b7431ceb72e499dbdcf626d601644d699250615fdff76a6576a4febf",
+      "size_bytes": 8276,
+      "kinds": [
+        "evaluation_source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/evaluation_source_snapshot/utils/semantic_comparison_metrics.py",
+      "sha256": "8e6cea5bbcd7b1062f4cedea06bf5d1f780f3a41e2223c73c95994442a889086",
+      "size_bytes": 13732,
+      "kinds": [
+        "evaluation_source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/experiment_queue.json",
+      "sha256": "2aa79ef49b5aa0069b94e81902538966f60258fd6c613b21cb71d7c30209b3db",
+      "size_bytes": 884,
+      "kinds": [
+        "completion_receipt"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_10x/config.json",
+      "sha256": "2d15646f284bef69cf69c090c77caf1036129c8d68ddf131b0275f0daad5a829",
+      "size_bytes": 2531,
+      "kinds": [
+        "completed_compression_artifact"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_10x/pipeline.json",
+      "sha256": "d21e0df681e449b244d03177df17d4be28dfd3017d2c72e517c436cbbb43b5aa",
+      "size_bytes": 4117,
+      "kinds": [
+        "completed_compression_artifact"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_10x/stage3/chkpnt25199.pth",
+      "sha256": "02b0247dd77e6e361b473d43fee3a6e46d4aeee559551180557d1cf5d1313c1b",
+      "size_bytes": 128750356,
+      "kinds": [
+        "final_native_model"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_10x/stage3/compression_metadata.npz",
+      "sha256": "d44033e8def409a43de60d5cf35c868fd64042d447bd102748fdb9701acaa865",
+      "size_bytes": 7500556,
+      "kinds": [
+        "completed_compression_artifact"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_10x/stage3/compression_state.pt",
+      "sha256": "2d53a2d835b5920fd73d6fa788a262a0f7ae733574a4816ffdb61c3f47aaecf4",
+      "size_bytes": 90850839,
+      "kinds": [
+        "completed_compression_artifact"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_10x/stage3/metrics_float.json",
+      "sha256": "51bb6297b09d8d9a121c3ef3c8b8f8b5fd41e8ce3fc21b3372504a3e11afbc42",
+      "size_bytes": 120,
+      "kinds": [
+        "completed_compression_artifact"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_10x/stage3/metrics_standard.json",
+      "sha256": "3c7e263a3b8a16be7e94378809cfd94a9eacba539707c7b11fbb91b4eef8be14",
+      "size_bytes": 4979,
+      "kinds": [
+        "standard_lpips_source",
+        "completed_compression_artifact"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_10x/stage3/per_view.json",
+      "sha256": "31aa9101f7e978c80dc6a828b758377655329dcde65913da6e4def58fe0130c3",
+      "size_bytes": 1139,
+      "kinds": [
+        "completed_compression_artifact"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_10x/stage3/point_cloud/iteration_25199/point_cloud.ply",
+      "sha256": "d917c8270acff8af1a9823ed947f1347c6048f857b62e1c80df2fa5e7100c04a",
+      "size_bytes": 44346163,
+      "kinds": [
+        "final_native_model"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_10x/stage3/protection_policy.json",
+      "sha256": "d408f241fa8e7c9e35044f4aa6c15f680db45ce141809161f81b3b433381577c",
+      "size_bytes": 239368,
+      "kinds": [
+        "completed_compression_artifact"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_10x/stage3/results.json",
+      "sha256": "72c5519175a684b150d733b47d588409c5021ef58a8abbf21a56684c329b70c4",
+      "size_bytes": 122,
+      "kinds": [
+        "completed_compression_artifact"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_10x/stage3/rounds/round_001_pup_scores.npz",
+      "sha256": "750d747a4cac7591ce31087a90fde75fe0dd31d11d81a2dfdee28c2e86e06b2f",
+      "size_bytes": 56161535,
+      "kinds": [
+        "per_event_score_snapshot"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_10x/stage3/rounds/round_001_pup_scores_post_merge.npz",
+      "sha256": "96b954344b268af1d1da5b1068377139c4d0e82f772e1eff28b2cda188f70923",
+      "size_bytes": 31037574,
+      "kinds": [
+        "per_event_score_snapshot"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_10x/stage3/rounds/round_002_pup_scores.npz",
+      "sha256": "0052eb7f958da7f4297357a641b297bb4b053e20290cad0fc57c462ed1d30f04",
+      "size_bytes": 31346114,
+      "kinds": [
+        "per_event_score_snapshot"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_10x/stage3/rounds/round_002_pup_scores_post_merge.npz",
+      "sha256": "041690546d2ae42c6d13e992cc146d94337e059cc2ff19196172b2e7b6553424",
+      "size_bytes": 18222215,
+      "kinds": [
+        "per_event_score_snapshot"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_10x/stage3/rounds/round_003_pup_scores.npz",
+      "sha256": "d5bd768e412b683ffbaf71f0ca2940353d86d6cd0616b32b53b621e0d808ce1c",
+      "size_bytes": 18380640,
+      "kinds": [
+        "per_event_score_snapshot"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_10x/stage3/rounds/round_003_pup_scores_post_merge.npz",
+      "sha256": "32e3e19015fec31c04fe342318a598d095935aa943f6e7cb012d9708603e69c0",
+      "size_bytes": 11862918,
+      "kinds": [
+        "per_event_score_snapshot"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_10x/stage3/rounds/round_004_pup_scores.npz",
+      "sha256": "9844dad5f5f7da675627f270b1bfb94021c4b0eb9e444abdcddedeb06822ccd6",
+      "size_bytes": 11960564,
+      "kinds": [
+        "per_event_score_snapshot"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_10x/stage3/rounds/round_004_pup_scores_post_merge.npz",
+      "sha256": "02215f32cdc7523d684677042944671f9f94469bfac73a45f7c1821d8b5073c7",
+      "size_bytes": 8718550,
+      "kinds": [
+        "per_event_score_snapshot"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_10x/stage3/rounds/round_005_pup_scores.npz",
+      "sha256": "e8ebcdaca2d456360854a64668859ca40fd927174f8fa3a1450d0d54e5b4fd65",
+      "size_bytes": 8799909,
+      "kinds": [
+        "per_event_score_snapshot"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_10x/stage3/rounds/round_005_pup_scores_post_merge.npz",
+      "sha256": "64ed161ab918208d0268a57605fb809a50acf141e21bbc76176bb23b58a7dee3",
+      "size_bytes": 5605788,
+      "kinds": [
+        "per_event_score_snapshot"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_10x/stage3/run_args.json",
+      "sha256": "8718c08ef8db45264f1cd8265210ac063fdcb515154b589c3b6125a2707bc3e6",
+      "size_bytes": 2659149,
+      "kinds": [
+        "completed_compression_artifact"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_10x/validation.json",
+      "sha256": "10edf581f369d5e64241a1455f25bfbb3bc60641422bdf5a21271514012473f0",
+      "size_bytes": 194060,
+      "kinds": [
+        "completion_receipt"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_20x/config.json",
+      "sha256": "42042f30918af2af761d8d440161305449708633f9835d3cb769bf6b10c3c832",
+      "size_bytes": 2530,
+      "kinds": [
+        "completed_compression_artifact"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_20x/pipeline.json",
+      "sha256": "70c2c86305a641fa2f49075d01e0dd8d8f8136edb4b950b69dfbe888d8787c89",
+      "size_bytes": 4116,
+      "kinds": [
+        "completed_compression_artifact"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_20x/stage3/chkpnt25199.pth",
+      "sha256": "ab64741f3f03c668951fc97c3263ac501e4442da1d3076bc0148eb14ef002d2f",
+      "size_bytes": 64379476,
+      "kinds": [
+        "final_native_model"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_20x/stage3/compression_metadata.npz",
+      "sha256": "adafae7f5fe71c1f7a1368f54ae3f91af6f540462a81be067a9f7312ed04605a",
+      "size_bytes": 3768663,
+      "kinds": [
+        "completed_compression_artifact"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_20x/stage3/compression_state.pt",
+      "sha256": "f9d7ee84533ec82a829588b097c9b836e5e82a8d879491fc876a80f8ec22c16b",
+      "size_bytes": 84627735,
+      "kinds": [
+        "completed_compression_artifact"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_20x/stage3/metrics_float.json",
+      "sha256": "723987c7280d21369530b76bc21af1178a04b017a659880b638ee6255ea5e099",
+      "size_bytes": 120,
+      "kinds": [
+        "completed_compression_artifact"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_20x/stage3/metrics_standard.json",
+      "sha256": "0825f9d0b72335be77596e5d14b2b8dcc1590e1e36f9929f2ae9454b2189abff",
+      "size_bytes": 4977,
+      "kinds": [
+        "standard_lpips_source",
+        "completed_compression_artifact"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_20x/stage3/per_view.json",
+      "sha256": "8b9eba2f6fd1ab6223ffffce98baf9669ed5cd0392c990315813a0094cd39a3b",
+      "size_bytes": 1136,
+      "kinds": [
+        "completed_compression_artifact"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_20x/stage3/point_cloud/iteration_25199/point_cloud.ply",
+      "sha256": "68d4ec563485e6a0966f72efa94c5ccb996395371c0f87f093b42067aebc49ab",
+      "size_bytes": 22173970,
+      "kinds": [
+        "final_native_model"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_20x/stage3/protection_policy.json",
+      "sha256": "6c39a3bcbb12fe9f3b2bbca6c5c5fd27be5c8282b2ebe98d26c325dedc37c9fe",
+      "size_bytes": 239367,
+      "kinds": [
+        "completed_compression_artifact"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_20x/stage3/results.json",
+      "sha256": "47a4a6cc980ba634e40957dc0ae8d596798110193a1361253a806333e4c35b7c",
+      "size_bytes": 122,
+      "kinds": [
+        "completed_compression_artifact"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_20x/stage3/rounds/round_001_pup_scores.npz",
+      "sha256": "691b28a3b7b2fd2e38ff16bd8e243731cad4ba7f8ea18f776b8cb0dbbc40e29a",
+      "size_bytes": 56160930,
+      "kinds": [
+        "per_event_score_snapshot"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_20x/stage3/rounds/round_001_pup_scores_post_merge.npz",
+      "sha256": "5dd97e72689bcda74a339685d11faa230680e251ada97e9fecdcd4c1e9bb860c",
+      "size_bytes": 29642759,
+      "kinds": [
+        "per_event_score_snapshot"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_20x/stage3/rounds/round_002_pup_scores.npz",
+      "sha256": "e19975c7978148189a9a2919dd31c72f60f57dcdf594a5c0f77e98a9e172c165",
+      "size_bytes": 29907235,
+      "kinds": [
+        "per_event_score_snapshot"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_20x/stage3/rounds/round_002_pup_scores_post_merge.npz",
+      "sha256": "84221061b62cd37badb0d736bb8db32d994ab41d75ca08d67c58d4d9d0b2459c",
+      "size_bytes": 16119990,
+      "kinds": [
+        "per_event_score_snapshot"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_20x/stage3/rounds/round_003_pup_scores.npz",
+      "sha256": "b94c76f0f83496ed07db2f7cc18910caf7d8d6b20197001304162a8349b6c841",
+      "size_bytes": 16231924,
+      "kinds": [
+        "per_event_score_snapshot"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_20x/stage3/rounds/round_003_pup_scores_post_merge.npz",
+      "sha256": "f2373c7c9703086e8a31140b1ea00be289136ece0c929cadf270a8473f9ebf54",
+      "size_bytes": 9447872,
+      "kinds": [
+        "per_event_score_snapshot"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_20x/stage3/rounds/round_004_pup_scores.npz",
+      "sha256": "b2d13efc045484d743322bfec3edd1a92a10acb4d5939d1a13376c35104df0c5",
+      "size_bytes": 9499699,
+      "kinds": [
+        "per_event_score_snapshot"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_20x/stage3/rounds/round_004_pup_scores_post_merge.npz",
+      "sha256": "0a6c63a3767c29e96daf9e48fdb6474c55e4a75fb4980b2f1ae10a69a6a87d6e",
+      "size_bytes": 6128798,
+      "kinds": [
+        "per_event_score_snapshot"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_20x/stage3/rounds/round_005_pup_scores.npz",
+      "sha256": "0eae23b70d0b1d5ff010776320db036002206738013a3d23f16bf5e9db3c6102",
+      "size_bytes": 6174615,
+      "kinds": [
+        "per_event_score_snapshot"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_20x/stage3/rounds/round_005_pup_scores_post_merge.npz",
+      "sha256": "f63e34b3554ae106107d30b58225a55d01f04176f6b0d40860eb69d3efe6c83e",
+      "size_bytes": 2814561,
+      "kinds": [
+        "per_event_score_snapshot"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_20x/stage3/run_args.json",
+      "sha256": "183bd02f7c65482c64b612e9e5a8c62efcdf17ea0350958f6d6f48795527d186",
+      "size_bytes": 2656308,
+      "kinds": [
+        "completed_compression_artifact"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_20x/validation.json",
+      "sha256": "f82b8dbf043e11725749373db33cf3fbf4c0ae8f40fa446aec0fc11e171225f9",
+      "size_bytes": 193692,
+      "kinds": [
+        "completion_receipt"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/independent_semantic_audit.json",
+      "sha256": "a6a204c0083dbbcb9f0da3ab0e32a4db48684f8e46ddd12dedc9a84644e779df",
+      "size_bytes": 17120,
+      "kinds": [
+        "independent_semantic_audit"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/metrics_standard.json",
+      "sha256": "08123d9554dcda6cf9d8b9acbced4628f39fdedff7b3a40ca0a551769df9b7cd",
+      "size_bytes": 10938,
+      "kinds": [
+        "final_report_or_prior_visual"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/manifest.json",
+      "sha256": "b00067df6ed4b20f70ac4633c20880ecf66ff5dfdb4970bf5f77c240d8be9020",
+      "size_bytes": 19328,
+      "kinds": [
+        "native_crop_manifest"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_comparison.png",
+      "sha256": "48b7e5ef70ed83fd44a2ad7aac2f8410edec9d0d8764e7debb69612661691159",
+      "size_bytes": 191467,
+      "kinds": [
+        "native_crop_figure"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_crops/00_frame_024_0.png",
+      "sha256": "5048b5996ce0827cf05954335d1a25346e00e4b2d712e40d4d7e345aa6957560",
+      "size_bytes": 4152,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_crops/00_frame_024_1.png",
+      "sha256": "0650de264469e2d3a1066fe7367638404628ee24b0e39cb170efd6321db35989",
+      "size_bytes": 4005,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_crops/00_frame_024_2.png",
+      "sha256": "24a00a4b24938049533cdb206c5e167291bc819ff52010298cf998b2c91737db",
+      "size_bytes": 3966,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_crops/00_frame_024_3.png",
+      "sha256": "fcf82deb2b37e19304b7cb10367518fa1be80e1ea1b7e153472b9454ebdc95d9",
+      "size_bytes": 4001,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_crops/00_frame_024_4.png",
+      "sha256": "9f5d558e85f7989ac0a68bd2e318aacbba715bc3a55f9983dc332abc36feef65",
+      "size_bytes": 3063,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_crops/01_frame_064_0.png",
+      "sha256": "98312ce5b13b0d86d4496ff0f545aac8a601826061f8cb154572806ed73083f6",
+      "size_bytes": 1210,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_crops/01_frame_064_1.png",
+      "sha256": "c3e6e8f2c9fb0053f6a30a3c01ee9c8f0efcc499ed6ec04c1cb09a5214138e40",
+      "size_bytes": 1203,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_crops/01_frame_064_2.png",
+      "sha256": "cb685bed36fad2fde80cee2d209b2374ae6b9d33302b794573b0138edea3bb7e",
+      "size_bytes": 1210,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_crops/01_frame_064_3.png",
+      "sha256": "b7154061dc3a79b0d328f9a21436f7f13a366b19bd9dce860847f6e9161b630a",
+      "size_bytes": 1188,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_crops/01_frame_064_4.png",
+      "sha256": "5c69f002d00a287b4a6140ccbf8fc049e3d08f8abdf632ce7de774f376a87b98",
+      "size_bytes": 1125,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_crops/02_frame_056_0.png",
+      "sha256": "524314b1e8c9de1c8c290f35de38cbed6a78838b646f755fc44c731727b40dc6",
+      "size_bytes": 1608,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_crops/02_frame_056_1.png",
+      "sha256": "91318d693ef97d5fc67b4c539ada1323a84d2dad603bbcb412664a6e36abac53",
+      "size_bytes": 1451,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_crops/02_frame_056_2.png",
+      "sha256": "20f110861c6dbe72a4251bb6ceda06cafa15da1bde6c5dee9c597f1f3663af7b",
+      "size_bytes": 1473,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_crops/02_frame_056_3.png",
+      "sha256": "ac09d317de74122c88682112e1aa8d9c360bcefc8dab47453dea43ef482faa17",
+      "size_bytes": 1479,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_crops/02_frame_056_4.png",
+      "sha256": "9d67cf33e99e06f1c7098b3bfe1a82448d70b273ff6647c56828b0b74e93ee57",
+      "size_bytes": 1466,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_crops/03_frame_008_0.png",
+      "sha256": "3b3d19e68842793a595f0fad6b7d9ca0e88ed4af18ef92c205244ac41859eb6a",
+      "size_bytes": 3653,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_crops/03_frame_008_1.png",
+      "sha256": "633c871112b68a3bc372842b0a622689c705e983ad590c37d29c73c9750a89d8",
+      "size_bytes": 3589,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_crops/03_frame_008_2.png",
+      "sha256": "9713eed40e2707915ad02330b5d94d3895209700fc297a93c08a6071ead44510",
+      "size_bytes": 3562,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_crops/03_frame_008_3.png",
+      "sha256": "5c5789e6c02bb4edc1a5bd55f78552d5b3a19fafc24faa4d312a46f9c965ff0c",
+      "size_bytes": 3595,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_crops/03_frame_008_4.png",
+      "sha256": "494ecfe4ca2514bd243490346167dc654cdc5433f542d0494697241bebf7b8b0",
+      "size_bytes": 3368,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_crops/04_frame_000_0.png",
+      "sha256": "499eae26cd6dbff163675c00ce443f398f624a0f240facc40c4e963e18d3178c",
+      "size_bytes": 5930,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_crops/04_frame_000_1.png",
+      "sha256": "236a82e2eace204a13ef65b9d45e9defaf0f8f02ff8d08c2b5f5032db7c4f32b",
+      "size_bytes": 5531,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_crops/04_frame_000_2.png",
+      "sha256": "dc7122a881e29d3ab5b635f8d1d3ee8ec7e3e15c067438ca1c469de4c0a66f1d",
+      "size_bytes": 5462,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_crops/04_frame_000_3.png",
+      "sha256": "025d31e6af447a9fcae4191aa282b62cc7ad6d5660a03e560238e0b2703753d2",
+      "size_bytes": 5487,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_crops/04_frame_000_4.png",
+      "sha256": "8254170b39b5f1304b93e07775edae72cad0f2b96787e3ce7cbf215266e71248",
+      "size_bytes": 4679,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_crops/05_frame_024_0.png",
+      "sha256": "49c4be88ae1a326c157ad7a023235463dedf3d0774adf3c8f5420b500581b8d9",
+      "size_bytes": 1828,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_crops/05_frame_024_1.png",
+      "sha256": "1c2b9be7f618c4287faaea7877588c44758ee96a622f82554a4abaabec1feb6d",
+      "size_bytes": 1805,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_crops/05_frame_024_2.png",
+      "sha256": "4bf50d146207a738ecf2b5a85b7dab31436de526c6f12255a6c322e2a6e5d893",
+      "size_bytes": 1829,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_crops/05_frame_024_3.png",
+      "sha256": "278912d1c21d29a0fbf7cb52548ee1870d0f35cc11d0a8c2eed80237fe6c81d4",
+      "size_bytes": 1827,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_crops/05_frame_024_4.png",
+      "sha256": "5d8459cb0450ed1acb3c2705bcd92f79bba9bdec85b13ba170a053c888edf47a",
+      "size_bytes": 1712,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/visual_review.json",
+      "sha256": "14b08c51b13dc9ebe99cb3d6b789e1a30dcbc5df555379f936deb5d2355954fe",
+      "size_bytes": 1707,
+      "kinds": [
+        "root_visual_review"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/manifest.json",
+      "sha256": "0de08a26d1c2cdde514d8a85f1678d632c3f4ed78316b6e3c2624d92525afb75",
+      "size_bytes": 19328,
+      "kinds": [
+        "native_crop_manifest"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_comparison.png",
+      "sha256": "4e844d8a25cec7ffdf8cd8666fe51e910d9a6000b3eeeea46156e4734a16808c",
+      "size_bytes": 187294,
+      "kinds": [
+        "native_crop_figure"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_crops/00_frame_024_0.png",
+      "sha256": "5048b5996ce0827cf05954335d1a25346e00e4b2d712e40d4d7e345aa6957560",
+      "size_bytes": 4152,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_crops/00_frame_024_1.png",
+      "sha256": "38764e7b864332a49aa755d36ae7e119d04f43a79b1a9aadc2b0b629f6fbfeac",
+      "size_bytes": 3825,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_crops/00_frame_024_2.png",
+      "sha256": "38210c7cfcc51acbea131bacb0b10823e9841648a19d9eba7b84dd25f5577488",
+      "size_bytes": 3821,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_crops/00_frame_024_3.png",
+      "sha256": "6b48e6a4d1fd43d01c6e51c646a345cba08a042109c89b604e8886fe4604999e",
+      "size_bytes": 3743,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_crops/00_frame_024_4.png",
+      "sha256": "017338bfa0d6bcb3587d43e9b42b7b8e10856b868ab3c2817643320d23ea36db",
+      "size_bytes": 2598,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_crops/01_frame_064_0.png",
+      "sha256": "98312ce5b13b0d86d4496ff0f545aac8a601826061f8cb154572806ed73083f6",
+      "size_bytes": 1210,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_crops/01_frame_064_1.png",
+      "sha256": "ed059ad79bc416deb93c3886ef3040115f4ded4f114bd76a8edc1edf6c617918",
+      "size_bytes": 1179,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_crops/01_frame_064_2.png",
+      "sha256": "be5cfc48f042a39432997aee12753d5223f656c1d6575eaf7efb6569bb08da03",
+      "size_bytes": 1178,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_crops/01_frame_064_3.png",
+      "sha256": "a69ed0aa6394076574b5b8fddc19719f194ea2dbde31a9659b320f3dca6b7c9f",
+      "size_bytes": 1187,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_crops/01_frame_064_4.png",
+      "sha256": "41f21114e418baa52124c35646025aa0849959a44c08b1817db5cd4e828bcc10",
+      "size_bytes": 972,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_crops/02_frame_056_0.png",
+      "sha256": "524314b1e8c9de1c8c290f35de38cbed6a78838b646f755fc44c731727b40dc6",
+      "size_bytes": 1608,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_crops/02_frame_056_1.png",
+      "sha256": "253b93f09f7f3ce83998789e0c9cd2e79a0689b3b86475e7a00dbf71c6eaa460",
+      "size_bytes": 1429,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_crops/02_frame_056_2.png",
+      "sha256": "10505141c43be776d0743b41423adffcd1d36602d50e933cb09767eeb48b2319",
+      "size_bytes": 1398,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_crops/02_frame_056_3.png",
+      "sha256": "ed449a85e29fc1e0d73be2943ac0e815af60e05a2fd1ed63658d5e61cf05efe2",
+      "size_bytes": 1433,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_crops/02_frame_056_4.png",
+      "sha256": "a879546d5bb6863f2029db14be32c08f32cfd2c697d80f7617041e98d9372e44",
+      "size_bytes": 1088,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_crops/03_frame_008_0.png",
+      "sha256": "3b3d19e68842793a595f0fad6b7d9ca0e88ed4af18ef92c205244ac41859eb6a",
+      "size_bytes": 3653,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_crops/03_frame_008_1.png",
+      "sha256": "2f72853bc6d558840edb20a7c1ea37113dc8805660225d8c63be516cfa45b309",
+      "size_bytes": 3545,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_crops/03_frame_008_2.png",
+      "sha256": "24e21a387843b9f5085754065e3270183fb7aaecd7fe0beffae18aca125e00e6",
+      "size_bytes": 3535,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_crops/03_frame_008_3.png",
+      "sha256": "fc0c4f45ba23549e5575130404797a56b35232e288c0db3233fbd294b71151a8",
+      "size_bytes": 3563,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_crops/03_frame_008_4.png",
+      "sha256": "c1ca3295c796806fbb2663422a9c03649d03af05daab2232c2e230de0831c7b8",
+      "size_bytes": 3045,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_crops/04_frame_000_0.png",
+      "sha256": "499eae26cd6dbff163675c00ce443f398f624a0f240facc40c4e963e18d3178c",
+      "size_bytes": 5930,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_crops/04_frame_000_1.png",
+      "sha256": "e936e50cf98524e010c500d6e12b2ffc471f88ae3baebf3ee929356940e0a00e",
+      "size_bytes": 5286,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_crops/04_frame_000_2.png",
+      "sha256": "0a7278afdb61aa759fef4f61cf871bd7f8f8a30ee6ec7f8993fe1f5900dc127e",
+      "size_bytes": 5248,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_crops/04_frame_000_3.png",
+      "sha256": "b114975e51628928d12cc9858872e70cf572393ca5f0dc210dfd6af1449e73fb",
+      "size_bytes": 5231,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_crops/04_frame_000_4.png",
+      "sha256": "644705bd3eb4053e057f2d23ee804a7cf41b8538c5f387646fcfeb7a3368000d",
+      "size_bytes": 3662,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_crops/05_frame_024_0.png",
+      "sha256": "49c4be88ae1a326c157ad7a023235463dedf3d0774adf3c8f5420b500581b8d9",
+      "size_bytes": 1828,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_crops/05_frame_024_1.png",
+      "sha256": "3da66ec41e84905882e28c676b1af5833d8c068fa74debd34d9045606472351a",
+      "size_bytes": 1791,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_crops/05_frame_024_2.png",
+      "sha256": "160ed861605909bbbaa6e82fbf43989868615e53d1b03f679dc36d1ada554282",
+      "size_bytes": 1827,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_crops/05_frame_024_3.png",
+      "sha256": "94019c5029a73b354f3215ef37ae0043f9214af2052a04fd5456d02afeca85d8",
+      "size_bytes": 1783,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_crops/05_frame_024_4.png",
+      "sha256": "dd59f28d4275940b43ad81e17f89f9329f0635e60856a45c93e6062f2a307616",
+      "size_bytes": 1456,
+      "kinds": [
+        "native_crop"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/visual_review.json",
+      "sha256": "c4df6933a4ee2eb73f51b045016ddb059ab8ae857f50827287d032710410a136",
+      "size_bytes": 1868,
+      "kinds": [
+        "root_visual_review"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/smoke/independent_smoke_validation.json",
+      "sha256": "42be8f97d0bcca66d23e85a3c4e5789f85d5c0e9d15d8e5efab498f95c607198",
+      "size_bytes": 12538,
+      "kinds": [
+        "final_report_or_prior_visual"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/arguments/__init__.py",
+      "sha256": "c671fc6a0a09f0929927c19a10bb37d9948febc5730bf847a9e88965ad689758",
+      "size_bytes": 4438,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/configs/city_continuous_boundary_10x.json",
+      "sha256": "2d15646f284bef69cf69c090c77caf1036129c8d68ddf131b0275f0daad5a829",
+      "size_bytes": 2531,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/configs/city_continuous_boundary_20x.json",
+      "sha256": "42042f30918af2af761d8d440161305449708633f9835d3cb769bf6b10c3c832",
+      "size_bytes": 2530,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/gaussian_renderer/__init__.py",
+      "sha256": "b8784baed5f398b2e2694a9fe78fe0333892ed2477663ad7bedc50cfa55d24e7",
+      "size_bytes": 3326,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/manifest.json",
+      "sha256": "3a050524f18c8945ffdc344a1c376c8650d92af0ae8f7c13a9febc55d445798c",
+      "size_bytes": 5846,
+      "kinds": [
+        "source_snapshot_manifest"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/metrics.py",
+      "sha256": "ba5fd8ff98f42cfaa86236b1e2cd4c8d4e4dd9929d37d1e48d4cfebd2ecb2236",
+      "size_bytes": 2483,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/prepare_continuous_boundary.py",
+      "sha256": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+      "size_bytes": 16456,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/render.py",
+      "sha256": "ab3356b3ae193d8b3ce93a8de69aa5ad1f3c2da059ac4a4977772d76018307c0",
+      "size_bytes": 3063,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/run_boundary_weighted_experiments.py",
+      "sha256": "685bccf6381be625615650cdfb7b96fa43b8658d4bb808683151f1faae69bc5d",
+      "size_bytes": 10795,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/run_boundary_weighted_pipeline.py",
+      "sha256": "0dc7f172c4611d0fa655b081a47bfc3647ea494719e72b7afc40d37453c803b5",
+      "size_bytes": 4350,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/run_continuous_boundary_experiments.py",
+      "sha256": "8cd8fdb15ba5bdcbcdd070119ec2af281255093623cb5b8dc66c1b487617fafa",
+      "size_bytes": 11668,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/run_pup_rir_pipeline.py",
+      "sha256": "325eab3f199e71487d5057e3ecefbecda77333887d3b70fb40763d7a4c92880c",
+      "size_bytes": 4954,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/scene/__init__.py",
+      "sha256": "b6d7a0594af9cbf3252b14f14bfb58abf3f5bc24e03ead9a47638c5f2c53f64a",
+      "size_bytes": 4896,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/scene/gaussian_model.py",
+      "sha256": "34a6ca18e43c400845f82048ea0185275b1c5d10fa10dd585a6edd7ffd4bf65a",
+      "size_bytes": 26552,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/submodules/pup-fisher/cuda_rasterizer/auxiliary.h",
+      "sha256": "a4258c2fcac1a5d34df4d6bf5c14c08f06b8c32e6ffbfdd4a6d9b3d82ebf9289",
+      "size_bytes": 5500,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/submodules/pup-fisher/cuda_rasterizer/backward.cu",
+      "sha256": "bcd8cbf6da6480591d13012cfffd2213c4aeab17b0bf80874b21de7465d44430",
+      "size_bytes": 28862,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/submodules/pup-fisher/cuda_rasterizer/backward.h",
+      "sha256": "9274b7127ffa8e3408f56f2b40a80715b99766922b311703c703ac30ae5bb0f2",
+      "size_bytes": 1539,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/submodules/pup-fisher/cuda_rasterizer/config.h",
+      "sha256": "90693222e7d0f8c413ec2e59ef6998cd687205a6b03ab4f6d1ed68a84e01fb8e",
+      "size_bytes": 469,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/submodules/pup-fisher/cuda_rasterizer/forward.cu",
+      "sha256": "d6d3b652c2a2b5625c4e76a5332078fc60678e7763e27b52c8e7a5de15b46015",
+      "size_bytes": 13851,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/submodules/pup-fisher/cuda_rasterizer/forward.h",
+      "sha256": "51216673c4f64862c2b753e08467047c0ec8ada444c579a775a495c566154e34",
+      "size_bytes": 1577,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/submodules/pup-fisher/cuda_rasterizer/rasterizer.h",
+      "sha256": "5b2d766a49de1e69a79902ade285a16b3dea5b3010d133f01092c043686d2695",
+      "size_bytes": 2066,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/submodules/pup-fisher/cuda_rasterizer/rasterizer_impl.cu",
+      "sha256": "ed2941ba9264483694d3ca69c677fa801db370337168e9bbc2bc80b63825a679",
+      "size_bytes": 12398,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/submodules/pup-fisher/cuda_rasterizer/rasterizer_impl.h",
+      "sha256": "9a8f170cda5af00d27e6f137a25d677f780a04fad86a21c3a7466f4d5576f758",
+      "size_bytes": 1597,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/submodules/pup-fisher/ext.cpp",
+      "sha256": "50a7f10c08f1bf2c483b87f1431b519739f6e5e5fa9a8bd836ff917962eb1ab4",
+      "size_bytes": 572,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/submodules/pup-fisher/rasterization_and_pup_fisher/_C.cpython-37m-x86_64-linux-gnu.so",
+      "sha256": "f8d936f3614d17e1663fdd1322eb09b4eba9c5364f544d944a65a0198edf661f",
+      "size_bytes": 5988440,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/submodules/pup-fisher/rasterization_and_pup_fisher/__init__.py",
+      "sha256": "1d4fc43bb67c4552193d340e2d6894ad7ec3c0d04a620fd7655c89ccf855df5b",
+      "size_bytes": 7431,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/submodules/pup-fisher/rasterize_points.cu",
+      "sha256": "e258fb073c1dadc149d2ab494a3a0f76832afe786406c7573585b578fc729d3c",
+      "size_bytes": 7029,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/submodules/pup-fisher/rasterize_points.h",
+      "sha256": "3dbb43fcd2dc4de4d41ed8db44c450d2a16283207e5aff2bc17cc19a86f1ea31",
+      "size_bytes": 1985,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/submodules/pup-fisher/setup.py",
+      "sha256": "63cdde1af2e97d6f679de2f86f3fc117e387b684c33f0a89bc8234b00e3ae148",
+      "size_bytes": 1065,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/train_adaptive_compression.py",
+      "sha256": "b1cd5e212a6a7b654a779770b24510defdc11cc7b7990a06be3afe697133882d",
+      "size_bytes": 22130,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/train_prune.py",
+      "sha256": "4e02ad63ed0fb91de3165809afcc7f70ae8c05f91eab5f5442f2973e069afa6e",
+      "size_bytes": 26774,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/train_pup_rir_compression.py",
+      "sha256": "7a11b9c9c42cc0279f2f1752998c80cc06c6c805f08d1eb3edc3934c4e613215",
+      "size_bytes": 25517,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/utils/adaptive_constraints.py",
+      "sha256": "063f5672d75c8047d61b9dd5272ba3dadfdda5501b272bccf47b425bba2fe152",
+      "size_bytes": 23202,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/utils/adaptive_metadata.py",
+      "sha256": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+      "size_bytes": 14390,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/utils/adaptive_mutation.py",
+      "sha256": "896b81ecc47a618dc159292bc14250962b4a152efe720c11a914c923c238bf55",
+      "size_bytes": 24845,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/utils/adaptive_schedule.py",
+      "sha256": "165c5ed054d796f2b6a07de0a79073aff5d31e6ed7329960f5f3492fbcd8633d",
+      "size_bytes": 4448,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/utils/checkpoint_utils.py",
+      "sha256": "bc7236c51a62da8c763efad8fae4e6476f085620cd6e1028c05bc1a8f9513246",
+      "size_bytes": 2638,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/utils/continuous_boundary_prior.py",
+      "sha256": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+      "size_bytes": 8670,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/utils/distill_utils.py",
+      "sha256": "1b3c0a2d1b6bbd0e7a4cea0ef16b34b80f43b249d8d5e5573634a3b49f31c4ec",
+      "size_bytes": 5802,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/utils/instance_roi.py",
+      "sha256": "2f8237026ccadb18bd7d1e87b650e0fe1e8c9c2f9c5701176d01ab6728d3acfa",
+      "size_bytes": 7129,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/utils/pruning_scores.py",
+      "sha256": "70b3337ed71d921c4a1a016dee67409f01f4eabac5eab95d9496c48f878f7611",
+      "size_bytes": 9038,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/utils/rir_dpra_schedule.py",
+      "sha256": "79e8565a81206871133c40a8254dd9e70d12738cff8f9805af85a76761a52248",
+      "size_bytes": 3489,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/utils/schedule_utils.py",
+      "sha256": "0edb0a824462db05ef539b56ed53742b3e60f3e960af3d25c5b2d9cdde626993",
+      "size_bytes": 1363,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/utils/structure_losses.py",
+      "sha256": "a103535f3285e37632ba9c76875508d5db624d815f1cb66e49118b66d8064999",
+      "size_bytes": 8747,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/utils/structure_visibility.py",
+      "sha256": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad",
+      "size_bytes": 16496,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/validate_adaptive_results.py",
+      "sha256": "34dbb3fec537f250f82ba53e19acaf9dcf0a384a2464aadf1e9b209df7e48892",
+      "size_bytes": 5274,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/validate_boundary_weighted_results.py",
+      "sha256": "fa481a41b5c914eba3fea23d06a05d25d3f83de28645cf15729e36112e983688",
+      "size_bytes": 18432,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/validate_continuous_boundary_results.py",
+      "sha256": "f0ab70dc0fc9bc11bd014b6192a6aeba2f90cacfd787b6b9124d3e9879f0b0fe",
+      "size_bytes": 27573,
+      "kinds": [
+        "source_snapshot_frozen_copy"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/summary.json",
+      "sha256": "050388e194b0662a8fcd1a7b2a21aac88b977bd85aeccf667974aeebb32298cc",
+      "size_bytes": 1275,
+      "kinds": [
+        "completion_receipt"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/unit_tests.log",
+      "sha256": "eeae667875e484db4dd493f8254525a5a7f30576b4c95fc459c86d4f362999b4",
+      "size_bytes": 30371,
+      "kinds": [
+        "unit_test_log"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/full_10x/stage3/metrics_standard.json",
+      "sha256": "33e5dac8a19cbb443b5e7d6d7ab1321af61f3367e33aaa50fc1ddc81d2289936",
+      "size_bytes": 4964,
+      "kinds": [
+        "standard_lpips_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_pup_rir_dpra_20261105/full_20x/stage3/metrics_standard.json",
+      "sha256": "33e1ca5eeeb36624cbc5fbad85b2eb5c0a535eb62f2755f3385a319a9db51d51",
+      "size_bytes": 4964,
+      "kinds": [
+        "standard_lpips_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/prepare_continuous_boundary.py",
+      "sha256": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+      "size_bytes": 16456,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/render.py",
+      "sha256": "ab3356b3ae193d8b3ce93a8de69aa5ad1f3c2da059ac4a4977772d76018307c0",
+      "size_bytes": 3063,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/render_boundary_semantic_views.py",
+      "sha256": "679d91cab2242b76502b792b6837b9829edd46e6e83495b72a43f5f7f93329f6",
+      "size_bytes": 9289,
+      "kinds": [
+        "evaluation_source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/run_boundary_weighted_evaluation.py",
+      "sha256": "7afe58e5f484a02e8b0491c6d866cf4d011c54f7afe76d5264d9169a277babb9",
+      "size_bytes": 4587,
+      "kinds": [
+        "evaluation_source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/run_boundary_weighted_experiments.py",
+      "sha256": "685bccf6381be625615650cdfb7b96fa43b8658d4bb808683151f1faae69bc5d",
+      "size_bytes": 10795,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/run_boundary_weighted_pipeline.py",
+      "sha256": "0dc7f172c4611d0fa655b081a47bfc3647ea494719e72b7afc40d37453c803b5",
+      "size_bytes": 4350,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/run_continuous_boundary_evaluation.py",
+      "sha256": "f3d4553d3df0b082e6659ff49f76cf4474c4042ae7abfad2ea5b9ea0572bd69a",
+      "size_bytes": 4906,
+      "kinds": [
+        "evaluation_source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/run_continuous_boundary_experiments.py",
+      "sha256": "8cd8fdb15ba5bdcbcdd070119ec2af281255093623cb5b8dc66c1b487617fafa",
+      "size_bytes": 11668,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/run_pup_rir_pipeline.py",
+      "sha256": "325eab3f199e71487d5057e3ecefbecda77333887d3b70fb40763d7a4c92880c",
+      "size_bytes": 4954,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/scene/__init__.py",
+      "sha256": "b6d7a0594af9cbf3252b14f14bfb58abf3f5bc24e03ead9a47638c5f2c53f64a",
+      "size_bytes": 4896,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/scene/cameras.py",
+      "sha256": "4c5bbed3b2bfeaf76b0cf32d3c106c98c51c2ffd28fe1f89a0bcf57e27f628b2",
+      "size_bytes": 4318,
+      "kinds": [
+        "evaluation_source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/scene/colmap_loader.py",
+      "sha256": "6948ce06366e1f727ddffc39a445bf4b6873824f02abc39df63eb0c8f0fb3f36",
+      "size_bytes": 11859,
+      "kinds": [
+        "evaluation_source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/scene/dataset_readers.py",
+      "sha256": "b06f01648fee893c4785ed38eeb934f91b79817b9dcbb694291c9162b0b6ba94",
+      "size_bytes": 12521,
+      "kinds": [
+        "evaluation_source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/scene/gaussian_model.py",
+      "sha256": "34a6ca18e43c400845f82048ea0185275b1c5d10fa10dd585a6edd7ffd4bf65a",
+      "size_bytes": 26552,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/submodules/pup-fisher/cuda_rasterizer/auxiliary.h",
+      "sha256": "a4258c2fcac1a5d34df4d6bf5c14c08f06b8c32e6ffbfdd4a6d9b3d82ebf9289",
+      "size_bytes": 5500,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/submodules/pup-fisher/cuda_rasterizer/backward.cu",
+      "sha256": "bcd8cbf6da6480591d13012cfffd2213c4aeab17b0bf80874b21de7465d44430",
+      "size_bytes": 28862,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/submodules/pup-fisher/cuda_rasterizer/backward.h",
+      "sha256": "9274b7127ffa8e3408f56f2b40a80715b99766922b311703c703ac30ae5bb0f2",
+      "size_bytes": 1539,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/submodules/pup-fisher/cuda_rasterizer/config.h",
+      "sha256": "90693222e7d0f8c413ec2e59ef6998cd687205a6b03ab4f6d1ed68a84e01fb8e",
+      "size_bytes": 469,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/submodules/pup-fisher/cuda_rasterizer/forward.cu",
+      "sha256": "d6d3b652c2a2b5625c4e76a5332078fc60678e7763e27b52c8e7a5de15b46015",
+      "size_bytes": 13851,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/submodules/pup-fisher/cuda_rasterizer/forward.h",
+      "sha256": "51216673c4f64862c2b753e08467047c0ec8ada444c579a775a495c566154e34",
+      "size_bytes": 1577,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/submodules/pup-fisher/cuda_rasterizer/rasterizer.h",
+      "sha256": "5b2d766a49de1e69a79902ade285a16b3dea5b3010d133f01092c043686d2695",
+      "size_bytes": 2066,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/submodules/pup-fisher/cuda_rasterizer/rasterizer_impl.cu",
+      "sha256": "ed2941ba9264483694d3ca69c677fa801db370337168e9bbc2bc80b63825a679",
+      "size_bytes": 12398,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/submodules/pup-fisher/cuda_rasterizer/rasterizer_impl.h",
+      "sha256": "9a8f170cda5af00d27e6f137a25d677f780a04fad86a21c3a7466f4d5576f758",
+      "size_bytes": 1597,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/submodules/pup-fisher/ext.cpp",
+      "sha256": "50a7f10c08f1bf2c483b87f1431b519739f6e5e5fa9a8bd836ff917962eb1ab4",
+      "size_bytes": 572,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/submodules/pup-fisher/rasterization_and_pup_fisher/_C.cpython-37m-x86_64-linux-gnu.so",
+      "sha256": "f8d936f3614d17e1663fdd1322eb09b4eba9c5364f544d944a65a0198edf661f",
+      "size_bytes": 5988440,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/submodules/pup-fisher/rasterization_and_pup_fisher/__init__.py",
+      "sha256": "1d4fc43bb67c4552193d340e2d6894ad7ec3c0d04a620fd7655c89ccf855df5b",
+      "size_bytes": 7431,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/submodules/pup-fisher/rasterize_points.cu",
+      "sha256": "e258fb073c1dadc149d2ab494a3a0f76832afe786406c7573585b578fc729d3c",
+      "size_bytes": 7029,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/submodules/pup-fisher/rasterize_points.h",
+      "sha256": "3dbb43fcd2dc4de4d41ed8db44c450d2a16283207e5aff2bc17cc19a86f1ea31",
+      "size_bytes": 1985,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/submodules/pup-fisher/setup.py",
+      "sha256": "63cdde1af2e97d6f679de2f86f3fc117e387b684c33f0a89bc8234b00e3ae148",
+      "size_bytes": 1065,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/train_adaptive_compression.py",
+      "sha256": "b1cd5e212a6a7b654a779770b24510defdc11cc7b7990a06be3afe697133882d",
+      "size_bytes": 22130,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/train_prune.py",
+      "sha256": "4e02ad63ed0fb91de3165809afcc7f70ae8c05f91eab5f5442f2973e069afa6e",
+      "size_bytes": 26774,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/train_pup_rir_compression.py",
+      "sha256": "7a11b9c9c42cc0279f2f1752998c80cc06c6c805f08d1eb3edc3934c4e613215",
+      "size_bytes": 25517,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/utils/adaptive_constraints.py",
+      "sha256": "063f5672d75c8047d61b9dd5272ba3dadfdda5501b272bccf47b425bba2fe152",
+      "size_bytes": 23202,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/utils/adaptive_metadata.py",
+      "sha256": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+      "size_bytes": 14390,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/utils/adaptive_mutation.py",
+      "sha256": "896b81ecc47a618dc159292bc14250962b4a152efe720c11a914c923c238bf55",
+      "size_bytes": 24845,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/utils/adaptive_schedule.py",
+      "sha256": "165c5ed054d796f2b6a07de0a79073aff5d31e6ed7329960f5f3492fbcd8633d",
+      "size_bytes": 4448,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/utils/camera_utils.py",
+      "sha256": "7644d89893f2481a7a9be592227bf11f3e6e5c469c9ce92c3cb25f9ff920c458",
+      "size_bytes": 3651,
+      "kinds": [
+        "evaluation_source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/utils/checkpoint_utils.py",
+      "sha256": "bc7236c51a62da8c763efad8fae4e6476f085620cd6e1028c05bc1a8f9513246",
+      "size_bytes": 2638,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/utils/city_semantic_data.py",
+      "sha256": "8425ab28b7431ceb72e499dbdcf626d601644d699250615fdff76a6576a4febf",
+      "size_bytes": 8276,
+      "kinds": [
+        "evaluation_source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/utils/continuous_boundary_prior.py",
+      "sha256": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+      "size_bytes": 8670,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/utils/distill_utils.py",
+      "sha256": "1b3c0a2d1b6bbd0e7a4cea0ef16b34b80f43b249d8d5e5573634a3b49f31c4ec",
+      "size_bytes": 5802,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/utils/instance_roi.py",
+      "sha256": "2f8237026ccadb18bd7d1e87b650e0fe1e8c9c2f9c5701176d01ab6728d3acfa",
+      "size_bytes": 7129,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/utils/pruning_scores.py",
+      "sha256": "70b3337ed71d921c4a1a016dee67409f01f4eabac5eab95d9496c48f878f7611",
+      "size_bytes": 9038,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/utils/rir_dpra_schedule.py",
+      "sha256": "79e8565a81206871133c40a8254dd9e70d12738cff8f9805af85a76761a52248",
+      "size_bytes": 3489,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/utils/schedule_utils.py",
+      "sha256": "0edb0a824462db05ef539b56ed53742b3e60f3e960af3d25c5b2d9cdde626993",
+      "size_bytes": 1363,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/utils/semantic_comparison_metrics.py",
+      "sha256": "8e6cea5bbcd7b1062f4cedea06bf5d1f780f3a41e2223c73c95994442a889086",
+      "size_bytes": 13732,
+      "kinds": [
+        "evaluation_source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/utils/structure_losses.py",
+      "sha256": "a103535f3285e37632ba9c76875508d5db624d815f1cb66e49118b66d8064999",
+      "size_bytes": 8747,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/utils/structure_visibility.py",
+      "sha256": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad",
+      "size_bytes": 16496,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/validate_adaptive_results.py",
+      "sha256": "34dbb3fec537f250f82ba53e19acaf9dcf0a384a2464aadf1e9b209df7e48892",
+      "size_bytes": 5274,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/validate_boundary_weighted_results.py",
+      "sha256": "fa481a41b5c914eba3fea23d06a05d25d3f83de28645cf15729e36112e983688",
+      "size_bytes": 18432,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    },
+    {
+      "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/validate_continuous_boundary_results.py",
+      "sha256": "f0ab70dc0fc9bc11bd014b6192a6aeba2f90cacfd787b6b9124d3e9879f0b0fe",
+      "size_bytes": 27573,
+      "kinds": [
+        "source_snapshot_live_source"
+      ]
+    }
+  ],
+  "artifact_count": 315,
+  "collection_scope": "Explicit final models/checkpoints/metadata/resume states, score receipts, five evaluator receipts/checkpoints/prediction manifests, source live/copy identities, final reports/crops/prior visuals and validations. No recursive scan/hash of per-frame mass caches, raw images or all segmentation PNGs; their existing immutable manifests retain those fingerprints.",
+  "self_hash_excluded": "final_artifact_manifest.json cannot contain its own SHA; archive script SHA and final master report SHA are included."
+}

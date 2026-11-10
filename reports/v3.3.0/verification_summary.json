@@ -1,0 +1,60 @@
+{
+  "version": "v3.3.0",
+  "saved_on": "2026-11-10",
+  "timezone": "Asia/Shanghai",
+  "git_base": "8e225b71824ac3b4966cb7e50837be3f3206bd76",
+  "unit_tests": {
+    "total": 261,
+    "passed": 260,
+    "skipped": 1,
+    "seconds": 3.53,
+    "skip_reason": "scikit-image unavailable in project environment",
+    "log_sha256": "057807dcee38054d8ab9f6bd15bc241682f5876986e4a97f17e6e1b3756349ca"
+  },
+  "release_integrity": {
+    "experiment_artifacts_sha256_verified": 315,
+    "frozen_training_files_sha256_verified": 47,
+    "frozen_evaluation_files_sha256_verified": 16,
+    "training_rerun_for_release": false
+  },
+  "semantic_audit": {
+    "model_groups": 20,
+    "predictions": 200,
+    "scope_aggregations": 60,
+    "maximum_absolute_metric_errors": {
+      "miou": 0.0,
+      "macc": 0.0
+    },
+    "reused_predictions": 180,
+    "new_predictions": 20,
+    "independent_recalculation_scope": "confusion, mIoU and mAcc; Recall/B-mIoU retain the tested common implementation"
+  },
+  "model_paths": {
+    "10": {
+      "gaussians": 178809,
+      "checkpoint": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_10x/stage3/chkpnt25199.pth",
+      "checkpoint_sha256": "02b0247dd77e6e361b473d43fee3a6e46d4aeee559551180557d1cf5d1313c1b",
+      "ply": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_10x/stage3/point_cloud/iteration_25199/point_cloud.ply",
+      "ply_sha256": "d917c8270acff8af1a9823ed947f1347c6048f857b62e1c80df2fa5e7100c04a",
+      "native_fields_exact": true,
+      "standard_property_count": 62,
+      "metadata_rows": 178809,
+      "source_lineage_rows": 176544,
+      "merged_rows": 2265,
+      "unique_row_ids": true
+    },
+    "20": {
+      "gaussians": 89405,
+      "checkpoint": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_20x/stage3/chkpnt25199.pth",
+      "checkpoint_sha256": "ab64741f3f03c668951fc97c3263ac501e4442da1d3076bc0148eb14ef002d2f",
+      "ply": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_20x/stage3/point_cloud/iteration_25199/point_cloud.ply",
+      "ply_sha256": "68d4ec563485e6a0966f72efa94c5ccb996395371c0f87f093b42067aebc49ab",
+      "native_fields_exact": true,
+      "standard_property_count": 62,
+      "metadata_rows": 89405,
+      "source_lineage_rows": 88044,
+      "merged_rows": 1361,
+      "unique_row_ids": true
+    }
+  }
+}

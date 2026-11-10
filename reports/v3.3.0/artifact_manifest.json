@@ -1,0 +1,245 @@
+{
+  "version": "v3.3.0",
+  "saved_on": "2026-11-10",
+  "timezone": "Asia/Shanghai",
+  "git_base": "8e225b71824ac3b4966cb7e50837be3f3206bd76",
+  "experiment_root": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109",
+  "binary_reference_root": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106",
+  "scope": "Source code, configs, tests, documentation and lightweight result records; full models, priors, renders, score arrays and compiled artifacts remain local.",
+  "historical_manifest_note": "Exact experiment-end snapshots preserve source_changes_committed=false and their original source hashes. v3.3.0 identifies this saved source version.",
+  "files": {
+    "comparison_all_metrics.csv": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/comparison_all_metrics.csv",
+      "source_sha256": "cd08a75b8587438718ae055cf3a3d9d60e9d6243d79a74d9830eb83e9828ad1e",
+      "snapshot_sha256": "cd08a75b8587438718ae055cf3a3d9d60e9d6243d79a74d9830eb83e9828ad1e",
+      "bytes": 12109,
+      "normalization": "none"
+    },
+    "comparison_validation.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/comparison_validation.json",
+      "source_sha256": "c77aa1f10845e7cb3b8f4e2d51da226ff1818e8fbeb57c618fbfd9f25f6fa80d",
+      "snapshot_sha256": "c77aa1f10845e7cb3b8f4e2d51da226ff1818e8fbeb57c618fbfd9f25f6fa80d",
+      "bytes": 2658,
+      "normalization": "none"
+    },
+    "compression_summary.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/summary.json",
+      "source_sha256": "050388e194b0662a8fcd1a7b2a21aac88b977bd85aeccf667974aeebb32298cc",
+      "snapshot_sha256": "050388e194b0662a8fcd1a7b2a21aac88b977bd85aeccf667974aeebb32298cc",
+      "bytes": 1275,
+      "normalization": "none"
+    },
+    "metrics_standard.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/metrics_standard.json",
+      "source_sha256": "08123d9554dcda6cf9d8b9acbced4628f39fdedff7b3a40ca0a551769df9b7cd",
+      "snapshot_sha256": "08123d9554dcda6cf9d8b9acbced4628f39fdedff7b3a40ca0a551769df9b7cd",
+      "bytes": 10938,
+      "normalization": "none"
+    },
+    "validation_10x.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_10x/validation.json",
+      "source_sha256": "10edf581f369d5e64241a1455f25bfbb3bc60641422bdf5a21271514012473f0",
+      "snapshot_sha256": "10edf581f369d5e64241a1455f25bfbb3bc60641422bdf5a21271514012473f0",
+      "bytes": 194060,
+      "normalization": "none"
+    },
+    "validation_20x.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/full_20x/validation.json",
+      "source_sha256": "f82b8dbf043e11725749373db33cf3fbf4c0ae8f40fa446aec0fc11e171225f9",
+      "snapshot_sha256": "f82b8dbf043e11725749373db33cf3fbf4c0ae8f40fa446aec0fc11e171225f9",
+      "bytes": 193692,
+      "normalization": "none"
+    },
+    "independent_semantic_audit.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/independent_semantic_audit.json",
+      "source_sha256": "a6a204c0083dbbcb9f0da3ab0e32a4db48684f8e46ddd12dedc9a84644e779df",
+      "snapshot_sha256": "a6a204c0083dbbcb9f0da3ab0e32a4db48684f8e46ddd12dedc9a84644e779df",
+      "bytes": 17120,
+      "normalization": "none"
+    },
+    "semantic_protocol.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/comparison/semantic/protocol.json",
+      "source_sha256": "27a375feda7d888a2570b8cf1c026d1fca2fd8832c1af9dd466c5d76f1dac4ef",
+      "snapshot_sha256": "27a375feda7d888a2570b8cf1c026d1fca2fd8832c1af9dd466c5d76f1dac4ef",
+      "bytes": 10480,
+      "normalization": "none"
+    },
+    "semantic_metrics.csv": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/comparison/semantic/metrics.csv",
+      "source_sha256": "b9d0755850d99e7a09f50071cda0005ab6398f56a7c4606a2db02ff547da633e",
+      "snapshot_sha256": "b9d0755850d99e7a09f50071cda0005ab6398f56a7c4606a2db02ff547da633e",
+      "bytes": 8323,
+      "normalization": "none"
+    },
+    "experiment_queue.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/experiment_queue.json",
+      "source_sha256": "2aa79ef49b5aa0069b94e81902538966f60258fd6c613b21cb71d7c30209b3db",
+      "snapshot_sha256": "2aa79ef49b5aa0069b94e81902538966f60258fd6c613b21cb71d7c30209b3db",
+      "bytes": 884,
+      "normalization": "none"
+    },
+    "evaluation_queue.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/evaluation_queue.json",
+      "source_sha256": "6d7723c28d51611df63272ab0d66a7aec9ebf1d387edc92f9c4444588fc897c2",
+      "snapshot_sha256": "6d7723c28d51611df63272ab0d66a7aec9ebf1d387edc92f9c4444588fc897c2",
+      "bytes": 1917,
+      "normalization": "none"
+    },
+    "experiment_artifact_manifest.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/final_artifact_manifest.json",
+      "source_sha256": "e4326733f59f08a4a541af6cc1ef4597eed95167205137056963228c53b38650",
+      "snapshot_sha256": "e4326733f59f08a4a541af6cc1ef4597eed95167205137056963228c53b38650",
+      "bytes": 114309,
+      "normalization": "none"
+    },
+    "training_source_manifest.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/source_snapshot/manifest.json",
+      "source_sha256": "3a050524f18c8945ffdc344a1c376c8650d92af0ae8f7c13a9febc55d445798c",
+      "snapshot_sha256": "3a050524f18c8945ffdc344a1c376c8650d92af0ae8f7c13a9febc55d445798c",
+      "bytes": 5846,
+      "normalization": "none"
+    },
+    "evaluation_source_manifest.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/evaluation_source_snapshot/manifest.json",
+      "source_sha256": "917eff3f398812b1205f74988610e4ef6e44e94481228ba0f6571ec15aae9198",
+      "snapshot_sha256": "917eff3f398812b1205f74988610e4ef6e44e94481228ba0f6571ec15aae9198",
+      "bytes": 1736,
+      "normalization": "none"
+    },
+    "continuous_prior_manifest.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/continuous_priors/metadata_manifest.json",
+      "source_sha256": "0b8b5811b78667f94202f9ed93be2c3eba64987e1ab5e8278d0db3ecaeb1c55e",
+      "snapshot_sha256": "0b8b5811b78667f94202f9ed93be2c3eba64987e1ab5e8278d0db3ecaeb1c55e",
+      "bytes": 176893,
+      "normalization": "none"
+    },
+    "continuous_kernel_reference_validation.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/continuous_priors/kernel_reference_validation.json",
+      "source_sha256": "0d9730966f8daff58cce6554b49bc14d04f4bd7a563e9c3af273f885464b8f3a",
+      "snapshot_sha256": "0d9730966f8daff58cce6554b49bc14d04f4bd7a563e9c3af273f885464b8f3a",
+      "bytes": 515,
+      "normalization": "none"
+    },
+    "continuous_strength_statistics.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/continuous_priors/reports/continuous_gaussian_strength_statistics.json",
+      "source_sha256": "6793f9a5ac9d4269837ec547c8b47704850cdc18df9155af6645b925ed2d1ef1",
+      "snapshot_sha256": "6793f9a5ac9d4269837ec547c8b47704850cdc18df9155af6645b925ed2d1ef1",
+      "bytes": 15958,
+      "normalization": "none"
+    },
+    "city_label_source_identity.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/city_label_source_identity.json",
+      "source_sha256": "41b79c58e0898a2c0cc42e84e039155799d6ad2e99464df78bf6676e5c6338c5",
+      "snapshot_sha256": "41b79c58e0898a2c0cc42e84e039155799d6ad2e99464df78bf6676e5c6338c5",
+      "bytes": 469,
+      "normalization": "none"
+    },
+    "visual_review_10x.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/visual_review.json",
+      "source_sha256": "14b08c51b13dc9ebe99cb3d6b789e1a30dcbc5df555379f936deb5d2355954fe",
+      "snapshot_sha256": "14b08c51b13dc9ebe99cb3d6b789e1a30dcbc5df555379f936deb5d2355954fe",
+      "bytes": 1707,
+      "normalization": "none"
+    },
+    "visual_review_20x.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/visual_review.json",
+      "source_sha256": "c4df6933a4ee2eb73f51b045016ddb059ab8ae857f50827287d032710410a136",
+      "snapshot_sha256": "c4df6933a4ee2eb73f51b045016ddb059ab8ae857f50827287d032710410a136",
+      "bytes": 1868,
+      "normalization": "none"
+    },
+    "figures/native_comparison_10x.png": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_comparison.png",
+      "source_sha256": "48b7e5ef70ed83fd44a2ad7aac2f8410edec9d0d8764e7debb69612661691159",
+      "snapshot_sha256": "48b7e5ef70ed83fd44a2ad7aac2f8410edec9d0d8764e7debb69612661691159",
+      "bytes": 191467,
+      "normalization": "none"
+    },
+    "figures/native_comparison_20x.png": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_comparison.png",
+      "source_sha256": "4e844d8a25cec7ffdf8cd8666fe51e910d9a6000b3eeeea46156e4734a16808c",
+      "snapshot_sha256": "4e844d8a25cec7ffdf8cd8666fe51e910d9a6000b3eeeea46156e4734a16808c",
+      "bytes": 187294,
+      "normalization": "none"
+    },
+    "figures/continuous_strength_histograms.png": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/continuous_priors/reports/continuous_gaussian_strength_histograms.png",
+      "source_sha256": "af0e925fe4f3eecd6816391f4a76848750fede702c660cb1bb563e7c0ab0375f",
+      "snapshot_sha256": "af0e925fe4f3eecd6816391f4a76848750fede702c660cb1bb563e7c0ab0375f",
+      "bytes": 210099,
+      "normalization": "none"
+    },
+    "binary_boundary_reference/comparison_all_metrics.csv": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/comparison_all_metrics.csv",
+      "source_sha256": "7c42866ae144a5958f1b84a32304ff7d4fdd17db681da1fa29a53eefc15bea70",
+      "snapshot_sha256": "7c42866ae144a5958f1b84a32304ff7d4fdd17db681da1fa29a53eefc15bea70",
+      "bytes": 10735,
+      "normalization": "none"
+    },
+    "binary_boundary_reference/compression_summary.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/summary.json",
+      "source_sha256": "50c879c6611926fe4060a5d8767d8cc66d512f90a45ee058da2f0d77650c7940",
+      "snapshot_sha256": "50c879c6611926fe4060a5d8767d8cc66d512f90a45ee058da2f0d77650c7940",
+      "bytes": 1264,
+      "normalization": "none"
+    },
+    "binary_boundary_reference/metrics_standard.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/metrics_standard.json",
+      "source_sha256": "efc2c41cc6b82a33034657c869de7ef333c5565b13ec96eb7c5e9c68526cbc8e",
+      "snapshot_sha256": "efc2c41cc6b82a33034657c869de7ef333c5565b13ec96eb7c5e9c68526cbc8e",
+      "bytes": 10931,
+      "normalization": "none"
+    },
+    "binary_boundary_reference/validation_10x.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/full_10x/validation.json",
+      "source_sha256": "8b67903217046e5b8ca8af1c80c4634064f884b3cc34d9c5e8bbbbd492a84ec6",
+      "snapshot_sha256": "8b67903217046e5b8ca8af1c80c4634064f884b3cc34d9c5e8bbbbd492a84ec6",
+      "bytes": 163224,
+      "normalization": "none"
+    },
+    "binary_boundary_reference/validation_20x.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/full_20x/validation.json",
+      "source_sha256": "28ac104a06e48b2d6292d516e2cc027daba6f3e23167a4cbd1f1eb24fafa8d31",
+      "snapshot_sha256": "28ac104a06e48b2d6292d516e2cc027daba6f3e23167a4cbd1f1eb24fafa8d31",
+      "bytes": 162927,
+      "normalization": "none"
+    },
+    "binary_boundary_reference/independent_semantic_audit.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/independent_semantic_audit.json",
+      "source_sha256": "d908b819d32a7653d0bd93dd659e2ed638e89fb768696baa0eee5f5a46218add",
+      "snapshot_sha256": "d908b819d32a7653d0bd93dd659e2ed638e89fb768696baa0eee5f5a46218add",
+      "bytes": 15837,
+      "normalization": "none"
+    },
+    "binary_boundary_reference/experiment_artifact_manifest.json": {
+      "source": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/final_artifact_manifest.json",
+      "source_sha256": "118f3855a7a4bd3e3b047628546358e286664bb2aca33f09a9cb2553d3d65989",
+      "snapshot_sha256": "118f3855a7a4bd3e3b047628546358e286664bb2aca33f09a9cb2553d3d65989",
+      "bytes": 12103,
+      "normalization": "none"
+    },
+    "release_tests.log": {
+      "source": "/tmp/v330_release_tests_20261110.log",
+      "source_sha256": "057807dcee38054d8ab9f6bd15bc241682f5876986e4a97f17e6e1b3756349ca",
+      "snapshot_sha256": "057807dcee38054d8ab9f6bd15bc241682f5876986e4a97f17e6e1b3756349ca",
+      "bytes": 30371,
+      "normalization": "none"
+    },
+    "README.md": {
+      "source": "generated release record",
+      "snapshot_sha256": "c02992e86ca05c2a13a84a56a113a5a57041d6413122ef66ff8fea1601f3d495",
+      "bytes": 1200
+    },
+    "verification_summary.json": {
+      "source": "generated release record",
+      "snapshot_sha256": "afc3ad768b99b94e4b4a39cc8f21f683e7d58367e80abceddad39ac14e396eb3",
+      "bytes": 2472
+    }
+  },
+  "documentation": {
+    "RELEASE_NOTES_v3.3.0.md": "f0bb09d3452f9b055f6f8834d78644f42e6e79e541cb8e1a3df126b8f192e710",
+    "README.md": "ec44e8ee75aa592b760698cb7b6e379680ec546075a5ef9b6cda565a3e9348b4",
+    "PROGRESS.md": "f5b38c056a88fa7ad763435481b8917dce04025f8e3de662e51661b2b9e1f71e",
+    "WORKFLOW.md": "fc20ffa9ec40b214bf14e1716f47841a515d6790b38372701faf2210ed64c157"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "status": "complete",
+  "reviewer": "Codex assistant visual inspection",
+  "reviewed_utc": "2026-11-09T11:13:47.729677+00:00",
+  "figure": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_20x/native_comparison.png",
+  "figure_sha256": "4e844d8a25cec7ffdf8cd8666fe51e910d9a6000b3eeeea46156e4734a16808c",
+  "fixed_cases": 6,
+  "original_resolution_viewed": true,
+  "overview_resampling": "Nearest-neighbour display only; source crop pixels verified by manifest",
+  "columns": [
+    "GT",
+    "Binary boundary",
+    "Continuous boundary",
+    "PWSR",
+    "LightGaussian"
+  ],
+  "observations": [
+    "黑色停放车辆：连续版、二值版及PWSR均可辨认车体和亮暗分区；LightGaussian20退化为较模糊的深色区域，识别轮廓明显受损。",
+    "白色花园小物：连续版、二值版及PWSR均保留白色主体；LightGaussian20仍有低对比亮斑，不能据此称整个物体完全消失。",
+    "屋顶小单元：连续版、二值版和PWSR均保留斜向暗轮廓，LightGaussian20中这一轮廓难以辨认；未见连续版相对二值版的独有挽救。",
+    "窄窗格、围栏分隔：LightGaussian20的分隔与轮廓较难辨认；连续版、二值版和PWSR相近，均有部分模糊，未证明连续版修复了细线断裂。",
+    "红色车辆控制区域：连续版、二值版及PWSR保留红色主体和车顶；LightGaussian20大体颜色仍在，但车顶与边缘明显更模糊。",
+    "检查范围为同一组六处固定原生ROI；当前图像证据支持相对LightGaussian20保留较多外观，但二值版/PWSR也保留，尚未确认新增连续模块独有的整物体挽救。"
+  ],
+  "limitations": "Visual inspection of six fixed cases is not a physical-instance census; no separate wire/manhole annotations exist."
+}

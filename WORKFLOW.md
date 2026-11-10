@@ -1,4 +1,12 @@
-# 固定流程：PWSR 前三阶段 → checkpoint → LightGaussian SH 蒸馏
+# 当前流程与历史记录
+
+v3.3.0保存日期为2026-11-10；轻量指标、验证和固定裁剪见`reports/v3.3.0/`，版本说明为`RELEASE_NOTES_v3.3.0.md`。完整训练输出保留原目录。
+
+2026-11-09当前流程：连续SAM/深度/RGB边界加权PUP → 原RIR/DPRA及既有实例/拓扑、恢复损失与合并/回填 → 标准SH3，无蒸馏。评分为`PUP_logdet+log(1+5*(0.4SAM+0.4depth+0.2RGB))`，详见`CONTINUOUS_BOUNDARY_COMPRESSION.md`。输出`output/city2_continuous_boundary_20261109/`；61训练视角连续先验与10×/20×实验独立保存；沿用上一轮五折冻结评估器。两倍率及全部10帧标签评测已完成，独立主测试的边界/语义指标较二值版下降，结果和局限见本轮输出中的`README_实验总览.md`；不能以PSNR提高替代地物保护结论。
+
+2026-11-06历史流程：PUP六维Fisher logdet加边界权重 → 原RIR/DPRA与实例/拓扑保护、增强合并/回填 → 标准SH3模型，不运行蒸馏。边界不再设独立生存配额或合并禁令；详情及新入口见 `BOUNDARY_WEIGHTED_COMPRESSION.md`。输出 `output/city2_boundary_weighted_20261106/`。City共10张匹配标签，2张独立测试与8张分折训练视角辅助评测分列，压缩训练不使用人工标签。
+
+以下为原PWSR → checkpoint → LightGaussian SH蒸馏及历次流程记录，仅用于历史实验复现。
 
 新增的无语义实例保护分支见 `INSTANCE_PROTECTION.md`。使用 `configs/city_instance.json` 时，在原流程中加入逐实例最低配额、空间覆盖及训练视角小区域恢复 / 蒸馏损失；全局目标数量不变。`configs/city_instance_control.json` 是同预算、同教师、同蒸馏步数的全局 SPS 对照。默认 `configs/city.json` 保持原流程。
 

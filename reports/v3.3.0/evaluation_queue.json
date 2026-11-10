@@ -1,0 +1,66 @@
+{
+  "status": "complete",
+  "completed": [
+    "prepare_frozen_protocol",
+    "render_auxiliary",
+    "verify_frozen_evaluators",
+    "infer_semantic_folds",
+    "evaluate_semantics",
+    "finalize_comparison"
+  ],
+  "tasks": [
+    {
+      "name": "prepare_frozen_protocol",
+      "command": [
+        "/home/zhangys/anaconda3/envs/VGGT/bin/python",
+        "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/evaluate_continuous_boundary_semantics.py",
+        "--phase",
+        "prepare"
+      ]
+    },
+    {
+      "name": "render_auxiliary",
+      "command": [
+        "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+        "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/render_boundary_semantic_views.py",
+        "--root",
+        "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109",
+        "--resume"
+      ]
+    },
+    {
+      "name": "verify_frozen_evaluators",
+      "command": [
+        "/home/zhangys/anaconda3/envs/VGGT/bin/python",
+        "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/evaluate_continuous_boundary_semantics.py",
+        "--phase",
+        "verify"
+      ]
+    },
+    {
+      "name": "infer_semantic_folds",
+      "command": [
+        "/home/zhangys/anaconda3/envs/VGGT/bin/python",
+        "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/evaluate_continuous_boundary_semantics.py",
+        "--phase",
+        "infer"
+      ]
+    },
+    {
+      "name": "evaluate_semantics",
+      "command": [
+        "/home/zhangys/anaconda3/envs/VGGT/bin/python",
+        "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/evaluate_continuous_boundary_semantics.py",
+        "--phase",
+        "evaluate"
+      ]
+    },
+    {
+      "name": "finalize_comparison",
+      "command": [
+        "/home/zhangys/anaconda3/envs/VGGT/bin/python",
+        "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/finalize_continuous_boundary_results.py"
+      ]
+    }
+  ]
+}

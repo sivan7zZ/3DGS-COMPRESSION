@@ -143,6 +143,23 @@ class StateMutationTests(unittest.TestCase):
             state.merge([[0, 1], [1, 2]], 0)
         self.assertEqual(state.count, 6)
 
+    def test_boundary_weighted_merge_preserves_boundary_metadata_and_other_guards(self):
+        m=metadata(6)
+        m['boundary_mask'][0]=True
+        state=CompressionState(make_model(),m)
+        self.assertEqual(state.merge([[0,1]],1,preserve_boundary=False),1)
+        np.testing.assert_array_equal(state.metadata['original_ids'],[2,3,4,5,-1])
+        np.testing.assert_array_equal(state.metadata['boundary_mask'],[False,False,False,False,True])
+        self.assertEqual(state.metadata['row_ids'][-1],6)
+        self.assertEqual(state.audit()['count'],5)
+        for key,value in (('instance_ids',-1),('confidence',.2),('topology_critical',True)):
+            m=metadata(6)
+            m['boundary_mask'][0]=True
+            m[key][0]=value
+            state=CompressionState(make_model(),m)
+            with self.assertRaises(ValueError):state.merge([[0,1]],1,preserve_boundary=False)
+            self.assertEqual(state.count,6)
+
     def test_pool_expiry_and_save_load_roundtrip(self):
         model = make_model()
         state = CompressionState(model, metadata(6), pool_rounds=2)
@@ -196,6 +213,16 @@ class StateMutationTests(unittest.TestCase):
 
 
 class MergeCandidateTests(unittest.TestCase):
+    def test_boundary_veto_is_opt_out_without_relaxing_topology_or_instance(self):
+        model=make_model(4,warm_optimizer=False)
+        m=metadata(4)
+        m['boundary_mask'][:]=True
+        m['topology_critical'][2]=True
+        m['instance_ids'][3]=9
+        self.assertEqual(len(find_safe_merge_pairs(model,m,2)),0)
+        pairs=find_safe_merge_pairs(model,m,2,preserve_boundary=False)
+        np.testing.assert_array_equal(pairs,[[0,1]])
+
     def test_safe_knn_pairs_obey_protection_appearance_distance_and_quota(self):
         model = make_model(10, warm_optimizer=False)
         m = metadata(10)

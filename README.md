@@ -1,13 +1,24 @@
 # 3DGS COMPRESSION
 
-本分支将 3DGS 保护剪枝与 LightGaussian 的 SH 蒸馏整合在同一仓库。
-当前 v3.2.0 使用 PUP Fisher 评分与 PWSR 的 RIR / DPRA 调度，保留实例、边界和拓扑保护；历史 SPS 入口保留。
+当前流程使用边界加权PUP Fisher评分、PWSR RIR/DPRA调度，以及实例/拓扑保护、合并和预算回填，输出标准SH3模型，不运行SH蒸馏。
 **不包含 3D-DoG，也不是上游论文完整四阶段的复现版本。**
-蒸馏的教师、学生均从标准 checkpoint 初始化，PLY 仅作为导出结果。
-教师使用未剪枝的原始 3DGS checkpoint，学生使用 PWSR 剪枝后的 checkpoint。
-无需调用外部 LightGaussian 仓库，不包含 LightGaussian 的重复剪枝或 VecTree 量化。
+历史v3.2.0及更早的SPS、边界硬配额和SH蒸馏入口保留供复现，无需调用外部LightGaussian仓库。
 
 详细输入输出、迭代编号、checkpoint 语义和历史结果说明见 [WORKFLOW.md](WORKFLOW.md)。
+
+## v3.3.0：SAM/深度/RGB连续边界PUP，无蒸馏
+
+2026-11-09按用户要求将边界从二值掩膜改为三通道连续先验：`B=0.4SAM+0.4depth+0.2RGB`，`score=PUP_logdet+log(1+5B)`。三信号由61个训练视角按高斯实际alpha*T可见贡献汇总；权重预先固定，未用人工语义标签调参。实例、拓扑、RIR/DPRA、恢复损失、合并1%/回填2%不变。方法与运行见[CONTINUOUS_BOUNDARY_COMPRESSION.md](CONTINUOUS_BOUNDARY_COMPRESSION.md)。新输出为`output/city2_continuous_boundary_20261109/`，10×/20×及统一评测、独立核验均已完成，结果不与历史目录混用。PSNR为34.9234/33.4940，标准LPIPS为0.06313/0.10300。独立主测试Recall为182/283和174/283；相对二值版，两倍率B-mIoU、mIoU、mAcc下降，未确认连续版独有的整物体挽救。这组参数不能称为更好的边界保护。完整结果、全部方法比较与模型链接见该输出目录的`README_实验总览.md`和`comparison_all_metrics.csv`。
+
+[v3.3.0版本说明](RELEASE_NOTES_v3.3.0.md) · [完整比较CSV](reports/v3.3.0/comparison_all_metrics.csv) · [验证摘要](reports/v3.3.0/verification_summary.json) · [保存清单](reports/v3.3.0/artifact_manifest.json)。
+
+## 20261106：历史二值边界加权PUP，无蒸馏
+
+按2026-11-06要求，新流程仅生成SH3压缩结果：原始PUP logdet加 `2 × boundary_mask`，边界不再设独立剪枝配额或合并禁令；实例/拓扑保护与恢复监督保持。合并上限从0.5%提高到1%，回填比例从1%提高到2%。方法、定义和新运行入口见 [BOUNDARY_WEIGHTED_COMPRESSION.md](BOUNDARY_WEIGHTED_COMPRESSION.md)。
+
+City匹配标签共10张，2张独立测试视角和8张训练视角辅助结果分开报告，辅助语义评估器采用分折拟合。10×/20×及全部标签评测已完成，9视角PSNR分别为34.8140/33.4494，标准LPIPS为0.06314/0.10282。10张标签汇总指标均较v3.2.0小幅改善，但20×独立测试Recall下降1.41个百分点，未确认相对v3.2/PWSR独有的整物体挽救。
+
+新输出为 `output/city2_boundary_weighted_20261106/`，本机报告 `README_实验总览.md`、`README_完整结果对比.md` 和完整 `comparison_all_metrics.csv` 均位于该目录。入口 `bash scripts/run.sh run_boundary_weighted_experiments.py --resume`，评测入口见方法说明；历史结果保留。
 
 ## v3.2.0：PUP评分 + RIR/DPRA
 
@@ -37,13 +48,13 @@ SH3的10×/20× PSNR分别为34.7279/33.4243，标准LPIPS为0.06455/0.10968。�
 
 ```bash
 cd /home/zhangys/Prune-Wisely-Reconstruct-Sharply
-# 仅查看命令，不训练、不创建输出
-bash scripts/run.sh run_pipeline.py --config configs/city.json --dry_run
-# 完整流程；默认输出到 output/city2_unified，不覆盖旧结果
-bash scripts/run.sh run_pipeline.py --config configs/city.json
+# 仅查看新SH3流程，不训练、不创建输出
+bash scripts/run.sh run_boundary_weighted_pipeline.py --config configs/city_continuous_boundary_10x.json --dry_run
+# 中断续跑本轮10×/20×；完成的步骤核验后跳过
+bash scripts/run.sh run_continuous_boundary_experiments.py --resume
 ```
 
-只使用已有 PWSR checkpoint 做蒸馏：
+从头复现时复制配置并改为新的output_root，避免覆盖当前模型。历史蒸馏入口如下，仅用于复现旧实验：
 
 ```bash
 bash scripts/run.sh run_pipeline.py --config configs/city.json --stage distill \

@@ -12,6 +12,8 @@ import tempfile
 import numpy as np
 import torch
 
+from utils.pruning_scores import CONTINUOUS_BOUNDARY_FIELDS
+
 
 PARAMETERS = {"xyz": "_xyz", "f_dc": "_features_dc", "f_rest": "_features_rest",
               "opacity": "_opacity", "scaling": "_scaling", "rotation": "_rotation"}
@@ -100,12 +102,15 @@ def moment_match_pairs(params, pairs, visibility=None):
 def find_safe_merge_pairs(model, metadata, max_pairs, knn=8,
                           confidence_threshold=0.5, distance_factor=0.5,
                           scale_ratio=1.5, sh_threshold=0.05,
-                          instance_min_counts=None, query_batch=32768):
+                          instance_min_counts=None, query_batch=32768,
+                          preserve_boundary=True):
     """Bounded CPU FLANN KNN search, then deterministic disjoint-pair selection.
 
     FLANN is approximate (8 kd-trees / 64 checks). Geometry, all-SH RMS and scale
     thresholds are verified exactly after lookup. There is never an NxN matrix.
     Optional instance quotas account for every accepted pair's one-row reduction.
+    The boundary-weighted PUP variant alone disables the boundary veto; reliable
+    instance, topology, geometry and appearance checks still apply unchanged.
     """
     n = len(metadata["instance_ids"])
     max_pairs = int(max_pairs)
@@ -114,7 +119,8 @@ def find_safe_merge_pairs(model, metadata, max_pairs, knn=8,
     ids = np.asarray(metadata["instance_ids"])
     confidence = np.asarray(metadata["confidence"])
     safe = (ids >= 0) & (confidence >= confidence_threshold)
-    safe &= ~np.asarray(metadata["boundary_mask"], dtype=bool)
+    if preserve_boundary:
+        safe &= ~np.asarray(metadata["boundary_mask"], dtype=bool)
     safe &= ~np.asarray(metadata["topology_critical"], dtype=bool)
     selected = np.flatnonzero(safe)
     if len(selected) < 2:
@@ -319,7 +325,7 @@ class CompressionState:
         return restored
 
     @torch.no_grad()
-    def merge(self, pairs, round_id, confidence_threshold=0.5):
+    def merge(self, pairs, round_id, confidence_threshold=0.5, preserve_boundary=True):
         pairs = np.asarray(pairs, dtype=np.int64).reshape(-1, 2)
         if not len(pairs):
             return 0
@@ -329,12 +335,20 @@ class CompressionState:
         m = self.metadata
         if (np.any(m["instance_ids"][a] < 0) or np.any(m["instance_ids"][a] != m["instance_ids"][b])
                 or np.any(m["confidence"][pairs] < confidence_threshold)
-                or np.any(m["boundary_mask"][pairs]) or np.any(m["topology_critical"][pairs])):
+                or (preserve_boundary and np.any(m["boundary_mask"][pairs]))
+                or np.any(m["topology_critical"][pairs])):
             raise ValueError("Unsafe cross-instance, ambiguous or protected merge")
         params, weights = moment_match_pairs(self._params(), pairs, m["visibility"])
         merged = {}
         for key, value in m.items():
-            if value.dtype == np.bool_:
+            if key in CONTINUOUS_BOUNDARY_FIELDS:
+                # Use the same opacity*visibility weights, with a double
+                # precision weighted mean. Float32 normalized weights can sum
+                # to 1+1ULP and otherwise move two saturated strengths above 1.
+                w = weights.astype(np.float64)
+                merged[key] = ((w[:, 0]*value[a].astype(np.float64)+w[:, 1]*value[b].astype(np.float64))
+                               / w.sum(axis=1)).astype(value.dtype)
+            elif value.dtype == np.bool_:
                 merged[key] = value[a] | value[b]
             elif np.issubdtype(value.dtype, np.floating):
                 wshape = (-1,)+(1,)*(value.ndim-1)
@@ -349,6 +363,11 @@ class CompressionState:
         lineage = [{"row_id": int(merged["row_ids"][k]), "parent_row_ids": [int(m["row_ids"][i]), int(m["row_ids"][j])],
                     "parent_original_ids": [int(m["original_ids"][i]), int(m["original_ids"][j])], "round_id": int(round_id)}
                    for k, (i, j) in enumerate(pairs)]
+        if all(key in m for key in CONTINUOUS_BOUNDARY_FIELDS):
+            # Record the same opacity*visibility mass weights used above so the
+            # three continuous channels can be independently replayed exactly.
+            for record, weight in zip(lineage, weights):
+                record['merge_weights'] = weight.tolist()
         mask = np.zeros(self.count, dtype=bool)
         mask[pairs.reshape(-1)] = True
         self.remove(mask, round_id, pool=False)
@@ -362,6 +381,15 @@ class CompressionState:
         for key, value in self.metadata.items():
             if value.ndim == 0 or len(value) != n:
                 raise ValueError("Metadata/model alignment failure: " + key)
+        continuous = [key in self.metadata for key in CONTINUOUS_BOUNDARY_FIELDS]
+        if any(continuous):
+            if not all(continuous):
+                raise ValueError('Continuous boundary metadata must contain all three modalities')
+            for key in CONTINUOUS_BOUNDARY_FIELDS:
+                value = self.metadata[key]
+                if (value.shape != (n,) or not np.issubdtype(value.dtype, np.floating)
+                        or not np.isfinite(value).all() or np.any(value < 0) or np.any(value > 1)):
+                    raise ValueError('Invalid aligned continuous boundary metadata: ' + key)
         if len(np.unique(self.metadata["row_ids"])) != n:
             raise ValueError("Duplicate active lineage row IDs")
         for key, value in self._params().items():

@@ -1,0 +1,29 @@
+{
+  "status": "complete",
+  "method": "PUP_boundary_weighted_RIR_DPRA",
+  "distillation": false,
+  "rows": [
+    {
+      "ratio": 10,
+      "stage": "SH3",
+      "gaussians": 178809,
+      "PSNR": 34.81398815578885,
+      "SSIM": 0.976752347416348,
+      "LPIPS": 0.06313760495848125,
+      "ply": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/full_10x/stage3/point_cloud/iteration_25199/point_cloud.ply",
+      "checkpoint": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/full_10x/stage3/chkpnt25199.pth",
+      "ply_sha256": "74ae9289733f4095d0cedc7d023c7549e02e8682f54081246976dba9efb8bcc8"
+    },
+    {
+      "ratio": 20,
+      "stage": "SH3",
+      "gaussians": 89405,
+      "PSNR": 33.44944445292155,
+      "SSIM": 0.9632161127196418,
+      "LPIPS": 0.10281853874524434,
+      "ply": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/full_20x/stage3/point_cloud/iteration_25199/point_cloud.ply",
+      "checkpoint": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/full_20x/stage3/chkpnt25199.pth",
+      "ply_sha256": "7ca0202dd25388b5c88e9cfa55c2675470b4f4eaa62fc37e045cf6eb3b480256"
+    }
+  ]
+}

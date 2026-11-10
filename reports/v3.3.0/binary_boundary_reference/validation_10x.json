@@ -1,0 +1,7383 @@
+{
+  "status": "complete",
+  "ratio": 10,
+  "target": 178809,
+  "SH3": {
+    "gaussians": 178809,
+    "checkpoint": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/full_10x/stage3/chkpnt25199.pth",
+    "checkpoint_sha256": "ade415d0fde45b85ee6ca4f9216950ef160b170c70fd1889e3002aae6548d80b",
+    "ply": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/full_10x/stage3/point_cloud/iteration_25199/point_cloud.ply",
+    "ply_sha256": "74ae9289733f4095d0cedc7d023c7549e02e8682f54081246976dba9efb8bcc8",
+    "native_fields_exact": true,
+    "standard_property_count": 62,
+    "metadata_rows": 178809,
+    "source_lineage_rows": 176619,
+    "merged_rows": 2190,
+    "unique_row_ids": true
+  },
+  "method": "PUP_boundary_weighted_RIR_DPRA",
+  "source_snapshot": {
+    "files": 42,
+    "manifest_sha256": "52ebfb8d0b11837da609ac7c79fb0203e4c422e4274f45c4886afcd2ddd1804c",
+    "frozen_copies_exact": true,
+    "current_sources_exact": true
+  },
+  "score_mode": "pup_boundary_weighted",
+  "boundary_log_weight": 2.0,
+  "boundary_quotas": {},
+  "preserve_boundary_merge": false,
+  "distillation_updates": 0,
+  "instance_topology_settings_unchanged": true,
+  "rir_dpra_matches_original": true,
+  "schedule_replay": {
+    "matches_original": true,
+    "checks": 13,
+    "event_iterations": [
+      15700,
+      17200,
+      18700,
+      20200,
+      21700
+    ],
+    "final_count": 178809
+  },
+  "recovery_updates": 10199,
+  "compression_events": 5,
+  "event_iterations": [
+    15700,
+    17200,
+    18700,
+    20200,
+    21700
+  ],
+  "rounds": [
+    {
+      "round_id": 1,
+      "iteration": 15700,
+      "before": 1788093,
+      "target": 983451,
+      "merge_cap": 17880,
+      "merged": 4377,
+      "actual_merge_fraction": 0.0024478592556427432,
+      "reserved": 19669,
+      "restored": 19669,
+      "actual_refill_fraction": 0.01999997966345044,
+      "primary_scores": {
+        "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/full_10x/stage3/rounds/round_001_pup_scores.npz",
+        "sha256": "384ffabb0c9bb5316aff24fc92935866c64010e63f75b16a8f537b9a871b5af8",
+        "count": 1788093,
+        "boundary_count": 17237,
+        "negative_infinity_count": 60084,
+        "finite_boundary_boosted": 17108,
+        "weighted_values_exact": true,
+        "singular_scores_unchanged": true
+      },
+      "post_merge_scores": {
+        "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/full_10x/stage3/rounds/round_001_pup_scores_post_merge.npz",
+        "sha256": "c847618998345aae750c5ae2060a689fef18c892fb65837081d0a5be4bb67ea5",
+        "count": 977285,
+        "boundary_count": 10289,
+        "negative_infinity_count": 209,
+        "finite_boundary_boosted": 10289,
+        "weighted_values_exact": true,
+        "singular_scores_unchanged": true
+      },
+      "exact_budget": true,
+      "boundary_constraints_used": false
+    },
+    {
+      "round_id": 2,
+      "iteration": 17200,
+      "before": 983451,
+      "target": 581130,
+      "merge_cap": 9834,
+      "merged": 573,
+      "actual_merge_fraction": 0.0005826421448552089,
+      "reserved": 11622,
+      "restored": 11622,
+      "actual_refill_fraction": 0.019998967528780134,
+      "primary_scores": {
+        "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/full_10x/stage3/rounds/round_002_pup_scores.npz",
+        "sha256": "6eea3f678ed4b6af180375d7ba17cc7e16248a62a79f0716e3a184234185cb20",
+        "count": 983451,
+        "boundary_count": 10345,
+        "negative_infinity_count": 163,
+        "finite_boundary_boosted": 10344,
+        "weighted_values_exact": true,
+        "singular_scores_unchanged": true
+      },
+      "post_merge_scores": {
+        "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/full_10x/stage3/rounds/round_002_pup_scores_post_merge.npz",
+        "sha256": "7019d06d7d87f10479e786104c4d442d66e19bc0777f8fa06f823321b5f5c3fd",
+        "count": 578769,
+        "boundary_count": 7385,
+        "negative_infinity_count": 13,
+        "finite_boundary_boosted": 7385,
+        "weighted_values_exact": true,
+        "singular_scores_unchanged": true
+      },
+      "exact_budget": true,
+      "boundary_constraints_used": false
+    },
+    {
+      "round_id": 3,
+      "iteration": 18700,
+      "before": 581130,
+      "target": 379970,
+      "merge_cap": 5811,
+      "merged": 150,
+      "actual_merge_fraction": 0.00025811780496618657,
+      "reserved": 7599,
+      "restored": 7599,
+      "actual_refill_fraction": 0.019998947285312,
+      "primary_scores": {
+        "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/full_10x/stage3/rounds/round_003_pup_scores.npz",
+        "sha256": "0ccfa82971707e246c679d50427efd77a7581b7d9bba57e549e9e849b5fe5379",
+        "count": 581130,
+        "boundary_count": 7310,
+        "negative_infinity_count": 42,
+        "finite_boundary_boosted": 7310,
+        "weighted_values_exact": true,
+        "singular_scores_unchanged": true
+      },
+      "post_merge_scores": {
+        "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/full_10x/stage3/rounds/round_003_pup_scores_post_merge.npz",
+        "sha256": "d1a9acede95176f5954c910e08fe0c091f59281250d9550dba7355cc67329bcc",
+        "count": 378032,
+        "boundary_count": 5487,
+        "negative_infinity_count": 5,
+        "finite_boundary_boosted": 5487,
+        "weighted_values_exact": true,
+        "singular_scores_unchanged": true
+      },
+      "exact_budget": true,
+      "boundary_constraints_used": false
+    },
+    {
+      "round_id": 4,
+      "iteration": 20200,
+      "before": 379970,
+      "target": 279390,
+      "merge_cap": 3799,
+      "merged": 78,
+      "actual_merge_fraction": 0.00020527936416032844,
+      "reserved": 5587,
+      "restored": 5587,
+      "actual_refill_fraction": 0.01999713661906296,
+      "primary_scores": {
+        "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/full_10x/stage3/rounds/round_004_pup_scores.npz",
+        "sha256": "1349c9c038b23fefd4ade349023877987d448bf7b18741dbffcbc59118e91186",
+        "count": 379970,
+        "boundary_count": 5421,
+        "negative_infinity_count": 23,
+        "finite_boundary_boosted": 5421,
+        "weighted_values_exact": true,
+        "singular_scores_unchanged": true
+      },
+      "post_merge_scores": {
+        "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/full_10x/stage3/rounds/round_004_pup_scores_post_merge.npz",
+        "sha256": "3214c884331abf362a1345e3a090bde0fcfc640a7ccf81abfdaa3a3676b60f67",
+        "count": 277524,
+        "boundary_count": 4317,
+        "negative_infinity_count": 6,
+        "finite_boundary_boosted": 4317,
+        "weighted_values_exact": true,
+        "singular_scores_unchanged": true
+      },
+      "exact_budget": true,
+      "boundary_constraints_used": false
+    },
+    {
+      "round_id": 5,
+      "iteration": 21700,
+      "before": 279390,
+      "target": 178809,
+      "merge_cap": 2793,
+      "merged": 36,
+      "actual_merge_fraction": 0.00012885214216686353,
+      "reserved": 3576,
+      "restored": 3576,
+      "actual_refill_fraction": 0.019998993339261445,
+      "primary_scores": {
+        "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/full_10x/stage3/rounds/round_005_pup_scores.npz",
+        "sha256": "21f71d458487fed0ae804ef894bc757ac0bec08947e93827d8c7d9c6085b3b96",
+        "count": 279390,
+        "boundary_count": 4256,
+        "negative_infinity_count": 29,
+        "finite_boundary_boosted": 4256,
+        "weighted_values_exact": true,
+        "singular_scores_unchanged": true
+      },
+      "post_merge_scores": {
+        "path": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_boundary_weighted_20261106/full_10x/stage3/rounds/round_005_pup_scores_post_merge.npz",
+        "sha256": "224a8780c4272b75941c6699689fcc1df3b897232cae5be0dd7c767fd9576ca4",
+        "count": 177990,
+        "boundary_count": 3021,
+        "negative_infinity_count": 9,
+        "finite_boundary_boosted": 3021,
+        "weighted_values_exact": true,
+        "singular_scores_unchanged": true
+      },
+      "exact_budget": true,
+      "boundary_constraints_used": false
+    }
+  ],
+  "quota_violations": 0,
+  "protected_instances": 1021,
+  "final_quota_audit": {
+    "instance_violations": 0,
+    "boundary_violations": 0,
+    "instances": [
+      {
+        "instance_id": 0,
+        "current": 1606,
+        "minimum": 69,
+        "boundary_current": 34,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1,
+        "current": 1965,
+        "minimum": 89,
+        "boundary_current": 94,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 2,
+        "current": 1263,
+        "minimum": 57,
+        "boundary_current": 14,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 3,
+        "current": 4658,
+        "minimum": 286,
+        "boundary_current": 81,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 4,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 5,
+        "current": 1753,
+        "minimum": 93,
+        "boundary_current": 9,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 6,
+        "current": 2229,
+        "minimum": 101,
+        "boundary_current": 89,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 7,
+        "current": 12169,
+        "minimum": 533,
+        "boundary_current": 68,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 8,
+        "current": 235,
+        "minimum": 8,
+        "boundary_current": 6,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 9,
+        "current": 2057,
+        "minimum": 81,
+        "boundary_current": 24,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 10,
+        "current": 305,
+        "minimum": 20,
+        "boundary_current": 27,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 11,
+        "current": 323,
+        "minimum": 14,
+        "boundary_current": 29,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 12,
+        "current": 207,
+        "minimum": 10,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 13,
+        "current": 735,
+        "minimum": 48,
+        "boundary_current": 46,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 14,
+        "current": 2710,
+        "minimum": 185,
+        "boundary_current": 85,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 15,
+        "current": 194,
+        "minimum": 11,
+        "boundary_current": 21,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 16,
+        "current": 314,
+        "minimum": 25,
+        "boundary_current": 30,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 17,
+        "current": 1925,
+        "minimum": 88,
+        "boundary_current": 6,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 18,
+        "current": 323,
+        "minimum": 23,
+        "boundary_current": 12,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 19,
+        "current": 22,
+        "minimum": 8,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 20,
+        "current": 274,
+        "minimum": 17,
+        "boundary_current": 21,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 21,
+        "current": 363,
+        "minimum": 25,
+        "boundary_current": 7,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 22,
+        "current": 88,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 23,
+        "current": 34,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 24,
+        "current": 45,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 25,
+        "current": 376,
+        "minimum": 18,
+        "boundary_current": 5,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 26,
+        "current": 21,
+        "minimum": 8,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 27,
+        "current": 56,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 28,
+        "current": 97,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 29,
+        "current": 388,
+        "minimum": 31,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 30,
+        "current": 25,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 31,
+        "current": 138,
+        "minimum": 8,
+        "boundary_current": 4,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 32,
+        "current": 291,
+        "minimum": 24,
+        "boundary_current": 26,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 33,
+        "current": 25,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 34,
+        "current": 359,
+        "minimum": 28,
+        "boundary_current": 10,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 35,
+        "current": 247,
+        "minimum": 14,
+        "boundary_current": 7,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 36,
+        "current": 112,
+        "minimum": 8,
+        "boundary_current": 3,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 37,
+        "current": 290,
+        "minimum": 21,
+        "boundary_current": 16,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 38,
+        "current": 53,
+        "minimum": 8,
+        "boundary_current": 4,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 39,
+        "current": 186,
+        "minimum": 8,
+        "boundary_current": 7,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 40,
+        "current": 233,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 41,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 42,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 43,
+        "current": 22,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 44,
+        "current": 34,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 45,
+        "current": 404,
+        "minimum": 41,
+        "boundary_current": 24,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 46,
+        "current": 129,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 47,
+        "current": 169,
+        "minimum": 15,
+        "boundary_current": 8,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 48,
+        "current": 22,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 49,
+        "current": 296,
+        "minimum": 22,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 50,
+        "current": 22,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 51,
+        "current": 165,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 52,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 53,
+        "current": 130,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 54,
+        "current": 416,
+        "minimum": 16,
+        "boundary_current": 8,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 55,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 56,
+        "current": 1682,
+        "minimum": 127,
+        "boundary_current": 7,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 57,
+        "current": 71,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 58,
+        "current": 290,
+        "minimum": 16,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 59,
+        "current": 172,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 60,
+        "current": 88,
+        "minimum": 14,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 61,
+        "current": 367,
+        "minimum": 27,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 62,
+        "current": 115,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 63,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 64,
+        "current": 21,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 65,
+        "current": 435,
+        "minimum": 18,
+        "boundary_current": 9,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 66,
+        "current": 439,
+        "minimum": 19,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 67,
+        "current": 228,
+        "minimum": 9,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 68,
+        "current": 23,
+        "minimum": 8,
+        "boundary_current": 6,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 69,
+        "current": 24,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 70,
+        "current": 92,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 71,
+        "current": 181,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 72,
+        "current": 10,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 73,
+        "current": 16,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 74,
+        "current": 282,
+        "minimum": 16,
+        "boundary_current": 4,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 75,
+        "current": 58,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 76,
+        "current": 50,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 77,
+        "current": 270,
+        "minimum": 13,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 78,
+        "current": 1143,
+        "minimum": 54,
+        "boundary_current": 24,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 79,
+        "current": 53,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 80,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 81,
+        "current": 1322,
+        "minimum": 106,
+        "boundary_current": 65,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 82,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 83,
+        "current": 92,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 84,
+        "current": 1359,
+        "minimum": 55,
+        "boundary_current": 6,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 85,
+        "current": 41,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 86,
+        "current": 15,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 87,
+        "current": 183,
+        "minimum": 8,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 88,
+        "current": 21,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 89,
+        "current": 69,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 90,
+        "current": 26,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 91,
+        "current": 299,
+        "minimum": 17,
+        "boundary_current": 4,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 92,
+        "current": 2,
+        "minimum": 2,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 93,
+        "current": 332,
+        "minimum": 18,
+        "boundary_current": 21,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 94,
+        "current": 126,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 95,
+        "current": 245,
+        "minimum": 10,
+        "boundary_current": 10,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 96,
+        "current": 52,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 97,
+        "current": 14,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 98,
+        "current": 35,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 99,
+        "current": 136,
+        "minimum": 8,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 101,
+        "current": 72,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 102,
+        "current": 70,
+        "minimum": 8,
+        "boundary_current": 11,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 103,
+        "current": 100,
+        "minimum": 11,
+        "boundary_current": 5,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 104,
+        "current": 206,
+        "minimum": 11,
+        "boundary_current": 9,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 106,
+        "current": 325,
+        "minimum": 14,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 107,
+        "current": 44,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 108,
+        "current": 94,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 109,
+        "current": 84,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 110,
+        "current": 341,
+        "minimum": 13,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 111,
+        "current": 568,
+        "minimum": 31,
+        "boundary_current": 10,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 112,
+        "current": 12724,
+        "minimum": 564,
+        "boundary_current": 64,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 113,
+        "current": 1551,
+        "minimum": 70,
+        "boundary_current": 6,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 114,
+        "current": 1067,
+        "minimum": 73,
+        "boundary_current": 25,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 116,
+        "current": 4281,
+        "minimum": 156,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 118,
+        "current": 1062,
+        "minimum": 54,
+        "boundary_current": 14,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 119,
+        "current": 1692,
+        "minimum": 82,
+        "boundary_current": 22,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 120,
+        "current": 330,
+        "minimum": 15,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 121,
+        "current": 191,
+        "minimum": 11,
+        "boundary_current": 5,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 122,
+        "current": 1355,
+        "minimum": 62,
+        "boundary_current": 4,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 123,
+        "current": 228,
+        "minimum": 10,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 124,
+        "current": 543,
+        "minimum": 43,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 125,
+        "current": 29,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 126,
+        "current": 1268,
+        "minimum": 60,
+        "boundary_current": 44,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 127,
+        "current": 337,
+        "minimum": 28,
+        "boundary_current": 4,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 128,
+        "current": 166,
+        "minimum": 13,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 129,
+        "current": 88,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 130,
+        "current": 1148,
+        "minimum": 76,
+        "boundary_current": 90,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 131,
+        "current": 2445,
+        "minimum": 128,
+        "boundary_current": 57,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 132,
+        "current": 80,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 133,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 134,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 135,
+        "current": 258,
+        "minimum": 10,
+        "boundary_current": 3,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 136,
+        "current": 257,
+        "minimum": 23,
+        "boundary_current": 16,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 137,
+        "current": 63,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 138,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 139,
+        "current": 24,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 140,
+        "current": 112,
+        "minimum": 12,
+        "boundary_current": 12,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 141,
+        "current": 9,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 142,
+        "current": 120,
+        "minimum": 8,
+        "boundary_current": 20,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 143,
+        "current": 40,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 144,
+        "current": 169,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 145,
+        "current": 211,
+        "minimum": 9,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 146,
+        "current": 68,
+        "minimum": 9,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 147,
+        "current": 2,
+        "minimum": 2,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 148,
+        "current": 58,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 150,
+        "current": 102,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 152,
+        "current": 69,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 153,
+        "current": 123,
+        "minimum": 8,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 154,
+        "current": 40,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 155,
+        "current": 138,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 156,
+        "current": 376,
+        "minimum": 21,
+        "boundary_current": 3,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 157,
+        "current": 109,
+        "minimum": 10,
+        "boundary_current": 12,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 158,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 160,
+        "current": 58,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 162,
+        "current": 91,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 163,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 164,
+        "current": 18,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 165,
+        "current": 112,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 166,
+        "current": 34,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 167,
+        "current": 56,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 168,
+        "current": 103,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 169,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 170,
+        "current": 13,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 171,
+        "current": 67,
+        "minimum": 8,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 172,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 173,
+        "current": 350,
+        "minimum": 16,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 174,
+        "current": 76,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 175,
+        "current": 11,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 176,
+        "current": 155,
+        "minimum": 8,
+        "boundary_current": 10,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 178,
+        "current": 303,
+        "minimum": 16,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 179,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 180,
+        "current": 21,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 182,
+        "current": 41,
+        "minimum": 9,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 183,
+        "current": 75,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 184,
+        "current": 45,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 185,
+        "current": 14,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 186,
+        "current": 224,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 187,
+        "current": 62,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 189,
+        "current": 12,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 190,
+        "current": 175,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 191,
+        "current": 10,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 192,
+        "current": 106,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 193,
+        "current": 1111,
+        "minimum": 58,
+        "boundary_current": 15,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 195,
+        "current": 1361,
+        "minimum": 104,
+        "boundary_current": 49,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 196,
+        "current": 78,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 197,
+        "current": 46,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 198,
+        "current": 19,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 199,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 200,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 201,
+        "current": 173,
+        "minimum": 8,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 202,
+        "current": 220,
+        "minimum": 28,
+        "boundary_current": 10,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 203,
+        "current": 19,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 204,
+        "current": 479,
+        "minimum": 30,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 205,
+        "current": 60,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 206,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 207,
+        "current": 264,
+        "minimum": 14,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 208,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 209,
+        "current": 24,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 211,
+        "current": 96,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 214,
+        "current": 90,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 215,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 216,
+        "current": 4,
+        "minimum": 4,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 218,
+        "current": 89,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 221,
+        "current": 7053,
+        "minimum": 294,
+        "boundary_current": 7,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 222,
+        "current": 166,
+        "minimum": 10,
+        "boundary_current": 3,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 223,
+        "current": 19,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 224,
+        "current": 305,
+        "minimum": 11,
+        "boundary_current": 12,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 226,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 227,
+        "current": 22,
+        "minimum": 8,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 228,
+        "current": 44,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 229,
+        "current": 57,
+        "minimum": 8,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 230,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 231,
+        "current": 238,
+        "minimum": 22,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 233,
+        "current": 120,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 234,
+        "current": 79,
+        "minimum": 9,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 235,
+        "current": 34,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 236,
+        "current": 28,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 237,
+        "current": 27,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 238,
+        "current": 127,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 239,
+        "current": 94,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 240,
+        "current": 78,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 241,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 243,
+        "current": 17,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 245,
+        "current": 17,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 246,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 248,
+        "current": 6,
+        "minimum": 6,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 250,
+        "current": 95,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 251,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 252,
+        "current": 13,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 253,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 256,
+        "current": 1118,
+        "minimum": 53,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 257,
+        "current": 21,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 258,
+        "current": 264,
+        "minimum": 10,
+        "boundary_current": 11,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 259,
+        "current": 410,
+        "minimum": 31,
+        "boundary_current": 16,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 260,
+        "current": 69,
+        "minimum": 10,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 262,
+        "current": 225,
+        "minimum": 10,
+        "boundary_current": 4,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 263,
+        "current": 15,
+        "minimum": 8,
+        "boundary_current": 3,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 264,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 265,
+        "current": 10,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 267,
+        "current": 165,
+        "minimum": 18,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 269,
+        "current": 121,
+        "minimum": 14,
+        "boundary_current": 4,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 270,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 271,
+        "current": 20,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 273,
+        "current": 75,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 274,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 275,
+        "current": 9,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 276,
+        "current": 51,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 278,
+        "current": 19,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 279,
+        "current": 26,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 281,
+        "current": 42,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 282,
+        "current": 42,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 283,
+        "current": 19,
+        "minimum": 8,
+        "boundary_current": 3,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 284,
+        "current": 22,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 285,
+        "current": 25,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 286,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 287,
+        "current": 45,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 288,
+        "current": 37,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 289,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 291,
+        "current": 93,
+        "minimum": 8,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 293,
+        "current": 93,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 294,
+        "current": 34,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 295,
+        "current": 347,
+        "minimum": 17,
+        "boundary_current": 29,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 296,
+        "current": 226,
+        "minimum": 9,
+        "boundary_current": 4,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 298,
+        "current": 131,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 299,
+        "current": 66,
+        "minimum": 8,
+        "boundary_current": 3,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 300,
+        "current": 49,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 301,
+        "current": 15,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 302,
+        "current": 7,
+        "minimum": 7,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 303,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 304,
+        "current": 16,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 305,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 307,
+        "current": 2,
+        "minimum": 2,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 308,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 309,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 310,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 311,
+        "current": 29,
+        "minimum": 8,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 313,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 315,
+        "current": 54,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 316,
+        "current": 322,
+        "minimum": 31,
+        "boundary_current": 15,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 317,
+        "current": 6,
+        "minimum": 6,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 318,
+        "current": 7,
+        "minimum": 7,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 319,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 320,
+        "current": 20,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 321,
+        "current": 20,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 322,
+        "current": 183,
+        "minimum": 8,
+        "boundary_current": 5,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 324,
+        "current": 17,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 325,
+        "current": 43,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 326,
+        "current": 19,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 330,
+        "current": 24,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 331,
+        "current": 64,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 332,
+        "current": 268,
+        "minimum": 11,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 333,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 335,
+        "current": 96,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 337,
+        "current": 9,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 338,
+        "current": 16,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 339,
+        "current": 87,
+        "minimum": 8,
+        "boundary_current": 8,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 340,
+        "current": 288,
+        "minimum": 11,
+        "boundary_current": 23,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 341,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 342,
+        "current": 21,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 343,
+        "current": 14,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 344,
+        "current": 1032,
+        "minimum": 34,
+        "boundary_current": 29,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 345,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 346,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 347,
+        "current": 21,
+        "minimum": 8,
+        "boundary_current": 4,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 348,
+        "current": 16,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 349,
+        "current": 166,
+        "minimum": 8,
+        "boundary_current": 7,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 350,
+        "current": 28,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 351,
+        "current": 29,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 352,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 353,
+        "current": 16,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 354,
+        "current": 61,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 355,
+        "current": 182,
+        "minimum": 16,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 357,
+        "current": 267,
+        "minimum": 26,
+        "boundary_current": 23,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 358,
+        "current": 3,
+        "minimum": 3,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 359,
+        "current": 152,
+        "minimum": 8,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 360,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 362,
+        "current": 11,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 363,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 364,
+        "current": 17,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 365,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 366,
+        "current": 512,
+        "minimum": 40,
+        "boundary_current": 25,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 367,
+        "current": 109,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 368,
+        "current": 46,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 369,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 370,
+        "current": 60,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 371,
+        "current": 10,
+        "minimum": 8,
+        "boundary_current": 4,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 375,
+        "current": 9,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 376,
+        "current": 36,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 379,
+        "current": 129,
+        "minimum": 10,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 380,
+        "current": 4,
+        "minimum": 4,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 381,
+        "current": 39,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 382,
+        "current": 85,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 383,
+        "current": 4,
+        "minimum": 4,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 384,
+        "current": 15,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 385,
+        "current": 4,
+        "minimum": 4,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 386,
+        "current": 4,
+        "minimum": 4,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 387,
+        "current": 24,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 389,
+        "current": 13,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 390,
+        "current": 11,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 391,
+        "current": 157,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 392,
+        "current": 15,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 395,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 396,
+        "current": 176,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 398,
+        "current": 302,
+        "minimum": 12,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 399,
+        "current": 79,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 400,
+        "current": 32,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 401,
+        "current": 49,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 405,
+        "current": 9,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 406,
+        "current": 38,
+        "minimum": 8,
+        "boundary_current": 7,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 409,
+        "current": 114,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 411,
+        "current": 56,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 412,
+        "current": 32,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 414,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 415,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 416,
+        "current": 20,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 417,
+        "current": 129,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 419,
+        "current": 76,
+        "minimum": 16,
+        "boundary_current": 7,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 420,
+        "current": 153,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 421,
+        "current": 2,
+        "minimum": 2,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 422,
+        "current": 157,
+        "minimum": 16,
+        "boundary_current": 11,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 423,
+        "current": 178,
+        "minimum": 9,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 426,
+        "current": 51,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 427,
+        "current": 392,
+        "minimum": 38,
+        "boundary_current": 45,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 428,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 429,
+        "current": 135,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 434,
+        "current": 448,
+        "minimum": 12,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 436,
+        "current": 40,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 437,
+        "current": 241,
+        "minimum": 23,
+        "boundary_current": 13,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 438,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 439,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 440,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 441,
+        "current": 372,
+        "minimum": 35,
+        "boundary_current": 11,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 442,
+        "current": 102,
+        "minimum": 11,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 443,
+        "current": 1382,
+        "minimum": 65,
+        "boundary_current": 9,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 444,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 445,
+        "current": 43,
+        "minimum": 8,
+        "boundary_current": 6,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 446,
+        "current": 20,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 447,
+        "current": 56,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 448,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 449,
+        "current": 12,
+        "minimum": 8,
+        "boundary_current": 4,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 451,
+        "current": 22,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 453,
+        "current": 76,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 455,
+        "current": 42,
+        "minimum": 12,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 456,
+        "current": 48,
+        "minimum": 8,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 457,
+        "current": 15,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 458,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 459,
+        "current": 20,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 460,
+        "current": 124,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 461,
+        "current": 52,
+        "minimum": 12,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 462,
+        "current": 30,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 463,
+        "current": 2,
+        "minimum": 2,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 464,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 465,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 466,
+        "current": 20,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 467,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 468,
+        "current": 76,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 469,
+        "current": 53,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 470,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 471,
+        "current": 164,
+        "minimum": 18,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 472,
+        "current": 249,
+        "minimum": 23,
+        "boundary_current": 10,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 473,
+        "current": 35,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 474,
+        "current": 30,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 475,
+        "current": 179,
+        "minimum": 17,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 476,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 477,
+        "current": 24,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 478,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 479,
+        "current": 70,
+        "minimum": 15,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 480,
+        "current": 9,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 481,
+        "current": 30,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 482,
+        "current": 96,
+        "minimum": 9,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 483,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 485,
+        "current": 10,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 486,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 487,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 488,
+        "current": 26,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 489,
+        "current": 13,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 490,
+        "current": 30,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 492,
+        "current": 43,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 494,
+        "current": 294,
+        "minimum": 9,
+        "boundary_current": 11,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 495,
+        "current": 29,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 496,
+        "current": 340,
+        "minimum": 18,
+        "boundary_current": 22,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 497,
+        "current": 20,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 499,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 501,
+        "current": 73,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 502,
+        "current": 51,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 504,
+        "current": 44,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 505,
+        "current": 61,
+        "minimum": 8,
+        "boundary_current": 11,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 506,
+        "current": 39,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 508,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 509,
+        "current": 14,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 510,
+        "current": 32,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 511,
+        "current": 48,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 512,
+        "current": 25,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 513,
+        "current": 77,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 514,
+        "current": 22,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 515,
+        "current": 5,
+        "minimum": 5,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 516,
+        "current": 45,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 517,
+        "current": 179,
+        "minimum": 20,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 518,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 519,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 520,
+        "current": 123,
+        "minimum": 13,
+        "boundary_current": 14,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 521,
+        "current": 118,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 523,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 524,
+        "current": 94,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 525,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 526,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 527,
+        "current": 16,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 528,
+        "current": 59,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 529,
+        "current": 262,
+        "minimum": 20,
+        "boundary_current": 24,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 530,
+        "current": 9,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 531,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 532,
+        "current": 269,
+        "minimum": 27,
+        "boundary_current": 11,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 533,
+        "current": 6,
+        "minimum": 6,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 534,
+        "current": 96,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 535,
+        "current": 26,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 536,
+        "current": 6,
+        "minimum": 6,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 537,
+        "current": 73,
+        "minimum": 8,
+        "boundary_current": 3,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 538,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 539,
+        "current": 18,
+        "minimum": 8,
+        "boundary_current": 3,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 541,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 542,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 3,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 543,
+        "current": 52,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 544,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 545,
+        "current": 3,
+        "minimum": 3,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 547,
+        "current": 220,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 548,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 551,
+        "current": 240,
+        "minimum": 11,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 552,
+        "current": 50,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 553,
+        "current": 403,
+        "minimum": 19,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 554,
+        "current": 266,
+        "minimum": 25,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 555,
+        "current": 261,
+        "minimum": 20,
+        "boundary_current": 9,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 556,
+        "current": 69,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 557,
+        "current": 22,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 559,
+        "current": 120,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 560,
+        "current": 87,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 561,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 562,
+        "current": 41,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 563,
+        "current": 189,
+        "minimum": 10,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 564,
+        "current": 36,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 565,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 566,
+        "current": 33,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 567,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 570,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 571,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 572,
+        "current": 13,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 574,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 575,
+        "current": 63,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 576,
+        "current": 12,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 578,
+        "current": 15,
+        "minimum": 8,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 580,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 581,
+        "current": 89,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 582,
+        "current": 15,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 583,
+        "current": 25,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 584,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 3,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 585,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 586,
+        "current": 60,
+        "minimum": 8,
+        "boundary_current": 12,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 587,
+        "current": 243,
+        "minimum": 9,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 588,
+        "current": 22,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 589,
+        "current": 31,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 590,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 591,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 592,
+        "current": 21,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 593,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 594,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 595,
+        "current": 14,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 596,
+        "current": 3,
+        "minimum": 3,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 597,
+        "current": 33,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 598,
+        "current": 7,
+        "minimum": 7,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 600,
+        "current": 68,
+        "minimum": 8,
+        "boundary_current": 3,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 601,
+        "current": 137,
+        "minimum": 17,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 602,
+        "current": 102,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 603,
+        "current": 3,
+        "minimum": 3,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 604,
+        "current": 7,
+        "minimum": 7,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 605,
+        "current": 34,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 606,
+        "current": 43,
+        "minimum": 8,
+        "boundary_current": 3,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 607,
+        "current": 16,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 608,
+        "current": 117,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 609,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 610,
+        "current": 5,
+        "minimum": 5,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 611,
+        "current": 75,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 612,
+        "current": 70,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 613,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 614,
+        "current": 34,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 615,
+        "current": 26,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 616,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 617,
+        "current": 44,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 618,
+        "current": 193,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 620,
+        "current": 62,
+        "minimum": 11,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 621,
+        "current": 62,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 623,
+        "current": 47,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 625,
+        "current": 26,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 626,
+        "current": 3,
+        "minimum": 3,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 627,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 628,
+        "current": 3,
+        "minimum": 3,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 629,
+        "current": 249,
+        "minimum": 21,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 630,
+        "current": 62,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 631,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 633,
+        "current": 61,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 635,
+        "current": 78,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 636,
+        "current": 7,
+        "minimum": 7,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 637,
+        "current": 40,
+        "minimum": 8,
+        "boundary_current": 3,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 638,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 639,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 640,
+        "current": 4,
+        "minimum": 4,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 641,
+        "current": 12,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 642,
+        "current": 19,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 643,
+        "current": 2,
+        "minimum": 2,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 644,
+        "current": 37,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 645,
+        "current": 7,
+        "minimum": 7,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 646,
+        "current": 24,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 647,
+        "current": 24,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 648,
+        "current": 11,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 649,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 650,
+        "current": 17,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 651,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 652,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 654,
+        "current": 9,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 655,
+        "current": 12,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 656,
+        "current": 235,
+        "minimum": 14,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 657,
+        "current": 51,
+        "minimum": 8,
+        "boundary_current": 3,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 658,
+        "current": 635,
+        "minimum": 37,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 659,
+        "current": 267,
+        "minimum": 8,
+        "boundary_current": 5,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 660,
+        "current": 33,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 661,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 662,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 663,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 664,
+        "current": 198,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 665,
+        "current": 38,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 668,
+        "current": 165,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 669,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 670,
+        "current": 17,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 672,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 673,
+        "current": 20,
+        "minimum": 8,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 674,
+        "current": 203,
+        "minimum": 11,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 675,
+        "current": 21,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 676,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 677,
+        "current": 168,
+        "minimum": 12,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 678,
+        "current": 36,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 679,
+        "current": 29,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 680,
+        "current": 2,
+        "minimum": 2,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 682,
+        "current": 47,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 687,
+        "current": 12,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 688,
+        "current": 70,
+        "minimum": 8,
+        "boundary_current": 8,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 689,
+        "current": 50,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 690,
+        "current": 74,
+        "minimum": 8,
+        "boundary_current": 3,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 691,
+        "current": 47,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 692,
+        "current": 24,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 693,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 694,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 696,
+        "current": 16,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 697,
+        "current": 2,
+        "minimum": 2,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 698,
+        "current": 17,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 699,
+        "current": 2,
+        "minimum": 2,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 700,
+        "current": 233,
+        "minimum": 17,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 701,
+        "current": 193,
+        "minimum": 12,
+        "boundary_current": 5,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 702,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 703,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 704,
+        "current": 68,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 705,
+        "current": 46,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 706,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 707,
+        "current": 35,
+        "minimum": 8,
+        "boundary_current": 3,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 708,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 710,
+        "current": 74,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 711,
+        "current": 71,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 712,
+        "current": 6,
+        "minimum": 6,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 715,
+        "current": 2,
+        "minimum": 2,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 716,
+        "current": 5,
+        "minimum": 5,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 717,
+        "current": 11,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 721,
+        "current": 77,
+        "minimum": 11,
+        "boundary_current": 7,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 723,
+        "current": 108,
+        "minimum": 12,
+        "boundary_current": 18,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 724,
+        "current": 15,
+        "minimum": 8,
+        "boundary_current": 3,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 727,
+        "current": 85,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 728,
+        "current": 48,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 729,
+        "current": 201,
+        "minimum": 11,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 730,
+        "current": 19,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 731,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 732,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 733,
+        "current": 21,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 734,
+        "current": 28,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 736,
+        "current": 5,
+        "minimum": 5,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 737,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 738,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 739,
+        "current": 94,
+        "minimum": 9,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 740,
+        "current": 2,
+        "minimum": 2,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 741,
+        "current": 304,
+        "minimum": 9,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 742,
+        "current": 63,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 743,
+        "current": 31,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 744,
+        "current": 146,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 745,
+        "current": 56,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 746,
+        "current": 94,
+        "minimum": 10,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 747,
+        "current": 20,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 749,
+        "current": 12,
+        "minimum": 8,
+        "boundary_current": 3,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 750,
+        "current": 76,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 752,
+        "current": 168,
+        "minimum": 9,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 754,
+        "current": 34,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 755,
+        "current": 9,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 756,
+        "current": 124,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 757,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 758,
+        "current": 10,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 759,
+        "current": 169,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 761,
+        "current": 279,
+        "minimum": 17,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 762,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 763,
+        "current": 126,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 764,
+        "current": 108,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 765,
+        "current": 66,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 766,
+        "current": 25,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 767,
+        "current": 10,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 769,
+        "current": 68,
+        "minimum": 9,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 770,
+        "current": 58,
+        "minimum": 9,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 772,
+        "current": 28,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 773,
+        "current": 29,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 774,
+        "current": 102,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 775,
+        "current": 26,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 776,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 777,
+        "current": 53,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 779,
+        "current": 32,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 780,
+        "current": 58,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 781,
+        "current": 66,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 782,
+        "current": 86,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 783,
+        "current": 50,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 784,
+        "current": 69,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 785,
+        "current": 76,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 786,
+        "current": 102,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 787,
+        "current": 15,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 791,
+        "current": 16,
+        "minimum": 8,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 793,
+        "current": 37,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 796,
+        "current": 12,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 797,
+        "current": 38,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 798,
+        "current": 41,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 799,
+        "current": 85,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 800,
+        "current": 23,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 801,
+        "current": 46,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 802,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 803,
+        "current": 55,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 805,
+        "current": 126,
+        "minimum": 9,
+        "boundary_current": 3,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 806,
+        "current": 174,
+        "minimum": 17,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 807,
+        "current": 90,
+        "minimum": 12,
+        "boundary_current": 14,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 808,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 811,
+        "current": 32,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 812,
+        "current": 36,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 813,
+        "current": 101,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 814,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 815,
+        "current": 17,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 817,
+        "current": 34,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 818,
+        "current": 38,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 819,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 820,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 821,
+        "current": 85,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 822,
+        "current": 16,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 823,
+        "current": 22,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 824,
+        "current": 633,
+        "minimum": 21,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 825,
+        "current": 570,
+        "minimum": 35,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 826,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 827,
+        "current": 31,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 828,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 829,
+        "current": 4,
+        "minimum": 4,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 831,
+        "current": 36,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 832,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 833,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 834,
+        "current": 42,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 835,
+        "current": 3,
+        "minimum": 3,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 836,
+        "current": 27,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 837,
+        "current": 17,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 839,
+        "current": 111,
+        "minimum": 11,
+        "boundary_current": 4,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 842,
+        "current": 412,
+        "minimum": 16,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 843,
+        "current": 16,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 844,
+        "current": 5,
+        "minimum": 5,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 845,
+        "current": 68,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 846,
+        "current": 137,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 847,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 848,
+        "current": 40,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 849,
+        "current": 51,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 850,
+        "current": 5,
+        "minimum": 5,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 851,
+        "current": 12,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 853,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 854,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 856,
+        "current": 661,
+        "minimum": 37,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 857,
+        "current": 97,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 858,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 860,
+        "current": 15,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 861,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 862,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 863,
+        "current": 2,
+        "minimum": 2,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 864,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 865,
+        "current": 11,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 866,
+        "current": 128,
+        "minimum": 10,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 867,
+        "current": 58,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 868,
+        "current": 127,
+        "minimum": 8,
+        "boundary_current": 6,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 869,
+        "current": 34,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 870,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 872,
+        "current": 80,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 873,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 874,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 875,
+        "current": 2,
+        "minimum": 2,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 876,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 878,
+        "current": 85,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 879,
+        "current": 22,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 880,
+        "current": 9,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 881,
+        "current": 79,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 882,
+        "current": 83,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 883,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 884,
+        "current": 72,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 885,
+        "current": 104,
+        "minimum": 9,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 886,
+        "current": 69,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 888,
+        "current": 25,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 889,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 891,
+        "current": 12,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 892,
+        "current": 7,
+        "minimum": 7,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 897,
+        "current": 59,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 898,
+        "current": 69,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 900,
+        "current": 11,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 901,
+        "current": 35,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 903,
+        "current": 225,
+        "minimum": 9,
+        "boundary_current": 5,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 904,
+        "current": 77,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 905,
+        "current": 3,
+        "minimum": 3,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 906,
+        "current": 110,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 907,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 908,
+        "current": 25,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 909,
+        "current": 19,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 910,
+        "current": 84,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 911,
+        "current": 76,
+        "minimum": 8,
+        "boundary_current": 7,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 912,
+        "current": 170,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 913,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 915,
+        "current": 24,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 916,
+        "current": 18,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 917,
+        "current": 6,
+        "minimum": 6,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 918,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 919,
+        "current": 6,
+        "minimum": 6,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 920,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 921,
+        "current": 530,
+        "minimum": 31,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 922,
+        "current": 344,
+        "minimum": 19,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 923,
+        "current": 56,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 924,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 926,
+        "current": 45,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 927,
+        "current": 41,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 928,
+        "current": 16,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 929,
+        "current": 144,
+        "minimum": 22,
+        "boundary_current": 10,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 930,
+        "current": 76,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 931,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 933,
+        "current": 26,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 934,
+        "current": 3,
+        "minimum": 3,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 935,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 936,
+        "current": 9,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 937,
+        "current": 78,
+        "minimum": 11,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 938,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 939,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 940,
+        "current": 243,
+        "minimum": 14,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 941,
+        "current": 4,
+        "minimum": 4,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 942,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 945,
+        "current": 113,
+        "minimum": 12,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 947,
+        "current": 79,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 948,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 949,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 950,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 951,
+        "current": 60,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 952,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 954,
+        "current": 13,
+        "minimum": 8,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 955,
+        "current": 44,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 956,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 960,
+        "current": 774,
+        "minimum": 29,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 961,
+        "current": 136,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 962,
+        "current": 12,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 964,
+        "current": 37,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 966,
+        "current": 34,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 967,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 3,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 968,
+        "current": 20,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 970,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 971,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 975,
+        "current": 6,
+        "minimum": 6,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 978,
+        "current": 160,
+        "minimum": 8,
+        "boundary_current": 3,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 979,
+        "current": 33,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 980,
+        "current": 71,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 982,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 984,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 985,
+        "current": 36,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 986,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 987,
+        "current": 15,
+        "minimum": 8,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 988,
+        "current": 116,
+        "minimum": 8,
+        "boundary_current": 4,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 991,
+        "current": 62,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 992,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 994,
+        "current": 172,
+        "minimum": 22,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 996,
+        "current": 105,
+        "minimum": 9,
+        "boundary_current": 4,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 997,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 998,
+        "current": 2,
+        "minimum": 2,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1000,
+        "current": 28,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1001,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1002,
+        "current": 33,
+        "minimum": 8,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1003,
+        "current": 31,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1004,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1005,
+        "current": 3,
+        "minimum": 3,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1006,
+        "current": 55,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1008,
+        "current": 23,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1009,
+        "current": 61,
+        "minimum": 10,
+        "boundary_current": 4,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1010,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1011,
+        "current": 161,
+        "minimum": 28,
+        "boundary_current": 20,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1012,
+        "current": 69,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1013,
+        "current": 455,
+        "minimum": 17,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1015,
+        "current": 24,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1016,
+        "current": 27,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1017,
+        "current": 304,
+        "minimum": 12,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1018,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1019,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1022,
+        "current": 20,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1023,
+        "current": 18,
+        "minimum": 8,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1024,
+        "current": 48,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1025,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1026,
+        "current": 9,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1027,
+        "current": 18,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1028,
+        "current": 16,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1029,
+        "current": 2,
+        "minimum": 2,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1032,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1033,
+        "current": 6,
+        "minimum": 6,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1034,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1035,
+        "current": 2,
+        "minimum": 2,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1037,
+        "current": 49,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1038,
+        "current": 23,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1039,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1040,
+        "current": 2,
+        "minimum": 2,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1041,
+        "current": 30,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1042,
+        "current": 53,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1043,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1045,
+        "current": 87,
+        "minimum": 12,
+        "boundary_current": 9,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1046,
+        "current": 47,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1047,
+        "current": 226,
+        "minimum": 21,
+        "boundary_current": 13,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1048,
+        "current": 17,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1049,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1051,
+        "current": 67,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1052,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1053,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1054,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1055,
+        "current": 69,
+        "minimum": 10,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1056,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1058,
+        "current": 36,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1059,
+        "current": 3,
+        "minimum": 3,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1060,
+        "current": 2,
+        "minimum": 2,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1061,
+        "current": 9,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1064,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1065,
+        "current": 71,
+        "minimum": 8,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1067,
+        "current": 17,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1068,
+        "current": 11,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1069,
+        "current": 393,
+        "minimum": 30,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1070,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1071,
+        "current": 9,
+        "minimum": 8,
+        "boundary_current": 4,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1072,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1073,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1074,
+        "current": 50,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1075,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1076,
+        "current": 5,
+        "minimum": 5,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1077,
+        "current": 111,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1079,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1080,
+        "current": 74,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1081,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1082,
+        "current": 24,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1083,
+        "current": 157,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1086,
+        "current": 29,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1087,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1088,
+        "current": 11,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1089,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1090,
+        "current": 19,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1091,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1092,
+        "current": 83,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1093,
+        "current": 27,
+        "minimum": 8,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1094,
+        "current": 117,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1096,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1097,
+        "current": 17,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1098,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1099,
+        "current": 248,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1100,
+        "current": 38,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1101,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1102,
+        "current": 11,
+        "minimum": 8,
+        "boundary_current": 5,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1103,
+        "current": 42,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1104,
+        "current": 13,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1105,
+        "current": 36,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1106,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1107,
+        "current": 53,
+        "minimum": 8,
+        "boundary_current": 5,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1108,
+        "current": 26,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1110,
+        "current": 29,
+        "minimum": 8,
+        "boundary_current": 3,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1111,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1112,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1116,
+        "current": 3,
+        "minimum": 3,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1117,
+        "current": 51,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1118,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1119,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1121,
+        "current": 61,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1122,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1123,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1125,
+        "current": 87,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1126,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1127,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1129,
+        "current": 194,
+        "minimum": 13,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1130,
+        "current": 10,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1131,
+        "current": 3,
+        "minimum": 3,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1133,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1134,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1135,
+        "current": 37,
+        "minimum": 10,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1138,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1140,
+        "current": 21,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1141,
+        "current": 333,
+        "minimum": 31,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1142,
+        "current": 253,
+        "minimum": 18,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1143,
+        "current": 71,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1144,
+        "current": 71,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1145,
+        "current": 12,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1146,
+        "current": 25,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1147,
+        "current": 57,
+        "minimum": 8,
+        "boundary_current": 10,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1148,
+        "current": 20,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1150,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1152,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1153,
+        "current": 75,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1154,
+        "current": 10,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1156,
+        "current": 9,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1160,
+        "current": 3,
+        "minimum": 3,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1161,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1163,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1164,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1165,
+        "current": 26,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1166,
+        "current": 257,
+        "minimum": 35,
+        "boundary_current": 8,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1168,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1170,
+        "current": 79,
+        "minimum": 9,
+        "boundary_current": 3,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1171,
+        "current": 11,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1172,
+        "current": 7,
+        "minimum": 7,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1178,
+        "current": 22,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1179,
+        "current": 10,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1180,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1181,
+        "current": 2,
+        "minimum": 2,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1182,
+        "current": 47,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1183,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1184,
+        "current": 23,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1185,
+        "current": 20,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1188,
+        "current": 9,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1194,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1195,
+        "current": 115,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1197,
+        "current": 175,
+        "minimum": 21,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1199,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1200,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1201,
+        "current": 6,
+        "minimum": 6,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1204,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1205,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1207,
+        "current": 33,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1210,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1211,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1212,
+        "current": 6,
+        "minimum": 6,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1213,
+        "current": 28,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1214,
+        "current": 73,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1216,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1217,
+        "current": 2,
+        "minimum": 2,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1221,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1222,
+        "current": 78,
+        "minimum": 8,
+        "boundary_current": 17,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1223,
+        "current": 3,
+        "minimum": 3,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1224,
+        "current": 52,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1225,
+        "current": 38,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1227,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1229,
+        "current": 22,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1230,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1231,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1232,
+        "current": 2,
+        "minimum": 2,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1234,
+        "current": 44,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1238,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1239,
+        "current": 26,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1240,
+        "current": 1,
+        "minimum": 1,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1241,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1242,
+        "current": 66,
+        "minimum": 8,
+        "boundary_current": 11,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1243,
+        "current": 13,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1245,
+        "current": 16,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1246,
+        "current": 15,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1247,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1249,
+        "current": 32,
+        "minimum": 8,
+        "boundary_current": 1,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1250,
+        "current": 63,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1251,
+        "current": 26,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1252,
+        "current": 5,
+        "minimum": 5,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1253,
+        "current": 22,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1255,
+        "current": 8,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1256,
+        "current": 12,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1258,
+        "current": 51,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1260,
+        "current": 64,
+        "minimum": 9,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1261,
+        "current": 12,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1262,
+        "current": 10,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1264,
+        "current": 20,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1265,
+        "current": 42,
+        "minimum": 8,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1266,
+        "current": 77,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1267,
+        "current": 56,
+        "minimum": 8,
+        "boundary_current": 0,
+        "boundary_minimum": 0
+      },
+      {
+        "instance_id": 1268,
+        "current": 38,
+        "minimum": 8,
+        "boundary_current": 2,
+        "boundary_minimum": 0
+      }
+    ]
+  },
+  "metadata_rows_exact": true,
+  "merged_total": 5214,
+  "restored_total": 48053
+}

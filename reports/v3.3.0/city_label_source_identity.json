@@ -1,0 +1,20 @@
+{
+  "status": "complete",
+  "source": "/home/zhangys/semantic_data/3D-AS_dataset/City/scene0/segmentation",
+  "frames": [
+    "frame_000",
+    "frame_007",
+    "frame_014",
+    "frame_021",
+    "frame_028",
+    "frame_035",
+    "frame_042",
+    "frame_049",
+    "frame_056",
+    "frame_063"
+  ],
+  "frame_count": 10,
+  "raw_source_files_verified": 90,
+  "identical_to_frozen_annotation_audit": true,
+  "no_label_values_used_for_compression_or_weight_selection": true
+}

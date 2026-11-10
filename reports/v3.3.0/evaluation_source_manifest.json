@@ -1,0 +1,21 @@
+{
+  "status": "frozen",
+  "files": {
+    "evaluate_continuous_boundary_semantics.py": "cff9257369416cffd30b4fe474ddd8c2f05237887d8e6e98280b4022bc34d44f",
+    "finalize_continuous_boundary_results.py": "991105ddb227642dc3da37c78c962671843da6cee6184054afd949beec4092dd",
+    "run_continuous_boundary_evaluation.py": "f3d4553d3df0b082e6659ff49f76cf4474c4042ae7abfad2ea5b9ea0572bd69a",
+    "evaluate_boundary_weighted_semantics.py": "7e14503b1db3b6fb5474adf54f976be10663e17d1c2c21244448bb04e938c19b",
+    "render_boundary_semantic_views.py": "679d91cab2242b76502b792b6837b9829edd46e6e83495b72a43f5f7f93329f6",
+    "run_boundary_weighted_evaluation.py": "7afe58e5f484a02e8b0491c6d866cf4d011c54f7afe76d5264d9169a277babb9",
+    "finalize_boundary_weighted_results.py": "d7ce8c8c5f439abdc2159414b9be76a3b44a12ba17656fffa22652c642cc3f50",
+    "city_semantic.py": "f5c5e1d0ed15160db682a96fc8979435633da704f87e11f7d8228ed7210cb224",
+    "utils/city_semantic_data.py": "8425ab28b7431ceb72e499dbdcf626d601644d699250615fdff76a6576a4febf",
+    "utils/semantic_comparison_metrics.py": "8e6cea5bbcd7b1062f4cedea06bf5d1f780f3a41e2223c73c95994442a889086",
+    "scene/colmap_loader.py": "6948ce06366e1f727ddffc39a445bf4b6873824f02abc39df63eb0c8f0fb3f36",
+    "scene/dataset_readers.py": "b06f01648fee893c4785ed38eeb934f91b79817b9dcbb694291c9162b0b6ba94",
+    "scene/cameras.py": "4c5bbed3b2bfeaf76b0cf32d3c106c98c51c2ffd28fe1f89a0bcf57e27f628b2",
+    "utils/camera_utils.py": "7644d89893f2481a7a9be592227bf11f3e6e5c469c9ce92c3cb25f9ff920c458",
+    "gaussian_renderer/__init__.py": "b8784baed5f398b2e2694a9fe78fe0333892ed2477663ad7bedc50cfa55d24e7",
+    "finalize_city_benchmark.py": "dd689405050f4c9a424f6b8afc0d25fafa028a6ba880fa9f8a23018646b5d374"
+  }
+}

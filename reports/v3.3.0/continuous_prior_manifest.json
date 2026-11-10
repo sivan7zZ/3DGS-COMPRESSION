@@ -1,0 +1,3814 @@
+{
+  "schema_version": 1,
+  "schema": "continuous_train_only_boundary_prior_v1",
+  "status": "complete",
+  "source_ply": "/home/zhangys/gaussian-splatting（原生）/output/city2/point_cloud/iteration_30000/point_cloud.ply",
+  "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+  "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+  "source_count": 1788093,
+  "shared_metadata": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_adaptive_constraints_20261102/shared/adaptive_metadata.npz",
+  "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+  "sidecar": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/continuous_priors/continuous_metadata.npz",
+  "sidecar_sha256": "80a74c6462a717da18bfe0d1e6ccdbc56090b87dcaa87cf1f55c99eb08884278",
+  "train_frames": [
+    "frame_001",
+    "frame_002",
+    "frame_003",
+    "frame_004",
+    "frame_005",
+    "frame_006",
+    "frame_007",
+    "frame_009",
+    "frame_010",
+    "frame_011",
+    "frame_012",
+    "frame_013",
+    "frame_014",
+    "frame_015",
+    "frame_017",
+    "frame_018",
+    "frame_019",
+    "frame_020",
+    "frame_021",
+    "frame_022",
+    "frame_023",
+    "frame_025",
+    "frame_026",
+    "frame_027",
+    "frame_028",
+    "frame_029",
+    "frame_030",
+    "frame_031",
+    "frame_033",
+    "frame_034",
+    "frame_035",
+    "frame_036",
+    "frame_037",
+    "frame_038",
+    "frame_039",
+    "frame_041",
+    "frame_042",
+    "frame_043",
+    "frame_044",
+    "frame_045",
+    "frame_046",
+    "frame_047",
+    "frame_049",
+    "frame_050",
+    "frame_051",
+    "frame_052",
+    "frame_053",
+    "frame_054",
+    "frame_055",
+    "frame_057",
+    "frame_058",
+    "frame_059",
+    "frame_060",
+    "frame_061",
+    "frame_062",
+    "frame_063",
+    "frame_065",
+    "frame_066",
+    "frame_067",
+    "frame_068",
+    "frame_069"
+  ],
+  "test_frames_excluded": [
+    "frame_000",
+    "frame_008",
+    "frame_016",
+    "frame_024",
+    "frame_032",
+    "frame_040",
+    "frame_048",
+    "frame_056",
+    "frame_064"
+  ],
+  "channels": [
+    "sam_boundary_strength",
+    "depth_boundary_strength",
+    "rgb_boundary_strength"
+  ],
+  "sam_sigma_px": 2.0,
+  "map_definitions": {
+    "sam": "Four-neighbor SAM label discontinuities on both adjacent pixels; precise Euclidean distance d; exp(-d*d/(2*sigma*sigma)); zero for an edge-free label map; no dilation/hard threshold.",
+    "depth": "Unchanged normalized_sobel: 3x3 Sobel/8 magnitude, eroded valid finite(depth)&alpha>.5; divide by valid q95, clamp [0,1].",
+    "rgb": "Unchanged normalized_sobel on cv2 RGB-to-gray, q95 normalization, clamp [0,1]."
+  },
+  "projection": "Sum all training-view/pixel alpha*T * continuous map / sum alpha*T, using original native anisotropic source footprints, opacity>=1/255 and T>=1e-4; not dominant-only and not Gaussian-center sampling.",
+  "visibility_semantics": "Bitwise copy of unchanged shared.visibility for source identity. Continuous strengths use newly accumulated alpha*T denominator; its agreement with shared denominator is audited separately.",
+  "projection_visibility_audit": {
+    "passed": true,
+    "compared_rows": 1788093,
+    "violations": 0,
+    "rtol": 2e-05,
+    "atol": 2e-05,
+    "max_absolute_error": 0.002635776996612549,
+    "mean_absolute_error": 1.043810613847633e-06,
+    "same_positive_support": true
+  },
+  "binary_boundary_mask_modified": false,
+  "instance_metadata_modified": false,
+  "topology_metadata_modified": false,
+  "no_semantic_annotations": true,
+  "gpu_used": false,
+  "implementation_sha256": {
+    "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+    "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+    "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+    "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+  },
+  "runtime": {
+    "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+    "numpy_version": "1.21.6"
+  },
+  "preprocessing_seconds": 225.7072138786316,
+  "component_statistics": {
+    "sam_boundary_strength": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.13502513600096702,
+      "positive_rows": 1697953,
+      "fractional_rows": 1697945
+    },
+    "depth_boundary_strength": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.250440118731413,
+      "positive_rows": 1734664,
+      "fractional_rows": 1734408
+    },
+    "rgb_boundary_strength": {
+      "dtype": "float32",
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.3302667445109489,
+      "positive_rows": 1735934,
+      "fractional_rows": 1735908
+    }
+  },
+  "frames": {
+    "frame_001": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "b1925ec00fc1eb41b953a21a81cd5b5130586a14f58579549c09d3b71a88335d",
+        "sam_sha256": "1ce15824ee107889c1b88500e2aabd4995d908e2a07791e70cd9f59c02eb0643",
+        "image_sha256": "740504249ec59ae8a7ced8ba66a742d9bed92fa6e7713c9dac5807ba43f7895f",
+        "depth_sha256": "4c412b6c767140b8557ff6dd5d089baa9b5ab9606c7fcb6ab7a57de25fe0a963",
+        "depth_record_sha256": "ac9e99902e619d4718d3e7da86b628723e4a8e8da4c8a365bee917da0bde64c3",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.7277016639709473,
+      "mass_sha256": "e33e59fefeca8e35e49277c3930ea171d81c6f7aee3b730d5acca8311b4d77c0",
+      "maps_sha256": "85fd72d62a7cacbf965340f1abfd636e542cfaae6c65d43c46471d2c6a665a14",
+      "tile_references": 14070770,
+      "visible_gaussians": 1208175,
+      "total_contribution": 1411323.3608932646,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 0.000244140625,
+        "mean_absolute_error": 2.9006376379258147e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.13005943610734386,
+          "fractional_pixels": 930104
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1734570492098324,
+          "fractional_pixels": 1039316
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.23977262959672177,
+          "fractional_pixels": 1336127
+        }
+      }
+    },
+    "frame_002": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "e86e496d6624c4844c578cc005f0a80d4e69387e804d3c41106b4ddcab670649",
+        "sam_sha256": "aa0b0ff3705c201b29da954fe254e7630616d08cd871b5c1bba5ae33d2e5ffe3",
+        "image_sha256": "9111a2fb38f5ef7677d2b6ec6754016cb8b0969d1bf55cdc815b8d04d00c9705",
+        "depth_sha256": "57de5a7e0b826bf92a0b1175c9e241654abd3e1591a952c54cd3e1423c230c4a",
+        "depth_record_sha256": "5d6baec87f72c41e47863bbc21048c07a1933d63bd3c3c156edd305189d4c9e3",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.754798173904419,
+      "mass_sha256": "553c59f8ae31450ba693e99dc3903dd77025bb48c8c690ebf94fab81b18519ca",
+      "maps_sha256": "7032c30c861604508f4535a51dca6eeea3267302fcfe12fe45a762432c9c3a5d",
+      "tile_references": 14128659,
+      "visible_gaussians": 1214956,
+      "total_contribution": 1411911.0619777294,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 0.000244140625,
+        "mean_absolute_error": 2.8029787394998667e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1285784265995928,
+          "fractional_pixels": 931046
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.17232489408773835,
+          "fractional_pixels": 1041049
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.24095731774463142,
+          "fractional_pixels": 1338001
+        }
+      }
+    },
+    "frame_003": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "0dc11dcdccbffe0b8a633b39702da7338b38c9b5633317d940aa573f853fd9ef",
+        "sam_sha256": "952d262eb6672a0e2ee32e8497db7c69f2b9ab3119a6e07a4370f1d26cc065c3",
+        "image_sha256": "3a27c6373b1862ab79087119175322c07489e7aec7d2c95e644b8d4b1b15aca8",
+        "depth_sha256": "a5b7201ef5778493145ffbded5889c926366b73d87e5f97391a6a0d946dcad34",
+        "depth_record_sha256": "0f98ab0bb6aac08bfc09faafc61ed28266137c0a465c3d5f43129955b88c0fec",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.6141974925994873,
+      "mass_sha256": "56e13f6c9a74282c6773eb34788445e846f02796c0c501fc568a3196574f0c59",
+      "maps_sha256": "8d12da2ff0b35161e040fa95fdbd2460e2527017866ee44090e60c8b0728b58c",
+      "tile_references": 14186540,
+      "visible_gaussians": 1217799,
+      "total_contribution": 1411939.9480431261,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 0.0001220703125,
+        "mean_absolute_error": 2.8614727241334333e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.11913415210937887,
+          "fractional_pixels": 912121
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.16904557745954546,
+          "fractional_pixels": 1041336
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.2409112914105438,
+          "fractional_pixels": 1342456
+        }
+      }
+    },
+    "frame_004": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "af578f79ad95f78f0b2c8e6cf5cf69eb2960dd4ebec9917013073251209bbf62",
+        "sam_sha256": "fae2e101a05466a1fc209cc5d1f4c17cefd7c0cef56977c4b07973d602ce1fb5",
+        "image_sha256": "8c2df842c99f886f5ab0c089d6ef92e233a7f700119223e6a68b7870a661fed5",
+        "depth_sha256": "ce0bd7a5e585bbec1fc49b5772b189c447f9af636faf319547249af6d617b4a2",
+        "depth_record_sha256": "5fdc10ee5a6209e73a4eb7eac696064e926515e279debccaf71f26392fa5c0e6",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.654816150665283,
+      "mass_sha256": "1b6fea41ce263cd9e5dd5cdc8c9221053815dd9e914ecb55d1b54327004e4e40",
+      "maps_sha256": "ca175ed5b90650cf03e7f101998a2df41e36200704f7f9b022028dec5088f58b",
+      "tile_references": 14294150,
+      "visible_gaussians": 1223281,
+      "total_contribution": 1412341.8841638057,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 0.0001220703125,
+        "mean_absolute_error": 2.8134069302998313e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1254384751284708,
+          "fractional_pixels": 925997
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1687328518286546,
+          "fractional_pixels": 1040662
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.2415929658356439,
+          "fractional_pixels": 1341983
+        }
+      }
+    },
+    "frame_005": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "25c734f6173ac8fd64096864c6d2654f9f330a1de8338100e61e34b64f97b2d3",
+        "sam_sha256": "d5bddbc88b67182719ed8307e487b53b341abf87d8d5ad5cbbef0486d169311d",
+        "image_sha256": "54c866eb07326134461e33de9af0ae46837cbb9f64345afec772cb4e00a192cc",
+        "depth_sha256": "44d35fedd179f84a73f61f0e8956fe4debfac0d5179018c25ae445d0ab6ee8aa",
+        "depth_record_sha256": "5bccb8a927dbfee908efff80d60e74fd6db6757518ee86dab663ad30aa8044f4",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.6534039974212646,
+      "mass_sha256": "0dc5035fd443349c16f53c902669852ac07c76fdd2709f64708143c87b7c5a80",
+      "maps_sha256": "d2bc141a1c49f46d675cc646cb07116d434590a62da023a4e4ae2ccdd19a81b9",
+      "tile_references": 14355141,
+      "visible_gaussians": 1232882,
+      "total_contribution": 1412579.6040450085,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 6.103515625e-05,
+        "mean_absolute_error": 2.37860381553685e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.13908239757171909,
+          "fractional_pixels": 987479
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1651270040611064,
+          "fractional_pixels": 1039316
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.24368855441589773,
+          "fractional_pixels": 1344523
+        }
+      }
+    },
+    "frame_006": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "5b770efa50ce45f0c8c27705570a489ebb343e80713a4bfa70ea3c44e37a83cf",
+        "sam_sha256": "12979bb2f63455379cb22afe845012e75b18396928d494853aac76caf37b8e4b",
+        "image_sha256": "ee6ba7e9e4f4f80032b41470313ad49292caf2b84c84f6d5a126e3b25c462676",
+        "depth_sha256": "59995df08717c519efeeb524371c6fe402e7a1be79930f8247f03d1fdb9031c6",
+        "depth_record_sha256": "334337f9a642164d484e9a5da4e774b2f3d65acd562606a4b9190a8cb3fd7d1f",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.808377504348755,
+      "mass_sha256": "9759be8997dc17c1e68fb4371a2c8e97088da93f24a936c63f5e555b22688b67",
+      "maps_sha256": "e12799ce24cbde660d2d1ebebceabfa073e7b283b5e4d2ae96ab0644cb6ca659",
+      "tile_references": 14368421,
+      "visible_gaussians": 1235174,
+      "total_contribution": 1412301.9711400308,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 0.0001220703125,
+        "mean_absolute_error": 3.098474021456264e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1376415943278349,
+          "fractional_pixels": 1005508
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.16505473205166302,
+          "fractional_pixels": 1039316
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.24422555722877481,
+          "fractional_pixels": 1344273
+        }
+      }
+    },
+    "frame_007": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "2a44349827d6c8b35889236d81164c42ef1fb30e06480721f0635288433db5b9",
+        "sam_sha256": "1e0239d2b89d36c399af73025b44ce7aaebf53674a063c3bd173fa896e3c9b5a",
+        "image_sha256": "ca5dfb051f27673b7e5741ccf08d6ef9209b3e9a256633e7611e661d7d6ab6cc",
+        "depth_sha256": "26aa0e1c7a5316202d973d6361a700175c9f27654dc3416946d9e08b09f4825d",
+        "depth_record_sha256": "ea181b699860591ee45d1adaf65a186ec7865b85de5ed3eb8d77dd135ebe1e44",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.7061283588409424,
+      "mass_sha256": "33009874336a8bd3d36451ca8497f6b4bf20fab9785f3152c27d77956ff68385",
+      "maps_sha256": "c5a1f0ed873f52f9fc5db5243276aa41506a43601ca1171bffb8451d8d8d35ad",
+      "tile_references": 14368253,
+      "visible_gaussians": 1234593,
+      "total_contribution": 1411392.666733039,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 0.000244140625,
+        "mean_absolute_error": 2.9202394014575535e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.13499416535220518,
+          "fractional_pixels": 985056
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.16731135104125866,
+          "fractional_pixels": 1038239
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.24339913329446977,
+          "fractional_pixels": 1344480
+        }
+      }
+    },
+    "frame_009": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "35fb28b24d45dbdbf3207ecc09e4292e820b4f59fe9ffb892f06abf3eec02853",
+        "sam_sha256": "cd6414c2c0d6b0c4f990ad5a8381086cf0f6a27da169b2ebaeab8a26711a7f8c",
+        "image_sha256": "6461e5ee777faf36976ebac9d8ce3a3a1ffcd6b8146074234c7d840a368942d4",
+        "depth_sha256": "d31de5e2e15a53de7412151bbdd6941faf7f3331d46efd2c3e9d6cc7c43d71e2",
+        "depth_record_sha256": "98937cae748e6aa1e74bf2c5c578e75dfa8421d4344fae442f5a36579f619489",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.760537624359131,
+      "mass_sha256": "ef9af7b7969be7fbe6880afdecc54196dd74cd215517dff757dd307dd6255ac7",
+      "maps_sha256": "c33ef373e477481ed9826692f2f36d78d4dad6d8bb7fbe8a951a45fc04410f37",
+      "tile_references": 14384734,
+      "visible_gaussians": 1233050,
+      "total_contribution": 1410936.2824931534,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 3.0517578125e-05,
+        "mean_absolute_error": 3.0196529438172692e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.12366709726065855,
+          "fractional_pixels": 923020
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.16510528587965345,
+          "fractional_pixels": 1039067
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.24091806153938466,
+          "fractional_pixels": 1340284
+        }
+      }
+    },
+    "frame_010": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "16782addadd94dd681c5d7d2083420914d795d4d8690b705d096f045cf48078a",
+        "sam_sha256": "4e926b65f5039d7c9903270eb0d1274fdb15d3d400ed0d5b91b3a14dc46a53f7",
+        "image_sha256": "a8b1c54e506af588d505470b7ea7f59e53efb86dc5255582b719e9e8024c8bd8",
+        "depth_sha256": "6629a3979e98deb027c6ac3fe7431facdff4292a151ea84d2d94584a2603c018",
+        "depth_record_sha256": "35e00efbfbe6f5d3fa372d88a4c2e756c15674866195a4191f6abaa662ec2585",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 4.263789892196655,
+      "mass_sha256": "39a4365ad9c90c552edc3f82a7a9585a1ea0b3e57901bdde505a586dd17bc953",
+      "maps_sha256": "0c000fc5e6abb5280c4032e1344e0b2f125ffe01b4431749f28849203030dfaa",
+      "tile_references": 14444464,
+      "visible_gaussians": 1238136,
+      "total_contribution": 1411797.2105859707,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 6.103515625e-05,
+        "mean_absolute_error": 3.1775668137356633e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.12968922534383617,
+          "fractional_pixels": 920850
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.16465731331900874,
+          "fractional_pixels": 1041257
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.24066328644470292,
+          "fractional_pixels": 1340626
+        }
+      }
+    },
+    "frame_011": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "65156228debc46aaa00c9fb2df12a159157d5c64740aa2b008c5fdd02b6deb9e",
+        "sam_sha256": "de9378273f4e0f9d699e881bc78ee15acf181e4782d4fdc9806c15f8cf5328bc",
+        "image_sha256": "86a17cbcaf15284de1fc42cc7fb59ff0be499c976132e994d714b52c2c4da609",
+        "depth_sha256": "3d5dd746836509e2aa79b45a1421fc1d85e2b28e30194f060ff8c5123bd02726",
+        "depth_record_sha256": "279d51d013c0f00a445d3858a414d87735cd10775d89c9d211355559db7d3177",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 4.180557489395142,
+      "mass_sha256": "69166afb01b3b4b6fcda3df712a64f1ffbba2d1d8bbd4beb024892fce7665257",
+      "maps_sha256": "17716d2133e8eff88fdbabca874478aeeaead55132c6f8536613ec327af400db",
+      "tile_references": 14420651,
+      "visible_gaussians": 1240595,
+      "total_contribution": 1411811.544080158,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 3.0517578125e-05,
+        "mean_absolute_error": 3.0260404781376046e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.12445300279469516,
+          "fractional_pixels": 924244
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.16706574671935842,
+          "fractional_pixels": 1045431
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.23995764451663074,
+          "fractional_pixels": 1340179
+        }
+      }
+    },
+    "frame_012": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "447e42d6a091faa89ab66ac24431f18193619745cfe21554dc1f6c86f733dede",
+        "sam_sha256": "7fb018a73bdf7652921f67aa19719d4b70b2a1ad34018872b31b261855e244a9",
+        "image_sha256": "b8fd62286fd3e13d247f4a148c6b530b5ffb60b7a118fb982618fdc859dd8cfa",
+        "depth_sha256": "73292522fa624d2f83a3a1ad3b547fa529bafca6805464feec948ee5920703c4",
+        "depth_record_sha256": "3c19120f2c47fe87a14620bdff9512f971b82b65190300888c344d68948a2ee5",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.9312736988067627,
+      "mass_sha256": "f27dfd777ca2d3aa237cbbfd2f304b263d5ac9c1a167020cd595fcb2836eb94e",
+      "maps_sha256": "334664098f7921f2e22f59badbb4c5620cdf6246f680bb451a229fc5a6f6e593",
+      "tile_references": 14379048,
+      "visible_gaussians": 1237008,
+      "total_contribution": 1411857.0008013723,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 6.103515625e-05,
+        "mean_absolute_error": 3.0888915984256976e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.12436299056320249,
+          "fractional_pixels": 933427
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.16783645686617132,
+          "fractional_pixels": 1046670
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.23960183489825618,
+          "fractional_pixels": 1328145
+        }
+      }
+    },
+    "frame_013": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "831ec7cea657161b7e1b2201108a9538e75f62166efcc22760a85954c1c57dce",
+        "sam_sha256": "86c6f0c36a4a9eddbdc609eaf641b748f022c4ff5c64559b0363ce15f09c4be5",
+        "image_sha256": "523380080edad7d4bb237583225160dd32d7e171acf3ba1f8321f407e78f91eb",
+        "depth_sha256": "c290c3425fa98348ada19a4f43667c7df2f0a1b6b95eb881fa81866cd133b17d",
+        "depth_record_sha256": "0a88221dee3ee79a8f590b009eb6a76ca1ba38c52bddab19794b0c3d9f7fb56e",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.9209301471710205,
+      "mass_sha256": "e114d69498662cb85cbe065b59a4453c8ee13c6277db2868b5575156756a686b",
+      "maps_sha256": "d3ac4802bbc606fddbfed943bdb9b6391b573012c6ca094d6a181ed088e0e005",
+      "tile_references": 14211972,
+      "visible_gaussians": 1227801,
+      "total_contribution": 1412229.6865749813,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 0.000244140625,
+        "mean_absolute_error": 3.4067697426093387e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.12537418691436564,
+          "fractional_pixels": 932518
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1679635397700169,
+          "fractional_pixels": 1048200
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.2390516097697803,
+          "fractional_pixels": 1338154
+        }
+      }
+    },
+    "frame_014": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "5f80110062a8200db082742604f7ed828962fd5bd490912e0d1e23593980b77d",
+        "sam_sha256": "fcad45d8d6df53c8429bfb8320a4cb721b9e415d0037f0db47fcaa6582f12cd7",
+        "image_sha256": "0245194cfa0dac4d5bc73026a2acbdf7d4e04ceef506e215b0a8eea9f2d241b8",
+        "depth_sha256": "aeecebedc42df04f1a3c63016faaf1f5ed6cf8fe1b4f1d55fd3ca4cb96a1fda9",
+        "depth_record_sha256": "646847e7fe50beacdec32b2ebbb15097c42041c7f278177b9985dbea048917c2",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.948636770248413,
+      "mass_sha256": "52170f9d4bcb670d192a80a77da284b938a12848eb0c46256bc85156321724c8",
+      "maps_sha256": "d59c03fbec340429bfdf4a1043dfcbb5f8eec5939e4e7af2ba0dff7e1ca1283b",
+      "tile_references": 14082941,
+      "visible_gaussians": 1229165,
+      "total_contribution": 1412213.0404024564,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 6.103515625e-05,
+        "mean_absolute_error": 3.1181757888831616e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.11869104111105426,
+          "fractional_pixels": 912671
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.17240161753389202,
+          "fractional_pixels": 1054318
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.2403704204026199,
+          "fractional_pixels": 1343670
+        }
+      }
+    },
+    "frame_015": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "ee417b5877d2d7138f4e6eb4bf05e6e64e7779e397f8765acab18feccbbf6c2b",
+        "sam_sha256": "e17c811f6407a9e9359ebf0a45466051b216c11cd90487b7c11f891e287bc613",
+        "image_sha256": "271f07a68b2197cbe546c0ba7a0a66fde7adc28850ac054a5a4b826d396726ae",
+        "depth_sha256": "e143d878abad82373322dd9a38d205247c523815a0de4c6e1b717a88517e2ace",
+        "depth_record_sha256": "cecc94bb5cbea8eb074e36f971970f3be6672a4e10ab15e5b1a163076af5f033",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.9426259994506836,
+      "mass_sha256": "8e633583341b7be27af1c136d965c0967bfd6e4bdd5469b311bbd9f40c7658e4",
+      "maps_sha256": "6399d7a1b5e0580743e30e7dca33be3f87f850e3ebe4878f579236785f33904b",
+      "tile_references": 14040647,
+      "visible_gaussians": 1229277,
+      "total_contribution": 1412125.7068193932,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 0.0001220703125,
+        "mean_absolute_error": 2.954905556528749e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1271605433364716,
+          "fractional_pixels": 922249
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.17582411527426603,
+          "fractional_pixels": 1056288
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.24057828503915843,
+          "fractional_pixels": 1343328
+        }
+      }
+    },
+    "frame_017": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "6620dd6eb1d9ab516fbc322f238bf98ce86e699e51b9c68eb27531d3cc5ce2c3",
+        "sam_sha256": "ff163ee7777352f3b94c4bf0d4d6f427d8019fc5fd8dfaaa9e3a800771ff330c",
+        "image_sha256": "3fc7f9fbd550f5171afed74f21d7602ccb9c3e15b6a2346e332c933383cfdb48",
+        "depth_sha256": "2f91e99f0e708d021b0fb7b099c7376fe1243c48ca669a5865a0877733281f48",
+        "depth_record_sha256": "73e29ccd4b783e51396bcee72475ad568997acd45aa197627bc6f46991d225de",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 4.023451328277588,
+      "mass_sha256": "f5dcbd470616fddbb4ccf12d4b3092de8636980a51cf707fbf6b92be0dfc1e4a",
+      "maps_sha256": "58559e1309754b878f729d26ec96b46d413be3364fcbb12d42b0e612ab04b997",
+      "tile_references": 13874807,
+      "visible_gaussians": 1224247,
+      "total_contribution": 1410729.0046145078,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 0.00048828125,
+        "mean_absolute_error": 3.4185777684411597e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.13287359043670624,
+          "fractional_pixels": 964070
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.18653618924340346,
+          "fractional_pixels": 1059230
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.24192522977278919,
+          "fractional_pixels": 1344060
+        }
+      }
+    },
+    "frame_018": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "2964438db2a21bdba430effaab7ab45831283ae4dda0052a90c864c7233d4dfe",
+        "sam_sha256": "9078333d2fb5871596448fe0fc4d2acc5132bffbd05f45d04697c6df8df39088",
+        "image_sha256": "8116365b930cd83f778bd36cd11fc9d3b0a3cbc79f01f7928e080e099fb47acb",
+        "depth_sha256": "955bd5a1e7df481f75a8bd97f8ff5a9881fbd4ddae4ec3652e01d23121688b80",
+        "depth_record_sha256": "990ef2ee5e80d6bc5f9a159ebf1298337c0440b317ad4bbbc9c7f0a74e27cc8e",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.831252098083496,
+      "mass_sha256": "0b77a6230c2bbf2f57a383e3f218620b2e7030e6c723a818c34d102489c55cc3",
+      "maps_sha256": "1c6c37bad274d5f108feda2b7e643ff9adb2589ca2570bc636560e250a05f18a",
+      "tile_references": 13760979,
+      "visible_gaussians": 1216011,
+      "total_contribution": 1411169.6470224361,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 8.7738037109375e-05,
+        "mean_absolute_error": 3.131836533147185e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.12803014713989477,
+          "fractional_pixels": 959246
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.18529375571385204,
+          "fractional_pixels": 1055535
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.24162075411785042,
+          "fractional_pixels": 1345455
+        }
+      }
+    },
+    "frame_019": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "c8b75cf68efddaeb4dcaf01d1499032c529314f90fc947c6e3b110427eb8b49c",
+        "sam_sha256": "0ca63e2feaa439abfdb30ad11c2c5271da0bef316535a5c9afe532767fbd126a",
+        "image_sha256": "fed811617ada71d32f193a9d636e6f1a8d20dd59cbfb5342793077ffe9ce970a",
+        "depth_sha256": "3060be5893b497cddec4a0ff943c4951334569728b5b2040412aa7612010ed29",
+        "depth_record_sha256": "2d6d68094d2c52952833dab1c2e28a3fc974b71e9aca81a6d43cc46c125a15b5",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.811797857284546,
+      "mass_sha256": "1d6e017ddf7ca1b50e1e60140aa693a81030f880b5440927679fe02046f7b063",
+      "maps_sha256": "d3197814ad3de363292d6e4efc7821f5cd68f0b096f035b4189ed3df78f79de7",
+      "tile_references": 13697245,
+      "visible_gaussians": 1210661,
+      "total_contribution": 1410964.9665197802,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 0.0001220703125,
+        "mean_absolute_error": 2.6552174266738044e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.12887625938567346,
+          "fractional_pixels": 960425
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.18576131700695894,
+          "fractional_pixels": 1053701
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.2417466165679102,
+          "fractional_pixels": 1345124
+        }
+      }
+    },
+    "frame_020": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "65f1e9074a24d6ab3d4ea8db527c5528f7b98699c4458328cbe72e203a3b7331",
+        "sam_sha256": "cb6ead2cf60c5071824a4f4f3f402dc87ca0ef4071e8e9d250e6c73909ddff57",
+        "image_sha256": "5bd472ded17de47fa772f7311c66ea9a09ab07816d897db2164f0e63406de797",
+        "depth_sha256": "d107fefbcdece38d9ae781303ca6ed82cb082b65e3696dbe817fb060f25c7348",
+        "depth_record_sha256": "9d3620048180a2864f959b75e9c077391eab5854b861ff840fbe8741ab664e72",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.824784517288208,
+      "mass_sha256": "d745ed64dc00647eb418574a3b806d2b85c6f7e82e0e2eb9e2775cf5f792cf61",
+      "maps_sha256": "48cdfa5bd93d46b0096686acf1a171e348015a1b52ad80a4ae02286c5ff0290f",
+      "tile_references": 13429673,
+      "visible_gaussians": 1186460,
+      "total_contribution": 1408792.2333013958,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 0.0001220703125,
+        "mean_absolute_error": 2.8953298072308404e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.13189254940494724,
+          "fractional_pixels": 987894
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1822469246974689,
+          "fractional_pixels": 1036016
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.2389892108650134,
+          "fractional_pixels": 1344326
+        }
+      }
+    },
+    "frame_021": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "d6c1a5654f14100df8a8db8f687ef75c99f6795a2b83d2bd9c01433bf37da544",
+        "sam_sha256": "ba8736fa80819d5c41d8a5d56bdc0145704e081c4bf7f7f9774a4eb4af3063f7",
+        "image_sha256": "352968e6b927c815184240fbb5f1dae63ce373d034b97ec0d32f5c02dc716a98",
+        "depth_sha256": "2765ba605834c764dab98297a212eb811147fd2741337a2d9042a5abfdbc5e6b",
+        "depth_record_sha256": "cb1b038b05138ab38ff812b4bd212d14b626e8f215ce54c9f6610df983ebb8ff",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.704261302947998,
+      "mass_sha256": "70dad8b0c538a336b18ee8a13c2e9eea6280235259e402f42ecb8fc73a74cf0c",
+      "maps_sha256": "3954e2a41ab4af475431f64197d2c97e497a56d0f4912f60da7f75e093f98628",
+      "tile_references": 13352163,
+      "visible_gaussians": 1179098,
+      "total_contribution": 1408306.098291939,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 6.103515625e-05,
+        "mean_absolute_error": 2.8456323168777565e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.13126182847355283,
+          "fractional_pixels": 951928
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1807042176146843,
+          "fractional_pixels": 1030779
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.2369512099883489,
+          "fractional_pixels": 1343094
+        }
+      }
+    },
+    "frame_022": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "b6720b790592f0fe02fe7a1183cf6f0dc83c744e65908c000f54f89747ac7943",
+        "sam_sha256": "ebd36d5d9de69d6f9f8c8a05c64ea9f9302fff2d019eafb93c2188c0e1b40817",
+        "image_sha256": "1c095194bdc0ffe88f9244d003f377e3aae8b4c868cd6e7d52c4d1df1cdab4aa",
+        "depth_sha256": "6c42ebf50aa95312a6e2bee71f3a395287f6cc04ed2b357228f0d00d9a75c07b",
+        "depth_record_sha256": "751073a263cad4fc4fd578cdb89f0468ea2bb1fe97a861a0218625a3a01049a7",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.591022253036499,
+      "mass_sha256": "6007251c2acf5614cc4c85b737302e2c2ac014a626bee2d90c7624e4e58ab174",
+      "maps_sha256": "871892b31612d977c970f7be5fd19f6ed84c8b878ebebee0935761dc34612edb",
+      "tile_references": 12984516,
+      "visible_gaussians": 1150475,
+      "total_contribution": 1406409.734078657,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 0.0001220703125,
+        "mean_absolute_error": 3.1538122114103785e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.14288788704561547,
+          "fractional_pixels": 1001751
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.17709686380222497,
+          "fractional_pixels": 1004277
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.230924743443121,
+          "fractional_pixels": 1326975
+        }
+      }
+    },
+    "frame_023": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "443bd2bfef8f120cd13345efde127c07b28f7d687834b5fbed11d764256089b8",
+        "sam_sha256": "0b967c28542fcf460af15935d9315bf534ddf4ab47807b5ae8942aecd8fa7357",
+        "image_sha256": "2cc03fc22b076a60316d139fca4644727f6e3012162253c57db5f3b92e6cb27b",
+        "depth_sha256": "a20034d200b4b62adb157f4a871188924ab95eb9d9be7c2129f6086ae93c4c6e",
+        "depth_record_sha256": "725c08a4f6ae639980aad56083cca0f6f71ba6c91be54e040086ba71f0e97ca7",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.5692899227142334,
+      "mass_sha256": "a219831c62c56556194f1c56848eec9ece6655877ba068f13a5a9996c833f30a",
+      "maps_sha256": "7b094e412878ffbe61f07e670ac516fb257e5ce6b513e42376d086b0316f1b45",
+      "tile_references": 12626708,
+      "visible_gaussians": 1131007,
+      "total_contribution": 1400864.3691989786,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 0.0001220703125,
+        "mean_absolute_error": 3.1765830779511517e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.14290098792665842,
+          "fractional_pixels": 1018263
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1793006061733075,
+          "fractional_pixels": 984008
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.2277018102549295,
+          "fractional_pixels": 1333646
+        }
+      }
+    },
+    "frame_025": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "64367bed996c821a3ef2e31f0766cbf52c7709f73c7713e3f7df3244692b0bfd",
+        "sam_sha256": "4418667b659552c8b0f25691828a5628c005d74419c1ef2c406ff1931a69b97a",
+        "image_sha256": "7e9df3f72ab52eaba3f8a47b698db37ba2b3365e8dc61207bdc9369715c788c9",
+        "depth_sha256": "b2c5e75cc9515529d68c06e4e7be08d2742cb610a39375d47678e6035b09e544",
+        "depth_record_sha256": "f023eaee1364ecd497c94835da776cc060019959bf82656590a201175a31b24a",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.3920116424560547,
+      "mass_sha256": "02e058e948146dbaaa4d68342377ef8a91d055b0795edcb551e44716310b8499",
+      "maps_sha256": "f147a6a79807f097e90757fe8e2c3a5b96babad9d4e04e2d66ed784dedcc9a9b",
+      "tile_references": 12443511,
+      "visible_gaussians": 1129272,
+      "total_contribution": 1401013.2010659268,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 6.103515625e-05,
+        "mean_absolute_error": 3.048973802603811e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.13896741630618673,
+          "fractional_pixels": 1002172
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1821134348230362,
+          "fractional_pixels": 982679
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.2263561983439997,
+          "fractional_pixels": 1337106
+        }
+      }
+    },
+    "frame_026": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "23c393f5a04641c3efe23ceefedca61260ad7dcf0f727da5f18fc0069e469cb2",
+        "sam_sha256": "247d7979cdf2639301e19fccb90431a26f2d5c2dd33f97df5190d4e9b3058aca",
+        "image_sha256": "474f14d9f814e90afac7f1567125ac33dc9139df9ad3f5188f1f7c2a39d4b7d9",
+        "depth_sha256": "26997cee67c53bdf7c39cc9e9250ede4fc6609173ccca6649abd0693279b1063",
+        "depth_record_sha256": "9623b8835e2e9fd9634f4363af021aa8252913e1ec7d15f8e729d3e396b62af8",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.5881333351135254,
+      "mass_sha256": "661bcf3cb3215726b325f8e19863fdcd269bf6a64e602ccffd063fd89bd78090",
+      "maps_sha256": "896e5593089e046e8d4dcff07ab859725107c67cc6a070a8c90bbd7108cd8be4",
+      "tile_references": 12279057,
+      "visible_gaussians": 1125458,
+      "total_contribution": 1404382.0961077467,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 0.0001220703125,
+        "mean_absolute_error": 3.2901747811423437e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.14579128641817332,
+          "fractional_pixels": 1022152
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.18723063288294395,
+          "fractional_pixels": 986851
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.22510689883181334,
+          "fractional_pixels": 1329175
+        }
+      }
+    },
+    "frame_027": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "d1ddd304cd55548733c007ef11d0063e7e3bc4a52fe040c2a849f181e670f32e",
+        "sam_sha256": "074a04b95a3c8c72a2c9a9f455a4d41511dda03f8610cf26d58f58f72d38910a",
+        "image_sha256": "bdc852155ea3758d154416807594c6b07114323f0cd0308e74fa4a458d5400c9",
+        "depth_sha256": "f7b0ea259a127c21ec6170a41cc6849c0a57c901553f7afcd8ff6c15424da4ef",
+        "depth_record_sha256": "a6f171f01d19d0925f403054e0a06bfe59c8ed2bcbf0aaa1febccddaf575d7ab",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.868351936340332,
+      "mass_sha256": "675c4ae31ecc6124affac31b405af97e85a7fe1c0fac64505b5166484261f9ec",
+      "maps_sha256": "a4bd85486c13403692e24ee6cb11525db0d8dac22a16a2022c8b535771d950c7",
+      "tile_references": 12155923,
+      "visible_gaussians": 1122353,
+      "total_contribution": 1405141.7822854444,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 3.0517578125e-05,
+        "mean_absolute_error": 3.648939135630251e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1450135072712195,
+          "fractional_pixels": 1022180
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1825530369026281,
+          "fractional_pixels": 999216
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.22419175030305352,
+          "fractional_pixels": 1329571
+        }
+      }
+    },
+    "frame_028": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "3a3f669180067d0b8ee657c8b174849862e4fc50f949588088cb04e5c962f031",
+        "sam_sha256": "f737bfa3c681c4556494b5853dbd6b6d3f020252931487d43487fee4c83b4692",
+        "image_sha256": "24f7651591f819b035161d172097a5eb97e39fde649cd0cc9ad225d7a7b3dfa4",
+        "depth_sha256": "f1fd5c18a4225fd03efb1087017365cdd7d92cda0f446eb7057fac385de509fe",
+        "depth_record_sha256": "d091bef8e184352674fa9a964624cc1ebd9f8450cfc48f4de848bf447311ec21",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.7124183177948,
+      "mass_sha256": "17b267fc6aa9d3e5ff61f35ac0781d86f60eefc967d37f4a9ba70cf93e2814db",
+      "maps_sha256": "0b45bb6c99e81a91ebdf8c6c2ee82e7da09793c97fe8200fea8a3e68cb8017ef",
+      "tile_references": 12156957,
+      "visible_gaussians": 1121379,
+      "total_contribution": 1405236.342929834,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 6.103515625e-05,
+        "mean_absolute_error": 4.049180159463671e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.14338667551205575,
+          "fractional_pixels": 1022997
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.18334941521948692,
+          "fractional_pixels": 1000378
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.22475122040281134,
+          "fractional_pixels": 1337652
+        }
+      }
+    },
+    "frame_029": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "3e1908ac0c5641aebe1acc3f8be4c0f9f8be5b55639621266ff28e84c241e4ec",
+        "sam_sha256": "dcb6bd98f2fe353f3d4be5941edb8bc12dbe24609f6f55ae3c000025d8cf167d",
+        "image_sha256": "96687145cb8316bf643a70229124b2c2f14c3f2240009db3796bd708c229a127",
+        "depth_sha256": "0eef99b8a7df1725f3f9d3875bba16a643f0c45181531e9f0f65648afd6374c6",
+        "depth_record_sha256": "472ed8878c2c7be48881644087f9ce9fe2fd09c30018747f540948d116a2c5b5",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.574315309524536,
+      "mass_sha256": "2e0dfc86ef51c567f1e95840632fd187711c8c08cd31c1a75897169a31e5968d",
+      "maps_sha256": "1b26df6864e47b3a9d28af5ed0f33584de3920a636085f565a51b84fb5c1b8d9",
+      "tile_references": 12131676,
+      "visible_gaussians": 1109138,
+      "total_contribution": 1406520.5240486688,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 6.103515625e-05,
+        "mean_absolute_error": 3.387544462293535e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.13304761608250426,
+          "fractional_pixels": 976419
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1859541631927832,
+          "fractional_pixels": 999090
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.22341184027261224,
+          "fractional_pixels": 1333594
+        }
+      }
+    },
+    "frame_030": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "11193635b5198df37a984321f759a7665a52e8d2690397b6a21fb43856f57551",
+        "sam_sha256": "e209949aa1c8869519d26c1d65360426f05fe9eac50232e453015310af6c733b",
+        "image_sha256": "895b348570e6fc6478551096739986c94290e2c2d72dc4c9557d53a629206c7f",
+        "depth_sha256": "398b2cbe0ef518fd7e38935c19f042b102d8df5671a770dcdd64b7760ca97f4d",
+        "depth_record_sha256": "1676ec044f3683443507311efa032791ce330a7527ca08491b14588780686dfc",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.6317739486694336,
+      "mass_sha256": "5c58f2a91d2c25070a7a5722b2f44c2c00f4369e515e7929cd20da0322a71774",
+      "maps_sha256": "e062ff0b16fe3bbb51ebbd4bb3e002a41d49af29cddb8348ab8fa755a79524ee",
+      "tile_references": 12075935,
+      "visible_gaussians": 1092537,
+      "total_contribution": 1405747.2558725718,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 0.0001220703125,
+        "mean_absolute_error": 3.1417738675162985e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1360020345785399,
+          "fractional_pixels": 983939
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.18682808233279494,
+          "fractional_pixels": 996083
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.22115242483993647,
+          "fractional_pixels": 1336291
+        }
+      }
+    },
+    "frame_031": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "c9a87da5cb9e2657433d6bf4c22a7a8468c9f6cbb043235e29f36ebc0575a4ae",
+        "sam_sha256": "47da5452396b06e79179ea191172d5f3a098c1ffdd2cf02cbcc3c6613fbfd665",
+        "image_sha256": "9fa4d8b49c20adde78783229519f9f6a5c86883aeff96988eed1e805d4de10c5",
+        "depth_sha256": "23f9c4515901121d9fac60975e0459075279b4a9050c0b3bd7f4f7c760a38933",
+        "depth_record_sha256": "77add1ec37f5d24a9ba723d63f723b01604ddb074ba220acde63f9a50c060e1f",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.8394899368286133,
+      "mass_sha256": "007ee4ff3ecb53280617839f3fcd0bdf822e903b5370ccbcbca8f658bb4fc221",
+      "maps_sha256": "7aa538d86b0c3ceeb114e3a71cc1b494e4cb2733d2026ec8ae06c614424667eb",
+      "tile_references": 12056730,
+      "visible_gaussians": 1088891,
+      "total_contribution": 1405293.3176474026,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 3.0517578125e-05,
+        "mean_absolute_error": 3.330523696485143e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.13763531747516938,
+          "fractional_pixels": 981788
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.18778577753199266,
+          "fractional_pixels": 996192
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.22053970320264704,
+          "fractional_pixels": 1325818
+        }
+      }
+    },
+    "frame_033": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "0fe9a02e27bb276208415767da0ff9408d4c0c232aef0868b497532d9ca33ae0",
+        "sam_sha256": "631319571722ef3b1b97d26959d50b7364ab1fe91bc8264ff6a03e617269e8b1",
+        "image_sha256": "a153dbb1a11806f672ac3e981d7ac55ca6211481e577c094bb96c7a2a2619196",
+        "depth_sha256": "4353edce8fffb1538ff3a2454fbaff1b391892f42f0d3dc04f1ebba398a9ab1c",
+        "depth_record_sha256": "bc7017b7dc04521b9c64deb68d81c9d4cd6f3ed135a52cc4713630b416c7f261",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.588491678237915,
+      "mass_sha256": "74a6bf42a28d8a0db09b31e28cfa1dc1f39a4fbf360525f87b546d1ecdddb43e",
+      "maps_sha256": "1c833f807a5a5b0f62d8ab5c87fb81f38e8b320ecf3439c4f6a120105262e176",
+      "tile_references": 11924641,
+      "visible_gaussians": 1076079,
+      "total_contribution": 1402028.5344669505,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 0.0001220703125,
+        "mean_absolute_error": 3.1472015073199397e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1193116011695868,
+          "fractional_pixels": 923562
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.20012380407165795,
+          "fractional_pixels": 986054
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.21700820723370026,
+          "fractional_pixels": 1332818
+        }
+      }
+    },
+    "frame_034": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "064afad03e999a9230c9495c64cb0e4bc6218ba97b84df8c9f4307a94030f498",
+        "sam_sha256": "d489e690051bcd1c026e5ea310cf7976abbceb7db677ea042ed9f9429c9ff820",
+        "image_sha256": "646346f5743a4dfb96172a7a54e5a4e33c4f0d67e4753e90be51fb2427bc0771",
+        "depth_sha256": "2e8373428887716b8816112b5d10fd256b0d3d17d01312649de388c6a64ab49e",
+        "depth_record_sha256": "265b47f132e0659c7b711a204cf2eec6ba8cafbb982661f08a8d0f7e7292d97e",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.7643799781799316,
+      "mass_sha256": "2392f48d27fa8420450b28876a60c85c238faf2dd698d77012aecb26993d1dd3",
+      "maps_sha256": "e786a5a0015c15e148db6315d0c12c79ed18b078cfd20bd1c5c42373ca7646af",
+      "tile_references": 11819218,
+      "visible_gaussians": 1072012,
+      "total_contribution": 1401133.8961894563,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 6.103515625e-05,
+        "mean_absolute_error": 3.3420519020613137e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.12971317612144426,
+          "fractional_pixels": 979388
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.20111069511352028,
+          "fractional_pixels": 981410
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.21639648371524087,
+          "fractional_pixels": 1336173
+        }
+      }
+    },
+    "frame_035": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "a610401de511d073638e8fcc86e7b3329697f631067c0c7156799acb6614a030",
+        "sam_sha256": "546b5a67e6d84f608c431f6d59aed29213e30b2c68083d735bb0893fa9f72efa",
+        "image_sha256": "fd97a4617d5c9ca7b837105b60fdead7d40248557127f2c85fa0a3c220a6486f",
+        "depth_sha256": "e9ae38103a45d912a71c3751883003cc75b1a8060694fae68ba7132fa6ee517d",
+        "depth_record_sha256": "4e904042d3e67c5a9f8125fa84b2d8d6dfdca2a1e4d582d3fb74351ab7327321",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.557736873626709,
+      "mass_sha256": "bd00f6f78bc7a9eab832eed1895fe40a0b03ef8474f18d1e6f0e6329e23b15d5",
+      "maps_sha256": "2f67210adeb17e1c8f271c1d4686e3d32ef324312dc7d29c4f2fb9f1d8d7f901",
+      "tile_references": 11718096,
+      "visible_gaussians": 1061560,
+      "total_contribution": 1400630.0985535656,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 0.000244140625,
+        "mean_absolute_error": 3.1935718634597795e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1234325618823604,
+          "fractional_pixels": 945018
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.19949737813121954,
+          "fractional_pixels": 979399
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.21572899204826654,
+          "fractional_pixels": 1334313
+        }
+      }
+    },
+    "frame_036": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "d0cc9a13d731b378c0c9fa34c51c8c565c1ae4b9ac980c3e2ee86c1113a921d4",
+        "sam_sha256": "05a5ec66b9ccd582ece5a14d0091c69b2926b655b8f6cf85555df97ffe3facfa",
+        "image_sha256": "ece171686cbdfe49cffaa18129f65272a35d1545e20b32431150172589fc8cd4",
+        "depth_sha256": "fb83cf680f9b99aa636f0a33b289d4d03406ea80a73523d3f0fced785d9c83eb",
+        "depth_record_sha256": "75f7639790f01c32884a47ac99f034c9a30a630a5cf741ecb295a30dbf9196bd",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.485229015350342,
+      "mass_sha256": "334887b0983d2e0b48da1518363d83b3bc7402a3e34604dc5748e9bdb61f0d93",
+      "maps_sha256": "6eb01e99e1589b395aae7b50232042ab5b27e826553dc5206b60d5c162b7e611",
+      "tile_references": 11625537,
+      "visible_gaussians": 1052343,
+      "total_contribution": 1400234.1881814827,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 3.0517578125e-05,
+        "mean_absolute_error": 2.8694026867091614e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.13385767348876734,
+          "fractional_pixels": 976879
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.19893396447707512,
+          "fractional_pixels": 977136
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.21535908365679815,
+          "fractional_pixels": 1336370
+        }
+      }
+    },
+    "frame_037": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "8334b3e4d3528b823581f357dba35000aa96f6a0f1d6351dfff8e75540e04b00",
+        "sam_sha256": "790fad209aee1a6c24274e3d9331f93bc612beca17efbe4e7f4abdc7b06e31b6",
+        "image_sha256": "5d793d3f8f98521b5e71d4b6fa64f7312546970cb8e1ec8ba329fd765d715951",
+        "depth_sha256": "2043e33fa4a0374fcb6c9f07ae4383b4cdf4d1fc5f03e59e05f9a9f47e0f60e9",
+        "depth_record_sha256": "1620ce6006d09e8641c8fa6af06786eda4a0688623ef5099ef5355855b1dc837",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.2793056964874268,
+      "mass_sha256": "b1e7d7aff7b7e1ee404aee18edc64d2abd759f72bb5a3b2695aa7a20050f57de",
+      "maps_sha256": "2d069879a6edcff5b71773199639268d8f6811e3b6a9a676139d5306e85429a0",
+      "tile_references": 11330762,
+      "visible_gaussians": 1011705,
+      "total_contribution": 1398262.3734755334,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 0.0001220703125,
+        "mean_absolute_error": 3.2022704050927745e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1440703983238374,
+          "fractional_pixels": 1049017
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1974193900896051,
+          "fractional_pixels": 967016
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.21349495941675828,
+          "fractional_pixels": 1329537
+        }
+      }
+    },
+    "frame_038": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "9e1718ffb368e031d298cc9b9a062c9f8588bae097ab092aff8a089ad43153fe",
+        "sam_sha256": "7e059b0e02ad9feabba3610c2c86fe9f21983b1a4a11ebe5d41f15b0f0825543",
+        "image_sha256": "0a1fd4a40f2c05fce36795ef62b12ef9f61117b4be12cd789ce06259f2515d1a",
+        "depth_sha256": "d3c5a497bf4f95943ce299dadcc4c348dbaed43fc382afa65e8550e0bdc38fb0",
+        "depth_record_sha256": "c5653450c90268b21dbf70743f4a8a6f94119bd3efadbc76f030c7083170384d",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.3265795707702637,
+      "mass_sha256": "87b3aef6013d8f1a5d72e53fcc515719ba55e57836891344ce9affc1c8e258a8",
+      "maps_sha256": "37d57346d6d55bee69fed2384cc46e4737c71bd28f13982ea860eebcf38e48e3",
+      "tile_references": 11239764,
+      "visible_gaussians": 998213,
+      "total_contribution": 1398649.4842255064,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 0.0001220703125,
+        "mean_absolute_error": 3.2772331691839e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.134205258445826,
+          "fractional_pixels": 1024093
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1958576670924609,
+          "fractional_pixels": 961630
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.21209734208795605,
+          "fractional_pixels": 1328021
+        }
+      }
+    },
+    "frame_039": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "b632f579bbc19acb46f29219bfa922c30bc39a1d8602b0b17b15782a055d2f34",
+        "sam_sha256": "41dc36abe872ab830e0e471b1713604d1040778a2c0bc23df0e8b28f4bf65ce1",
+        "image_sha256": "d78732d0c6aaa9c64f02de6cc9b9b829055436f50ea098d31360cfae9018fa88",
+        "depth_sha256": "667d6c571a1a330bb8ca087bb1c981835d9ad8351afe1f72f8f90e3f0ee959e4",
+        "depth_record_sha256": "8bf0db3dc182835f4ef43a9e05aa268c2ad7163e0c74015adfd7d760ff747308",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.230114221572876,
+      "mass_sha256": "bd3fdea2e5c4ba8190fa1bc175296bd806feb1c3a57b2e9ab8b2ccc0865d3e8e",
+      "maps_sha256": "9fca0f8790b6137aedd910d42b0f1dba1e8281c5865b5e2478cd429e10e37995",
+      "tile_references": 11184343,
+      "visible_gaussians": 989224,
+      "total_contribution": 1398884.6513366424,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 6.103515625e-05,
+        "mean_absolute_error": 3.229156979776514e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.13680641059498644,
+          "fractional_pixels": 1010825
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1945626381654171,
+          "fractional_pixels": 955931
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.21063881274057497,
+          "fractional_pixels": 1328970
+        }
+      }
+    },
+    "frame_041": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "31873b0b42b2c7bdbe9e42c1cf98ff329dedf695f0d429ff4800b8668639e953",
+        "sam_sha256": "5870d3e970fcf76d433313c1bd4cfbd7596ceb7f29a6d7840b201af42af36803",
+        "image_sha256": "1a8ce0cdb915c895f2c418cebdf65272ac5b4872dedce9a31622c36985cdab8b",
+        "depth_sha256": "138f792cc811dabc38d2955baf4f26b7a56e7eb80d53c8ec349cfcb5f9ec6c57",
+        "depth_record_sha256": "5d953e5d53ea487ad530af71134c523c534f5ef7fa56fe733885d25a5a0abda2",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.261744976043701,
+      "mass_sha256": "7c9dc4a88171ce8af2254e789ce9e6330ef52971aab4537bb885fe357aa6238e",
+      "maps_sha256": "6075e64db4bd1b6c62a42819b83f657fb2c9d92d9e12a5388476fdf68756de35",
+      "tile_references": 11068250,
+      "visible_gaussians": 966456,
+      "total_contribution": 1400186.7362486846,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 6.103515625e-05,
+        "mean_absolute_error": 2.99602344099172e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.14607102260478952,
+          "fractional_pixels": 1074985
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.193838687269628,
+          "fractional_pixels": 933373
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.20552562989975376,
+          "fractional_pixels": 1332046
+        }
+      }
+    },
+    "frame_042": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "e80ba10591ac1d3d1e0b6c33620bfa3326d8ee3f7fafd0cde5a240381697530e",
+        "sam_sha256": "8513fe515480e943731c79e007c84ab6930699011c413d510c3b98197c649562",
+        "image_sha256": "6565be62ea71a863db310abcb71417be2b9e3dbe1d1770d1f543843372b86812",
+        "depth_sha256": "3310847e081a7afe96f43e8c2daca88507ea4d1a3a2c0c00d3b20276a989d3a0",
+        "depth_record_sha256": "83936356d430aa70cf2d70325ec38df1ce39dfc91d612d9e390c5cb4f6be0b02",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.2277889251708984,
+      "mass_sha256": "22922a3bf95f6fa75a97f8da9d737a61a4668b733ed7a601adbad1aed95b3b71",
+      "maps_sha256": "6dcd10cd5e467957630713d1626cfc99a936706590de9cc842267225d7c33bcc",
+      "tile_references": 11035240,
+      "visible_gaussians": 963987,
+      "total_contribution": 1400255.8576858148,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 6.103515625e-05,
+        "mean_absolute_error": 3.4656018372020004e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.13622956167893438,
+          "fractional_pixels": 1047787
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1949955465215448,
+          "fractional_pixels": 930636
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.20473689510250087,
+          "fractional_pixels": 1325043
+        }
+      }
+    },
+    "frame_043": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "59f02eacdda95b336bf1dba9322751f09491ecf8fb4e7aea64ad546d87bc944c",
+        "sam_sha256": "98a3499b8c9a8e2bd5c480056bf2b3bc304c22a877a2b1f9c96736a758d6039d",
+        "image_sha256": "4e8502e5354aa866514a2ea5e36ee991af1b1f956974da684691f95e77b6c52d",
+        "depth_sha256": "39118bcab42a6ade525f5af72924e4d999d80c72cf68372c1540ea53b2ab427e",
+        "depth_record_sha256": "e518113005950ba4daeed22d90a835bd1a60cad4f72f5ca51615a2d339febc50",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.2167108058929443,
+      "mass_sha256": "c2554f23c8374497f5ede5bdcb9a37e3b466310f70bb627e8486a1b7356d3fd7",
+      "maps_sha256": "8eea22675c2166722bae4cbde9a316a542192b1ae12e460b30d216b898144e23",
+      "tile_references": 10835085,
+      "visible_gaussians": 954438,
+      "total_contribution": 1399037.5300234102,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 6.103515625e-05,
+        "mean_absolute_error": 4.094480151266674e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1414016861353123,
+          "fractional_pixels": 1051737
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.20170911489326,
+          "fractional_pixels": 933621
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.2040616592210514,
+          "fractional_pixels": 1327488
+        }
+      }
+    },
+    "frame_044": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "3acb98179403b85f0f60f0b57990fc3fa90be79d94a8971f524bc038e061fc5f",
+        "sam_sha256": "1a202f30b80ae3293b7b366f79edaaeeb3a43342f78457e761a2f25bc779682d",
+        "image_sha256": "ee16b46304e6d9a305b212bbcd91e187123590dda54f6ebb9fde1ad2066360c3",
+        "depth_sha256": "0556cd5894890678cfcf4f61dd871c2fa7fb935f1be1060c21295bb459d155e4",
+        "depth_record_sha256": "391c6e86ddc73afe3c1841db6fcdb7588c445ba5523d53603d3b79b89335af14",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.2069671154022217,
+      "mass_sha256": "de5dfdd041b6dd59482f44cda14fac48fc1f07cbee67464d71d0a39aab4d54f9",
+      "maps_sha256": "1d1754fd2e4d9c0d3105fdfd6fef20086240d98f96339b83c429250312ae68eb",
+      "tile_references": 10845933,
+      "visible_gaussians": 955858,
+      "total_contribution": 1399085.4482718445,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 6.103515625e-05,
+        "mean_absolute_error": 3.986827963328032e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.14142821397881306,
+          "fractional_pixels": 1049673
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.20259284335920685,
+          "fractional_pixels": 936333
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.20354515988429706,
+          "fractional_pixels": 1314829
+        }
+      }
+    },
+    "frame_045": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "3640e9d89e430f309d2bc15f3fe0dbc15c9458a3d4155493f2025fe10b5846f2",
+        "sam_sha256": "c62f12a36a1e222bcc13ec72b12b7e0afb5f396a81dd3fd2835c89049cfae27e",
+        "image_sha256": "934fd7dd36906b03f4ef4510fb447cd1d471c39ad1f2d7cf2c637d977370c371",
+        "depth_sha256": "e8cf2ed128e2a0664c3609a6753707a9a07b0d3a0b2bb44e64c5a5681268a04e",
+        "depth_record_sha256": "8ffb954b2061e8ed9a0bd4d6a3e3f63beabe6f38f016b39897431137ea171746",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.622421979904175,
+      "mass_sha256": "109b1f20e4fc7678a613e2b20221419cd0532da720ec7ac8028f1dc935135463",
+      "maps_sha256": "ccfe53e8c9e5fe7470d7ac78fe9d227fedb994c0dfd53f6b46e76789d30fb6a2",
+      "tile_references": 10878730,
+      "visible_gaussians": 960093,
+      "total_contribution": 1398572.4690664858,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 6.103515625e-05,
+        "mean_absolute_error": 4.4376739171220514e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1407577336305104,
+          "fractional_pixels": 1059838
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.20299407615776854,
+          "fractional_pixels": 942987
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.2046197457880347,
+          "fractional_pixels": 1317682
+        }
+      }
+    },
+    "frame_046": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "00713549658ff4b21feda6f5f78f8f2757f440609133c761ba9701b00cd3a1e1",
+        "sam_sha256": "ca19238c0c8874e1e1b4f05d5f81d4f45555ee4b7f48067bc49c5684d14c8cd6",
+        "image_sha256": "bb7004df3125caaa2241a425caba5960725ef5a156652f4494df2de978d24e26",
+        "depth_sha256": "89f64fb3bda3938f730cb7a1ad3851bad04aa2c7638dccdeca6cfc1623e70a02",
+        "depth_record_sha256": "ea5d792bc22aef64f6f210f07307cfc53eeed32802b6dfa8eb846b98d3e03ac9",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.368389368057251,
+      "mass_sha256": "a171e3f097c508e59fdd5b03f5250bc9652605f2a5e3776507b58dff118f4626",
+      "maps_sha256": "bd598a8c94267cb55970dfcef3f40c856451ffa6967003fc070035ce474795f1",
+      "tile_references": 10978952,
+      "visible_gaussians": 970247,
+      "total_contribution": 1398899.3276219477,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 6.103515625e-05,
+        "mean_absolute_error": 4.181267064044001e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.14454765096286418,
+          "fractional_pixels": 1055129
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.20291494763911783,
+          "fractional_pixels": 953923
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.20700008373442266,
+          "fractional_pixels": 1328440
+        }
+      }
+    },
+    "frame_047": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "e8c3363ca8950e8c45e2561d21ecbdf67889cb7fdea8f594229f5d51f10f1704",
+        "sam_sha256": "6990fa50e4b66b5ad78065116e42952441aa429175facbc3832040fe8f05e0ef",
+        "image_sha256": "c89c147f16e4253a740516db1f2417c1ec334928d083a7840cd54059caf32786",
+        "depth_sha256": "cbff4a51199011b51da104f5e48dbf2dcf98895e3b78bbb2989b2379e81dfe45",
+        "depth_record_sha256": "08123616162e2062727b22c83129f66201bb840baa857ddb4c8131bf090bb45f",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.32236909866333,
+      "mass_sha256": "30d0b04eb4784ea3da42267afaff591e09a203395b0d8e56a0afdb32e0fa94d3",
+      "maps_sha256": "25a04ab8de4aba956abe4fc5239283683ee5181fdae2048a33ea9248cbbde045",
+      "tile_references": 11071316,
+      "visible_gaussians": 979306,
+      "total_contribution": 1398404.2574589353,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 6.103515625e-05,
+        "mean_absolute_error": 4.241835797654589e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.13725628838513812,
+          "fractional_pixels": 1017747
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.2018227192321855,
+          "fractional_pixels": 962912
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.20866922798955143,
+          "fractional_pixels": 1330079
+        }
+      }
+    },
+    "frame_049": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "fe1fa5f219a0a858e26f6cdbf5bc3412385fec4685760d0603703d3bb5a13b5a",
+        "sam_sha256": "708b77f79c6aad0cba463c0c1ad711a9f14f668342297a3b220951b5c2d36d4e",
+        "image_sha256": "8af029a2b48da91227c94eb66ddc3515160a25c7a7e2ea065ded0fdfc2fb8a51",
+        "depth_sha256": "941d57b2beca3cebaba8c425ff80dc00b7f8240cd4e7c8edff801820c620e06a",
+        "depth_record_sha256": "bbfa7cd9b09eea3227b9c9088a80b711facf46c7962183091b5563b6f6396bb5",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 4.208824396133423,
+      "mass_sha256": "318649ef11bbd29fc7bb3cda72969b2e3335b5c39d8d1b827bdeb86c15d40dd8",
+      "maps_sha256": "1c6106998573794de963b61074ff7edfa2d67f6ff3ab104105088bde82f5a3b8",
+      "tile_references": 11272708,
+      "visible_gaussians": 995454,
+      "total_contribution": 1397523.6441900511,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 0.0001220703125,
+        "mean_absolute_error": 4.34981439938738e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.12884051775217953,
+          "fractional_pixels": 997579
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.19823110320938161,
+          "fractional_pixels": 974011
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.21038682802287248,
+          "fractional_pixels": 1337020
+        }
+      }
+    },
+    "frame_050": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "44aa2d7cdb9d7bee6a72dd1f71900029a47d8797a42978a39f7d9eabf9b93ac3",
+        "sam_sha256": "b39d714904c72d0aed58d9e1db71a02faf086746715d1262192206ad61589ccc",
+        "image_sha256": "48211e76c3ed536804fa0da0017ff9f3d2556f74ce3874235a8baf81819c8c62",
+        "depth_sha256": "c00a3953fba44c4bc4e1424811154e9caeb72e4a186983046121169e8a3ad369",
+        "depth_record_sha256": "95e00b8035ebc845e15e7d64d9dd627ffb0c820e58e6df875dbe9345013d5ff9",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.4356884956359863,
+      "mass_sha256": "70f4d6fbaca3addd0f5a65f95629856ffeb194b81e97067477e22c8ea5ff4b16",
+      "maps_sha256": "47743036e4c30770623a3de5298242b81f8d0e6710088e584f611573a39dfe3c",
+      "tile_references": 11537198,
+      "visible_gaussians": 1006981,
+      "total_contribution": 1398083.015517395,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 0.000244140625,
+        "mean_absolute_error": 4.632994230658537e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.12772468337971826,
+          "fractional_pixels": 996568
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.19732278621745367,
+          "fractional_pixels": 974533
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.2123499431108633,
+          "fractional_pixels": 1326786
+        }
+      }
+    },
+    "frame_051": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "f44cfdabbc22bcee6e461f22e12de78d8cec4058ee2ea628d093562ab1dea978",
+        "sam_sha256": "8697acfa6dee3097611fd46881e5ce586078caad405314267fc0024b15b214eb",
+        "image_sha256": "8b575704fe5fc2670506221bc4bc5ecb6a1da9485ca18e7d1cc0f2a1f00814be",
+        "depth_sha256": "bb8d5e765ff4115ee33e0c774213c6544cb612b4b5eff598dc41d0ebfd3a0c8a",
+        "depth_record_sha256": "5bdee1b21c60fb1a1ec0166892a48621fc3eb4e853c20a95a463d02410c1e8a3",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.506821393966675,
+      "mass_sha256": "047b887d03238429cf7b52015864d9d2398e54bbf50148ab40110254f9a710a5",
+      "maps_sha256": "b40329c1b58039d097a49e2900044e8c2aed1d602bc660e047d237b8e9242410",
+      "tile_references": 11612867,
+      "visible_gaussians": 1011603,
+      "total_contribution": 1398442.290692709,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 6.103515625e-05,
+        "mean_absolute_error": 3.8043139445731315e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.12241945657811105,
+          "fractional_pixels": 979682
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.19641414422776354,
+          "fractional_pixels": 975551
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.21269533691276737,
+          "fractional_pixels": 1335574
+        }
+      }
+    },
+    "frame_052": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "f927e5a54282215b764fac2ac9f18c3f00fbc20a5d1b3eb5d7c69e6b7d53f7e0",
+        "sam_sha256": "cec257b0e66a803a089f2a5fcf94760684f254748fd4c4570a0a9f2ed989b81d",
+        "image_sha256": "0957953df3c4c17e0a366d821cc17a366504c599027d4f983ebf53361e59b12c",
+        "depth_sha256": "da6fdc8c0122bc086168a895fc69d07a586e666d549f871c99e468bf3b818369",
+        "depth_record_sha256": "cbb36555e23d590e3212fa1e19e7f8c34e98bb650b34ba28cf882e82c5055289",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.483206272125244,
+      "mass_sha256": "90cad0cf6dfda382981c9832480d6bec8f7b8f5493804c63c6a4766c7fc11390",
+      "maps_sha256": "4cc9100de8d77962f16d2736a755b2a5e21594429281dee2a6b9ea9f6185fe38",
+      "tile_references": 11772930,
+      "visible_gaussians": 1026278,
+      "total_contribution": 1400004.0314311986,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 6.103515625e-05,
+        "mean_absolute_error": 3.785187238080785e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.12347971020546653,
+          "fractional_pixels": 962798
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1958817518815075,
+          "fractional_pixels": 973185
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.2114160223729317,
+          "fractional_pixels": 1335450
+        }
+      }
+    },
+    "frame_053": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "16332f3dd4fd1c5f98b2842ba29e664cd250f70515f6d6fc2fd720537cc94648",
+        "sam_sha256": "a8d65eef29d7ce4d20138e1ed76e29979cc6713d3fea196cebb2e3c09e6a8e5a",
+        "image_sha256": "931e65e9b6710dfe9e88d56cbeaceda637b05eceb5b9dd42c6fa104075bb270d",
+        "depth_sha256": "6ec83db02e6e59ed57ab3cd837ca9f46004b37b18c9c4f27d2de3a5caf157fdd",
+        "depth_record_sha256": "2f6701ff24d3c8c8fdf757e501c135b1a29c01e2792c4992e834fe9d4f43297e",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.4476776123046875,
+      "mass_sha256": "442284ba9a730a020aca6f0695069c3f5f3d2b9eb9a4d9d2a11af4e8828442ed",
+      "maps_sha256": "65e52365bf676fc7af8b1fcdfe71a92bc0d151836738922fbb961434b30b24a1",
+      "tile_references": 11928644,
+      "visible_gaussians": 1046137,
+      "total_contribution": 1400862.6116834844,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 6.103515625e-05,
+        "mean_absolute_error": 3.5810424661550787e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1366949062172621,
+          "fractional_pixels": 989164
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1912268542340103,
+          "fractional_pixels": 970636
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.2105228571711781,
+          "fractional_pixels": 1338007
+        }
+      }
+    },
+    "frame_054": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "3f8dd9677b6323566eba64af3129d9b8148174fdca886f3977bc2bcfab09ef5a",
+        "sam_sha256": "fa839f0b26244e490e7ff29d7777d0c75b3c1b5077a537fa877b64f19423f10c",
+        "image_sha256": "2f87c7e33af5b8b6d924c8df31daeea8f773bd2293c83b47b1509ddc3478dc26",
+        "depth_sha256": "5510c0cbb2d643a3422865cff5b95238fa19a2d5b6f1ced3b9e79286af3c7cb5",
+        "depth_record_sha256": "3b1473091a29c5e9db6ee2b51c8da6a3233662b9a3aa15741c1814036c2b088d",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.514845371246338,
+      "mass_sha256": "35ff62b789ced63c34a197105e432de4a1b7aea2f83da49c259708511cc9188c",
+      "maps_sha256": "254db259c0689b2d089637669ee0704d6d8931d4fe2a1ac9b5037bfa620f78c1",
+      "tile_references": 12058123,
+      "visible_gaussians": 1056402,
+      "total_contribution": 1401475.3184266994,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 0.0001220703125,
+        "mean_absolute_error": 3.5319487248935923e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.12952046156447464,
+          "fractional_pixels": 956153
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.18910405292070598,
+          "fractional_pixels": 969641
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.21215905000618837,
+          "fractional_pixels": 1332958
+        }
+      }
+    },
+    "frame_055": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "4a10abde4f626e2675e709d98b5ff4c03c226c3c5042198c5a8cf76caa34c8ac",
+        "sam_sha256": "e58a463924d5a09976a66838283b5b4d3f903126b479186a00736eb99cd0be28",
+        "image_sha256": "0dcec097332623014e005d5e5445847e92c4e02ba5f291696ee9045bb2f1589d",
+        "depth_sha256": "3c5c5e554dbd2b8bf92eb9fe00b45902a346588649686d3a64ebe8d6fd5f69bf",
+        "depth_record_sha256": "6dd9d78a3bacd5fd527cbf69a75c26ef3c04ec54c548d7dd76120ad112c27a60",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.382511854171753,
+      "mass_sha256": "09abe4b7c905a343df5dbde104ec9888749c2dbe618ccda08ba7f4661474c6bc",
+      "maps_sha256": "c44653482c21030c29b370f8dffa8a7a6c48147550d0125a9c99c20dcca5f045",
+      "tile_references": 12180916,
+      "visible_gaussians": 1063240,
+      "total_contribution": 1402047.3035740692,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 6.103515625e-05,
+        "mean_absolute_error": 3.667662289335826e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.12732365397624476,
+          "fractional_pixels": 951416
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.18837363976265345,
+          "fractional_pixels": 969167
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.21364652917655771,
+          "fractional_pixels": 1329806
+        }
+      }
+    },
+    "frame_057": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "446303004b1f504c9bd60122c2b38b877ba78842423354081915d7df3fd1b503",
+        "sam_sha256": "fb02adde3e9d26fc02079609f3a4a59951033386538a39c6ad918f75473e1834",
+        "image_sha256": "76672a35b52c9227dec0a9d4688c1aef8098e61b1a6959c38a1a1dd5d893b162",
+        "depth_sha256": "5cb9d7711a8a1752351eda367ed799868d1ac93c468a5cdb0a603b47a01d1d04",
+        "depth_record_sha256": "17854ce7694c7a65fdddad4399896e7bb89ea61528e3211209da9efe5a34a71e",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.3598294258117676,
+      "mass_sha256": "30b4b6d243979cd23098f1073a19fca84d6a1e9be7e76ac3b922e8e22ca98508",
+      "maps_sha256": "8e9b8e343444b245cfb446bedc5000673b882290748ccb0cfbc4970d142e269f",
+      "tile_references": 12548032,
+      "visible_gaussians": 1080129,
+      "total_contribution": 1405111.3696671017,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 6.103515625e-05,
+        "mean_absolute_error": 3.4426885376179795e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1352507077548352,
+          "fractional_pixels": 974761
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1785314773417809,
+          "fractional_pixels": 964659
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.21676310704679494,
+          "fractional_pixels": 1337539
+        }
+      }
+    },
+    "frame_058": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "d1f7b9bf6471d494c0647b9151dcc001be77a06f54cfb7022da42583ded9ac9e",
+        "sam_sha256": "599ecbd01c84ad015184925d789b37cf62fd7df3ff56558850add092767ae582",
+        "image_sha256": "09119dd897ab381f1f45caac71dc445bd18e31ff9d13a9f35a1fc57e57130e37",
+        "depth_sha256": "a40e284310cc3fae009f4e33440c17ea7189e2df2dc7501fa18c68a0be496a7a",
+        "depth_record_sha256": "6500e5850afc30a0377900aefe370a75496a3839d7cdcb251ad3d3f8f9e56c2a",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.761204719543457,
+      "mass_sha256": "14b1cfa35c9d37bdd16109023075ee0afce65f1c424fbcd625c27ecf0e786b83",
+      "maps_sha256": "feed02148cb7f2a1f3ab20fe03b31336640e9180275c57ad5880f27d4ed6eef0",
+      "tile_references": 12627468,
+      "visible_gaussians": 1089621,
+      "total_contribution": 1405343.4702534894,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 0.0001220703125,
+        "mean_absolute_error": 4.185097881558617e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1213428257785541,
+          "fractional_pixels": 947735
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.17756230694421563,
+          "fractional_pixels": 967933
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.21804119444567535,
+          "fractional_pixels": 1331407
+        }
+      }
+    },
+    "frame_059": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "b37ee4bb6638ec11d44d1d06c541506319edd99b157e2b46a562202e2e85328a",
+        "sam_sha256": "1be6caddd99b1c1e0d6e194d00992541f8dc5587523bd8f5b8d5ccbb2de87717",
+        "image_sha256": "5c90472903071b51a7803842acb7a00feff7568ed342430455dcf10d527a9199",
+        "depth_sha256": "0721599d7162c509f6b59537ba5653a83240441fa38cef62abf4414eb5dc1813",
+        "depth_record_sha256": "aaa2652e7717978bd689471f0fabe7ec07012c7d6d7b54c5d8b539932a738355",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.5041418075561523,
+      "mass_sha256": "638492e01f2cf92bea3871fc773dc81baee04c59c03515b31ffb8274694ccc51",
+      "maps_sha256": "efd8ba8ef04738b593b657b8c7af5e5d32e95e17eff499e65f8944d908fc8765",
+      "tile_references": 12681685,
+      "visible_gaussians": 1094995,
+      "total_contribution": 1405531.2738282762,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 6.103515625e-05,
+        "mean_absolute_error": 3.711108535699928e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.12581056577950758,
+          "fractional_pixels": 963754
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.17666623470450127,
+          "fractional_pixels": 969810
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.21850278072413232,
+          "fractional_pixels": 1334536
+        }
+      }
+    },
+    "frame_060": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "8ac0a604211ce91ff5ba1b6beb14ee4e0ce4a7b217d8bc096f254a7df2c6367c",
+        "sam_sha256": "e64ae0b361c517a1337c48173cd2173984eea11d6ebe3010be0aa266a02449da",
+        "image_sha256": "46b5f3f4f04221a313d0ab8a69cd12536c75b4e0d05d6bc817ec2063ea80ae4a",
+        "depth_sha256": "2891ec60d9738f4cf6962b2a02c1b5a2791870d3e54371ea323c738e13c7b1be",
+        "depth_record_sha256": "24c1d87e79c09fdbeeec6739001eed08eff9aa2584e08f976c3a5daa12a11f4e",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.494023561477661,
+      "mass_sha256": "e8efec90c60317d213452bc4b4e6db70c01f4508c8666bbf0f210f244bd68ce3",
+      "maps_sha256": "31aa1a6ba76596450ad051227485fb9d0ffcbb50c47c7cde9b0824ab79d39c64",
+      "tile_references": 12793198,
+      "visible_gaussians": 1101973,
+      "total_contribution": 1404946.0270582605,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 6.103515625e-05,
+        "mean_absolute_error": 3.6380912115857143e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1262198591895921,
+          "fractional_pixels": 955389
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.17569929733483353,
+          "fractional_pixels": 972882
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.2195544093325268,
+          "fractional_pixels": 1338052
+        }
+      }
+    },
+    "frame_061": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "21284a067f39ce37cad6e77a8fa013ec30a207e3dc9b6c9cc42a6603443bcc4d",
+        "sam_sha256": "a8b003d2ffc6a29e6eee1d20b90194ca7a1dbba2e9434a6ab01ec7070247c417",
+        "image_sha256": "ffe9ab8781c2950bddbaed7831815eab7968cb9c5afaa5de95c99bc60d9485d6",
+        "depth_sha256": "b971f16d29744c9bd3e8007e28ec1fe2d224f19437aa048f9a8cb0aceea29533",
+        "depth_record_sha256": "2478cc292937932ab45091ceb6e60c394ca8361b31b8b254056f3ac178d8d7f7",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.5160655975341797,
+      "mass_sha256": "e0528b0f8aedec0306223183f0cbc3809c60fa01c05fdbfb4ca7969c21bb4be0",
+      "maps_sha256": "16a989d725bc3f0b98f19eaaefa6bc95955284c8047cf733b38ce77471911b30",
+      "tile_references": 12809279,
+      "visible_gaussians": 1101068,
+      "total_contribution": 1404241.3261356142,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 0.000244140625,
+        "mean_absolute_error": 4.015263677129363e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.11816285184872316,
+          "fractional_pixels": 934499
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.17491433706993445,
+          "fractional_pixels": 973402
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.21955139553974704,
+          "fractional_pixels": 1338355
+        }
+      }
+    },
+    "frame_062": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "39265e92c498041f6b38141065c4990f9f87ed7f4bcb95130addf0c0dbef3265",
+        "sam_sha256": "7f163e34afa463a099dc58545864024f037bd458f36aa7a69fbd01f6497c530a",
+        "image_sha256": "aa0a72b3b11b0faeae9892936cb3c73cc735061d161866d68e317d7fcf668453",
+        "depth_sha256": "8019e8d56388346c647df9de82b9f74963fb6e82d4896b6612177c5af878e563",
+        "depth_record_sha256": "eb050f42e43239905eab55030cd381602cb4abb08502b4bdabdf1f9a534e9984",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.856332540512085,
+      "mass_sha256": "5c4d8f0b46a9945fbec9b7e6d5a9a74a4f0af614a29211d667572fd52867de3d",
+      "maps_sha256": "97f645c88ce0057207ccd29acaebc4c592b6920116ea5224ebd58af969addb57",
+      "tile_references": 12834856,
+      "visible_gaussians": 1098535,
+      "total_contribution": 1403615.7284021152,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 0.000244140625,
+        "mean_absolute_error": 4.222135660162919e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.13054837094962565,
+          "fractional_pixels": 954713
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.17540140672100263,
+          "fractional_pixels": 973811
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.21944339718959707,
+          "fractional_pixels": 1338359
+        }
+      }
+    },
+    "frame_063": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "2ce37955439ce48a1585bd0d039ca6b3315ce98e6fe540f7ca724522b5bdb4bd",
+        "sam_sha256": "e1c3b357af1abc2905d6b540a18da119bf4765a4248b9ebe76a3fd4c495f3a64",
+        "image_sha256": "2b8da4089e582040cef91fd43018db4fd455c329e32c5048977a90870113586f",
+        "depth_sha256": "d27655e31b6fa117ff05a3638012d8fe0703b3279842f726a3a2c77bb4c07d73",
+        "depth_record_sha256": "0b08d53ca8d370b685f671e111766cf675299a2ec0ad2fe57463d7b184d94905",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 4.020077466964722,
+      "mass_sha256": "1be69180248ec4c5d2da20d755a2c98dcba68edf4fc61ee51b88b767faa0d036",
+      "maps_sha256": "2d3f25c108d761f4a89c938000406b332ddf2b48722719831201314f20a6ec62",
+      "tile_references": 13112711,
+      "visible_gaussians": 1112732,
+      "total_contribution": 1405029.9823205948,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 0.0001220703125,
+        "mean_absolute_error": 4.610297320108071e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1253423910521975,
+          "fractional_pixels": 933287
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.18482273628946577,
+          "fractional_pixels": 1000528
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.22619487268121485,
+          "fractional_pixels": 1340118
+        }
+      }
+    },
+    "frame_065": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "97c7b1c7527085a75aedd036bb8088d4e37753ade3c99e9d5936a956cad1cf4d",
+        "sam_sha256": "a8ec1f58f5151fa171f2fadbb309e2bf48c2ebc5f1c60112562c39c6f8988bf3",
+        "image_sha256": "602fcba21043eeb617dee5392786d2e7729ad93d09a1a1f2529500cf3e954d70",
+        "depth_sha256": "62b018176dc209c259d5e26016227822062572b792db47b54d3fabb2afd0fbc7",
+        "depth_record_sha256": "62b7ca9a4cd296b8854f0e42d2dda7bf610a9bb0caf1e7b249ccb56153ac9b9a",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.7848293781280518,
+      "mass_sha256": "f6cae735e1893f5c1c575e2c73d2fd41682004b90508222ce217d16cfe3ebdd9",
+      "maps_sha256": "bccbb552f874ac74e882dcdafbf60bf5c1d92687029b7dea56d2c9144ad227b6",
+      "tile_references": 13247240,
+      "visible_gaussians": 1126737,
+      "total_contribution": 1406421.6968195552,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 0.0001220703125,
+        "mean_absolute_error": 3.843439707335321e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1249873612293932,
+          "fractional_pixels": 938946
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.18896685446201963,
+          "fractional_pixels": 1013510
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.2291010990159219,
+          "fractional_pixels": 1337294
+        }
+      }
+    },
+    "frame_066": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "18ef682c068b1ae010ba9a9ecfcf23296b158fd9e10d38b7c82fd9104c067b19",
+        "sam_sha256": "b359cca0786b3710cc365e137ea023209a844a7b6b8d545b14564c6a878d5ff1",
+        "image_sha256": "19a05eefbfe847f8b9d6d6c976286d67fae1a436f2509db32ce994224f97b934",
+        "depth_sha256": "1ed4cda17265625dec35f9c2a027c5e0d28bd85a769fb0dbd291a5bd55d4426f",
+        "depth_record_sha256": "2bde7fa1e0297977311eb3f4d4336ee13f80db7047da875d72ca5749ee8bbd31",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.919987201690674,
+      "mass_sha256": "a0511d0315f9dc6515bdccb0e707db043828785d5e15a2b661ddb2d49af17b91",
+      "maps_sha256": "933c88169bda6fdc747a17a4aa650e1b1df2439992fecd156e40d961ab208f7d",
+      "tile_references": 13468403,
+      "visible_gaussians": 1145657,
+      "total_contribution": 1407818.3988725713,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 6.103515625e-05,
+        "mean_absolute_error": 3.5641303778856803e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1232523737827902,
+          "fractional_pixels": 944112
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.18662552035681215,
+          "fractional_pixels": 1033445
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.23398971487781842,
+          "fractional_pixels": 1342707
+        }
+      }
+    },
+    "frame_067": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "b3e6eb175d3625bd500955f5d46865c26b2862879f02c90c051e5a4c7532144f",
+        "sam_sha256": "4d18cc10d8bfed0bfe3193a080a5114a48b99d83a59d4927325f4c2f3b3fe61e",
+        "image_sha256": "b7b6c07b07a8f63426e20f4e5a5a1b4ae92fe1078aa4e40e0ea2502564420fa1",
+        "depth_sha256": "b85c84ab1e71ea3ec5b8554f9c60d9afbee0ad40e8ab86f926dad0a7b11571b7",
+        "depth_record_sha256": "fa98f76e1f247ba12643892e96b5ae75480ed2c6f85a03a8f2913c41c8c54277",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.8449113368988037,
+      "mass_sha256": "fffe363936913257d4b3d73dd0dce2386364b1a0cc609c7624c263b7ba334744",
+      "maps_sha256": "7c81d5bbca398ca855ae8503626706b0ee569a9b96fa5dcac26e69278b24372f",
+      "tile_references": 13500692,
+      "visible_gaussians": 1147513,
+      "total_contribution": 1407806.1897264847,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 0.0001220703125,
+        "mean_absolute_error": 3.5507334679741083e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.12712436692908605,
+          "fractional_pixels": 949327
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.1862195883754649,
+          "fractional_pixels": 1036072
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.23505720916136277,
+          "fractional_pixels": 1339877
+        }
+      }
+    },
+    "frame_068": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "cb70132626eeab4fafa1344f4a98222e02174dc7ce27782a7287a8f4b0cd62ec",
+        "sam_sha256": "b950bac23054794a7ca05bf054038db953a14a458e39129a28e455bd34017568",
+        "image_sha256": "d43e222f20e91582e1173999a2680ee581dc6627a8fd325d48b72c17c585c7aa",
+        "depth_sha256": "23f3675c38b54fa07324536e271f2f6eceff0f76cc24021402b8fdf0f2b76f18",
+        "depth_record_sha256": "60fa7d01657ca82e01b9baa9568ddab1575da942c38fb7171c82538c4effd449",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 4.191487073898315,
+      "mass_sha256": "83e8afa772a46a538dc7d9d4f13e2db57c134bae222d9e5c0babb5c018457376",
+      "maps_sha256": "0230ea64bffb08467c05c8d9442864405c98209edcafa8448cbff3afa5f48ffc",
+      "tile_references": 13551000,
+      "visible_gaussians": 1151978,
+      "total_contribution": 1407884.9979901596,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 0.0001220703125,
+        "mean_absolute_error": 3.406238227699814e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.13182852985864812,
+          "fractional_pixels": 962550
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.18555478380149357,
+          "fractional_pixels": 1038860
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.23586841663530486,
+          "fractional_pixels": 1335323
+        }
+      }
+    },
+    "frame_069": {
+      "fingerprint": {
+        "source_ply_sha256": "90c47597dab199ffd3c50cb8ec8e21a734256548cd20595d8d856c24ee1fb4e7",
+        "source_xyz_sha256": "81fdb9a146679d74f4017c67179173059922297b7f281d941906abad19892ba7",
+        "shared_metadata_sha256": "fa1515fce155996d7c772733d400e0dca03499987b82ba9b18f5c0988342aa5a",
+        "camera_sha256": "d23a6f2415c576eb955e21218f5c68dd43b7cb01de616ee26a91b9d59982d8e2",
+        "sam_sha256": "1ffbf852eabd1e6da1c5bd8616287a7a67bb2cc9d0588222db184b9cd98dce5a",
+        "image_sha256": "95a219a61e0e750deaace3520b76af4372ccd1f7dc1f291f99b56d476940345d",
+        "depth_sha256": "c01921169422ce440bbde7cc238887032786fa00d4aad9eef19f156849647fe8",
+        "depth_record_sha256": "26d07ca17645bb8c7a4d14e2525a88b60faf74386b521af9e006907050724355",
+        "algorithm": "continuous SAM Gaussian-distance sigma2 + normalized Sobel depth/RGB; one native anisotropic alpha*T traversal v1",
+        "sam_sigma_px": 2.0,
+        "implementation_sha256": {
+          "prepare_continuous_boundary.py": "54c6f92edeb1efc25d01a6efd8fd6db748c89a614b8cc86364d5d213183438bd",
+          "utils/continuous_boundary_prior.py": "95d2bfb41151bb2470d69ced74c5aa53970df8ffe881e475a272dba7eb9ac38f",
+          "utils/adaptive_metadata.py": "8812267b2b3eb2ebfbde61d39c83205b4e6a0bcf7378469a0654b1dd7fd03972",
+          "utils/structure_visibility.py": "2bac154e9ea1e34cb68ae78395acea85ab2a44f381ce5aca14f016cabe7056ad"
+        },
+        "runtime": {
+          "python_executable": "/home/zhangys/anaconda3/envs/prune_wisely/bin/python",
+          "numpy_version": "1.21.6"
+        }
+      },
+      "seconds": 3.772864580154419,
+      "mass_sha256": "81113c41d74bdafd1a276120ca19141d6395bf4d615f5d4e7e4341615e032523",
+      "maps_sha256": "9eb19e3f7f65f24dfe25131a8ada6982afb64a153f1b700ae202be70c990501a",
+      "tile_references": 13664816,
+      "visible_gaussians": 1161433,
+      "total_contribution": 1409561.0075157043,
+      "projection_visibility_audit": {
+        "passed": true,
+        "compared_rows": 1788093,
+        "violations": 0,
+        "rtol": 2e-05,
+        "atol": 2e-05,
+        "max_absolute_error": 3.0517578125e-05,
+        "mean_absolute_error": 3.146974430054156e-09,
+        "same_positive_support": true
+      },
+      "map_statistics": {
+        "sam_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.12403126736047049,
+          "fractional_pixels": 933727
+        },
+        "depth_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.18385375384825164,
+          "fractional_pixels": 1040699
+        },
+        "rgb_boundary_strength": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.2373761918236101,
+          "fractional_pixels": 1339097
+        }
+      }
+    }
+  }
+}

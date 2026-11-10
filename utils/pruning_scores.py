@@ -11,6 +11,81 @@ import torch
 from tqdm import tqdm
 
 
+CONTINUOUS_BOUNDARY_FIELDS = ('sam_boundary_strength', 'depth_boundary_strength', 'rgb_boundary_strength')
+
+
+def continuous_boundary_scores(scores, sam_strength, depth_strength, rgb_strength, config):
+    """PUP logdet plus a continuous, bounded multimodal importance weight.
+
+    No boundary threshold or legacy boolean mask participates in this score.
+    ``c = w_s*SAM + w_d*depth + w_r*RGB`` and ``W = 1 + gain*c``;
+    the score is ``raw + log1p(gain*c)``. In determinant space this multiplies
+    importance by W, so negative logdet values cannot reverse the protection.
+    A singular (-inf) Fisher score stays singular under finite multiplication.
+    """
+    scores = torch.as_tensor(scores).detach()
+    if scores.ndim != 1 or not scores.is_floating_point():
+        raise ValueError('Expected one floating-point PUP score per Gaussian')
+    if torch.isnan(scores).any() or torch.isposinf(scores).any():
+        raise FloatingPointError('PUP scores contain NaN or positive infinity')
+    if config.get('fusion') != 'log1p':
+        raise ValueError('Continuous boundary fusion must explicitly be log1p')
+    weights = [float(config[key]) for key in ('sam_weight', 'depth_weight', 'rgb_edge_weight')]
+    gain = float(config['gain'])
+    if (not all(math.isfinite(w) and w >= 0 for w in weights)
+            or not math.isclose(sum(weights), 1., rel_tol=0., abs_tol=1e-8)
+            or not math.isfinite(gain) or gain < 0):
+        raise ValueError('Boundary weights must be nonnegative and sum to one; gain must be finite/nonnegative')
+    components = []
+    for name, value in zip(CONTINUOUS_BOUNDARY_FIELDS, (sam_strength, depth_strength, rgb_strength)):
+        value = torch.as_tensor(value, device=scores.device).detach()
+        if value.shape != scores.shape or not value.is_floating_point():
+            raise ValueError('Continuous boundary component must be aligned floating-point values: ' + name)
+        if not torch.isfinite(value).all() or ((value < 0) | (value > 1)).any():
+            raise ValueError('Continuous boundary component must be finite in [0, 1]: ' + name)
+        components.append(value.to(scores.dtype))
+    combined = sum(weight * component for weight, component in zip(weights, components))
+    scaled = gain * combined
+    multiplier = 1 + scaled
+    boost = torch.log1p(scaled)
+    weighted = scores.clone()
+    finite = torch.isfinite(scores)
+    weighted[finite] += boost[finite]
+    if not torch.isfinite(multiplier).all() or torch.isposinf(weighted).any():
+        raise FloatingPointError('Continuous boundary weighting overflowed the score dtype')
+    return dict(scores=weighted, combined_boundary_strength=combined,
+                boundary_multiplier=multiplier, boundary_log_boost=boost)
+
+
+def boundary_weighted_scores(scores, boundary_strength, log_weight):
+    """Increase PUP importance in log space without reversing negative scores.
+
+    ``s = log(det(F)) + log_weight * b`` ranks ``det(F)*exp(log_weight*b)``.
+    Boundary strengths must be aligned values in [0, 1]; the current experiment
+    uses the existing binary boundary mask. Singular Fisher scores remain -inf:
+    multiplying a zero determinant cannot invent visual evidence for a point.
+    The original input is never modified and non-boundary values stay exact.
+    """
+    if not math.isfinite(float(log_weight)) or float(log_weight) < 0:
+        raise ValueError("Boundary log weight must be finite and nonnegative")
+    scores = torch.as_tensor(scores).detach()
+    if scores.ndim != 1 or not scores.is_floating_point():
+        raise ValueError("Expected one floating-point PUP score per Gaussian")
+    if torch.isnan(scores).any() or torch.isposinf(scores).any():
+        raise FloatingPointError("PUP scores contain NaN or positive infinity")
+    strength = torch.as_tensor(boundary_strength, device=scores.device)
+    if strength.shape != scores.shape:
+        raise ValueError("Boundary strengths and PUP scores are not aligned")
+    if not torch.isfinite(strength).all() or ((strength < 0) | (strength > 1)).any():
+        raise ValueError("Boundary strengths must be finite and in [0, 1]")
+    weighted = scores.clone()
+    affected = (strength > 0) & torch.isfinite(scores)
+    weighted[affected] += float(log_weight) * strength[affected].to(scores.dtype)
+    if torch.isposinf(weighted).any():
+        raise FloatingPointError("Boundary weighting overflowed the PUP score dtype")
+    return weighted
+
+
 def fixed_budget_mask(scores, remove_count):
     """Remove precisely the budget, breaking equal scores by current point index."""
     scores = scores.detach().reshape(-1)

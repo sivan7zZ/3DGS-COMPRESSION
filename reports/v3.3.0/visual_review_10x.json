@@ -1,0 +1,26 @@
+{
+  "status": "complete",
+  "reviewer": "Codex assistant visual inspection",
+  "reviewed_utc": "2026-11-09T11:13:47.729460+00:00",
+  "figure": "/home/zhangys/Prune-Wisely-Reconstruct-Sharply/output/city2_continuous_boundary_20261109/reports/direct_continuous_10x/native_comparison.png",
+  "figure_sha256": "48b7e5ef70ed83fd44a2ad7aac2f8410edec9d0d8764e7debb69612661691159",
+  "fixed_cases": 6,
+  "original_resolution_viewed": true,
+  "overview_resampling": "Nearest-neighbour display only; source crop pixels verified by manifest",
+  "columns": [
+    "GT",
+    "Binary boundary",
+    "Continuous boundary",
+    "PWSR",
+    "LightGaussian"
+  ],
+  "observations": [
+    "黑色停放车辆：连续版、二值版及PWSR均保留车体与亮暗分区；LightGaussian10更模糊，但车辆仍在。",
+    "白色花园小物：五列均能看到亮色主体，连续版与二值版轮廓接近，未发现独有目标挽救。",
+    "屋顶小单元：连续版、二值版和PWSR均能看到斜向深色轮廓，LightGaussian10对比偏低；未见连续版新增完整轮廓。",
+    "窄窗格、围栏分隔：连续版与二值版、PWSR整体接近，均保留部分细分隔；这些裁剪不足以证明新版本修复了细线断裂。",
+    "红色车辆控制区域：各版本均保留红色主体，LightGaussian10细节更模糊；不能称该目标在所有旧方法中消失。",
+    "检查范围为事先固定的六处原生ROI；未确认连续版相对二值版/PWSR独有的整物体挽救或明显连续性提升，不能外推到全场景。"
+  ],
+  "limitations": "Visual inspection of six fixed cases is not a physical-instance census; no separate wire/manhole annotations exist."
+}
